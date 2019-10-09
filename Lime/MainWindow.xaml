@@ -1,0 +1,42 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lime"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Name="Lime" x:Class="Lime.MainWindow"
+        mc:Ignorable="d"
+        Title="Lime - Acceuil" Height="789" Width="1633.118" WindowStartupLocation="CenterScreen" Icon="Images/Lemon, Fruit, Food, Citric, Acid, Citrus, Healthy.ico" WindowState="Maximized">
+    <Grid>
+        <Grid.Resources>
+            <telerik:IconSources x:Key="IconSources" DarkBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/Dark/" LightBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/" ModernBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/Modern/"/>
+            <telerik:FontFamiliesProvider x:Key="FontFamiliesProvider"/>
+            <telerik:EditingContextTypeToBoolConverter x:Key="EditingContextTypeToBoolConverter"/>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+
+        <telerik:RadNumericUpDown x:Name="Limite" HorizontalAlignment="Left" Margin="1503,9,0,0" VerticalAlignment="Top" Width="114" Height="30" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="50"/>
+        <telerik:RadButton Content="Clients" HorizontalAlignment="Left" Height="30" Margin="15,9,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnClients_Click"/>
+        <Label x:Name="lblNombreLignes" Content="Nombre de lignes :" HorizontalAlignment="Left" Margin="1503,39,0,0" VerticalAlignment="Top" Width="112" Height="26"/>
+        <telerik:RadGridView x:Name="RadGridView1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Height="624" Width="1607" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Office2013" DataLoadMode="Asynchronous" GridLinesVisibility="None" />
+        <DockPanel HorizontalAlignment="Left" Height="44" LastChildFill="False" VerticalAlignment="Bottom" Width="1615" Grid.ColumnSpan="3" Margin="0,0,0,-0.429">
+            <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-13.143,0">
+                <Label x:Name="lblStatusConnexion" Content="Label"/>
+                <CheckBox Content="CheckBox" VerticalAlignment="Top" Width="1581"/>
+            </StatusBar>
+        </DockPanel>
+        <telerik:RadButton Content="Factures" HorizontalAlignment="Left" Height="30" Margin="575,9,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnFactures_Click"/>
+        <telerik:RadButton Content="Articles" HorizontalAlignment="Left" Height="30" Margin="450,10,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnArticles_Click"/>
+        <telerik:RtfDataProvider RichTextBox="{Binding ElementName=radRichTextBox}"/>
+        <telerik:RadButton x:Name="btnMethodePaiements" Content="MethodePaiements (Dapper)" HorizontalAlignment="Left" Height="30" Margin="722,10,0,0" VerticalAlignment="Top" Width="187" telerik:StyleManager.Theme="Crystal" Click="btnMethodePaiement_Click"/>
+        <telerik:RadButton x:Name="AjoutClient" Content="Ajouter Client" HorizontalAlignment="Left" Height="30" Margin="15,44,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="AjoutClient_Click"/>
+        <telerik:TxtDataProvider RichTextBox="{Binding ElementName=radRichTextBox}"/>
+        <telerik:RadMaskedTextInput x:Name="xxx" HorizontalAlignment="Left" Mask="(###) ###-##-##" Margin="175,19,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="282,19,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+
+
+
+    </Grid>
+</Window>
