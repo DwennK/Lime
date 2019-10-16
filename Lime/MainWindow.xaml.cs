@@ -201,9 +201,27 @@ namespace Lime
             maFenetre.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(xxx.Value);
+            if (CheckForInternetConnection())
+            {
+                using (MySqlConnection Connexion = new MySqlConnection(strConnexionString))
+                {
+                    var maQuery = Connexion.Query<Clients>("" +
+                    "SELECT * " +
+                    "FROM Clients " +
+                    "LIMIT @Limit " +
+                    ";"
+                    , new
+                    {
+                        Limit = Limite.Value
+                    });
+
+                    IEnumerable<Clients> Client = maQuery;
+                    RadGridView1.ItemsSource = Client;
+                }
+            }
         }
     }
 }
