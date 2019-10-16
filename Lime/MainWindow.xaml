@@ -17,7 +17,6 @@
         </Grid.ColumnDefinitions>
 
         <telerik:RadNumericUpDown x:Name="Limite" HorizontalAlignment="Left" Margin="1503,162,0,0" VerticalAlignment="Top" Width="114" Height="30" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="50"/>
-        <telerik:RadButton Content="Clients" HorizontalAlignment="Left" Height="30" Margin="15,162,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnClients_Click"/>
         <Label x:Name="lblNombreLignes" Content="Nombre de lignes :" HorizontalAlignment="Left" Margin="1503,192,0,0" VerticalAlignment="Top" Width="112" Height="26"/>
         <telerik:RadGridView x:Name="RadGridView1" HorizontalAlignment="Left" Margin="10,240,0,0" Width="1607" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Office2013" DataLoadMode="Asynchronous" GridLinesVisibility="None" Height="511" VerticalAlignment="Top" />
         <DockPanel HorizontalAlignment="Left" Height="44" LastChildFill="False" VerticalAlignment="Top" Width="1615" Margin="0,778,0,0">
@@ -27,7 +26,6 @@
             </StatusBar>
         </DockPanel>
         <telerik:RadButton Content="Factures" HorizontalAlignment="Left" Height="30" Margin="592,164,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnFactures_Click"/>
-        <telerik:RadButton Content="Articles" HorizontalAlignment="Left" Height="30" Margin="462,164,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnArticles_Click"/>
         <telerik:RtfDataProvider RichTextBox="{Binding ElementName=radRichTextBox}" Margin="0,153,0.429,-153.429"/>
         <telerik:RadButton x:Name="btnMethodePaiements" Content="MethodePaiements (Dapper)" HorizontalAlignment="Left" Height="30" Margin="746,163,0,0" VerticalAlignment="Top" Width="187" telerik:StyleManager.Theme="Crystal" Click="btnMethodePaiement_Click"/>
         <telerik:TxtDataProvider RichTextBox="{Binding ElementName=radRichTextBox}" Margin="0,153,0.429,-153.429"/>
@@ -126,7 +124,7 @@
                         <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" >
+                <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" MouseLeftButtonUp="TabArticles_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />

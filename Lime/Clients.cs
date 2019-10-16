@@ -21,5 +21,18 @@ namespace Lime
         public string PersonneDeContact { get; set; }
 
 
+        private void getAllClients()
+        {
+
+        }
+
+        private void updateClient(int ID)
+        {
+
+        }
+
+        private void deleteClient(int ID)
+        {
+        }
     }
 }
