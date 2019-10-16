@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -10,6 +13,8 @@ namespace Lime
 {
     class Connexion
     {
+        private static string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+        public static MySqlConnection maBDD = new MySqlConnection(strConnexionString);
 
 
         public static bool CheckForInternetConnection()

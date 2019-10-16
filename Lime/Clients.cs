@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace Lime
 {
@@ -20,10 +21,25 @@ namespace Lime
         public double RemisePermanente { get; set; }
         public string PersonneDeContact { get; set; }
 
-
+        public Connexion Connexion1 = new Connexion();
         private void getAllClients()
         {
+            if (Connexion.CheckForInternetConnection())
+            {
+                var maQuery = Connexion.maBDD.Query<Clients>("" +
+                "SELECT * " +
+                "FROM Clients " +
+                "LIMIT @Limit " +
+                ";"
+                , new
+                {
+                    Limit = Limite.Value
+                });
 
+                IEnumerable<Clients> Client = maQuery;
+                RadGridView1.ItemsSource = Client;
+
+            }
         }
 
         private void updateClient(int ID)

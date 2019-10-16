@@ -112,9 +112,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                using (MySqlConnection Connexion = new MySqlConnection(strConnexionString))
-                {
-                    var maQuery = Connexion.Query<Clients>("" +
+                    var maQuery = Connexion.maBDD.Query<Clients>("" +
                     "SELECT * " +
                     "FROM Clients " +
                     "LIMIT @Limit " +
@@ -126,7 +124,6 @@ namespace Lime
 
                     IEnumerable<Clients> Client = maQuery;
                     RadGridView1.ItemsSource = Client;
-                }
             }
 
         }
@@ -136,16 +133,14 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                using (MySqlConnection Connexion = new MySqlConnection(strConnexionString))
-                {
-                    var maQuery = Connexion.Query<TypeDocuments>("" +
+
+                    var maQuery = Connexion.maBDD.Query<TypeDocuments>("" +
                         "SELECT * " +
                         "FROM MethodePaiements " +
                         "LIMIT " + Limite.Value);
 
                     IEnumerable<TypeDocuments> TypeDocument = maQuery;
                     RadGridView1.ItemsSource = TypeDocument;
-                }
             }
         }
 
@@ -161,9 +156,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                using (MySqlConnection Connexion = new MySqlConnection(strConnexionString))
-                {
-                    var maQuery = Connexion.Query<Clients>("" +
+                    var maQuery = Connexion.maBDD.Query<Clients>("" +
                     "SELECT * " +
                     "FROM Clients " +
                     "LIMIT @Limit " +
@@ -175,7 +168,6 @@ namespace Lime
 
                     IEnumerable<Clients> Client = maQuery;
                     RadGridView1.ItemsSource = Client;
-                }
             }
         }
 
@@ -183,9 +175,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                using (MySqlConnection Connexion = new MySqlConnection(strConnexionString))
-                {
-                    var maQuery = Connexion.Query<Articles>("" +
+                    var maQuery = Connexion.maBDD.Query<Articles>("" +
                     "SELECT * " +
                     "FROM Articles " +
                     "LIMIT @Limit " +
@@ -197,7 +187,6 @@ namespace Lime
 
                     IEnumerable<Articles> Article = maQuery;
                     RadGridView1.ItemsSource = Article;
-                }
             }
         }
     }
