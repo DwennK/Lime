@@ -54,8 +54,6 @@ namespace Lime
 
             //Une fois le DataGrid rempli, on cache la Colonne ID 
             //RadGridView1.Columns[0].Visibility = Visibility.Hidden;
-
-
         }
 
         private void GetData(string strCommandeSQL)

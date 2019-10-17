@@ -179,14 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\settings.png" />
-    <Resource Include="Images\lime_PNG42.png" />
-    <Resource Include="Images\lime_PNG44.png" />
-    <Resource Include="Images\lime_PNG45.png" />
-    <Resource Include="Images\lime_PNG53.png" />
-    <Resource Include="Images\lime_PNG54.png" />
     <Resource Include="Images\Lime.ico" />
-    <Resource Include="Images\Fi3ur-Fruitsalad-Lime.ico" />
-    <Resource Include="Images\Ncrow-Mega-Pack-1-Lime-Wire.ico" />
     <Resource Include="Images\lemon %281%29.png" />
     <Resource Include="Images\lemon %282%29.png" />
     <Resource Include="Images\lemon.png" />
