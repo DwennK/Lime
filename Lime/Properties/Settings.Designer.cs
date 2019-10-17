@@ -26,12 +26,12 @@ namespace Lime.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("50")]
-        public int Limit {
+        public int Limite {
             get {
-                return ((int)(this["Limit"]));
+                return ((int)(this["Limite"]));
             }
             set {
-                this["Limit"] = value;
+                this["Limite"] = value;
             }
         }
     }

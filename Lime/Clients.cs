@@ -33,7 +33,7 @@ namespace Lime
                 ";"
                 , new
                 {
-                    Limit = Properties.Settings.Default.Limit
+                    Limit = Properties.Settings.Default.Limite
                 });
 
                 IEnumerable<Clients> Client = maQuery;

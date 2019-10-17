@@ -36,6 +36,8 @@ namespace Lime
         public MainWindow()
         {
             InitializeComponent();
+            Properties.Settings.Default.Reload();
+            this.Limite.Value = Properties.Settings.Default.Limite;
             
         }
         //GLOBAL VARIABLES
@@ -190,17 +192,13 @@ namespace Lime
             }
         }
 
-        private void Limite_ValueChanged(object sender, RadRangeBaseValueChangedEventArgs e)
+        private void Limite_LostFocus(object sender, RoutedEventArgs e)
         {
-            //Sauvegarde de la limite dans les paramètres
-            Properties.Settings.Default.Limit = Convert.ToInt32(Limite.Value);
-        }
+            //Sauvegarde de la limite dans les paramètres//
+            Properties.Settings.Default.Limite = Convert.ToInt32(Limite.Value);
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
 
-        
-        public void UpdateGridView(EnvironmentVariableTarget mesData)
-        {
-            //Met à jour le dataGridview avec les données reçues.
-            this.RadGridView1.ItemsSource = mesData;
         }
     }
 }
