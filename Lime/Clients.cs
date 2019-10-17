@@ -22,7 +22,7 @@ namespace Lime
         public string PersonneDeContact { get; set; }
 
         public Connexion Connexion1 = new Connexion();
-        private void getAllClients()
+        public void GetAllClients()
         {
             if (Connexion.CheckForInternetConnection())
             {
@@ -33,11 +33,11 @@ namespace Lime
                 ";"
                 , new
                 {
-                    Limit = Limite.Value
+                    Limit = Properties.Settings.Default.Limit
                 });
 
                 IEnumerable<Clients> Client = maQuery;
-                RadGridView1.ItemsSource = Client;
+                //RadGridView1.ItemsSource = Client;
 
             }
         }

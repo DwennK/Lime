@@ -189,5 +189,18 @@ namespace Lime
                     RadGridView1.ItemsSource = Article;
             }
         }
+
+        private void Limite_ValueChanged(object sender, RadRangeBaseValueChangedEventArgs e)
+        {
+            //Sauvegarde de la limite dans les paramètres
+            Properties.Settings.Default.Limit = Convert.ToInt32(Limite.Value);
+        }
+
+        
+        public void UpdateGridView(EnvironmentVariableTarget mesData)
+        {
+            //Met à jour le dataGridview avec les données reçues.
+            this.RadGridView1.ItemsSource = mesData;
+        }
     }
 }
