@@ -37,7 +37,8 @@ namespace Lime
                 });
 
                 IEnumerable<Clients> Client = maQuery;
-                //RadGridView1.ItemsSource = Client;
+
+                //MainWindow.UpdateGridView(Client);
 
             }
         }

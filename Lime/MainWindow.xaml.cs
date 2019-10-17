@@ -163,6 +163,11 @@ namespace Lime
                     RadGridView1.ItemsSource = Article;
             }
         }
+        
+        public void UpdateGridView()
+        {
+            //this.RadGridView1.ItemsSource = mesData;
+        }
 
         private void Limite_LostFocus(object sender, RoutedEventArgs e)
         {
