@@ -23,9 +23,6 @@ using Telerik.Windows.Controls.GridView;
 using System.Text.RegularExpressions;
 using Dapper; //Dapper Micro ORM
 
-
-using System.Net; //Permet d'utiliser WebClient, nécessaire à tester la connection à internet.
-
 namespace Lime
 {
     /// <summary>
@@ -46,7 +43,7 @@ namespace Lime
 
 
 
-        //RowActivaed = DoubleClick sur un ligne
+        //RowActivated = DoubleClick sur un ligne
         private void RadGridView1_RowActivated(object sender, Telerik.Windows.Controls.GridView.RowEventArgs e)
         {
             //Cet évènement est déclenché lors d'un double clic sur une Row dans le datagrid.
