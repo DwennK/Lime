@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
-//MYSQL
-using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient; //MYSQL
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 using System.Text.RegularExpressions;
