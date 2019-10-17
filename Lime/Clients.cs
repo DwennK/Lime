@@ -42,12 +42,12 @@ namespace Lime
             }
         }
 
-        private void updateClient(int ID)
+        private void UpdateClient(int ID)
         {
 
         }
 
-        private void deleteClient(int ID)
+        private void DeleteClient(int ID)
         {
         }
     }

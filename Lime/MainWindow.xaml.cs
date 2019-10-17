@@ -105,11 +105,6 @@ namespace Lime
 
         }
 
-        private void btnFactures_Click(object sender, RoutedEventArgs e)
-        { 
-            //TODO()
-        }
-
         private void btnClients_Click(object sender, RoutedEventArgs e)
         {
             if (Connexion.CheckForInternetConnection())
@@ -128,22 +123,6 @@ namespace Lime
                     RadGridView1.ItemsSource = Client;
             }
 
-        }
-
-
-        private void btnMethodePaiement_Click(object sender, RoutedEventArgs e)
-        {
-            if (Connexion.CheckForInternetConnection())
-            {
-
-                    var maQuery = Connexion.maBDD.Query<TypeDocuments>("" +
-                        "SELECT * " +
-                        "FROM MethodePaiements " +
-                        "LIMIT " + Limite.Value);
-
-                    IEnumerable<TypeDocuments> TypeDocument = maQuery;
-                    RadGridView1.ItemsSource = TypeDocument;
-            }
         }
 
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
@@ -198,7 +177,6 @@ namespace Lime
             Properties.Settings.Default.Limite = Convert.ToInt32(Limite.Value);
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
-
         }
     }
 }

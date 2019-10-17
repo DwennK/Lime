@@ -16,18 +16,16 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
 
-        <telerik:RadNumericUpDown x:Name="Limite" HorizontalAlignment="Left" Margin="1503,162,0,0" VerticalAlignment="Top" Width="114" Height="30" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="0" LostFocus="Limite_LostFocus"/>
-        <Label x:Name="lblNombreLignes" Content="Nombre de lignes :" HorizontalAlignment="Left" Margin="1503,192,0,0" VerticalAlignment="Top" Width="112" Height="26"/>
-        <telerik:RadGridView x:Name="RadGridView1" HorizontalAlignment="Left" Margin="10,240,0,0" Width="1607" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Office2013" DataLoadMode="Asynchronous" GridLinesVisibility="None" Height="511" VerticalAlignment="Top" />
-        <DockPanel HorizontalAlignment="Left" Height="44" LastChildFill="False" VerticalAlignment="Top" Width="1615" Margin="0,778,0,0">
-            <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-13.143,0">
+        <telerik:RadNumericUpDown x:Name="Limite" Margin="1505,123,8.429,0" VerticalAlignment="Top" Height="30" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="0" LostFocus="Limite_LostFocus"/>
+        <Label x:Name="lblNombreLignes" Content="Nombre de lignes :" Margin="1505,153,10.429,0" VerticalAlignment="Top" Height="26"/>
+        <telerik:RadGridView x:Name="RadGridView1" Margin="0,190,0.429,29.286" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Office2013" DataLoadMode="Asynchronous" GridLinesVisibility="None" />
+        <DockPanel Height="29" LastChildFill="False" VerticalAlignment="Bottom" Margin="0,0,0.429,0.286">
+            <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-0.143,0">
                 <Label x:Name="lblStatusConnexion" Content="Label"/>
-                <CheckBox Content="CheckBox" VerticalAlignment="Top" Width="1581"/>
+                <CheckBox Content="CheckBox" VerticalAlignment="Top"/>
             </StatusBar>
         </DockPanel>
-        <telerik:RadButton Content="Factures" HorizontalAlignment="Left" Height="30" Margin="592,164,0,0" VerticalAlignment="Top" Width="125" telerik:StyleManager.Theme="Crystal" Click="btnFactures_Click"/>
         <telerik:RtfDataProvider RichTextBox="{Binding ElementName=radRichTextBox}" Margin="0,153,0.429,-153.429"/>
-        <telerik:RadButton x:Name="btnMethodePaiements" Content="MethodePaiements (Dapper)" HorizontalAlignment="Left" Height="30" Margin="746,163,0,0" VerticalAlignment="Top" Width="187" telerik:StyleManager.Theme="Crystal" Click="btnMethodePaiement_Click"/>
         <telerik:TxtDataProvider RichTextBox="{Binding ElementName=radRichTextBox}" Margin="0,153,0.429,-153.429"/>
 
         <telerik:RadRibbonView 
@@ -58,6 +56,17 @@
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
             <telerik:RadRibbonView.Items>
+                <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
+                    <telerik:RadRibbonGroup Header="Gestion">
+                        <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
+                        <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
+                        <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
+                        <telerik:RadRibbonButton/>
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Font">
+                        <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
@@ -135,7 +144,7 @@
                         <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                
+
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
 

@@ -20,3 +20,4 @@ Telerik.Windows.Controls.RadWatermarkTextBox, Telerik.Windows.Controls, Version=
 Telerik.Windows.Controls.RadPathButton, Telerik.Windows.Controls, Version=2019.2.618.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.RadMaskedNumericInput, Telerik.Windows.Controls.Input, Version=2019.2.618.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.RadRibbonView, Telerik.Windows.Controls.RibbonView, Version=2019.2.618.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.RadDocking, Telerik.Windows.Controls.Docking, Version=2019.2.618.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
