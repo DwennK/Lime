@@ -176,5 +176,11 @@ namespace Lime
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TelerikScenario1 maFenetre = new TelerikScenario1();
+            maFenetre.Show();
+        }
     }
 }

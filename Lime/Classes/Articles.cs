@@ -18,5 +18,7 @@ namespace Lime
         public bool GererStock { get; set; }
         public int QuantiteStock { get; set; }
         public int SeuilAlerte { get; set; }
+
+
     }
 }
