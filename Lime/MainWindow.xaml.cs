@@ -39,8 +39,9 @@ namespace Lime
             this.Limite.Value = Properties.Settings.Default.Limite;
             
         }
+
         //GLOBAL VARIABLES
-        string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+        readonly string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
 
 
 
@@ -120,7 +121,7 @@ namespace Lime
             UpdateGridView(Articles.GetAllArticles());
         }
         
-        //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
+        //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
         private void UpdateGridView(IEnumerable<object> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
