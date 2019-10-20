@@ -106,18 +106,18 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                    var maQuery = Connexion.maBDD.Query<Clients>("" +
-                    "SELECT * " +
-                    "FROM Clients " +
-                    "LIMIT @Limit " +
-                    ";"
-                    , new
-                    {
-                        Limit = Limite.Value
-                    });
+                var maQuery = Connexion.maBDD.Query<Clients>("" +
+                "SELECT * " +
+                "FROM Clients " +
+                "LIMIT @Limit " +
+                ";"
+                , new
+                {
+                    Limit = Limite.Value
+                });
 
-                    IEnumerable<Clients> Client = maQuery;
-                    UpdateGridView(Client);
+                IEnumerable<Clients> Client = maQuery;
+                UpdateGridView(Client);
             }
 
         }
@@ -132,21 +132,7 @@ namespace Lime
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (Connexion.CheckForInternetConnection())
-            {
-                    var maQuery = Connexion.maBDD.Query<Clients>("" +
-                    "SELECT * " +
-                    "FROM Clients " +
-                    "LIMIT @Limit " +
-                    ";"
-                    , new
-                    {
-                        Limit = Limite.Value
-                    });
-
-                    IEnumerable<Clients> Client = maQuery;
-                    UpdateGridView(Client);
-            }
+            Clients.GetAllClients();
         }
 
         private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -165,12 +151,12 @@ namespace Lime
 
                     IEnumerable<Articles> Article = maQuery;
 
-                    UpdateGridView(Article);
+                   // UpdateGridView(Clients);
             }
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
-        public void UpdateGridView(IEnumerable<object> mesData)
+        public void UpdateGridView(IEnumerable<Clients> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
         }

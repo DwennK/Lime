@@ -7,7 +7,7 @@ using Dapper;
 
 namespace Lime
 {
-    class Clients
+    public class Clients
     {
         public int ID { get; set; }
         public int ID_AdresseFacturation { get; set; }
@@ -21,8 +21,7 @@ namespace Lime
         public double RemisePermanente { get; set; }
         public string PersonneDeContact { get; set; }
 
-        public Connexion Connexion1 = new Connexion();
-        public void GetAllClients()
+        public static void GetAllClients()
         {
             if (Connexion.CheckForInternetConnection())
             {
@@ -44,12 +43,12 @@ namespace Lime
             }
         }
 
-        private void UpdateClient(int ID)
+        public static void UpdateClient(int ID)
         {
 
         }
 
-        private void DeleteClient(int ID)
+        public static void DeleteClient(int ID)
         {
         }
     }
