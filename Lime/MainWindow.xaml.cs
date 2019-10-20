@@ -102,26 +102,6 @@ namespace Lime
 
         }
 
-        private void btnClients_Click(object sender, RoutedEventArgs e)
-        {
-            if (Connexion.CheckForInternetConnection())
-            {
-                var maQuery = Connexion.maBDD.Query<Clients>("" +
-                "SELECT * " +
-                "FROM Clients " +
-                "LIMIT @Limit " +
-                ";"
-                , new
-                {
-                    Limit = Limite.Value
-                });
-
-                IEnumerable<Clients> Client = maQuery;
-                UpdateGridView(Client);
-            }
-
-        }
-
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
             //On ouvre la nouvelle fenêtre d'insertion client.
