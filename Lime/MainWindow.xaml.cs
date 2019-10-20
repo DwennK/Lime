@@ -121,7 +121,7 @@ namespace Lime
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
-        public void UpdateGridView(IEnumerable<object> mesData)
+        private void UpdateGridView(IEnumerable<object> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
         }
