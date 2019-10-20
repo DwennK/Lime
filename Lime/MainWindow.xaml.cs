@@ -133,27 +133,11 @@ namespace Lime
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UpdateGridView(Clients.GetAllClients());
-            Clients.GetAllClients();
         }
 
         private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (Connexion.CheckForInternetConnection())
-            {
-                    var maQuery = Connexion.maBDD.Query<Articles>("" +
-                    "SELECT * " +
-                    "FROM Articles " +
-                    "LIMIT @Limit " +
-                    ";"
-                    , new
-                    {
-                        Limit = Limite.Value
-                    });
-
-                    IEnumerable<Articles> Article = maQuery;
-
-                    UpdateGridView(Article);
-            }
+            UpdateGridView(Articles.GetAllArticles());
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
