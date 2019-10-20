@@ -21,11 +21,11 @@ namespace Lime
         public double RemisePermanente { get; set; }
         public string PersonneDeContact { get; set; }
 
-        public static void GetAllClients()
+        public static IEnumerable<Clients> GetAllClients()
         {
             if (Connexion.CheckForInternetConnection())
             {
-                var maQuery = Connexion.maBDD.Query<Clients>("" +
+                IEnumerable<Clients> Client  = Connexion.maBDD.Query<Clients>("" +
                 "SELECT * " +
                 "FROM Clients " +
                 "LIMIT @Limit " +
@@ -34,12 +34,12 @@ namespace Lime
                 {
                     Limit = Properties.Settings.Default.Limite
                 });
-
-                IEnumerable<Clients> Client = maQuery;
-
-                //On update le GridView dans la fenêtre principale
-                MainWindow.AppWindow.UpdateGridView(Client);
-
+                return Client;
+            }
+            else 
+            {
+                //Retourne vide
+                return Enumerable.Empty<Clients>();
             }
         }
 

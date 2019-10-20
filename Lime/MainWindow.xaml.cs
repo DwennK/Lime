@@ -132,6 +132,7 @@ namespace Lime
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            UpdateGridView(Clients.GetAllClients());
             Clients.GetAllClients();
         }
 
@@ -151,12 +152,12 @@ namespace Lime
 
                     IEnumerable<Articles> Article = maQuery;
 
-                   // UpdateGridView(Clients);
+                    UpdateGridView(Article);
             }
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
-        public void UpdateGridView(IEnumerable<Clients> mesData)
+        public void UpdateGridView(IEnumerable<object> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
         }
