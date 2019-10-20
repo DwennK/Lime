@@ -18,9 +18,9 @@ namespace Lime
     /// <summary>
     /// Interaction logic for DataFormClient.xaml
     /// </summary>
-    public partial class DataFormPriseEnCharge
+    public partial class DataFormClient
     {
-        public DataFormPriseEnCharge()
+        public DataFormClient()
         {
             InitializeComponent();
             RemplirFormulaire();
@@ -28,7 +28,7 @@ namespace Lime
 
         private void RemplirFormulaire()
         {
-            Articles xx = new Articles();
+            Clients xx = new Clients();
             DataFormx.CurrentItem = xx;
         }
     }

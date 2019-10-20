@@ -151,10 +151,17 @@
     <Compile Include="AjoutClient.xaml.cs">
       <DependentUpon>AjoutClient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataForm\DataFormClient.xaml.cs">
+      <DependentUpon>DataFormClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataForm\DataFormPriseEnCharge.xaml.cs">
       <DependentUpon>DataFormPriseEnCharge.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
+    <Page Include="DataForm\DataFormClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

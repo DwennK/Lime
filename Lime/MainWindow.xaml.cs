@@ -28,6 +28,10 @@ namespace Lime
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Petit trick qui Va nous permettre d'accéder aux contrôle depuis une autre classe. (Par exemple : Lime.MainWindow.AppWindow.maFonction();
+        public static MainWindow AppWindow;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -113,7 +117,7 @@ namespace Lime
                     });
 
                     IEnumerable<Clients> Client = maQuery;
-                    RadGridView1.ItemsSource = Client;
+                    UpdateGridView(Client);
             }
 
         }
@@ -141,7 +145,7 @@ namespace Lime
                     });
 
                     IEnumerable<Clients> Client = maQuery;
-                    RadGridView1.ItemsSource = Client;
+                    UpdateGridView(Client);
             }
         }
 
@@ -160,13 +164,15 @@ namespace Lime
                     });
 
                     IEnumerable<Articles> Article = maQuery;
-                    RadGridView1.ItemsSource = Article;
+
+                    UpdateGridView(Article);
             }
         }
         
-        public void UpdateGridView()
+        //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable <object>, vu qu'ils en dérivent tous.
+        public void UpdateGridView(IEnumerable<object> mesData)
         {
-            //this.RadGridView1.ItemsSource = mesData;
+            this.RadGridView1.ItemsSource = mesData;
         }
 
         private void Limite_LostFocus(object sender, RoutedEventArgs e)
@@ -179,8 +185,11 @@ namespace Lime
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TelerikScenario1 maFenetre = new TelerikScenario1();
+            DataFormPriseEnCharge maFenetre = new DataFormPriseEnCharge();
             maFenetre.Show();
+
+            DataFormClient maFenetre2 = new DataFormClient();
+            maFenetre2.Show();
         }
     }
 }

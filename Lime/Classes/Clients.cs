@@ -38,7 +38,8 @@ namespace Lime
 
                 IEnumerable<Clients> Client = maQuery;
 
-                //MainWindow.UpdateGridView(Client);
+                //On update le GridView dans la fenêtre principale
+                MainWindow.AppWindow.UpdateGridView(Client);
 
             }
         }
