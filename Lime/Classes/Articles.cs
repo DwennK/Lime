@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace Lime
 {
@@ -19,6 +20,26 @@ namespace Lime
         public int QuantiteStock { get; set; }
         public int SeuilAlerte { get; set; }
 
-
+        public static IEnumerable<Articles> GetAllArticles()
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                IEnumerable<Articles> Article = Connexion.maBDD.Query<Articles>("" +
+                "SELECT * " +
+                "FROM Articles " +
+                "LIMIT @Limit " +
+                ";"
+                , new
+                {
+                    Limit = Properties.Settings.Default.Limite
+                });
+                return Article;
+            }
+            else
+            {
+                //Retourne vide
+                return Enumerable.Empty<Articles>();
+            }
+        }
     }
 }
