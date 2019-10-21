@@ -148,7 +148,8 @@ namespace Lime
             Connexion.maBDD.Open();
             var clients = Connexion.maBDD.GetAll<Client>().ToList();
 
-            clients[1].Nom += "BALLEK";
+            clients[1].Nom = "x0";
+
 
             Connexion.maBDD.Update(clients);
 

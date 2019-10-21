@@ -29,14 +29,24 @@ namespace Lime
             RemplirFormulaire();
         }
 
+        List<Client> xx = Connexion.maBDD.GetAll<Client>().ToList();
+
         private void RemplirFormulaire()
         {
-            //Connexion.maBDD.Open();
-            
+            DataFormx.ItemsSource = xx;
 
-            //DataFormx.ItemsSource = xx;
+            //Connexion.maBDD.Update(clients);
+
             //Connexion.maBDD.Close();
 
+
+        }
+
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            Connexion.maBDD.Update(xx);
+
+            this.Close();
         }
     }
 }
