@@ -145,8 +145,8 @@
 
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
-        <Button Content="DataForm Prise en charge" HorizontalAlignment="Left" Margin="487,136,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
-        <Button Content="Get 1 seul client" HorizontalAlignment="Left" Margin="708,138,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click_1"/>
+        <Button Content="DataForm Prise en charge" HorizontalAlignment="Left" Margin="184,125,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
+        <Button Content="TEST XXX" HorizontalAlignment="Left" Margin="386,125,0,0" VerticalAlignment="Top" Width="210" Click="Button_Click_1" Height="50" FontSize="36"/>
 
 
 

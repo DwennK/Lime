@@ -1,5 +1,4 @@
-﻿using Dapper;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,6 +7,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.Windows.Controls;
+using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {

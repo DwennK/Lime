@@ -19,6 +19,9 @@ using MySql.Data.MySqlClient; //MYSQL
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 using System.Text.RegularExpressions;
+using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {
@@ -136,17 +139,23 @@ namespace Lime
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataFormPriseEnCharge maFenetre = new DataFormPriseEnCharge();
-            maFenetre.Show();
-
             DataFormClient maFenetre2 = new DataFormClient();
             maFenetre2.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //Récupère le client avec l'ID 1.
-            
+            Connexion.maBDD.Open();
+            var clients = Connexion.maBDD.GetAll<Client>().ToList();
+
+            clients[1].Nom += "BALLEK";
+
+            Connexion.maBDD.Update(clients);
+
+            Connexion.maBDD.Close();
+
+
+
         }
     }
 }

@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using Telerik.Windows.Controls;
+using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {
@@ -28,7 +31,12 @@ namespace Lime
 
         private void RemplirFormulaire()
         {
-            DataFormx.CurrentItem = Client.GetClient(0);
+            //Connexion.maBDD.Open();
+            
+
+            //DataFormx.ItemsSource = xx;
+            //Connexion.maBDD.Close();
+
         }
     }
 }
