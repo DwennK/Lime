@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {
-    class Articles
+    //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
+    [Table("Articles")]
+    public class Article
     {
         public int ID { get; set; }
         public int ID_CodeArticles { get; set; }
@@ -20,11 +24,11 @@ namespace Lime
         public int QuantiteStock { get; set; }
         public int SeuilAlerte { get; set; }
 
-        public static IEnumerable<Articles> GetAllArticles()
+        public static IEnumerable<Article> GetAllArticles()
         {
             if (Connexion.CheckForInternetConnection())
             {
-                IEnumerable<Articles> Article = Connexion.maBDD.Query<Articles>("" +
+                IEnumerable<Article> Articles = Connexion.maBDD.Query<Article>("" +
                 "SELECT * " +
                 "FROM Articles " +
                 "LIMIT @Limit " +
@@ -33,12 +37,12 @@ namespace Lime
                 {
                     Limit = Properties.Settings.Default.Limite
                 });
-                return Article;
+                return Articles;
             }
             else
             {
                 //Retourne vide
-                return Enumerable.Empty<Articles>();
+                return Enumerable.Empty<Article>();
             }
         }
     }

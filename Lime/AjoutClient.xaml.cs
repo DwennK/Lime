@@ -68,7 +68,7 @@ namespace Lime
                 }
 
 
-                  Connexion.Execute("INSERT INTO Clients (Nom,Telephone1,Telephone2,Email1,Email2,Commentaire,RemisePermanente,PersonneDeContact) " +
+                  Connexion.Execute("INSERT INTO Client (Nom,Telephone1,Telephone2,Email1,Email2,Commentaire,RemisePermanente,PersonneDeContact) " +
                     "VALUES (@Nom, " +
                     "@Telephone1, " +
                     "@Telephone2," +

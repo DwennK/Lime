@@ -112,15 +112,15 @@ namespace Lime
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Clients.GetAllClients());
+            UpdateGridView(Client.GetAllClients());
         }
 
         private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Articles.GetAllArticles());
+            UpdateGridView(Article.GetAllArticles());
         }
         
-        //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Clients ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
+        //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Client ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
         private void UpdateGridView(IEnumerable<object> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
@@ -146,7 +146,7 @@ namespace Lime
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Récupère le client avec l'ID 1.
-            Clients.getClient(0);
+            
         }
     }
 }

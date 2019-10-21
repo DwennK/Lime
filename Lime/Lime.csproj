@@ -156,10 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Articles.cs" />
+    <Compile Include="Classes\Article.cs" />
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
-    <Compile Include="Classes\Clients.cs" />
+    <Compile Include="Classes\Client.cs" />
     <Compile Include="AjoutClient.xaml.cs">
       <DependentUpon>AjoutClient.xaml</DependentUpon>
     </Compile>

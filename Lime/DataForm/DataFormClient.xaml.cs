@@ -28,8 +28,7 @@ namespace Lime
 
         private void RemplirFormulaire()
         {
-            Clients xx = new Clients();
-            DataFormx.CurrentItem = xx;
+            DataFormx.CurrentItem = Client.GetClient(0);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Lime
 
         private void RemplirFormulaire()
         {
-            Articles xx = new Articles();
+            Article xx = new Article();
             DataFormx.CurrentItem = xx;
         }
     }
