@@ -19,7 +19,6 @@ using MySql.Data.MySqlClient; //MYSQL
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 using System.Text.RegularExpressions;
-using Dapper; //Dapper Micro ORM
 
 namespace Lime
 {
@@ -142,6 +141,12 @@ namespace Lime
 
             DataFormClient maFenetre2 = new DataFormClient();
             maFenetre2.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Récupère le client avec l'ID 1.
+            Clients.getClient(0);
         }
     }
 }

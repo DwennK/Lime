@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {
@@ -41,6 +42,13 @@ namespace Lime
                 //Retourne vide
                 return Enumerable.Empty<Clients>();
             }
+        }
+
+        public static Clients getClient(int ID)
+        {
+            //Récupère le client avec l'ID passé en paramètre.
+            return Connexion.maBDD.Get<Clients>(ID);
+
         }
 
         public static void UpdateClient(int ID)
