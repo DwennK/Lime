@@ -19,34 +19,33 @@ using Dapper.Contrib.Extensions;
 namespace Lime
 {
     /// <summary>
-    /// Interaction logic for DataFormClient.xaml
+    /// Interaction logic for DataForm.xaml
     /// </summary>
-    public partial class DataFormClient
+    public partial class RadDataForm1
     {
-        public DataFormClient()
+
+        //Cet IEnumerable peut contenir des clients, des articles, etc.. Donc on met <object> dans le constructeur, vu que toutes ces classes en dérivent.
+        IEnumerable<object> _mesData;
+        public RadDataForm1(IEnumerable<object> mesData)
         {
             InitializeComponent();
-            RemplirFormulaire();
-        }
 
-        List<Client> xx = Connexion.maBDD.GetAll<Client>().ToList();
+            _mesData = mesData;
+            RemplirFormulaire();
+
+
+        }
 
         private void RemplirFormulaire()
         {
-            DataFormx.ItemsSource = xx;
-
-            //Connexion.maBDD.Update(clients);
-
-            //Connexion.maBDD.Close();
-
-
+            //On remplis le formulaire avec la lise d'objets passé en paramètre.
+            DataFormx.ItemsSource = _mesData;
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            Connexion.maBDD.Update(xx);
-
-            this.Close();
+            //On met à jour dans la BDD les objets de la liste qui ont étés modifiés
+            Connexion.maBDD.Update(_mesData);
         }
     }
 }

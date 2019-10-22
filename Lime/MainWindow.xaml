@@ -57,7 +57,7 @@
                 <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
-                        <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
+                        <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="RadRibbonButton_Click"  />
                         <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
@@ -67,9 +67,9 @@
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
                     <telerik:RadRibbonGroup Header="Gestion">
-                        <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
-                        <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
-                        <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
+                        <telerik:RadRibbonButton x:Name="CréerClient" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
+                        <telerik:RadRibbonButton x:Name="ModifierClient" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="ModifierClient_Click"  />
+                        <telerik:RadRibbonButton x:Name="SupprimmerClient" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="SupprimmerClient_Click"  />
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Font">
@@ -145,7 +145,7 @@
 
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
-        <Button Content="DataForm Prise en charge" HorizontalAlignment="Left" Margin="184,125,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
+        <Button Content="DataForm Client" HorizontalAlignment="Left" Margin="199,138,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
         <Button Content="TEST XXX" HorizontalAlignment="Left" Margin="386,125,0,0" VerticalAlignment="Top" Width="210" Click="Button_Click_1" Height="50" FontSize="36"/>
 
 

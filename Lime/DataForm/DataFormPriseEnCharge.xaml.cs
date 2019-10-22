@@ -16,7 +16,7 @@ using Telerik.Windows.Controls;
 namespace Lime
 {
     /// <summary>
-    /// Interaction logic for DataFormClient.xaml
+    /// Interaction logic for RadDataForm1.xaml
     /// </summary>
     public partial class DataFormPriseEnCharge
     {

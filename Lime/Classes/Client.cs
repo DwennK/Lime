@@ -13,6 +13,7 @@ namespace Lime
     [Table("Clients")]
     public class Client
     {
+        [Key]
         public int ID { get; set; }
         public int ID_AdresseFacturation { get; set; }
         public int ID_AdresseLivraison { get; set; }
@@ -67,6 +68,7 @@ namespace Lime
         {
             var isSuccess = Connexion.maBDD.Update(new Client
             {
+                ID = client.ID,
                 ID_AdresseFacturation = client.ID_AdresseFacturation,
                 ID_AdresseLivraison = client.ID_AdresseLivraison,
                 Nom = client.Nom,
@@ -77,7 +79,7 @@ namespace Lime
                 Commentaire = client.Commentaire,
                 RemisePermanente = client.RemisePermanente,
                 PersonneDeContact = client.PersonneDeContact,
-            });
+            }); ;
             return isSuccess;
 
         }
