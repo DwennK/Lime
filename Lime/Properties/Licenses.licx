@@ -23,3 +23,4 @@ Telerik.Windows.Controls.RadRibbonView, Telerik.Windows.Controls.RibbonView, Ver
 Telerik.Windows.Controls.RadDocking, Telerik.Windows.Controls.Docking, Version=2019.2.618.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.RadDataForm, Telerik.Windows.Controls.Data, Version=2019.3.917.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.WizardPage, Telerik.Windows.Controls.Navigation, Version=2019.3.917.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.RadGridView, Telerik.Windows.Controls.GridView, Version=2019.3.917.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7

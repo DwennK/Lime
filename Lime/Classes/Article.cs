@@ -18,7 +18,6 @@ namespace Lime
     {
         
         public int ID { get; set; }
-        [Display(Name = "Code Article")]
         public int ID_CodeArticles { get; set; }
         public int ID_Marques { get; set; }
         public int ID_Categories { get; set; }

@@ -31,6 +31,7 @@ namespace Lime
         public string Email2 { get; set; }
         public string Commentaire { get; set; }
         [Display(Name = "Remise permanente")]
+        [Description("Le rabais automatique appliqué, en pourcentage, dont disposera le client.")]
         public double RemisePermanente { get; set; }
         [Display(Name = "Personne de contact")]
         public string PersonneDeContact { get; set; }

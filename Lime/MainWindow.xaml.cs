@@ -32,11 +32,17 @@ namespace Lime
     {
         //Petit trick qui Va nous permettre d'accéder aux contrôle depuis une autre classe. (Par exemple : Lime.MainWindow.AppWindow.maFonction();
         public static MainWindow AppWindow;
+        //Petit trick qui Va nous permettre d'accéder aux contrôle depuis une autre classe. (Par exemple : Lime.MainWindow.AppWindow.maFonction();
+        void Awake()
+        {
+            AppWindow = this;
+        }
 
 
         public MainWindow()
         {
             InitializeComponent();
+            test();
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
             
@@ -115,16 +121,16 @@ namespace Lime
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Client.GetAllClients());
+            UpdateGridView(Client.GetAllClients().ToList() );
         }
 
         private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Article.GetAllArticles());
+            
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Client ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
-        private void UpdateGridView(IEnumerable<object> mesData)
+        public void UpdateGridView(IEnumerable<Client> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
         }
@@ -173,6 +179,11 @@ namespace Lime
         private void SupprimmerClient_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void test()
+        {
+            MessageBox.Show("xxxxx");
         }
     }
 }
