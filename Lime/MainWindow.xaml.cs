@@ -139,7 +139,7 @@ namespace Lime
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //RadDataForm1 maFenetre2 = new RadDataForm1(Get);
+            //RadDataFormClient maFenetre2 = new RadDataFormClient(Get);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -166,7 +166,7 @@ namespace Lime
         private void ModifierClient_Click(object sender, RoutedEventArgs e)
         {
             var xx = Connexion.maBDD.GetAll<Client>();
-            RadDataForm1 maFenetre2 = new RadDataForm1(xx);
+            RadDataFormClient maFenetre2 = new RadDataFormClient(xx);
             maFenetre2.Show();
         }
 

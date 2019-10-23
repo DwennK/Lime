@@ -21,12 +21,11 @@ namespace Lime
     /// <summary>
     /// Interaction logic for DataForm.xaml
     /// </summary>
-    public partial class RadDataForm1
+    public partial class RadDataFormClient
     {
 
-        //Cet IEnumerable peut contenir des clients, des articles, etc.. Donc on met <object> dans le constructeur, vu que toutes ces classes en dérivent.
-        IEnumerable<object> _mesData;
-        public RadDataForm1(IEnumerable<object> mesData)
+        IEnumerable<Client> _mesData;
+        public RadDataFormClient(IEnumerable<Client> mesData)
         {
             InitializeComponent();
 

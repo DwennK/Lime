@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using System.ComponentModel; //Sert à changer l'affichage du nom de la propritéé dans la BDD par un texte(Last Name au lieu de lastname par exemple)
+using System.ComponentModel.DataAnnotations;
 
 namespace Lime
 {
@@ -13,17 +15,24 @@ namespace Lime
     [Table("Clients")]
     public class Client
     {
-        [Key]
         public int ID { get; set; }
+        [Display(Name = "Adresse de Facturation")]
         public int ID_AdresseFacturation { get; set; }
+        [Display(Name = "Adresse de Livraison")]
         public int ID_AdresseLivraison { get; set; }
         public string Nom { get; set; }
+        [Display(Name = "Téléphone 1")]
         public string Telephone1 { get; set; }
+        [Display(Name = "Téléphone 2")]
         public string Telephone2 { get; set; }
+        [Display(Name = "E-mail 1")]
         public string Email1 { get; set; }
+        [Display(Name = "E-mail 2")]
         public string Email2 { get; set; }
         public string Commentaire { get; set; }
+        [Display(Name = "Remise permanente")]
         public double RemisePermanente { get; set; }
+        [Display(Name = "Personne de contact")]
         public string PersonneDeContact { get; set; }
 
         public static IEnumerable<Client> GetAllClients()
