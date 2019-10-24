@@ -22,33 +22,5 @@ namespace Lime
         public string NPA { get; set; }
         public string Ville { get; set; }
 
-
-        public static Adresse GetAdresse(int ID)
-        {
-            var Adresse = Connexion.maBDD.Get<Adresse>(ID);
-            //Récupère l'objet avec l'ID passé en paramètre.
-            return Adresse;
-
-        }
-
-        public static void InsertAdresse(Adresse adresse)
-        {
-            //Insère le client passé en paramètre
-            Connexion.maBDD.Insert<Adresse>(adresse);
-
-        }
-
-        public bool UpdateAdresse(Adresse adresse)
-        {
-            var isSuccess = Connexion.maBDD.Update<Adresse>(adresse);
-            return isSuccess;
-        }
-
-        public bool DeleteAdresse(int ID)
-        {
-            var isSuccess = Connexion.maBDD.Delete(new Adresse { ID = ID });
-            return isSuccess;
-        }
-
     }
 }

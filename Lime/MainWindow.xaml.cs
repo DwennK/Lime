@@ -167,25 +167,29 @@ namespace Lime
             ////maFenetre.Show();
             ///
 
-            //Création d'une List<Client> vide, qu'on envoie en paramètre
-            Client client = new Client();
-            List<Client> clients = new List<Client>();
-            clients.Add(client);
+            ////Création d'une List<Client> vide, qu'on envoie en paramètre
+            //Client client = new Client();
+            //List<Client> clients = new List<Client>();
+            //clients.Add(client);
 
-            RadDataFormClient maFenetre2 = new RadDataFormClient("Insert", clients);
-            maFenetre2.Show();
+            //RadDataFormClient maFenetre2 = new RadDataFormClient("Insert", clients);
+            //maFenetre2.Show();
+
+            DataFormClient maFenetre = new DataFormClient();
+            maFenetre.Show();
 
         }
 
         private void ModifierClient_Click(object sender, RoutedEventArgs e)
         {
-            //On récupére le client et on le mets dans une List<Client> 
-            Client client = (Client)RadGridView1.SelectedItem;
-            List<Client> clients = new List<Client>();
-            clients.Add(client);
+            ////On récupére le client et on le mets dans une List<Client> 
+            //Client client = (Client)RadGridView1.SelectedItem;
+            //List<Client> clients = new List<Client>();
+            //clients.Add(client);
 
-            RadDataFormClient maFenetre2 = new RadDataFormClient("Update", clients);
-            maFenetre2.Show();
+            //RadDataFormClient maFenetre2 = new RadDataFormClient("Update", clients);
+            //maFenetre2.Show();
+
         }
 
         private void SupprimmerClient_Click(object sender, RoutedEventArgs e)

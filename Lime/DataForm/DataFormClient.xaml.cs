@@ -16,8 +16,6 @@ using Telerik.Windows.Controls;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
-using System.ComponentModel; //Sert à changer l'affichage du nom de la propritéé dans la BDD par un texte(Last Name au lieu de lastname par exemple)
-using System.ComponentModel.DataAnnotations;
 
 namespace Lime
 {
@@ -38,33 +36,34 @@ namespace Lime
             Adresse adresseLivraison = new Adresse();
 
             //On modifie l'adresse de Facturation, et la sauve dans la BDD.
-            adresseFacturation.UpdateAdresse(new Adresse
-            {
-                adresse = tbxAdresseFacturation.Text,
-                NPA = tbxNPAFacturation.Text,
-                Ville = tbxVilleFacturation.Text
-            });
-            Adresse.InsertAdresse(adresseFacturation);
+            adresseFacturation.adresse = tbxAdresseFacturation.Text;
+            adresseFacturation.NPA = tbxNPAFacturation.Text;
+            adresseFacturation.Ville = tbxVilleFacturation.Text;
+            //On l'insére et on réccupère son ID une fois inséré
+            int idAdresseFacturation =(int)Connexion.maBDD.Insert<Adresse>(adresseFacturation);
+            adresseFacturation.ID = idAdresseFacturation;
 
-            //On copie le contenu de adresseFacturaiton dans adresseLivraison. (Si c'est pas le cas, le prochain IF vient régler le problème )
-            adresseLivraison = adresseFacturation;
+            //On copie le contenu de adresseFacturaiton dans adresseLivraison. (Si le client a 2 adresses, le prochain IF vient régler le problème )
+            adresseLivraison.adresse = adresseFacturation.adresse;
+            adresseLivraison.NPA = adresseFacturation.NPA;
+            adresseLivraison.Ville = adresseFacturation.Ville;
 
             //On vérifie si l'adresse de livraison était la même que celle de facturation.
             //Si elle n'est pas pareille, nous allons modifier l'adresse de livraison.
             if (tbxAdresseFacturation.Text != tbxAdresseLivraison.Text && tbxNPAFacturation != tbxNPALivraison && tbxVilleFacturation != tbxVilleLivraison)
             {
                 //Vu que les adresses sont différentes, on va spécifiquement créer une adresse de livraison et l'insérer dans la BDD
-                adresseLivraison = (new Adresse
-                {
-                    adresse = tbxAdresseLivraison.Text,
-                    NPA = tbxNPALivraison.Text,
-                    Ville = tbxVilleLivraison.Text
-                });
-                Adresse.InsertAdresse(adresseLivraison);
+                adresseLivraison.adresse = tbxAdresseLivraison.Text;
+                adresseLivraison.NPA = tbxNPALivraison.Text;
+                adresseLivraison.Ville = tbxVilleLivraison.Text;
+
+                //On l'insére et on réccupère son ID une fois inséré
+                int idAdresseLivraison =  (int)Connexion.maBDD.Insert<Adresse>(adresseLivraison);
+                adresseLivraison.ID = idAdresseLivraison;
             }
 
-            //Une fois les deux adresse créées, on va finalement insérer le client.
-            Client client = (new Client
+            //Une fois les deux adresse créées, on va finalement créer insérer le client dans la BDD.
+            Client client = new Client
             {
                 ID_AdresseFacturation = adresseFacturation.ID,
                 ID_AdresseLivraison = adresseLivraison.ID,
@@ -74,10 +73,10 @@ namespace Lime
                 Email1 = tbxEmail1.Text,
                 Email2 = tbxEmail2.Text,
                 Commentaire = tbxCommentaire.Text,
-                RemisePermanente = (double)tbxRemisePermanente.Value,
+                RemisePermanente = (int)tbxRemisePermanente.Value,
                 PersonneDeContact = tbxPersonneDeContact.Text
-            }); ;
-            Client.InsertClient(client);
+            };
+            Connexion.maBDD.Insert<Client>(client);
 
 
             //Ferme la fenêtre

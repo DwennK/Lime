@@ -41,6 +41,6 @@
                 <telerik:RadWatermarkTextBox x:Name="tbxVilleLivraison" WatermarkContent="Ville" HorizontalAlignment="Left" Height="23" Margin="285,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="323" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" HorizontalAlignment="Left" Margin="243,336,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal"/>
+        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" HorizontalAlignment="Left" Margin="243,336,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal" Value="0" HideTrailingZeros="True" Minimum="0" Maximum="100" />
     </Grid>
 </telerik:RadWindow>
