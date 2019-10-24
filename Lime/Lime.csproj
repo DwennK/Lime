@@ -156,18 +156,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AjoutArticles.xaml.cs">
+      <DependentUpon>AjoutArticles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Adresse.cs" />
     <Compile Include="Classes\Article.cs" />
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
-    <Compile Include="AjoutClient.xaml.cs">
-      <DependentUpon>AjoutClient.xaml</DependentUpon>
+    <Compile Include="DataForm\DataFormClient.xaml.cs">
+      <DependentUpon>DataFormClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataForm\RadDataForm1.xaml.cs">
-      <DependentUpon>RadDataForm1.xaml</DependentUpon>
+    <Compile Include="DataForm\RadDataFormClient.xaml.cs">
+      <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
-    <Page Include="DataForm\RadDataForm1.xaml">
+    <Page Include="AjoutArticles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataForm\RadDataFormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -183,7 +191,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AjoutClient.xaml">
+    <Page Include="DataForm\DataFormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -208,6 +216,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AjoutArticles.datasource" />
+    <None Include="Properties\DataSources\AjoutClient.datasource" />
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\Article.datasource" />
+    <None Include="Properties\DataSources\Client.datasource" />
+    <None Include="Properties\DataSources\Connexion.datasource" />
+    <None Include="Properties\DataSources\Lime.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Lime.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
+    <None Include="Properties\DataSources\NEWInsertionClient.datasource" />
+    <None Include="Properties\DataSources\RadDataFormClient.datasource" />
+    <None Include="Properties\DataSources\TypeDocuments.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

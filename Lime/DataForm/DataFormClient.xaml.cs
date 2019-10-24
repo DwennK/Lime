@@ -19,11 +19,11 @@ using Telerik.Windows.Controls;
 namespace Lime
 {
     /// <summary>
-    /// Interaction logic for TelerikScenario2.xaml
+    /// Interaction logic for DataFormClient.xaml
     /// </summary>
-    public partial class AjoutClient
+    public partial class DataFormClient
     {
-        public AjoutClient()
+        public DataFormClient()
         {
             InitializeComponent();
         }
@@ -68,29 +68,35 @@ namespace Lime
                 }
 
 
-                  Connexion.Execute("INSERT INTO Client (Nom,Telephone1,Telephone2,Email1,Email2,Commentaire,RemisePermanente,PersonneDeContact) " +
-                    "VALUES (@Nom, " +
-                    "@Telephone1, " +
-                    "@Telephone2," +
-                    "@Email1, " +
-                    "@Email2," +
-                    "@Commentaire," +
-                    "@RemisePermanente," +
-                    "@PersonneDeContact );"
-                    , new {
-                        Nom = tbxNom.Text,
-                        Telephone1 = tbxTelephone1.Value,
-                        Telephone2 = tbxTelephone2.Value,
-                        Email1 = tbxEmail1.Text,
-                        Email2 = tbxEmail2.Text,
-                        Commentaire = tbxCommentaire.Text,
-                        RemisePermanente = (tbxRemisePermanente.Value < 0) ? 0 : tbxRemisePermanente.Value, //Si la valeur est < 0 on affecte 0 comme remise.
+                Connexion.Execute("INSERT INTO Client (Nom,Telephone1,Telephone2,Email1,Email2,Commentaire,RemisePermanente,PersonneDeContact) " +
+                  "VALUES (@Nom, " +
+                  "@Telephone1, " +
+                  "@Telephone2," +
+                  "@Email1, " +
+                  "@Email2," +
+                  "@Commentaire," +
+                  "@RemisePermanente," +
+                  "@PersonneDeContact );"
+                  , new
+                  {
+                      Nom = tbxNom.Text,
+                      Telephone1 = tbxTelephone1.Value,
+                      Telephone2 = tbxTelephone2.Value,
+                      Email1 = tbxEmail1.Text,
+                      Email2 = tbxEmail2.Text,
+                      Commentaire = tbxCommentaire.Text,
+                      RemisePermanente = (tbxRemisePermanente.Value < 0) ? 0 : tbxRemisePermanente.Value, //Si la valeur est < 0 on affecte 0 comme remise.
                         PersonneDeContact = tbxPersonneDeContact.Text
-                    });
+                  });
 
                 //Ferme la fenêtre
                 this.Close();
             }
+        }
+
+        private void BtnValider_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

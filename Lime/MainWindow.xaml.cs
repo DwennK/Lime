@@ -42,7 +42,6 @@ namespace Lime
         public MainWindow()
         {
             InitializeComponent();
-            test();
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
             
@@ -111,13 +110,6 @@ namespace Lime
 
         }
 
-        private void AjoutClient_Click(object sender, RoutedEventArgs e)
-        {
-            //On ouvre la nouvelle fenêtre d'insertion client.
-            AjoutClient maFenetre = new AjoutClient();
-            maFenetre.Show();
-        }
-
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -130,7 +122,7 @@ namespace Lime
         }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Client ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
-        public void UpdateGridView(IEnumerable<Client> mesData)
+        public void UpdateGridView(IEnumerable<object> mesData)
         {
             this.RadGridView1.ItemsSource = mesData;
         }
@@ -168,22 +160,39 @@ namespace Lime
         {
 
         }
+        private void AjoutClient_Click(object sender, RoutedEventArgs e)
+        {
+            //////On ouvre la nouvelle fenêtre d'insertion client.
+            ////DataFormClient maFenetre = new DataFormClient();
+            ////maFenetre.Show();
+            ///
+
+            //Création d'une List<Client> vide, qu'on envoie en paramètre
+            Client client = new Client();
+            List<Client> clients = new List<Client>();
+            clients.Add(client);
+
+            RadDataFormClient maFenetre2 = new RadDataFormClient("Insert", clients);
+            maFenetre2.Show();
+
+        }
 
         private void ModifierClient_Click(object sender, RoutedEventArgs e)
         {
-            var xx = Connexion.maBDD.GetAll<Client>();
-            RadDataFormClient maFenetre2 = new RadDataFormClient(xx);
+            //On récupére le client et on le mets dans une List<Client> 
+            Client client = (Client)RadGridView1.SelectedItem;
+            List<Client> clients = new List<Client>();
+            clients.Add(client);
+
+            RadDataFormClient maFenetre2 = new RadDataFormClient("Update", clients);
             maFenetre2.Show();
         }
 
         private void SupprimmerClient_Click(object sender, RoutedEventArgs e)
         {
-
+            Client client = (Client)RadGridView1.SelectedItem;
+            Connexion.maBDD.Delete<Client>(client);
         }
 
-        public void test()
-        {
-            MessageBox.Show("xxxxx");
-        }
     }
 }
