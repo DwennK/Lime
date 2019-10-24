@@ -15,6 +15,7 @@ namespace Lime
     [Table("Clients")]
     public class Client
     {
+        [Computed]
         public int ID { get; set; }
         [Display(Name = "Adresse de Facturation")]
         public int ID_AdresseFacturation { get; set; }
@@ -76,22 +77,8 @@ namespace Lime
 
         public bool UpdateClient(Client client)
         {
-            var isSuccess = Connexion.maBDD.Update(new Client
-            {
-                ID = client.ID,
-                ID_AdresseFacturation = client.ID_AdresseFacturation,
-                ID_AdresseLivraison = client.ID_AdresseLivraison,
-                Nom = client.Nom,
-                Telephone1 = client.Telephone1,
-                Telephone2 = client.Telephone2,
-                Email1 = client.Email1,
-                Email2 = client.Email2,
-                Commentaire = client.Commentaire,
-                RemisePermanente = client.RemisePermanente,
-                PersonneDeContact = client.PersonneDeContact,
-            }); ;
+           var isSuccess =  Connexion.maBDD.Update<Client>(client);
             return isSuccess;
-
         }
 
         public bool DeleteClient(int ID)

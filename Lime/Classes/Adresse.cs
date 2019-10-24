@@ -16,20 +16,39 @@ namespace Lime
     [Table("Adresses")]
     public class Adresse
     {
-        
+        [Computed]
         public int ID { get; set; }
         public string adresse { get; set; }
         public string NPA { get; set; }
         public string Ville { get; set; }
 
-        public Adresse(int ID, string adresse, string NPA, string Ville)
+
+        public static Adresse GetAdresse(int ID)
         {
-            this.ID = ID;
-            this.adresse = adresse;
-            this.NPA = NPA;
-            this.Ville = Ville;
+            var Adresse = Connexion.maBDD.Get<Adresse>(ID);
+            //Récupère l'objet avec l'ID passé en paramètre.
+            return Adresse;
+
         }
 
+        public static void InsertAdresse(Adresse adresse)
+        {
+            //Insère le client passé en paramètre
+            Connexion.maBDD.Insert<Adresse>(adresse);
+
+        }
+
+        public bool UpdateAdresse(Adresse adresse)
+        {
+            var isSuccess = Connexion.maBDD.Update<Adresse>(adresse);
+            return isSuccess;
+        }
+
+        public bool DeleteAdresse(int ID)
+        {
+            var isSuccess = Connexion.maBDD.Delete(new Adresse { ID = ID });
+            return isSuccess;
+        }
 
     }
 }
