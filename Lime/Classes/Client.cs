@@ -17,10 +17,12 @@ namespace Lime
     {
         [Computed]
         public int ID { get; set; }
-        [Display(Name = "Adresse de Facturation")]
-        public int ID_AdresseFacturation { get; set; }
-        [Display(Name = "Adresse de Livraison")]
-        public int ID_AdresseLivraison { get; set; }
+        [Display(Name = "ID Adresse de Facturation")]
+        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
+        public int? ID_AdresseFacturation { get; set; }
+        [Display(Name = "ID Adresse de Livraison")]
+        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
+        public int? ID_AdresseLivraison { get; set; }
         public string Nom { get; set; }
         [Display(Name = "Téléphone 1")]
         public string Telephone1 { get; set; }
