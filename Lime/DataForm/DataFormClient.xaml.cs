@@ -16,6 +16,13 @@ using Telerik.Windows.Controls;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using System.Net;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Chsword;
 
 namespace Lime
 {
@@ -24,12 +31,47 @@ namespace Lime
     /// </summary>
     public partial class DataFormClient
     {
+        public Client client;
+        string Action;
+ 
+        //Constructeur pour Insert
         public DataFormClient()
         {
             InitializeComponent();
+            Action = "Insert";
         }
 
-        private void BtnValider_Click(object sender, RoutedEventArgs e)
+        //Constructeur pour Update
+        public DataFormClient(Client client)
+        {
+            InitializeComponent();
+            this.client = client;
+            Action = "Update";
+
+
+            tbxNom.Text = client.Nom;
+            tbxTelephone1.Value = client.Telephone1;
+            tbxTelephone2.Value = client.Telephone2;
+            tbxEmail1.Text = client.Email1;
+            tbxEmail2.Text = client.Email2;
+            tbxCommentaire.Text = client.Commentaire;
+            tbxRemisePermanente.Value = client.RemisePermanente;
+            tbxPersonneDeContact.Text = client.PersonneDeContact;
+
+            Adresse adresseFacturation = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
+            if(adresseFacturation != null)
+            {
+                if (adresseFacturation.adresse != null) { tbxAdresse.Text = adresseFacturation.adresse; }
+                if (adresseFacturation.NPA != null) { tbxNPA.Text = adresseFacturation.NPA; }
+                if (adresseFacturation.Ville != null) { tbxVille.Text = adresseFacturation.Ville; }
+            }
+
+
+            tbxRemisePermanente.Value = client.RemisePermanente;
+            tbxPersonneDeContact.Text = client.PersonneDeContact;
+        }
+
+        private void InsertClient()
         {
             if(DonnéesValides())
             {
@@ -37,48 +79,29 @@ namespace Lime
                 Adresse adresseFacturation = new Adresse();
                 Adresse adresseLivraison = new Adresse();
                 int? idAdresseFacturation = null;
-                int? idAdresseLivraison = null;
 
 
                 //Si le client a une adresse
-                if(tbxAdresseFacturation.Text != string.Empty)
+                if(tbxAdresse.Text != string.Empty)
                 {
                     //On modifie l'adresse de Facturation, et la sauve dans la BDD.
-                    adresseFacturation.adresse = tbxAdresseFacturation.Text;
-                    adresseFacturation.NPA = tbxNPAFacturation.Text;
-                    adresseFacturation.Ville = tbxVilleFacturation.Text;
+                    adresseFacturation.adresse = tbxAdresse.Text;
+                    adresseFacturation.NPA = tbxNPA.Text;
+                    adresseFacturation.Ville = tbxVille.Text;
                     //On l'insére et on réccupère son ID une fois inséré
                     idAdresseFacturation = (int)Connexion.maBDD.Insert<Adresse>(adresseFacturation);
 
-                    //On copie le contenu de adresseFacturaiton dans adresseLivraison. (Si le client a 2 adresses, le prochain IF vient régler le problème )
-                    idAdresseLivraison = idAdresseFacturation;
-                    adresseLivraison.adresse = adresseFacturation.adresse;
-                    adresseLivraison.NPA = adresseFacturation.NPA;
-                    adresseLivraison.Ville = adresseFacturation.Ville;
 
-                    //On vérifie si l'adresse de livraison était la même que celle de facturation.
-                    //Si elle n'est pas pareille, nous allons modifier l'adresse de livraison.
-                    if (tbxAdresseFacturation.Text != tbxAdresseLivraison.Text && tbxNPAFacturation.Text != tbxNPALivraison.Text && tbxVilleFacturation.Text != tbxVilleLivraison.Text)
-                    {
-                        //Vu que les adresses sont différentes, on va spécifiquement créer une adresse de livraison et l'insérer dans la BDD
-                        adresseLivraison.adresse = tbxAdresseLivraison.Text;
-                        adresseLivraison.NPA = tbxNPALivraison.Text;
-                        adresseLivraison.Ville = tbxVilleLivraison.Text;
-
-                        //On l'insére et on récupère son ID une fois inséré
-                        idAdresseLivraison = (int)Connexion.maBDD.Insert<Adresse>(adresseLivraison);
-                    }
                 }
 
 
-                //Une fois les deux adresse créées, on va finalement créer insérer le client dans la BDD.
-                Client client = new Client
+                //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
+               client = new Client
                 {
                     Nom = tbxNom.Text,
-                    ID_AdresseFacturation = idAdresseFacturation,
-                    ID_AdresseLivraison = idAdresseLivraison,
-                    Telephone1 = tbxTelephone1.Text,
-                    Telephone2 = tbxTelephone2.Text,
+                    ID_Adresse = idAdresseFacturation,
+                    Telephone1 = tbxTelephone1.Value,
+                    Telephone2 = tbxTelephone2.Value,
                     Email1 = tbxEmail1.Text,
                     Email2 = tbxEmail2.Text,
                     Commentaire = tbxCommentaire.Text,
@@ -92,6 +115,69 @@ namespace Lime
                 this.Close();
             }
             
+        }
+
+        private void UpdateClient()
+        {
+            if(DonnéesValides())
+            {
+                var AdresseFacturationActuelle = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
+
+                //On regarde s'il avait une adresse de facturation, s'il n'en avait pas, on la crée
+                if (AdresseFacturationActuelle == null)
+                {
+                    AdresseFacturationActuelle = new Adresse
+                    {
+                        adresse = tbxAdresse.Text,
+                        NPA = tbxNPA.Text,
+                        Ville = tbxVille.Text,
+                    };
+                    Connexion.maBDD.Insert<Adresse>(AdresseFacturationActuelle);
+                }
+
+                //On regarde si l'adresse de livriason a été changée, et si oui, on la modifie
+                if (tbxAdresse.Text != AdresseFacturationActuelle.adresse)
+                {
+                    //Du coup, on update l'adresse
+                    Adresse newAdresse = new Adresse
+                    {
+                        adresse = tbxAdresse.Text,
+                        NPA = tbxNPA.Text,
+                        Ville = tbxVille.Text,
+                    };
+                    Connexion.maBDD.Update<Adresse>(newAdresse);
+                }
+
+                client.Nom = tbxNom.Text;
+                client.Telephone1 = tbxTelephone1.Value;
+                client.Telephone2 = tbxTelephone2.Value;
+                client.Email1 = tbxEmail1.Text;
+                client.Email2 = tbxEmail2.Text;
+                client.Commentaire = tbxCommentaire.Text;
+                client.RemisePermanente = (int)tbxRemisePermanente.Value;
+                client.PersonneDeContact = tbxPersonneDeContact.Text;
+
+
+            //On update le client
+            Connexion.maBDD.Update<Client>(client);
+                
+            //Ferme la fenêtre
+            this.Close();
+
+            }
+        }
+
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            //Ces actions sont définies par le constructeur appelé
+            if(Action == "Insert")
+            {
+                InsertClient();
+            }
+            else if(Action == "Update")
+            {
+                UpdateClient();
+            }
         }
 
         private bool DonnéesValides()
@@ -117,7 +203,7 @@ namespace Lime
             }
 
             //On teste, et renvoie pour dire si les données sont valides
-            if(messageErreur==string.Empty)
+            if (messageErreur == string.Empty)
             {
                 isValidData = true;
             }
@@ -127,6 +213,69 @@ namespace Lime
             }
 
             return isValidData;
+        }
+
+
+        public List<string> GetCityName(string NPA)
+        {
+            string URL = "http://api.geonames.org/postalCodeSearchJSON?postalcode=" + NPA + "&country=ch&maxRows=10&username=dwenn";
+
+            //Création et envoi de la requête sur l'API
+            WebRequest request = HttpWebRequest.Create(URL);
+            WebResponse response = request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+
+            //Conversion de la réponse en JSON
+            string maRep_JSON = reader.ReadToEnd();
+
+            //Désérialization de l'object en Dynmic
+            dynamic parsedObject = JsonConvert.DeserializeObject(maRep_JSON);
+
+            //On crée la liste dans laquelle on va mettre tout les resultats
+            List<string> NomVilles = new List<string>();
+
+            //On obucle dans les résultats pour les ajouter dans la Liste
+            var iNombreDeResultats = parsedObject.postalCodes.Count;
+            for(int iCpt = 0; iCpt < iNombreDeResultats; iCpt++)
+            {
+                string xtemp = parsedObject.postalCodes[iCpt]["placeName"].Value;
+                NomVilles.Add(xtemp);
+            }
+
+            //On retourne la Liste contenant tous les noms de localités trouvés. (Par exemple pour Zurich, il y en a 7)
+            return NomVilles;
+        }
+
+        private void tbxNPA_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //On vide le contenu des propositions de Combobox, au cas ou il y en avait deja.
+            tbxVille.ItemsSource = null;
+
+            string NPA = tbxNPA.Text;
+            List<string> NomVilles = new List<string>();
+
+            if (NPA.Length == 4)
+            {
+                NomVilles = GetCityName(NPA);
+
+                //Sî'il y a au moins 1 ville, on ajoute la liste des villes dans le combobox
+                if(NomVilles.Count > 0)
+                {
+                    tbxVille.ItemsSource = NomVilles;
+                }
+
+                //Si y'a que une Ville qui a ce NPA, on sélectionne direct la bonne.
+                if (NomVilles.Count == 1)
+                {
+                    tbxVille.SelectedIndex = 0;
+                }
+                else if(NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
+                {
+                    tbxVille.IsDropDownOpen = true;
+                }
+
+            }
+
         }
     }
 }

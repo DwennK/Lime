@@ -22,6 +22,7 @@ using System.Text.RegularExpressions;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using System.Runtime.InteropServices;
 
 namespace Lime
 {
@@ -113,7 +114,7 @@ namespace Lime
 
         private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Client.GetAllClients().ToList() );
+            UpdateGridView(Client.GetAllClients().ToList());
         }
 
         private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -156,46 +157,33 @@ namespace Lime
 
         }
 
-        private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
-            //////On ouvre la nouvelle fenêtre d'insertion client.
-            ////DataFormClient maFenetre = new DataFormClient();
-            ////maFenetre.Show();
-            ///
-
-            ////Création d'une List<Client> vide, qu'on envoie en paramètre
-            //Client client = new Client();
-            //List<Client> clients = new List<Client>();
-            //clients.Add(client);
-
-            //RadDataFormClient maFenetre2 = new RadDataFormClient("Insert", clients);
-            //maFenetre2.Show();
-
             DataFormClient maFenetre = new DataFormClient();
+            maFenetre.Closed += DataFormClientHandler;
             maFenetre.Show();
-
         }
+
+        //Se fait appeler quand une modification/ajout d'un client a eu lieu, mais dans une autre fenêtre que celle-ci (la methode UpdateGridView ne peux pas se faire appeler depuis une autre fenetre)
+        public void DataFormClientHandler(object sender, EventArgs e)
+        {
+            UpdateGridView(Connexion.maBDD.GetAll<Client>());
+        }
+
 
         private void ModifierClient_Click(object sender, RoutedEventArgs e)
         {
-            ////On récupére le client et on le mets dans une List<Client> 
-            //Client client = (Client)RadGridView1.SelectedItem;
-            //List<Client> clients = new List<Client>();
-            //clients.Add(client);
-
-            //RadDataFormClient maFenetre2 = new RadDataFormClient("Update", clients);
-            //maFenetre2.Show();
-
+            Client client = (Client)RadGridView1.SelectedItem;
+            DataFormClient maFenetre2 = new DataFormClient(client);
+            maFenetre2.Closed += DataFormClientHandler;
+            maFenetre2.Show();
         }
 
         private void SupprimmerClient_Click(object sender, RoutedEventArgs e)
         {
             Client client = (Client)RadGridView1.SelectedItem;
             Connexion.maBDD.Delete<Client>(client);
+            UpdateGridView(Connexion.maBDD.GetAll<Client>());
         }
 
     }

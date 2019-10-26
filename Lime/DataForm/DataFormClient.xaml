@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:local="clr-namespace:Lime" x:Class="Lime.DataFormClient"
-        Header="Client" Height="554.218" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
+        Header="Client" Height="421.218" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
     <Grid>
         <telerik:RadWatermarkTextBox x:Name="tbxNom" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap" Text="" WatermarkContent="Nom" VerticalAlignment="Top" Width="527" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
         <telerik:Label x:Name="lblNom" Content="Nom " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
@@ -15,32 +15,22 @@
         <telerik:RadWatermarkTextBox x:Name="tbxEmail2" WatermarkContent="Email 2" HorizontalAlignment="Left" Height="23" Margin="413,76,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="215" telerik:StyleManager.Theme="Crystal"/>
         <telerik:Label x:Name="lblCommentaire" Content="Commentaire" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
         <telerik:RadWatermarkTextBox x:Name="tbxCommentaire" WatermarkContent="Commentaire" HorizontalAlignment="Left" Height="23" Margin="101,109,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="527" telerik:StyleManager.Theme="Crystal" TabIndex="999999999"/>
-        <telerik:Label x:Name="lblRemisePermanente" Content="Remise Permantente (en pourcentage)" HorizontalAlignment="Left" Margin="10,336,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-        <telerik:Label x:Name="lblPersonneDeContact" Content="Personne de contact (entreprise)" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-        <telerik:RadWatermarkTextBox x:Name="tbxPersonneDeContact" WatermarkContent="Personne de contact" HorizontalAlignment="Left" Height="23" Margin="243,370,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="385" telerik:StyleManager.Theme="Crystal" TabIndex="999"/>
-        <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Left" Height="39" Margin="267,446,0,0" VerticalAlignment="Top" Width="103" telerik:StyleManager.Theme="Crystal" Click="BtnValider_Click" TabIndex="9"/>
+        <telerik:Label x:Name="lblRemisePermanente" Content="Remise Permantente (en pourcentage)" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+        <telerik:Label x:Name="lblPersonneDeContact" Content="Personne de contact (entreprise)" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+        <telerik:RadWatermarkTextBox x:Name="tbxPersonneDeContact" WatermarkContent="Personne de contact" HorizontalAlignment="Left" Height="23" Margin="243,276,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="385" telerik:StyleManager.Theme="Crystal" TabIndex="999"/>
+        <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="39"  VerticalAlignment="Bottom"  Width="102" telerik:StyleManager.Theme="Crystal" TabIndex="9" Click="btnValider_Click" Margin="268,0,268,13"/>
         <telerik:RadMaskedTextInput x:Name="tbxTelephone2" HorizontalAlignment="Left"  SelectionOnFocus="CaretToBeginning" Mask="(###) ###-##-##" Margin="413,44,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="215"/>
         <telerik:RadMaskedTextInput x:Name="tbxTelephone1" HorizontalAlignment="Left"  SelectionOnFocus="CaretToBeginning" Mask="(###) ###-##-##" Margin="101,42,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="215" TabIndex="1"/>
-        <telerik:GroupBox x:Name="grpAdresseFacturation" Height="86" Margin="10,140,9.714,0" VerticalAlignment="Top" Header="Adresse de Facturation">
+        <telerik:GroupBox x:Name="grpAdresseFacturation" Height="86" Margin="10,140,9.714,0" VerticalAlignment="Top" Header="Adresse">
             <Grid HorizontalAlignment="Left" Height="95" Margin="0,0,-11.143,-22.429" VerticalAlignment="Top" Width="618">
-                <telerik:Label x:Name="lblAdresseFacturation" Content="Adresse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxAdresseFacturation" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="540" telerik:StyleManager.Theme="Crystal" TabIndex="4"/>
+                <telerik:Label x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadWatermarkTextBox x:Name="tbxAdresse" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="540" telerik:StyleManager.Theme="Crystal" TabIndex="4"/>
                 <telerik:Label x:Name="lblNPAFacturation" Content="NPA" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxNPAFacturation" WatermarkContent="NPA" HorizontalAlignment="Left" Height="23" Margin="68,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="154" telerik:StyleManager.Theme="Crystal" TabIndex="5"/>
-                <telerik:Label x:Name="lblVilleFacturation" Content="Ville" HorizontalAlignment="Left" Margin="247,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxVilleFacturation" WatermarkContent="Ville" HorizontalAlignment="Left" Height="23" Margin="285,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="323" telerik:StyleManager.Theme="Crystal" TabIndex="6"/>
+                <telerik:RadWatermarkTextBox x:Name="tbxNPA" WatermarkContent="NPA" HorizontalAlignment="Left" Height="23" Margin="68,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="89" telerik:StyleManager.Theme="Crystal" TabIndex="5" TextChanged="tbxNPA_TextChanged" MaxLength="10" MaxLines="1"/>
+                <telerik:Label x:Name="lblVilleFacturation" Content="Ville" HorizontalAlignment="Left" Margin="183,37,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox x:Name="grpAdresseLivraison" Height="95" Margin="10,231,9.714,0" VerticalAlignment="Top" Header="Adresse de Livraison">
-            <Grid HorizontalAlignment="Left" Height="95" Margin="0,0,-11.143,-22.429" VerticalAlignment="Top" Width="618">
-                <telerik:Label x:Name="lblAdresseLivraison" Content="Adresse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxAdresseLivraison" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="540" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:Label x:Name="lblNPALivraison" Content="NPA" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxNPALivraison" WatermarkContent="NPA" HorizontalAlignment="Left" Height="23" Margin="68,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="154" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:Label x:Name="lblVilleLivraison" Content="Ville" HorizontalAlignment="Left" Margin="247,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxVilleLivraison" WatermarkContent="Ville" HorizontalAlignment="Left" Height="23" Margin="285,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="323" telerik:StyleManager.Theme="Crystal"/>
-            </Grid>
-        </telerik:GroupBox>
-        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" HorizontalAlignment="Left" Margin="243,336,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal" Value="0" HideTrailingZeros="True" Minimum="0" Maximum="100" />
+        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" HorizontalAlignment="Left" Margin="243,242,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal" Value="0" HideTrailingZeros="True" Minimum="0" Maximum="100" />
+        <telerik:RadComboBox x:Name="tbxVille"  Margin="243,194,19,155" telerik:StyleManager.Theme="Crystal" EmptyText="Ville" TabIndex="6" IsEditable="True" />
     </Grid>
 </telerik:RadWindow>
