@@ -38,6 +38,7 @@ namespace Lime
         public DataFormClient()
         {
             InitializeComponent();
+            tbxNom.Focus();
             Action = "Insert";
         }
 
@@ -45,6 +46,7 @@ namespace Lime
         public DataFormClient(Client client)
         {
             InitializeComponent();
+            tbxNom.Focus();
             this.client = client;
             Action = "Update";
 
@@ -139,13 +141,11 @@ namespace Lime
                 if (tbxAdresse.Text != AdresseFacturationActuelle.adresse)
                 {
                     //Du coup, on update l'adresse
-                    Adresse newAdresse = new Adresse
-                    {
-                        adresse = tbxAdresse.Text,
-                        NPA = tbxNPA.Text,
-                        Ville = tbxVille.Text,
-                    };
-                    Connexion.maBDD.Update<Adresse>(newAdresse);
+
+                    AdresseFacturationActuelle.adresse = tbxAdresse.Text;
+                    AdresseFacturationActuelle.NPA = tbxNPA.Text;
+                    AdresseFacturationActuelle.Ville = tbxVille.Text;
+                    Connexion.maBDD.Update<Adresse>(AdresseFacturationActuelle);
                 }
 
                 client.Nom = tbxNom.Text;
