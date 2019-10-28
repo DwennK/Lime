@@ -21,54 +21,27 @@ namespace Lime
         //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         public int? ID_Client { get; set; }
 
-        public static IEnumerable<Client> GetAllClients()
+        public static IEnumerable<PriseEnCharge> GetAllPriseEnCharge()
         {
             if (Connexion.CheckForInternetConnection())
             {
-                IEnumerable<Client> Clients = Connexion.maBDD.Query<Client>("" +
+                IEnumerable<PriseEnCharge> priseEnCharge = Connexion.maBDD.Query<PriseEnCharge>("" +
                 "SELECT * " +
-                "FROM Clients " +
+                "FROM PriseEnCharge " +
                 "LIMIT @Limit " +
                 ";"
                 , new
                 {
                     Limit = Properties.Settings.Default.Limite
                 });
-                return Clients;
+                return priseEnCharge;
             }
             else
             {
                 //Retourne vide
-                return Enumerable.Empty<Client>();
+                return Enumerable.Empty<PriseEnCharge>();
             }
             
-        }
-
-        public static Client GetClient(int ID)
-        {
-            var leClient = Connexion.maBDD.Get<Client>(ID);
-            //Récupère le client avec l'ID passé en paramètre.
-            return leClient;
-
-        }
-
-        public static void InsertClient(Client client)
-        {
-            //Insère le client passé en paramètre
-            Connexion.maBDD.Insert<Client>(client);
-
-        }
-
-        public bool UpdateClient(Client client)
-        {
-           var isSuccess =  Connexion.maBDD.Update<Client>(client);
-            return isSuccess;
-        }
-
-        public bool DeleteClient(int ID)
-        {
-            var isSuccess = Connexion.maBDD.Delete(new Client {ID = ID});
-            return isSuccess;
         }
     }
 }

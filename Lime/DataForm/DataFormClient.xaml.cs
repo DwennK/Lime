@@ -33,7 +33,7 @@ namespace Lime
     {
         public Client client;
         string Action;
- 
+
         //Constructeur pour Insert
         public DataFormClient()
         {
@@ -61,7 +61,7 @@ namespace Lime
             tbxPersonneDeContact.Text = client.PersonneDeContact;
 
             Adresse adresseFacturation = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
-            if(adresseFacturation != null)
+            if (adresseFacturation != null)
             {
                 if (adresseFacturation.adresse != null) { tbxAdresse.Text = adresseFacturation.adresse; }
                 if (adresseFacturation.NPA != null) { tbxNPA.Text = adresseFacturation.NPA; }
@@ -75,7 +75,7 @@ namespace Lime
 
         private void InsertClient()
         {
-            if(DonnéesValides())
+            if (DonnéesValides())
             {
                 //On crée les deux adresses, vide au début.
                 Adresse adresseFacturation = new Adresse();
@@ -84,7 +84,7 @@ namespace Lime
 
 
                 //Si le client a une adresse
-                if(tbxAdresse.Text != string.Empty)
+                if (tbxAdresse.Text != string.Empty)
                 {
                     //On modifie l'adresse de Facturation, et la sauve dans la BDD.
                     adresseFacturation.adresse = tbxAdresse.Text;
@@ -98,7 +98,7 @@ namespace Lime
 
 
                 //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
-               client = new Client
+                client = new Client
                 {
                     Nom = tbxNom.Text,
                     ID_Adresse = idAdresseFacturation,
@@ -116,12 +116,12 @@ namespace Lime
                 //Ferme la fenêtre
                 this.Close();
             }
-            
+
         }
 
         private void UpdateClient()
         {
-            if(DonnéesValides())
+            if (DonnéesValides())
             {
                 var AdresseFacturationActuelle = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
 
@@ -158,11 +158,11 @@ namespace Lime
                 client.PersonneDeContact = tbxPersonneDeContact.Text;
 
 
-            //On update le client
-            Connexion.maBDD.Update<Client>(client);
-                
-            //Ferme la fenêtre
-            this.Close();
+                //On update le client
+                Connexion.maBDD.Update<Client>(client);
+
+                //Ferme la fenêtre
+                this.Close();
 
             }
         }
@@ -170,11 +170,11 @@ namespace Lime
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //Ces actions sont définies par le constructeur appelé
-            if(Action == "Insert")
+            if (Action == "Insert")
             {
                 InsertClient();
             }
-            else if(Action == "Update")
+            else if (Action == "Update")
             {
                 UpdateClient();
             }
@@ -236,7 +236,7 @@ namespace Lime
 
             //On obucle dans les résultats pour les ajouter dans la Liste
             var iNombreDeResultats = parsedObject.postalCodes.Count;
-            for(int iCpt = 0; iCpt < iNombreDeResultats; iCpt++)
+            for (int iCpt = 0; iCpt < iNombreDeResultats; iCpt++)
             {
                 string xtemp = parsedObject.postalCodes[iCpt]["placeName"].Value;
                 NomVilles.Add(xtemp);
@@ -259,7 +259,7 @@ namespace Lime
                 NomVilles = GetCityName(NPA);
 
                 //Sî'il y a au moins 1 ville, on ajoute la liste des villes dans le combobox
-                if(NomVilles.Count > 0)
+                if (NomVilles.Count > 0)
                 {
                     tbxVille.ItemsSource = NomVilles;
                 }
@@ -269,13 +269,22 @@ namespace Lime
                 {
                     tbxVille.SelectedIndex = 0;
                 }
-                else if(NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
+                else if (NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
                 {
                     tbxVille.IsDropDownOpen = true;
                 }
 
             }
 
+        }
+
+        //Quand on presse Enter, cela appelle cette méthode, qui va ensuite presser le bouton de validation du formulaire.
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnValider_Click(sender, e);
+            }
         }
     }
 }
