@@ -22,7 +22,7 @@
         <telerik:RadMaskedTextInput x:Name="tbxTelephone2" HorizontalAlignment="Left"  SelectionOnFocus="CaretToBeginning" Mask="(###) ###-##-##" Margin="413,44,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="215"/>
         <telerik:RadMaskedTextInput x:Name="tbxTelephone1" HorizontalAlignment="Left"  SelectionOnFocus="CaretToBeginning" Mask="(###) ###-##-##" Margin="101,42,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="215" TabIndex="1"/>
         <telerik:GroupBox x:Name="grpAdresseFacturation" Height="86" Margin="10,140,9.714,0" VerticalAlignment="Top" Header="Adresse">
-            <Grid HorizontalAlignment="Left" Height="95" Margin="0,0,-11.143,-22.429" VerticalAlignment="Top" Width="618">
+            <Grid Margin="0,0,-2,-1">
                 <telerik:Label x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
                 <telerik:RadWatermarkTextBox x:Name="tbxAdresse" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="540" telerik:StyleManager.Theme="Crystal" TabIndex="4"/>
                 <telerik:Label x:Name="lblNPAFacturation" Content="NPA" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
