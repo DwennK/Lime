@@ -78,7 +78,7 @@ namespace Lime
 
                 //RETIRER TOUT LES CRLF Des chamnps !
                 int numberOfColumns = dt.Columns.Count;
-                //On boucle dans chauqe ligne dans le dataSet
+                //On boucle dans chaque ligne dans le dataSet
                 foreach (DataRow dr in dt.Rows)
                 {
                     //Maintenant, on boucle dans chaque cellule de la ligne en cours
@@ -103,17 +103,11 @@ namespace Lime
             
 
         }
-
-
-        private void TabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void tabClients_Click(object sender, RoutedEventArgs e)
         {
             UpdateGridView(Client.GetAllClients().ToList());
         }
 
-        private void TabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
         
         //On recoit un IEnumerable, contenant un type de IEnumerable inconnu (Client ? Factures ? Prise en charge?), et donc, comme type, on met Ienumerable<object>, vu qu'ils en dérivent tous.
         public void UpdateGridView(IEnumerable<object> mesData)
@@ -200,6 +194,21 @@ namespace Lime
         private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void tabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UpdateGridView(Connexion.maBDD.GetAll<Client>());
+        }
+
+        private void tabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UpdateGridView(Connexion.maBDD.GetAll<Article>());
+        }
+
+        private void tabPriseEnCharge_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
         }
     }
 }

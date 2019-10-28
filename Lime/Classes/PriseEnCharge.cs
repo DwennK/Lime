@@ -51,35 +51,6 @@ namespace Lime
         public bool AppareilRenduAuClient { get; set; }
         public bool Cloturé { get; set; }
 
-        public PriseEnCharge(int iD, int? iD_Clients, int? iD_Adressess, int iD_MagasinSource, int iD_MagasinDestination, int iD_LieuActuelAppareil, string nom, string telephone1, string telephone2, string email1, string email2, DateTime dateDebut, TimeSpan heureDebut, DateTime dateEcheance, TimeSpan heureEcheance, string codeAppareil, string codeSIM, string iMEI, string serialNumber, string commentaire, decimal remisePermanente, string personneDeContact, bool paiementSurFacture, bool appareilRenduAuClient, bool cloturé)
-        {
-            ID = iD;
-            ID_Clients = iD_Clients;
-            ID_Adressess = iD_Adressess;
-            ID_MagasinSource = iD_MagasinSource;
-            ID_MagasinDestination = iD_MagasinDestination;
-            ID_LieuActuelAppareil = iD_LieuActuelAppareil;
-            Nom = nom;
-            Telephone1 = telephone1;
-            Telephone2 = telephone2;
-            Email1 = email1;
-            Email2 = email2;
-            DateDebut = dateDebut;
-            HeureDebut = heureDebut;
-            DateEcheance = dateEcheance;
-            HeureEcheance = heureEcheance;
-            CodeAppareil = codeAppareil;
-            CodeSIM = codeSIM;
-            IMEI = iMEI;
-            SerialNumber = serialNumber;
-            Commentaire = commentaire;
-            RemisePermanente = remisePermanente;
-            PersonneDeContact = personneDeContact;
-            PaiementSurFacture = paiementSurFacture;
-            AppareilRenduAuClient = appareilRenduAuClient;
-            Cloturé = cloturé;
-        }
-
         public static IEnumerable<PriseEnCharge> GetAllPriseEnCharge()
         {
             if (Connexion.CheckForInternetConnection())

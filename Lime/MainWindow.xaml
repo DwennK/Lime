@@ -54,7 +54,7 @@
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
             <telerik:RadRibbonView.Items>
-                <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
+                <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" GotFocus="tabClients_Click">
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" />
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" />
@@ -65,7 +65,7 @@
                         <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonUp="TabClients_MouseLeftButtonUp">
+                <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonDown="tabClients_MouseLeftButtonUp" MouseLeftButtonUp="tabClients_MouseLeftButtonUp">
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton x:Name="CréerClient" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                         <telerik:RadRibbonButton x:Name="ModifierClient" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="ModifierClient_Click"  />
@@ -76,7 +76,7 @@
                         <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                <telerik:RadRibbonTab x:Name="tabPriseEnCharge" Header="Prise en Charge" >
+                <telerik:RadRibbonTab x:Name="tabPriseEnCharge" Header="Prise en Charge" MouseLeftButtonUp="tabPriseEnCharge_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
@@ -131,7 +131,7 @@
                         <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" MouseLeftButtonUp="TabArticles_MouseLeftButtonUp" >
+                <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" MouseLeftButtonDown="tabArticles_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
