@@ -57,17 +57,10 @@ namespace Lime
         //RowActivated = DoubleClick sur un ligne
         private void RadGridView1_RowActivated(object sender, Telerik.Windows.Controls.GridView.RowEventArgs e)
         {
-            //Cet évènement est déclenché lors d'un double clic sur une Row dans le datagrid.
-
-            //On récupère la ligne en entier ou l'utilisateur a cliqué
-            var maRow = ((DataRowView)RadGridView1.SelectedItem).Row;
-            //On récupére le contenu de la première Colonne, dans ce cas-ci, l'ID de la ligne dans la BDD
-            string ID = maRow[0].ToString();
-            MessageBox.Show("ID De ce tuple: "+ID,"ID :");
-
-            //Une fois le DataGrid rempli, on cache la Colonne ID 
-            //RadGridView1.Columns[0].Visibility = Visibility.Hidden;
+            //A modifier pour modifier aussi les autres types de documents !
+            ModifierClient_Click(sender, e);
         }
+        
 
         private void GetData(string strCommandeSQL)
         {
