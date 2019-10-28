@@ -16,7 +16,7 @@ namespace Lime
     [Table("Articles")]
     public class Article
     {
-        
+        [Computed]
         public int ID { get; set; }
         public int ID_CodeArticles { get; set; }
         public int ID_Marques { get; set; }

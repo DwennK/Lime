@@ -168,6 +168,7 @@
     </Compile>
     <Compile Include="Classes\Adresse.cs" />
     <Compile Include="Classes\Article.cs" />
+    <Compile Include="Classes\PriseEnCharge.cs" />
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
