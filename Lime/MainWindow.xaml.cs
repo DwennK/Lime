@@ -210,5 +210,23 @@ namespace Lime
         {
             UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
         }
+
+        private void InsertPriseEnCharge(object sender, RoutedEventArgs e)
+        {
+            
+                maFenetre = new DataFormClient();
+            maFenetre.Closed += DataFormClientHandler;
+            maFenetre.Show();
+        }
+
+        private void UpdatePriseEnCharge_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeletePriseEnCharge_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
