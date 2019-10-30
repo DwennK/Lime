@@ -27,15 +27,15 @@ using Chsword;
 namespace Lime
 {
     /// <summary>
-    /// Interaction logic for DataFormClient.xaml
+    /// Interaction logic for FormClient.xaml
     /// </summary>
-    public partial class DataFormClient
+    public partial class FormClient
     {
         public Client client;
         string Action;
 
         //Constructeur pour Insert
-        public DataFormClient()
+        public FormClient()
         {
             InitializeComponent();
             tbxNom.Focus();
@@ -43,7 +43,7 @@ namespace Lime
         }
 
         //Constructeur pour Update
-        public DataFormClient(Client client)
+        public FormClient(Client client)
         {
             InitializeComponent();
             tbxNom.Focus();

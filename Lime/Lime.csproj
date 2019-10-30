@@ -404,11 +404,11 @@
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
-    <Compile Include="DataForm\DataFormClient.xaml.cs">
-      <DependentUpon>DataFormClient.xaml</DependentUpon>
+    <Compile Include="DataForm\FormClient.xaml.cs">
+      <DependentUpon>FormClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataForm\DataFormPriseEnCharge.xaml.cs">
-      <DependentUpon>DataFormPriseEnCharge.xaml</DependentUpon>
+    <Compile Include="DataForm\FormPriseEnCharge.xaml.cs">
+      <DependentUpon>FormPriseEnCharge.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataForm\RadDataFormClient.xaml.cs">
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
@@ -418,7 +418,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DataForm\DataFormPriseEnCharge.xaml">
+    <Page Include="DataForm\FormPriseEnCharge.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -438,7 +438,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="DataForm\DataFormClient.xaml">
+    <Page Include="DataForm\FormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

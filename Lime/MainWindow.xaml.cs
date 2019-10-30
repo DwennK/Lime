@@ -146,23 +146,29 @@ namespace Lime
 
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
-            DataFormClient maFenetre = new DataFormClient();
-            maFenetre.Closed += DataFormClientHandler;
+            FormClient maFenetre = new FormClient();
+            maFenetre.Closed += FormClientHandler;
             maFenetre.Show();
         }
 
         //Se fait appeler quand une modification/ajout d'un client a eu lieu, mais dans une autre fenêtre que celle-ci (la methode UpdateGridView ne peux pas se faire appeler depuis une autre fenetre)
-        public void DataFormClientHandler(object sender, EventArgs e)
+        public void FormClientHandler(object sender, EventArgs e)
         {
             UpdateGridView(Connexion.maBDD.GetAll<Client>());
+        }
+
+        //Se fait appeler quand une modification/ajout d'un client a eu lieu, mais dans une autre fenêtre que celle-ci (la methode UpdateGridView ne peux pas se faire appeler depuis une autre fenetre)
+        public void FormPriseEnChargeHandler(object sender, EventArgs e)
+        {
+            UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
         }
 
 
         private void ModifierClient_Click(object sender, RoutedEventArgs e)
         {
             Client client = (Client)RadGridView1.SelectedItem;
-            DataFormClient maFenetre2 = new DataFormClient(client);
-            maFenetre2.Closed += DataFormClientHandler;
+            FormClient maFenetre2 = new FormClient(client);
+            maFenetre2.Closed += FormClientHandler;
             maFenetre2.Show();
         }
 
@@ -213,9 +219,8 @@ namespace Lime
 
         private void InsertPriseEnCharge(object sender, RoutedEventArgs e)
         {
-            
-                maFenetre = new DataFormClient();
-            maFenetre.Closed += DataFormClientHandler;
+            FormPriseEnCharge maFenetre = new FormPriseEnCharge();
+            maFenetre.Closed += FormPriseEnChargeHandler;
             maFenetre.Show();
         }
 
