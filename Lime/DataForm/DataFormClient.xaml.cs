@@ -64,6 +64,7 @@ namespace Lime
             if (adresseFacturation != null)
             {
                 if (adresseFacturation.adresse != null) { tbxAdresse.Text = adresseFacturation.adresse; }
+
                 if (adresseFacturation.NPA != null) { tbxNPA.Text = adresseFacturation.NPA; }
                 if (adresseFacturation.Ville != null) { tbxVille.Text = adresseFacturation.Ville; }
             }
