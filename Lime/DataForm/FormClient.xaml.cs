@@ -274,7 +274,6 @@ namespace Lime
                 {
                     tbxVille.IsDropDownOpen = true;
                 }
-
             }
 
         }
