@@ -30,7 +30,7 @@ namespace Lime
             //Insertion automatique de la Date dans le DatePickerDebut
             this.DatePickerDebut.SelectedDate = DateTime.Now;
             //Vu que la date de fin sera sûrement la même que aujourd'hui, on la mets automatiquement aussi dans le DatePickerEcheance
-            this.DatePickerEcheance.SelectedDate = DateTime.Now();
+            this.DatePickerEcheance.SelectedDate = DateTime.Now;
         }
 
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
