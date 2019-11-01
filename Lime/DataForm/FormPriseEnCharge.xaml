@@ -26,8 +26,8 @@
         <telerik:GroupBox Height="103" Margin="0,363,0,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin">
             <Grid>
 
-                <telerik:RadDatePicker HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadDatePicker HorizontalAlignment="Left" Margin="256,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadDatePicker x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="256,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadDatePicker x:Name="DatePickerEcheance" HorizontalAlignment="Left" Margin="256,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
                 <Label Content="Date de dépôt de l'appareil: " HorizontalAlignment="Center" Margin="10,10,690,0" VerticalAlignment="Top" Width="176"/>
                 <Label Content="Date de réception voulue de l'appareil: " HorizontalAlignment="Center" Margin="10,39,620,0" VerticalAlignment="Top" Width="246"/>
 

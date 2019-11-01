@@ -26,6 +26,8 @@ namespace Lime
         {
             InitializeComponent();
             this.action = "Insert";
+
+            this.DatePickerDebut.SelectedDate = DateTime.Now;
         }
 
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
