@@ -27,10 +27,12 @@ namespace Lime
             InitializeComponent();
             this.action = "Insert";
             
-            //Insertion automatique de la Date dans le DatePickerDebut
-            this.DatePickerDebut.SelectedDate = DateTime.Now;
+            //Insertion automatique de la Date dans le DatePic1kerDebut
+            this.DatePickerDebut.SelectedValue = DateTime.Now;
+            this.DatePickerDebut.IsEnabled = false;
+
             //Vu que la date de fin sera sûrement la même que aujourd'hui, on la mets automatiquement aussi dans le DatePickerEcheance
-            this.DatePickerEcheance.SelectedDate = DateTime.Now;
+            this.DatePickerEcheance.SelectedValue = DateTime.Now;
         }
 
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
