@@ -12,13 +12,7 @@
             </Grid>
         </telerik:GroupBox>
         <Label Content="2) Dans quel magasin souhaitez-vous récupérer l'appareil ?" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top"/>
-        <Label Content="3) Lieu actuel de l'appareil ?" HorizontalAlignment="Left" Margin="534,87,0,0" VerticalAlignment="Top"/>
-        <telerik:RadListBox HorizontalAlignment="Left" Margin="565,118,0,0" VerticalAlignment="Top" Width="250" telerik:StyleManager.Theme="Crystal">
-            <telerik:RadListBoxItem Content="Succursale Neuchâtel" />
-            <telerik:RadListBoxItem Content="Succursale Cortaillod"/>
-            <telerik:RadListBoxItem Content="Chez le client"/>
-            <telerik:RadListBoxItem Content="Rendu au client"/>
-        </telerik:RadListBox>
+        <Label Content="3) Lieu actuel de l'appareil ?" HorizontalAlignment="Left" Margin="658,89,0,0" VerticalAlignment="Top"/>
         <telerik:GroupBox Height="103" Margin="534,239,0,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin" HorizontalAlignment="Left" Width="539">
             <Grid>
                 <telerik:RadDateTimePicker StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"  Width="152"/>
@@ -60,7 +54,9 @@
                 <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Margin="198,40,0,16" Height="23" TextWrapping="Wrap" Text="" WatermarkContent="Code SIM"  Width="152" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadComboBox x:Name="ComboBoxMagasin" HorizontalAlignment="Left" Margin="98,118,0,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal">
-        </telerik:RadComboBox>
+        <telerik:RadComboBox x:Name="ComboBoxMagasin" HorizontalAlignment="Left" Margin="85,118,0,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
+        <telerik:RadComboBox x:Name="ComboBoxLieuActuelAppareil" HorizontalAlignment="Left" Margin="658,118,0,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
+
+
     </Grid>
 </telerik:RadWindow>

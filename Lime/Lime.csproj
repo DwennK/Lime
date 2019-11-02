@@ -400,6 +400,7 @@
     </Compile>
     <Compile Include="Classes\Adresse.cs" />
     <Compile Include="Classes\Article.cs" />
+    <Compile Include="Classes\LieuActuelAppareil.cs" />
     <Compile Include="Classes\Magasin.cs" />
     <Compile Include="Classes\PriseEnCharge.cs" />
     <Compile Include="Classes\Connexion.cs" />

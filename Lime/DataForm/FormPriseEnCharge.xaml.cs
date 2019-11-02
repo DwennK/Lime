@@ -52,15 +52,26 @@ namespace Lime
 
         private void Populate()
         {
+            #region Combobox Liste des Magasins
+                //On vide, puis insère la liste des magasins dans le combobox approprié.
+                ComboBoxMagasin.Items.Clear();
+                ComboBoxMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+                //Ce qu'on affiche textuellemtn dans le combobox.
+                ComboBoxMagasin.DisplayMemberPath = "Libelle";
+                //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
+                ComboBoxMagasin.SelectedValuePath = "ID";
+            #endregion
+
+
+            #region Combobox Lieu actuel de l'appareil
             //On vide, puis insère la liste des magasins dans le combobox approprié.
-            ComboBoxMagasin.Items.Clear();
-            ComboBoxMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+            ComboBoxLieuActuelAppareil.Items.Clear();
+            ComboBoxLieuActuelAppareil.ItemsSource = Connexion.maBDD.GetAll<Lieu ();
             //Ce qu'on affiche textuellemtn dans le combobox.
             ComboBoxMagasin.DisplayMemberPath = "Libelle";
-            //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du magasind ans la BDD)
+            //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
             ComboBoxMagasin.SelectedValuePath = "ID";
-
-
+            #endregion
 
 
         }
