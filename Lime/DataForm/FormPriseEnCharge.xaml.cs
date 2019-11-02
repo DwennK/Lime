@@ -64,13 +64,13 @@ namespace Lime
 
 
             #region Combobox Lieu actuel de l'appareil
-            //On vide, puis insère la liste des magasins dans le combobox approprié.
-            ComboBoxLieuActuelAppareil.Items.Clear();
-            ComboBoxLieuActuelAppareil.ItemsSource = Connexion.maBDD.GetAll<Lieu ();
-            //Ce qu'on affiche textuellemtn dans le combobox.
-            ComboBoxMagasin.DisplayMemberPath = "Libelle";
-            //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
-            ComboBoxMagasin.SelectedValuePath = "ID";
+                //On vide, puis insère la liste des magasins dans le combobox approprié.
+                ComboBoxLieuActuelAppareil.Items.Clear();
+                ComboBoxLieuActuelAppareil.ItemsSource = Connexion.maBDD.GetAll<LieuActuelAppareil>();
+                //Ce qu'on affiche textuellemtn dans le combobox.
+                ComboBoxLieuActuelAppareil.DisplayMemberPath = "Libelle";
+                //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
+                ComboBoxLieuActuelAppareil.SelectedValuePath = "ID";
             #endregion
 
 

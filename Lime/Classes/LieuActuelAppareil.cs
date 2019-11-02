@@ -9,7 +9,7 @@ using Dapper.Contrib.Extensions;
 using System.ComponentModel; //Sert à changer l'affichage du nom de la propritéé dans la BDD par un texte(Last Name au lieu de lastname par exemple)
 using System.ComponentModel.DataAnnotations;
 
-namespace Lime.Classes
+namespace Lime
 {
     public class LieuActuelAppareil
     {
