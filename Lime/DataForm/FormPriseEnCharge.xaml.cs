@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using Telerik.Windows.Controls;
+using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
 
 namespace Lime
 {
@@ -33,6 +36,10 @@ namespace Lime
 
             //Vu que la date de fin sera sûrement la même que aujourd'hui, on la mets automatiquement aussi dans le DatePickerEcheance
             this.DatePickerEcheance.SelectedValue = DateTime.Now;
+
+
+            Populate();
+
         }
 
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
@@ -40,6 +47,22 @@ namespace Lime
             InitializeComponent();
             this.action = "Update";
             this.priseEnCharge = priseEnCharge;
+            Populate();
+        }
+
+        private void Populate()
+        {
+            //On vide, puis insère la liste des magasins dans le combobox approprié.
+            ComboBoxMagasin.Items.Clear();
+            ComboBoxMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+            //Ce qu'on affiche textuellemtn dans le combobox.
+            ComboBoxMagasin.DisplayMemberPath = "Libelle";
+            //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du magasind ans la BDD)
+            ComboBoxMagasin.SelectedValuePath = "ID";
+
+
+
+
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
