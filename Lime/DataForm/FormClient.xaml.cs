@@ -74,6 +74,17 @@ namespace Lime
             tbxPersonneDeContact.Text = client.PersonneDeContact;
         }
 
+        //Constructeur pour Search
+        public FormClient(string NomClient)
+        {
+            this.Action = "Search";
+
+            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient";
+            var ListClient = Connexion.maBDD.Query<Client>(sql).ToList();
+
+
+        }
+
         private void InsertClient()
         {
             if (DonnéesValides())
