@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 using Telerik.Windows.Controls;
 using Dapper;
 using Dapper.Contrib;
@@ -22,7 +21,6 @@ using System.Runtime.Serialization.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Chsword;
 
 namespace Lime
 {
@@ -48,17 +46,19 @@ namespace Lime
             InitializeComponent();
             tbxNom.Focus();
             this.client = client;
+            this.DataContext = this.client;
             Action = "Update";
 
 
-            tbxNom.Text = client.Nom;
-            tbxTelephone1.Value = client.Telephone1;
-            tbxTelephone2.Value = client.Telephone2;
-            tbxEmail1.Text = client.Email1;
-            tbxEmail2.Text = client.Email2;
-            tbxCommentaire.Text = client.Commentaire;
-            tbxRemisePermanente.Value = client.RemisePermanente;
-            tbxPersonneDeContact.Text = client.PersonneDeContact;
+
+            //tbxNom.Text = client.Nom;
+            //tbxTelephone1.Value = client.Telephone1;
+            //tbxTelephone2.Value = client.Telephone2;
+            //tbxEmail1.Text = client.Email1;
+            //tbxEmail2.Text = client.Email2;
+            //tbxCommentaire.Text = client.Commentaire;
+            //tbxRemisePermanente.Value = client.RemisePermanente;
+            //tbxPersonneDeContact.Text = client.PersonneDeContact;
 
             Adresse adresseFacturation = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
             if (adresseFacturation != null)
@@ -70,19 +70,29 @@ namespace Lime
             }
 
 
-            tbxRemisePermanente.Value = client.RemisePermanente;
-            tbxPersonneDeContact.Text = client.PersonneDeContact;
+            //tbxRemisePermanente.Value = client.RemisePermanente;
+            //tbxPersonneDeContact.Text = client.PersonneDeContact;
         }
 
         //Constructeur pour Search
         public FormClient(string NomClient)
         {
             this.Action = "Search";
+            this.tbxNom.TextChanged += TbxNom_TextChanged;
 
+
+        }
+
+        private void TbxNom_TextChanged(object sender, TextChangedEventArgs e)
+        {
             var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient";
             var ListClient = Connexion.maBDD.Query<Client>(sql).ToList();
 
+           
+        }
 
+        public void Populate()
+        {
         }
 
         private void InsertClient()
@@ -91,7 +101,6 @@ namespace Lime
             {
                 //On crée les deux adresses, vide au début.
                 Adresse adresseFacturation = new Adresse();
-                Adresse adresseLivraison = new Adresse();
                 int? idAdresseFacturation = null;
 
 
@@ -160,15 +169,6 @@ namespace Lime
                     Connexion.maBDD.Update<Adresse>(AdresseFacturationActuelle);
                 }
 
-                client.Nom = tbxNom.Text;
-                client.Telephone1 = tbxTelephone1.Value;
-                client.Telephone2 = tbxTelephone2.Value;
-                client.Email1 = tbxEmail1.Text;
-                client.Email2 = tbxEmail2.Text;
-                client.Commentaire = tbxCommentaire.Text;
-                client.RemisePermanente = (int)tbxRemisePermanente.Value;
-                client.PersonneDeContact = tbxPersonneDeContact.Text;
-
 
                 //On update le client
                 Connexion.maBDD.Update<Client>(client);
@@ -197,7 +197,7 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (tbxNom.Text == "")
+            if (client.Nom == "")
             {
                 messageErreur += "Veuillez rentrer le nom du client.\n";
             }

@@ -124,5 +124,14 @@ namespace Lime
             return isValidData;
         }
 
+        private void btnInsertClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSearchClient_Click(object sender, RoutedEventArgs e)
+        {
+            FormClient maFenetre = new FormClient();
+        }
     }
 }
