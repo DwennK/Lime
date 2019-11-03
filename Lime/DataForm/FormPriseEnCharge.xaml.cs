@@ -131,7 +131,7 @@ namespace Lime
 
         private void btnSearchClient_Click(object sender, RoutedEventArgs e)
         {
-            FormClient maFenetre = new FormClient();
+            FormClient maFenetre = new FormClient("Search");
         }
     }
 }

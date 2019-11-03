@@ -32,12 +32,28 @@ namespace Lime
         public Client client;
         string Action;
 
-        //Constructeur pour Insert
-        public FormClient()
+        //Constructeur pour Insert OU Search
+        public FormClient(string action)
         {
             InitializeComponent();
             tbxNom.Focus();
-            Action = "Insert";
+            if(action == "Insert")
+            {
+                Action = "Insert";
+            }
+            else if(action == "Search") //Si on ouvre ce formulaire en mode Search, le but va être de trouver le bon client. On ajoute donc une fonction sur tbxNom 
+            {
+                tbxNom.TextChanged += TbxNom_TextChanged;
+            }
+
+        }
+
+        private void TbxNom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var NomClient = tbxNom.Text;
+            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient";
+            var ListClient = Connexion.maBDD.Query<Client>(sql).ToList();
+
         }
 
         //Constructeur pour Update
@@ -74,26 +90,6 @@ namespace Lime
             //tbxPersonneDeContact.Text = client.PersonneDeContact;
         }
 
-        //Constructeur pour Search
-        public FormClient(string NomClient)
-        {
-            this.Action = "Search";
-            this.tbxNom.TextChanged += TbxNom_TextChanged;
-
-
-        }
-
-        private void TbxNom_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient";
-            var ListClient = Connexion.maBDD.Query<Client>(sql).ToList();
-
-           
-        }
-
-        public void Populate()
-        {
-        }
 
         private void InsertClient()
         {
