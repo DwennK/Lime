@@ -52,8 +52,6 @@ namespace Lime
         readonly string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
 
 
-
-
         //RowActivated = DoubleClick sur un ligne
         private void RadGridView1_RowActivated(object sender, Telerik.Windows.Controls.GridView.RowEventArgs e)
         {
@@ -62,47 +60,6 @@ namespace Lime
         }
         
 
-        private void GetData(string strCommandeSQL)
-        {
-            if(Connexion.CheckForInternetConnection())
-            {
-        
-                MySqlConnection xxxConnexion = new MySqlConnection(strConnexionString);
-                lblStatusConnexion.Content = strConnexionString;
-
-                MySqlCommand cmd = new MySqlCommand(strCommandeSQL, xxxConnexion);
-                MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable("xxxDataGrid");
-                sda.Fill(dt);
-
-
-                //RETIRER TOUT LES CRLF Des chamnps !
-                int numberOfColumns = dt.Columns.Count;
-                //On boucle dans chaque ligne dans le dataSet
-                foreach (DataRow dr in dt.Rows)
-                {
-                    //Maintenant, on boucle dans chaque cellule de la ligne en cours
-                    for (int i = 0; i < numberOfColumns; i++)
-                    {
-                        // access cell as set or get
-                        // dr[i] = "something";
-                        // string something = Convert.ToString(dr[i]);
-
-                        //A l'aide d'un Régex, on remplace tout les \r, \n, et \t avec un string vide. :) Ceci causait un problème d'afichage plus loin une fois mise dans le RadGridView.
-                        if (dr[i] is string) //Test de string Afin de ne pas avoir d'erreur sur la clé primaire, les dates etc etc..
-                        {
-                            dr[i] = Regex.Replace((string)dr[i], "[\\r\\n\\t]", string.Empty);
-                        }
-
-                    }
-
-                }
-                //RETIRER TOUT LES CRLF Des chamnps !
-                RadGridView1.ItemsSource = dt.DefaultView;
-            }
-            
-
-        }
         private void tabClients_Click(object sender, RoutedEventArgs e)
         {
             UpdateGridView(Client.GetAllClients().ToList());
