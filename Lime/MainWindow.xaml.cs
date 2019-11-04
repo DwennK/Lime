@@ -146,7 +146,7 @@ namespace Lime
 
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
-            FormClient maFenetre = new FormClient();
+            FormClient maFenetre = new FormClient("Insert");
             maFenetre.Closed += FormClientHandler;
             maFenetre.Show();
         }

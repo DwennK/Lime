@@ -32,7 +32,7 @@ namespace Lime
         public Client client;
         string Action;
 
-        //Constructeur pour Insert OU Search
+        //Constructeur pour Insert
         public FormClient(string action)
         {
             InitializeComponent();
@@ -41,18 +41,6 @@ namespace Lime
             {
                 Action = "Insert";
             }
-            else if(action == "Search") //Si on ouvre ce formulaire en mode Search, le but va être de trouver le bon client. On ajoute donc une fonction sur tbxNom 
-            {
-                tbxNom.TextChanged += TbxNom_TextChanged;
-            }
-
-        }
-
-        private void TbxNom_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var NomClient = tbxNom.Text;
-            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient";
-            var ListClient = Connexion.maBDD.Query<Client>(sql).ToList();
 
         }
 
@@ -115,18 +103,18 @@ namespace Lime
 
 
                 //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
-                client = new Client
-                {
-                    Nom = tbxNom.Text,
-                    ID_Adresse = idAdresseFacturation,
-                    Telephone1 = tbxTelephone1.Value,
-                    Telephone2 = tbxTelephone2.Value,
-                    Email1 = tbxEmail1.Text,
-                    Email2 = tbxEmail2.Text,
-                    Commentaire = tbxCommentaire.Text,
-                    RemisePermanente = (int)tbxRemisePermanente.Value,
-                    PersonneDeContact = tbxPersonneDeContact.Text
-                };
+                //client = new Client
+                //{
+                //    Nom = tbxNom.Text,
+                //    ID_Adresse = idAdresseFacturation,
+                //    Telephone1 = tbxTelephone1.Value,
+                //    Telephone2 = tbxTelephone2.Value,
+                //    Email1 = tbxEmail1.Text,
+                //    Email2 = tbxEmail2.Text,
+                //    Commentaire = tbxCommentaire.Text,
+                //    RemisePermanente = (int)tbxRemisePermanente.Value,
+                //    PersonneDeContact = tbxPersonneDeContact.Text
+                //};
                 Connexion.maBDD.Insert<Client>(client);
 
 
@@ -193,7 +181,7 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (client.Nom == "")
+            if (tbxNom.Text == "")
             {
                 messageErreur += "Veuillez rentrer le nom du client.\n";
             }
@@ -290,6 +278,8 @@ namespace Lime
         {
             if (e.Key == Key.Return)
             {
+                //On doit focus autre chose que le nom, comme ça les Bindings modifient correctement le client (Quand on leave le focus c'est là que l'objet se modifie)
+                btnValider.Focus();
                 btnValider_Click(sender, e);
             }
         }

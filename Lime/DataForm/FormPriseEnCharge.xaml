@@ -9,11 +9,9 @@
         </Grid.RowDefinitions>
         <telerik:GroupBox Height="291" VerticalAlignment="Top" Header="1) Êtes-vous déjà client chez nous ?" Margin="0,10,0,0">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <telerik:RadButton x:Name="btnSearchClient" Content="Rechercher le client" HorizontalAlignment="Left" Height="Auto" Margin="634,10,0,0" VerticalAlignment="Top" Width="160" telerik:StyleManager.Theme="Crystal" Click="btnSearchClient_Click" />
-                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="214,10,0,0" VerticalAlignment="Top" Width="160" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
+                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="819,19,0,0" VerticalAlignment="Top" Width="160" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
+                <telerik:RadWatermarkTextBox x:Name="tbxNom" HorizontalAlignment="Left" Height="23" Margin="29,19,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="315" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged"/>
+                <telerik:RadGridView x:Name="RadGridView1" Margin="0,58,0,0" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False"/>
 
             </Grid>
         </telerik:GroupBox>

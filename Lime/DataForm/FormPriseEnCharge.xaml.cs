@@ -129,9 +129,15 @@ namespace Lime
 
         }
 
-        private void btnSearchClient_Click(object sender, RoutedEventArgs e)
+
+        private void tbxNom_TextChanged(object sender, TextChangedEventArgs e)
         {
-            FormClient maFenetre = new FormClient("Search");
+            //On rempli le gridview de la liste des clients qui ont ce nom.
+            var NomClient = tbxNom.Text;
+            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient ";
+            IEnumerable<Client> ListClient = Connexion.maBDD.Query<Client>(sql, new { NomClient = "%"+NomClient+"%" });
+
+            RadGridView1.ItemsSource = ListClient;
         }
     }
 }

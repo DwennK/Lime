@@ -39,3 +39,4 @@ Telerik.Windows.Controls.RadMaskedDateTimeInput, Telerik.Windows.Controls.Input,
 Telerik.Windows.Controls.RadTimeSpanPicker, Telerik.Windows.Controls.Input, Version=2019.3.1023.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.RadMaskedNumericInput, Telerik.Windows.Controls.Input, Version=2019.3.1023.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
 Telerik.Windows.Controls.RadComboBox, Telerik.Windows.Controls.Input, Version=2019.3.1023.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.RadGridView, Telerik.Windows.Controls.GridView, Version=2019.3.1023.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
