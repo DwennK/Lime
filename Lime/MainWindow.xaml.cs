@@ -80,10 +80,6 @@ namespace Lime
             Properties.Settings.Default.Reload();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //RadDataFormClient maFenetre2 = new RadDataFormClient(Get);
-        }
 
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
