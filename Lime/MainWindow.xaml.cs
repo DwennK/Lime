@@ -85,22 +85,6 @@ namespace Lime
             //RadDataFormClient maFenetre2 = new RadDataFormClient(Get);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Connexion.maBDD.Open();
-            var clients = Connexion.maBDD.GetAll<Client>().ToList();
-
-            clients[1].Nom = "x0";
-
-
-            Connexion.maBDD.Update(clients);
-
-            Connexion.maBDD.Close();
-
-
-
-        }
-
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
         {
             FormClient maFenetre = new FormClient("Insert");
