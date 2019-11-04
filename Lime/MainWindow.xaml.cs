@@ -186,15 +186,18 @@ namespace Lime
 
         private void SupprimmerClient_Click_OnClosed(object sender, WindowClosedEventArgs e)
         {
-
-            //Si le client confirme la supression, alor son supprime vraiment le client.
-            var result = e.DialogResult;
-            if (result == true)
+            if(Connexion.CheckForInternetConnection())
             {
-                Client client = (Client)RadGridView1.SelectedItem;
-                Connexion.maBDD.Delete<Client>(client);
-                UpdateGridView(Connexion.maBDD.GetAll<Client>());
+                //Si le client confirme la supression, alors son supprime vraiment le client.
+                var result = e.DialogResult;
+                if (result == true)
+                {
+                    Client client = (Client)RadGridView1.SelectedItem;
+                    Connexion.maBDD.Delete<Client>(client);
+                    UpdateGridView(Connexion.maBDD.GetAll<Client>());
+                }
             }
+
         }
 
         private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
