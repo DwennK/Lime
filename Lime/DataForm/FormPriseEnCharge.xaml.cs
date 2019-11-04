@@ -24,10 +24,13 @@ namespace Lime
     public partial class FormPriseEnCharge
     {
         string action = "";
-        PriseEnCharge priseEnCharge;
+        PriseEnCharge priseEnCharge = new PriseEnCharge();
+
+
         public FormPriseEnCharge()
         {
             InitializeComponent();
+            this.DataContext = this.priseEnCharge;
             this.action = "Insert";
             
             //Insertion automatique de la Date dans le DatePic1kerDebut
@@ -45,6 +48,7 @@ namespace Lime
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
         {
             InitializeComponent();
+            this.DataContext = this.priseEnCharge;
             this.action = "Update";
             this.priseEnCharge = priseEnCharge;
             Populate();
@@ -81,11 +85,11 @@ namespace Lime
             //Ces actions sont définies par le constructeur appelé
             if (action == "Insert")
             {
-                //InsertClient();
+                Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
             }
             else if (action == "Update")
             {
-                //UpdateClient();
+                Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
             }
         }
 

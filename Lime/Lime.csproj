@@ -497,6 +497,7 @@
     <Resource Include="Images\Icons\add.png" />
     <Resource Include="Images\Icons\edit.png" />
     <Resource Include="Images\Icons\delete.png" />
+    <Resource Include="Images\Icons\checked.png" />
     <Content Include="Images\lemon.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
