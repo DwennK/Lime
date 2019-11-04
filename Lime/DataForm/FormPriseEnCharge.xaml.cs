@@ -24,6 +24,7 @@ namespace Lime
     public partial class FormPriseEnCharge
     {
         string action = "";
+        Client client = new Client();
         PriseEnCharge priseEnCharge = new PriseEnCharge();
 
 
@@ -133,7 +134,10 @@ namespace Lime
             FormClient maFenetre = new FormClient("Insert");
             maFenetre.ShowDialog();
 
-            tbxNom.Text = maFenetre.client.Nom;
+            client = maFenetre.client;
+            priseEnCharge.ID_Adresses = client.ID_Adresse;
+            //CONTINUER CA, PAS FINI, mettre encore les autres champs
+            //TODO, TO-DO
 
         }
 
