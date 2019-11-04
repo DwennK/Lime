@@ -135,6 +135,7 @@ namespace Lime
             maFenetre.ShowDialog();
 
             client = maFenetre.client;
+            priseEnCharge.Nom = client.Nom;
             priseEnCharge.ID_Adresses = client.ID_Adresse;
             //CONTINUER CA, PAS FINI, mettre encore les autres champs
             //TODO, TO-DO
