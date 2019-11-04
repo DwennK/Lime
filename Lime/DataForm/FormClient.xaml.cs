@@ -29,7 +29,7 @@ namespace Lime
     /// </summary>
     public partial class FormClient
     {
-        public Client client;
+        public Client client = new Client();
         string Action;
 
         //Constructeur pour Insert
@@ -37,7 +37,8 @@ namespace Lime
         {
             InitializeComponent();
             tbxNom.Focus();
-            if(action == "Insert")
+            this.DataContext = this.client;
+            if (action == "Insert")
             {
                 Action = "Insert";
             }
@@ -103,18 +104,7 @@ namespace Lime
 
 
                 //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
-                //client = new Client
-                //{
-                //    Nom = tbxNom.Text,
-                //    ID_Adresse = idAdresseFacturation,
-                //    Telephone1 = tbxTelephone1.Value,
-                //    Telephone2 = tbxTelephone2.Value,
-                //    Email1 = tbxEmail1.Text,
-                //    Email2 = tbxEmail2.Text,
-                //    Commentaire = tbxCommentaire.Text,
-                //    RemisePermanente = (int)tbxRemisePermanente.Value,
-                //    PersonneDeContact = tbxPersonneDeContact.Text
-                //};
+                client.ID_Adresse = idAdresseFacturation;
                 Connexion.maBDD.Insert<Client>(client);
 
 
