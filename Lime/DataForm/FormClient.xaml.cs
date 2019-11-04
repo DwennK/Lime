@@ -55,16 +55,6 @@ namespace Lime
             Action = "Update";
 
 
-
-            //tbxNom.Text = client.Nom;
-            //tbxTelephone1.Value = client.Telephone1;
-            //tbxTelephone2.Value = client.Telephone2;
-            //tbxEmail1.Text = client.Email1;
-            //tbxEmail2.Text = client.Email2;
-            //tbxCommentaire.Text = client.Commentaire;
-            //tbxRemisePermanente.Value = client.RemisePermanente;
-            //tbxPersonneDeContact.Text = client.PersonneDeContact;
-
             Adresse adresseFacturation = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
             if (adresseFacturation != null)
             {
@@ -75,8 +65,6 @@ namespace Lime
             }
 
 
-            //tbxRemisePermanente.Value = client.RemisePermanente;
-            //tbxPersonneDeContact.Text = client.PersonneDeContact;
         }
 
 
@@ -107,12 +95,12 @@ namespace Lime
                 client.ID_Adresse = idAdresseFacturation;
                 Connexion.maBDD.Insert<Client>(client);
 
-
-                //Ferme la fenêtre
+                //Ferme la Fenêtre
                 this.Close();
             }
 
         }
+
 
         private void UpdateClient()
         {

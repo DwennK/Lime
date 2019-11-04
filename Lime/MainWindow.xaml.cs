@@ -204,17 +204,26 @@ namespace Lime
 
         private void tabClients_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Connexion.maBDD.GetAll<Client>());
+            if (Connexion.CheckForInternetConnection())
+            {
+                UpdateGridView(Connexion.maBDD.GetAll<Client>());
+            }
         }
 
         private void tabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Connexion.maBDD.GetAll<Article>());
+            if (Connexion.CheckForInternetConnection())
+            {
+                UpdateGridView(Connexion.maBDD.GetAll<Article>());
+            }
         }
 
         private void tabPriseEnCharge_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
+            if(Connexion.CheckForInternetConnection())
+            {
+                UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
+            }
         }
 
         private void InsertPriseEnCharge(object sender, RoutedEventArgs e)

@@ -9,19 +9,19 @@
         </Grid.RowDefinitions>
         <telerik:GroupBox Height="291" VerticalAlignment="Top" Header="1) Êtes-vous déjà client chez nous ?" Margin="0,10,0,0">
             <Grid>
-                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="819,19,0,0" VerticalAlignment="Top" Width="160" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
-                <telerik:RadWatermarkTextBox x:Name="tbxNom" HorizontalAlignment="Left" Height="23" Margin="29,19,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="315" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged"/>
+                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="519,18,0,0" VerticalAlignment="Top" Width="220" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
+                <telerik:RadWatermarkTextBox x:Name="tbxNom" HorizontalAlignment="Left" Height="23" Margin="29,19,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="465" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged"/>
                 <telerik:RadGridView x:Name="RadGridView1" Margin="0,58,0,0" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False"/>
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="5,301,539,0" VerticalAlignment="Top" Header="2) Magasin de retour">
+        <telerik:GroupBox Height="60" Margin="6,301,538,0" VerticalAlignment="Top" Header="2) Magasin de retour">
             <Grid>
                 <Label Content="Dans quel magasin souhaitez-vous récupérer l'appareil ?" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,1,174,0"/>
                 <telerik:RadComboBox x:Name="ComboBoxMagasin" HorizontalAlignment="Center" Margin="348,3,7,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="539,301,-5,0" VerticalAlignment="Top" Header="3) Lieu actuel" HorizontalAlignment="Left" Width="539">
+        <telerik:GroupBox Height="60" Margin="539,301,0,0" VerticalAlignment="Top" Header="3) Lieu actuel">
             <Grid>
                 <Label Content="Lieu actuel de l'appareil ?" HorizontalAlignment="Center" Margin="10,0,362,0" VerticalAlignment="Top"/>
                 <telerik:RadComboBox x:Name="ComboBoxLieuActuelAppareil" HorizontalAlignment="Center" Margin="280,0,47,0" VerticalAlignment="Top" Width="200" telerik:StyleManager.Theme="Crystal" />
@@ -30,7 +30,7 @@
         </telerik:GroupBox>
 
 
-        <telerik:GroupBox Height="103" Margin="539,366,-5,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin" HorizontalAlignment="Left" Width="539">
+        <telerik:GroupBox Height="103" Margin="539,366,0,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin">
             <Grid>
                 <telerik:RadDateTimePicker StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"  Width="203"/>
                 <telerik:RadDateTimePicker StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerEcheance" HorizontalAlignment="Left" Margin="277,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="203"/>
@@ -39,7 +39,7 @@
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="5,474,-5,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
+        <telerik:GroupBox Height="60" Margin="5,474,0,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
             <Grid>
                 <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
                 <Label Content="Numéro de série (iPad / Ordinateur):" Margin="548,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
