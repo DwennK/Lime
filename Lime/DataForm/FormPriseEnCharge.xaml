@@ -2,17 +2,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        Header="Prise en charge" Height="732" Width="1085" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
+        Header="Prise en charge" Height="782" Width="1085" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <telerik:GroupBox Height="230" VerticalAlignment="Top" Header="1) Êtes-vous déjà client chez nous ?" Margin="0,10,0,0">
             <Grid>
-                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="609,9,0,0" VerticalAlignment="Top" Width="220" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
+                <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="689,9,0,0" VerticalAlignment="Top" Width="295" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
                 <telerik:RadWatermarkTextBox x:Name="tbxNom" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="465" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged" TabIndex="1"/>
-                <telerik:RadGridView x:Name="RadGridView1" Margin="0,58,0,0" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False"/>
-
+                <telerik:RadGridView x:Name="RadGridView1" Margin="0,58,0,0" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False" MouseDoubleClick="RadGridView1_MouseDoubleClick"/>
             </Grid>
         </telerik:GroupBox>
         <telerik:GroupBox Height="95" Margin="1,240,543,0" VerticalAlignment="Top" Header="2) Magasins">
@@ -37,8 +36,8 @@
 
         <telerik:GroupBox Height="103" Margin="534,350,5,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin">
             <Grid>
-                <telerik:RadDateTimePicker StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"  Width="203"/>
-                <telerik:RadDateTimePicker StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerEcheance" HorizontalAlignment="Left" Margin="277,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="203"/>
+                <telerik:RadDateTimePicker SelectedValue="{Binding DateDebut}" StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"  Width="203"/>
+                <telerik:RadDateTimePicker SelectedValue="{Binding DateEcheance}" StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerEcheance" HorizontalAlignment="Left" Margin="277,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="203"/>
                 <Label Content="Date de dépôt de l'appareil: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="176"/>
                 <Label Content="Date de réception voulue de l'appareil: " HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="246"/>
 
@@ -53,21 +52,21 @@
             </Grid>
 
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="0,520,544,0" VerticalAlignment="Top" Header="7) Facture">
+        <telerik:GroupBox Height="60" Margin="0,523,544,0" VerticalAlignment="Top" Header="7) Facture">
             <Grid>
                 <telerik:RadTreeView x:Name="radTreeView" IsOptionElementsEnabled="True"  HorizontalAlignment="Center" VerticalAlignment="Center"  telerik:StyleManager.Theme="Crystal">
                     <telerik:RadTreeViewItem Header="Est-ce que c'est une entreprise et que le paiement se fait sur facture ?" IsChecked="{Binding PaiementSurFacture}"  Width="454"/>
                 </telerik:RadTreeView>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="534,520,10,0" VerticalAlignment="Top" Header="8) Clôture ">
+        <telerik:GroupBox Height="60" Margin="534,523,10,0" VerticalAlignment="Top" Header="8) Clôture ">
             <Grid>
                 <telerik:RadTreeView x:Name="radTreeView1" IsOptionElementsEnabled="True"  HorizontalAlignment="Center" VerticalAlignment="Center"  telerik:StyleManager.Theme="Crystal">
                     <telerik:RadTreeViewItem Header="Document clôturé ?" IsChecked="{Binding Cloturé}"/>
                 </telerik:RadTreeView>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,600,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
+        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,665,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>

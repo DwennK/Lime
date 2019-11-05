@@ -20,7 +20,7 @@ namespace Lime
         [Display(Name = "ID Client")]
         public int? ID_Clients { get; set; }        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Adresse")]
-        public int? ID_Adresse { get; set; } //Le "?" Sert à ce que le champs accepte un Null dans Dapper
+        public int? ID_Adresses { get; set; } //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Magasin Source")]
         public int ID_MagasinSource { get; set; }
         [Display(Name = "ID Magasin Destination")]
@@ -37,9 +37,7 @@ namespace Lime
         [Display(Name = "E-mail 2")]
         public string Email2 { get; set; }
         public DateTime DateDebut { get; set; }
-        public TimeSpan HeureDebut { get; set; }
         public DateTime DateEcheance { get; set; }
-        public TimeSpan HeureEcheance { get; set; }
         public string CodeAppareil { get; set; }
         public string CodeSIM { get; set; }
         public string IMEI { get; set; }

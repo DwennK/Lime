@@ -33,13 +33,13 @@ namespace Lime
             InitializeComponent();
             this.DataContext = this.priseEnCharge;
             this.action = "Insert";
-            
+
             //Insertion automatique de la Date dans le DatePic1kerDebut
-            this.DatePickerDebut.SelectedValue = DateTime.Now;
+            priseEnCharge.DateDebut = DateTime.Now;
             this.DatePickerDebut.IsEnabled = false;
 
             //Vu que la date de fin sera sûrement la même que aujourd'hui, on la mets automatiquement aussi dans le DatePickerEcheance
-            this.DatePickerEcheance.SelectedValue = DateTime.Now;
+            priseEnCharge.DateEcheance = DateTime.Now;
 
 
             Populate();
@@ -146,7 +146,7 @@ namespace Lime
 
             client = maFenetre.client;
             priseEnCharge.Nom = client.Nom;
-            priseEnCharge.ID_Adresse = client.ID_Adresse;
+            priseEnCharge.ID_Adresses = client.ID_Adresse;
             //CONTINUER CA, PAS FINI, mettre encore les autres champs
             //TODO, TO-DO
 
@@ -161,6 +161,12 @@ namespace Lime
             IEnumerable<Client> ListClient = Connexion.maBDD.Query<Client>(sql, new { NomClient = "%"+NomClient+"%" });
 
             RadGridView1.ItemsSource = ListClient;
+        }
+
+        //Après un double click sur un Client dans le GridView, on l'affecte.
+        private void RadGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            this.client = (Client)RadGridView1.SelectedItem;
         }
     }
 }
