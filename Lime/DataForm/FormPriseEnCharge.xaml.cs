@@ -149,7 +149,6 @@ namespace Lime
             priseEnCharge.ID_Adresses = client.ID_Adresse;
             //CONTINUER CA, PAS FINI, mettre encore les autres champs
             //TODO, TO-DO
-
         }
 
 
@@ -167,6 +166,14 @@ namespace Lime
         private void RadGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             this.client = (Client)RadGridView1.SelectedItem;
+            priseEnCharge.Nom = client.Nom;
+            priseEnCharge.Telephone1 = client.Telephone1;
+            priseEnCharge.Telephone2 = client.Telephone2;
+            priseEnCharge.Email1 = client.Email1;
+            priseEnCharge.Email2 = client.Email2;
+            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
+            priseEnCharge.RemisePermanente = client.RemisePermanente;
+            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
         }
     }
 }
