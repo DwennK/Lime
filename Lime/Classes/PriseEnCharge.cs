@@ -20,7 +20,7 @@ namespace Lime
         [Display(Name = "ID Client")]
         public int? ID_Clients { get; set; }        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Adresse")]
-        public int? ID_Adresses { get; set; } //Le "?" Sert à ce que le champs accepte un Null dans Dapper
+        public int? ID_Adresse { get; set; } //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Magasin Source")]
         public int ID_MagasinSource { get; set; }
         [Display(Name = "ID Magasin Destination")]

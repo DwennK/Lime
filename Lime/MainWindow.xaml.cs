@@ -94,7 +94,7 @@ namespace Lime
             UpdateGridView(Connexion.maBDD.GetAll<Client>());
         }
 
-        //Se fait appeler quand une modification/ajout d'un client a eu lieu, mais dans une autre fenêtre que celle-ci (la methode UpdateGridView ne peux pas se faire appeler depuis une autre fenetre)
+        //Se fait appeler quand une modification/ajout a eu lieu, mais dans une autre fenêtre que celle-ci (la methode UpdateGridView ne peux pas se faire appeler depuis une autre fenetre)
         public void FormPriseEnChargeHandler(object sender, EventArgs e)
         {
             UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());

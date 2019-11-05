@@ -57,20 +57,30 @@ namespace Lime
 
         private void Populate()
         {
-            #region Combobox Liste des Magasins
+            #region Combobox Liste des Magasins Source
                 //On vide, puis insère la liste des magasins dans le combobox approprié.
-                ComboBoxMagasin.Items.Clear();
-                ComboBoxMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+                ComboBoxMagasinSource.Items.Clear();
+                ComboBoxMagasinSource.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
                 //Ce qu'on affiche textuellemtn dans le combobox.
-                ComboBoxMagasin.DisplayMemberPath = "Libelle";
+                ComboBoxMagasinSource.DisplayMemberPath = "Libelle";
                 //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
-                ComboBoxMagasin.SelectedValuePath = "ID";
+                ComboBoxMagasinSource.SelectedValuePath = "ID";
+            #endregion
+
+            #region Combobox Liste des Magasins Destination
+                //On vide, puis insère la liste des magasins dans le combobox approprié.
+                ComboBoxMagasinDestination.Items.Clear();
+                ComboBoxMagasinDestination.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+                //Ce qu'on affiche textuellemtn dans le combobox.
+                ComboBoxMagasinDestination.DisplayMemberPath = "Libelle";
+                //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
+                ComboBoxMagasinDestination.SelectedValuePath = "ID";
             #endregion
 
 
             #region Combobox Lieu actuel de l'appareil
-                //On vide, puis insère la liste des magasins dans le combobox approprié.
-                ComboBoxLieuActuelAppareil.Items.Clear();
+            //On vide, puis insère la liste des magasins dans le combobox approprié.
+            ComboBoxLieuActuelAppareil.Items.Clear();
                 ComboBoxLieuActuelAppareil.ItemsSource = Connexion.maBDD.GetAll<LieuActuelAppareil>();
                 //Ce qu'on affiche textuellemtn dans le combobox.
                 ComboBoxLieuActuelAppareil.DisplayMemberPath = "Libelle";
@@ -136,7 +146,7 @@ namespace Lime
 
             client = maFenetre.client;
             priseEnCharge.Nom = client.Nom;
-            priseEnCharge.ID_Adresses = client.ID_Adresse;
+            priseEnCharge.ID_Adresse = client.ID_Adresse;
             //CONTINUER CA, PAS FINI, mettre encore les autres champs
             //TODO, TO-DO
 
