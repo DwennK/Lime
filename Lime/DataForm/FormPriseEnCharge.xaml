@@ -43,14 +43,17 @@
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="5,458,5,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
+        <telerik:GroupBox Height="60" Margin="5,458,544,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
             <Grid>
                 <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
-                <Label Content="Numéro de série (iPad / Ordinateur):" Margin="548,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Value="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,0,0,0" VerticalAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Left" Height="25" Margin="815,0,0,0" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Center" Width="199" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
-
+        </telerik:GroupBox>
+        <telerik:GroupBox Height="60" Margin="534,458,5,0" VerticalAlignment="Top" Header="7) Numéro de série">
+            <Grid>
+                <Label Content="Numéro de série (iPad / Ordinateur):" Margin="5,6,0,5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Center" Height="25" Margin="280,7,42,5" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Center" Width="200" telerik:StyleManager.Theme="Crystal"/>
+            </Grid>
         </telerik:GroupBox>
         <telerik:GroupBox Height="60" Margin="5,523,544,0" VerticalAlignment="Top" Header="7) Sur facture ? (Réservé aux entreprises)">
             <Grid>
@@ -59,7 +62,6 @@
         </telerik:GroupBox>
         <telerik:GroupBox Height="60" Margin="534,523,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé et rendu au client) ">
             <Grid>
-                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé" CheckedContent="Oui" IsChecked="{Binding Cloturé}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
         <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,665,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
