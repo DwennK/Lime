@@ -47,7 +47,7 @@
             <Grid>
                 <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
                 <Label Content="Numéro de série (iPad / Ordinateur):" Margin="548,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Text="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,5,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
+                <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Value="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,5,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
                 <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Left" Height="25" Margin="815,5,0,0" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Top" Width="199" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
 
