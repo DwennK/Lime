@@ -7,19 +7,19 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <telerik:GroupBox Height="230" VerticalAlignment="Top" Header="1) Êtes-vous déjà client chez nous ?" Margin="0,10,0,0">
+        <telerik:GroupBox Height="230" VerticalAlignment="Top" Header="1) Êtes-vous déjà client chez nous ?" Margin="5,10,5,0">
             <Grid>
                 <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="689,9,0,0" VerticalAlignment="Top" Width="295" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
                 <telerik:RadWatermarkTextBox x:Name="tbxNom" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="465" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged" TabIndex="1"/>
-                <telerik:RadGridView x:Name="RadGridView1" Margin="0,58,0,0" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False" MouseDoubleClick="RadGridView1_MouseDoubleClick"/>
+                <telerik:RadGridView x:Name="RadGridView1" Margin="5,48,5,5" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False" MouseDoubleClick="RadGridView1_MouseDoubleClick"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="95" Margin="1,240,543,0" VerticalAlignment="Top" Header="2) Magasins">
+        <telerik:GroupBox Height="95" Margin="5,240,543,0" VerticalAlignment="Top" Header="2) Magasins">
             <Grid>
                 <Label Content="Magasin dans lequel l'appareil a été déposé :" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,240,0"/>
-                <telerik:RadComboBox x:Name="ComboBoxMagasinSource" SelectedValue="{Binding ID_MagasinSource}" HorizontalAlignment="Center" Margin="345,2,10,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
+                <telerik:RadComboBox x:Name="ComboBoxMagasinSource" SelectedValue="{Binding ID_MagasinSource}" HorizontalAlignment="Center" Margin="343,2,8,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
                 <Label Content="Dans quel magasin souhaitez-vous récupérer l'appareil ?" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="7,36,177,0"/>
-                <telerik:RadComboBox x:Name="ComboBoxMagasinDestination" SelectedValue="{Binding ID_MagasinDestination}" HorizontalAlignment="Center" Margin="345,38,10,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
+                <telerik:RadComboBox x:Name="ComboBoxMagasinDestination" SelectedValue="{Binding ID_MagasinDestination}" HorizontalAlignment="Center" Margin="343,38,8,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
             </Grid>
         </telerik:GroupBox>
         <telerik:GroupBox Height="95" Margin="534,240,5,0" VerticalAlignment="Top" Header="3) Lieu actuel">
@@ -27,8 +27,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Lieu actuel de l'appareil ?" HorizontalAlignment="Center" Margin="50,19,322,0" VerticalAlignment="Top"/>
-                <telerik:RadComboBox x:Name="ComboBoxLieuActuelAppareil" SelectedValue="{Binding ID_LieuActuelAppareil}" HorizontalAlignment="Center" Margin="245,19,77,0" VerticalAlignment="Top" Width="200" telerik:StyleManager.Theme="Crystal" />
+                <Label Content="Lieu actuel de l'appareil ?" HorizontalAlignment="Center" Margin="50,0,322,0" VerticalAlignment="Center"/>
+                <telerik:RadComboBox x:Name="ComboBoxLieuActuelAppareil" SelectedValue="{Binding ID_LieuActuelAppareil}" HorizontalAlignment="Center" Margin="245,0,77,0" VerticalAlignment="Center" Width="200" telerik:StyleManager.Theme="Crystal" />
 
             </Grid>
         </telerik:GroupBox>
@@ -43,27 +43,23 @@
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="0,458,5,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
+        <telerik:GroupBox Height="60" Margin="5,458,5,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
             <Grid>
-                <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
-                <Label Content="Numéro de série (iPad / Ordinateur):" Margin="548,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Value="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,5,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Left" Height="25" Margin="815,5,0,0" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Top" Width="199" telerik:StyleManager.Theme="Crystal"/>
+                <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                <Label Content="Numéro de série (iPad / Ordinateur):" Margin="548,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Value="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,0,0,0" VerticalAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
+                <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Left" Height="25" Margin="815,0,0,0" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Center" Width="199" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
 
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="0,523,544,0" VerticalAlignment="Top" Header="7) Facture">
+        <telerik:GroupBox Height="60" Margin="5,523,544,0" VerticalAlignment="Top" Header="7) Sur facture ? (Réservé aux entreprises)">
             <Grid>
-                <telerik:RadTreeView x:Name="radTreeView" IsOptionElementsEnabled="True"  HorizontalAlignment="Center" VerticalAlignment="Center"  telerik:StyleManager.Theme="Crystal">
-                    <telerik:RadTreeViewItem Header="Est-ce que c'est une entreprise et que le paiement se fait sur facture ?" IsChecked="{Binding PaiementSurFacture}"  Width="454"/>
-                </telerik:RadTreeView>
+                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchPaiementSurFacture" Content="xxxxxxx" CheckedContent="Oui" IsChecked="{Binding PaiementSurFacture}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="534,523,10,0" VerticalAlignment="Top" Header="8) Clôture ">
+        <telerik:GroupBox Height="60" Margin="534,523,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé et rendu au client) ">
             <Grid>
-                <telerik:RadTreeView x:Name="radTreeView1" IsOptionElementsEnabled="True"  HorizontalAlignment="Center" VerticalAlignment="Center"  telerik:StyleManager.Theme="Crystal">
-                    <telerik:RadTreeViewItem Header="Document clôturé ?" IsChecked="{Binding Cloturé}"/>
-                </telerik:RadTreeView>
+                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé" CheckedContent="Oui" IsChecked="{Binding Cloturé}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
         <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,665,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
@@ -72,7 +68,7 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
             </StackPanel>
         </telerik:RadButton>
-        <telerik:GroupBox Height="103" Margin="0,350,544,0" VerticalAlignment="Top" Header="4) Codes">
+        <telerik:GroupBox Height="103" Margin="5,350,544,0" VerticalAlignment="Top" Header="4) Codes">
             <Grid>
                 <Label Content="Code de l'appareil: " Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
                 <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeAppareil}"  Margin="198,10,0,45" Height="25" TextWrapping="Wrap"  WatermarkContent="Code appareil"  Width="152" telerik:StyleManager.Theme="Crystal"/>

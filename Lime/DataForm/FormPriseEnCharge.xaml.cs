@@ -93,15 +93,19 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(ToggleSwitchPaiementSurFacture.IsChecked.ToString(), "IsChecked Controle");
+           
+            MessageBox.Show(priseEnCharge.PaiementSurFacture.ToString(), "PaiementSurFacture : bool Dans l'objet");
+
             //Ces actions sont définies par le constructeur appelé
-            if (action == "Insert")
-            {
-                Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
-            }
-            else if (action == "Update")
-            {
-                Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
-            }
+            //if (action == "Insert")
+            //{
+            //    Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
+            //}
+            //else if (action == "Update")
+            //{
+            //    Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
+            //}
         }
 
         private bool DonnéesValides()
@@ -175,5 +179,7 @@ namespace Lime
             priseEnCharge.RemisePermanente = client.RemisePermanente;
             priseEnCharge.PersonneDeContact = client.PersonneDeContact;
         }
+
+
     }
 }
