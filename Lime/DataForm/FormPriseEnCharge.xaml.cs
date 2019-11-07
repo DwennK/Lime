@@ -93,10 +93,6 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(ToggleSwitchPaiementSurFacture.IsChecked.ToString(), "IsChecked Controle");
-           
-            MessageBox.Show(priseEnCharge.PaiementSurFacture.ToString(), "PaiementSurFacture : bool Dans l'objet");
-
             //Ces actions sont définies par le constructeur appelé
             //if (action == "Insert")
             //{

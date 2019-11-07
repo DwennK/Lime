@@ -416,6 +416,9 @@
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
+    <Compile Include="SplashScreen\SplashScreenLoading.xaml.cs">
+      <DependentUpon>SplashScreenLoading.xaml</DependentUpon>
+    </Compile>
     <Page Include="AjoutArticles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -443,6 +446,10 @@
     <Page Include="DataForm\FormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SplashScreen\SplashScreenLoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -500,5 +507,6 @@
     <Resource Include="Images\Icons\checked.png" />
     <Content Include="Images\lemon.svg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

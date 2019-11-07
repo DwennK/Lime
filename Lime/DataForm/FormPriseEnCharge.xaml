@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        Header="Prise en charge" Height="782" Width="1085" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
+        Header="Prise en charge" Height="817" Width="1085" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -34,7 +34,7 @@
         </telerik:GroupBox>
 
 
-        <telerik:GroupBox Height="103" Margin="534,350,5,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin">
+        <telerik:GroupBox Height="103" Margin="534,337,5,0" VerticalAlignment="Top" Header="5) Date de réception et date de fin">
             <Grid>
                 <telerik:RadDateTimePicker SelectedValue="{Binding DateDebut}" StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerDebut" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"  Width="203"/>
                 <telerik:RadDateTimePicker SelectedValue="{Binding DateEcheance}" StartTime="08:00" EndTime="18:00" TimeInterval="00:30:00" x:Name="DatePickerEcheance" HorizontalAlignment="Left" Margin="277,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Width="203"/>
@@ -43,34 +43,79 @@
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="5,458,544,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
+        <telerik:GroupBox Height="60" Margin="5,440,544,0" VerticalAlignment="Top" Header="6) IMEI / Numéro de série">
             <Grid>
                 <Label Content="IMEI (composer le *#06# sur le téléphone): " Margin="9,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
                 <telerik:RadMaskedTextInput x:Name="tbxIMEI"  Value="{Binding IMEI}" HorizontalAlignment="Left" EmptyContent="IMEI"  SelectionOnFocus="CaretToBeginning" Mask="###/###/###/###/###" Margin="275,0,0,0" VerticalAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="184" TabIndex="1" ToolTip="Scanner le code-barre avec le scanner pour l'insérer automatiquement"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="534,458,5,0" VerticalAlignment="Top" Header="7) Numéro de série">
+        <telerik:GroupBox Height="60" Margin="534,440,5,0" VerticalAlignment="Top" Header="7) Numéro de série">
             <Grid>
                 <Label Content="Numéro de série (iPad / Ordinateur):" Margin="5,6,0,5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <telerik:RadWatermarkTextBox x:Name="tbxNumeroDeSerie" Text="{Binding SerialNumber}" HorizontalAlignment="Center" Height="25" Margin="280,7,42,5" TextWrapping="Wrap" WatermarkContent="Numéro de série" VerticalAlignment="Center" Width="200" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="5,523,544,0" VerticalAlignment="Top" Header="7) Sur facture ? (Réservé aux entreprises)">
+        <telerik:GroupBox Height="60" Margin="5,505,544,0" VerticalAlignment="Top" Header="7) Sur facture ? (Réservé aux entreprises)">
             <Grid>
                 <telerik:RadToggleSwitchButton x:Name="ToggleSwitchPaiementSurFacture" Content="xxxxxxx" CheckedContent="Oui" IsChecked="{Binding PaiementSurFacture}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="534,523,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé et rendu au client) ">
+        <telerik:GroupBox Height="60" Margin="534,505,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé et rendu au client) ">
             <Grid>
+                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé"  CheckedContent="Oui" IsChecked="{Binding Cloturé}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,665,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
+        <telerik:GroupBox Height="115" Margin="5,570,5,0" VerticalAlignment="Top" Header="9) Documents liés ">
+            <Grid>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="Auto" >
+                    
+                    <telerik:RadButton x:Name="btnDevis"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Devis</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="btnDevisAssurance"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Devis Assurance</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="btnCommandePieces"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Commande Pièce</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="btnReparation"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Réparation</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="btnFacture"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Facture</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="btnSAV"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">SAV</TextBlock>
+                        </StackPanel>
+                    </telerik:RadButton>
+
+                </StackPanel>
+            </Grid>
+        </telerik:GroupBox>
+        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,713,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
             </StackPanel>
         </telerik:RadButton>
-        <telerik:GroupBox Height="103" Margin="5,350,544,0" VerticalAlignment="Top" Header="4) Codes">
+        <telerik:GroupBox Height="103" Margin="5,337,544,0" VerticalAlignment="Top" Header="4) Codes">
             <Grid>
                 <Label Content="Code de l'appareil: " Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
                 <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeAppareil}"  Margin="198,10,0,45" Height="25" TextWrapping="Wrap"  WatermarkContent="Code appareil"  Width="152" telerik:StyleManager.Theme="Crystal"/>
