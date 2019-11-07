@@ -23,14 +23,16 @@ namespace Lime.SplashScreen
 
         //Source : https://programmezendotnet.wordpress.com/2014/03/03/un-splashscreen-evolue-en-wpf/
 
-
+        //Enfin, nous allons modifier le constructeur de notre splashscreen pour lui donner le chemin vers une image qui sera affichée en fond :
         public SplashScreenLoading()
         {
             InitializeComponent();
+
             Application.Current.Activated += OnAppActivated;
             Application.Current.Deactivated += OnAppDeactivated;
             Application.Current.MainWindow.Activated += OnMainWindowActivated;
         }
+
 
         #region //Lorsque l’application sera activée, on placera notre splashscreen au premier plan. Dans le cas inverse, on la replacera en arrière-plan.
         private void OnAppActivated(object sender, EventArgs e)
@@ -111,24 +113,7 @@ namespace Lime.SplashScreen
             this.progress.Maximum = maximum;
         }
 
-        //Enfin, nous allons modifier le constructeur de notre splashscreen pour lui donner le chemin vers une image qui sera affichée en fond :
-        public SplashScreenLoading(string imagePath)
-        {
-            imagePath = System.IO.Path.GetFullPath(imagePath);
-            Debug.Assert(System.IO.File.Exists(imagePath));
 
-            InitializeComponent();
-
-            Application.Current.Activated += OnAppActivated;
-            Application.Current.Deactivated += OnAppDeactivated;
-            Application.Current.MainWindow.Activated += OnMainWindowActivated;
-
-            BitmapImage image;
-            this.back.Source = image = new BitmapImage(new Uri(imagePath));
-
-            this.Width = image.PixelWidth;
-            this.Height = image.PixelHeight;
-        }
         #endregion
 
 

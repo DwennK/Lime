@@ -20,27 +20,27 @@ namespace Lime
         {
             this.MainWindow = new MainWindow();
 
-            this.SplashScreen = new SplashScreenLoading(@"./Images/settings.png");
+            this.SplashScreen = new SplashScreenLoading();
             this.SplashScreen.Show();
         }
 
         //Source : https://programmezendotnet.wordpress.com/2014/03/03/un-splashscreen-evolue-en-wpf/
 
-        //protected override async void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
+        protected override async void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
 
-        //    // Longest loading
-        //    await this.LongLoading();
+            // Longest loading
+            await this.LongLoading();
 
-        //    this.MainWindow.Show();
+            this.MainWindow.Show();
 
-        //    // Shortest loading
-        //    await this.ShortLoading();
+            // Shortest loading
+            await this.ShortLoading();
 
-        //    this.SplashScreen.Close();
-        //    this.SplashScreen = null;
-        //}
+            this.SplashScreen.Close();
+            this.SplashScreen = null;
+        }
 
         public async Task LongLoading()
         {

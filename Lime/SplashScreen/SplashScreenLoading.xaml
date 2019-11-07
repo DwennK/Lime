@@ -8,9 +8,9 @@
         Title="SplashScreenLoading"
         Background="Transparent"
         Width="400"
-        Height="150"
+        Height="400"
         AllowsTransparency="True"
-        ShowInTaskbar="False"
+        ShowInTaskbar="True"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
         WindowStyle="None"
@@ -23,7 +23,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image x:Name="back" Grid.RowSpan="3" />
+        <Image x:Name="back" Grid.RowSpan="3" Source="/Lime;component/Images/lemon.png"/>
         <TextBlock x:Name="label" Foreground="White" Grid.Row="1" Margin="4" />
         <ProgressBar x:Name="progress" BorderBrush="Transparent" BorderThickness="3" Grid.Row="2" IsIndeterminate="True" Maximum="100" />
     </Grid>
