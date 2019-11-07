@@ -94,14 +94,14 @@ namespace Lime
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //Ces actions sont définies par le constructeur appelé
-            //if (action == "Insert")
-            //{
-            //    Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
-            //}
-            //else if (action == "Update")
-            //{
-            //    Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
-            //}
+            if (action == "Insert")
+            {
+                Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
+            }
+            else if (action == "Update")
+            {
+                Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
+            }
         }
 
         private bool DonnéesValides()

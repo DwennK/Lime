@@ -57,12 +57,12 @@
         </telerik:GroupBox>
         <telerik:GroupBox Height="60" Margin="5,505,544,0" VerticalAlignment="Top" Header="7) Sur facture ? (Réservé aux entreprises)">
             <Grid>
-                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchPaiementSurFacture" Content="xxxxxxx" CheckedContent="Oui" IsChecked="{Binding PaiementSurFacture}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
+                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchPaiementSurFacture" CheckedContent="Oui" IsChecked="{Binding PaiementSurFacture}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="60" Margin="534,505,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé et rendu au client) ">
+        <telerik:GroupBox Height="60" Margin="534,505,5,0" VerticalAlignment="Top" Header="8) Clôturé (Payé ET rendu au client) ">
             <Grid>
-                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé"  CheckedContent="Oui" IsChecked="{Binding Cloturé}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
+                <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé"  CheckedContent="Oui" IsChecked="{Binding Closed}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
         <telerik:GroupBox Height="115" Margin="5,570,5,0" VerticalAlignment="Top" Header="9) Documents liés ">
@@ -120,7 +120,7 @@
                 <Label Content="Code de l'appareil: " Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
                 <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeAppareil}"  Margin="198,10,0,45" Height="25" TextWrapping="Wrap"  WatermarkContent="Code appareil"  Width="152" telerik:StyleManager.Theme="Crystal"/>
                 <Label Content="Code SIM: " Margin="10,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
-                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeSIM}" Margin="198,45,0,10" Height="25" TextWrapping="Wrap" WatermarkContent="Code SIM"  Width="152" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeSIM}" Margin="198,45,0,10" Height="25" MaxLength="10" TextWrapping="Wrap" WatermarkContent="Code SIM"  Width="152" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
 

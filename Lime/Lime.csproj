@@ -416,6 +416,9 @@
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen\SplashScreenLoading.xaml.cs">
       <DependentUpon>SplashScreenLoading.xaml</DependentUpon>
     </Compile>
@@ -428,6 +431,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DataForm\RadDataFormClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -500,9 +507,7 @@
     <Resource Include="Images\Lime.ico" />
     <Resource Include="Images\lemon %281%29.png" />
     <Resource Include="Images\lemon %282%29.png" />
-    <Resource Include="Images\lemon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\lemon.png" />
     <Resource Include="Images\Icons\add.png" />
     <Resource Include="Images\Icons\edit.png" />
     <Resource Include="Images\Icons\delete.png" />

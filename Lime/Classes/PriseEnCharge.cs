@@ -47,7 +47,7 @@ namespace Lime
         public string PersonneDeContact { get; set; }
         public bool PaiementSurFacture { get; set; }
         public bool AppareilRenduAuClient { get; set; }
-        public bool Cloturé { get; set; }
+        public bool Closed { get; set; }
 
         public static IEnumerable<PriseEnCharge> GetAllPriseEnCharge()
         {
