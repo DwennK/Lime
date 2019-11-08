@@ -100,14 +100,19 @@ namespace Lime
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //Ces actions sont définies par le constructeur appelé
-            if (action == "Insert")
+            if(DonnéesValides())
             {
-                Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
+                if (action == "Insert")
+                {
+                    Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
+                }
+                else if (action == "Update")
+                {
+                    Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
+                }
             }
-            else if (action == "Update")
-            {
-                Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
-            }
+            //Fermeture de la fenêtre
+            this.Close();
         }
 
         private bool DonnéesValides()
@@ -115,10 +120,15 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            //if (tbxNom.Text == "")
-            //{
-            //    messageErreur += "Veuillez rentrer le nom du client.\n";
-            //}
+            if (client.Nom == null)
+            {
+                messageErreur += "Veuillez sélectionner un client existant dans la liste.\n";
+            }
+            if(priseEnCharge.ID_LieuActuelAppareil == 0)
+            {
+                messageErreur += "Veuillez sélectionner le lieu actuel de l'appareil\n";
+            }
+
 
             //S'il y a des erreurs, on les affiche
             if (messageErreur != "")
@@ -171,6 +181,17 @@ namespace Lime
         //Après un double click sur un Client dans le GridView, on l'affecte.
         private void RadGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
+        }
+
+        //Après un double click sur un Client dans le GridView, on l'affecte.
+        private void RadGridView1_MouseDoubleClick(object sender, SelectionChangeEventArgs e)
+        {
+
+        }
+        //Après un double click sur un Client dans le GridView, on l'affecte.
+        private void RadGridView1_SelectionChanged(object sender, SelectionChangeEventArgs e)
+        {
             this.client = (Client)RadGridView1.SelectedItem;
             priseEnCharge.Nom = client.Nom;
             priseEnCharge.Telephone1 = client.Telephone1;
@@ -182,6 +203,9 @@ namespace Lime
             priseEnCharge.PersonneDeContact = client.PersonneDeContact;
         }
 
+        private void RadGridView1_SelectionChanged(object sender, MouseButtonEventArgs e)
+        {
 
+        }
     }
 }

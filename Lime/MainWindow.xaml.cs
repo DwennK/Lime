@@ -46,9 +46,10 @@ namespace Lime
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
 
-
             
         }
+
+
 
         //GLOBAL VARIABLES
         readonly string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
@@ -182,6 +183,14 @@ namespace Lime
 
         private void DeletePriseEnCharge_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewClients gridViewClients = new GridViewClients();
+            GridDataGridViews.Children.Clear();
+            GridDataGridViews.Children.Add(gridViewClients);
 
         }
     }

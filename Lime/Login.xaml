@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   
-        Header="Login" Height="300" Width="531" telerik:StyleManager.Theme="Crystal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Header="Login" Height="300" Width="531" telerik:StyleManager.Theme="Crystal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler">
     <Grid>
         <StackPanel VerticalAlignment="Top" Margin="5,5,5,5" Height="150" Width="auto" HorizontalAlignment="Center">
             <Image HorizontalAlignment="Left"  Width="145" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lemon.png" />
@@ -15,7 +15,7 @@
             <telerik:RadComboBox x:Name="cmbMagasin" SelectedValue="{Binding ID}" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" Width="250" Height="25" />
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Margin="5,5,5,5">
-            <telerik:RadButton Content="Valider" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Bottom" Width="Auto" telerik:StyleManager.Theme="Crystal" Click="RadButton_Click"/>
+            <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Bottom" Width="Auto" telerik:StyleManager.Theme="Crystal" Click="btnValider_Click"/>
         </StackPanel>
     </Grid>
 </telerik:RadWindow>

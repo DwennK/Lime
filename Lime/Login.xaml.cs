@@ -26,7 +26,7 @@ namespace Lime
         public Login()
         {
             InitializeComponent();
-
+            btnValider.Focus();
             #region Populate Combobox Liste des Magasins
             //On vide, puis insère la liste des magasins dans le combobox approprié.
             cmbMagasin.Items.Clear();
@@ -44,7 +44,7 @@ namespace Lime
 
         }
 
-        private void RadButton_Click(object sender, RoutedEventArgs e)
+        private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //Sauvegarde du magasins dans les paramètres//
             Properties.Settings.Default.ID_Magasin = Convert.ToInt32(magasin.ID);
@@ -57,6 +57,17 @@ namespace Lime
             mainWindow.Show();
 
             this.Close();
+        }
+
+        //Quand on presse Enter, cela appelle cette méthode, qui va ensuite presser le bouton de validation du formulaire.
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                //On doit focus autre chose que le nom, comme ça les Bindings modifient correctement le client (Quand on leave le focus c'est là que l'objet se modifie)
+                btnValider.Focus();
+                btnValider_Click(sender, e);
+            }
         }
     }
 }
