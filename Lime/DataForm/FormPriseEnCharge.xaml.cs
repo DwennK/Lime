@@ -65,16 +65,22 @@ namespace Lime
                 ComboBoxMagasinSource.DisplayMemberPath = "Libelle";
                 //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
                 ComboBoxMagasinSource.SelectedValuePath = "ID";
+
+                //Sélectionne la valeur sauvée dans les paramètres
+                priseEnCharge.ID_MagasinSource = Properties.Settings.Default.ID_Magasin;
             #endregion
 
             #region Combobox Liste des Magasins Destination
-                //On vide, puis insère la liste des magasins dans le combobox approprié.
-                ComboBoxMagasinDestination.Items.Clear();
+            //On vide, puis insère la liste des magasins dans le combobox approprié.
+            ComboBoxMagasinDestination.Items.Clear();
                 ComboBoxMagasinDestination.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
                 //Ce qu'on affiche textuellemtn dans le combobox.
                 ComboBoxMagasinDestination.DisplayMemberPath = "Libelle";
                 //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
                 ComboBoxMagasinDestination.SelectedValuePath = "ID";
+
+                //Sélectionne la valeur sauvée dans les paramètres
+                priseEnCharge.ID_MagasinDestination = Properties.Settings.Default.ID_Magasin;
             #endregion
 
 
