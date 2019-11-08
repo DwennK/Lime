@@ -2,12 +2,20 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        Header="Login" Height="300" Width="531" telerik:StyleManager.Theme="Crystal">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  
+        Header="Login" Height="300" Width="531" telerik:StyleManager.Theme="Crystal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <Label Content="Dans quel Magasin êtes vous ?"  Margin="5,5,5,5" />
-            <telerik:RadComboBox telerik:StyleManager.Theme="Crystal" Width="250" Height="25" />
+        <StackPanel VerticalAlignment="Top" Margin="5,5,5,5" Height="150" Width="auto" HorizontalAlignment="Center">
+            <Image HorizontalAlignment="Left"  Width="145" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lemon.png" />
         </StackPanel>
-        <telerik:RadButton Content="Valider" HorizontalAlignment="Center" Height="Auto" Margin="5,5,5,5" VerticalAlignment="Bottom" Width="Auto" telerik:StyleManager.Theme="Crystal"/>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="32,140,29,34" Width="458">
+            <Label Content="Dans quel Magasin êtes vous ?" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" />
+            <telerik:RadComboBox x:Name="cmbMagasin" SelectedValue="{Binding ID}" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" Width="250" Height="25" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" Margin="5,5,5,5">
+            <telerik:RadButton Content="Valider" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Bottom" Width="Auto" telerik:StyleManager.Theme="Crystal" Click="RadButton_Click"/>
+        </StackPanel>
     </Grid>
 </telerik:RadWindow>

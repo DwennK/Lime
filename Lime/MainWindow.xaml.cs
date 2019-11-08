@@ -45,6 +45,8 @@ namespace Lime
             InitializeComponent();
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
+
+
             
         }
 
