@@ -17,6 +17,7 @@ namespace Lime
         {
 
         }
+        //Ceci va nous permettre de lancer la fenêtre de Login au démarrage de l'application.
         protected override void OnStartup(StartupEventArgs e)
         {
             new Login().Show();

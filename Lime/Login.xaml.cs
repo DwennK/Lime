@@ -53,8 +53,8 @@ namespace Lime
 
 
             //On ouvre la MainWindow
-            MainWindow main = new MainWindow();
-            main.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
 
             this.Close();
         }
