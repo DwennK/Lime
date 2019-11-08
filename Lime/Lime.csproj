@@ -500,7 +500,7 @@
     <Resource Include="Images\Lime.ico" />
     <Resource Include="Images\lemon %281%29.png" />
     <Resource Include="Images\lemon %282%29.png" />
-    <Resource Include="Images\lemon.png" />
+    <SplashScreen Include="Images\lemon.png" />
     <Resource Include="Images\Icons\add.png" />
     <Resource Include="Images\Icons\edit.png" />
     <Resource Include="Images\Icons\delete.png" />
