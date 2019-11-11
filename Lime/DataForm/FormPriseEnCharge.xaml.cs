@@ -204,5 +204,11 @@ namespace Lime
         {
 
         }
+
+        private void btnDevis_Click(object sender, RoutedEventArgs e)
+        {
+            Document maFenetre = new Document(this.priseEnCharge);
+            maFenetre.Show();
+        }
     }
 }

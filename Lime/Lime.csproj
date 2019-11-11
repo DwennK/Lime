@@ -416,6 +416,9 @@
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
+    <Compile Include="Document.xaml.cs">
+      <DependentUpon>Document.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GridViews\GridViewClients.xaml.cs">
       <DependentUpon>GridViewClients.xaml</DependentUpon>
     </Compile>
@@ -431,6 +434,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DataForm\RadDataFormClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Document.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

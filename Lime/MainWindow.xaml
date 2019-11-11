@@ -28,7 +28,7 @@
 
         <telerik:RadRibbonView 
                        ApplicationName="RadRibbonView" 
-                       Title="Document 1" TitleBarVisibility="Collapsed">
+                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016">
             <telerik:RadRibbonView.QuickAccessToolBar>
                 <telerik:QuickAccessToolBar>
                     <telerik:RadRibbonButton SmallImage="images/icons/add.png" telerik:RadToolTipService.ToolTipContent="Save"/>

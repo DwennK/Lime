@@ -1,0 +1,41 @@
+﻿<telerik:RadWindow x:Class="Lime.Document"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Header="Document" Height="900" Width="1206" telerik:StyleManager.Theme="Crystal" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <telerik:RadGridView Margin="5,465,5,0" VerticalAlignment="Top" Height="330" ShowSearchPanel="False" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Horizontal" ShowGroupPanel="False"/>
+        <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5,5,0,0" VerticalAlignment="Top" Width="220">
+            <Grid>
+                <StackPanel>
+                    <DockPanel >
+                        <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                        <telerik:Label Content="999999" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                    </DockPanel>
+                                        <DockPanel >
+                        <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                        <telerik:Label Content="{Binding DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </telerik:GroupBox>
+        <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="240,5,0,0" VerticalAlignment="Top" Width="220">
+            <Grid>
+                <StackPanel>
+                    <DockPanel >
+                        <telerik:Label Content="Nom:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                        <telerik:Label Content="{Binding Nom}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                    </DockPanel>
+                    <DockPanel >
+                        <telerik:Label Content="Téléphone:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                        <telerik:Label Content="{Binding Telephone1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                    </DockPanel>
+                    <DockPanel >
+                        <telerik:Label Content="Email:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                        <telerik:Label Content="{Binding Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </telerik:GroupBox>
+    </Grid>
+</telerik:RadWindow>

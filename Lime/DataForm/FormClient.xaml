@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         xmlns:local="clr-namespace:Lime" x:Class="Lime.FormClient"
-        Header="Client" Height="417" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler">
+        Header="Client" Height="417" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
     <Grid>
         <telerik:RadWatermarkTextBox x:Name="tbxNom" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap"  WatermarkContent="Nom" VerticalAlignment="Top" Width="527" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
         <telerik:Label x:Name="lblNom" Content="Nom " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>

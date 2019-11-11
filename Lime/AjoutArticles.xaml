@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Lime"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="Lime.AjoutArticles"
         mc:Ignorable="d"
-        Title="AjoutArticles" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="AjoutArticles" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Window.Resources>
         <CollectionViewSource x:Key="clientViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Client}, CreateList=True}"/>
         <CollectionViewSource x:Key="typeDocumentsViewSource" d:DesignSource="{d:DesignInstance {x:Type local:TypeDocuments}, CreateList=True}"/>
