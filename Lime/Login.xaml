@@ -10,12 +10,12 @@
         <StackPanel VerticalAlignment="Top" Margin="5,5,5,5" Height="150" Width="auto" HorizontalAlignment="Center">
             <Image HorizontalAlignment="Left"  Width="145" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lemon.png" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="32,140,29,34" Width="458">
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="32,140,29,34" Width="auto">
             <Label Content="Dans quel Magasin êtes vous ?" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" />
-            <telerik:RadComboBox x:Name="cmbMagasin" SelectedValue="{Binding ID}" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" Width="250" Height="25" />
+            <telerik:RadComboBox x:Name="cmbMagasin" SelectedValue="{Binding ID}" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,26" Width="178" Height="26" />
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Margin="5,5,5,5">
-            <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Bottom" Width="Auto" telerik:StyleManager.Theme="Crystal" Click="btnValider_Click"/>
+            <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="35" VerticalAlignment="Bottom" Width="82" telerik:StyleManager.Theme="Crystal" Click="btnValider_Click" Margin="0,0,0,0"/>
         </StackPanel>
     </Grid>
 </telerik:RadWindow>

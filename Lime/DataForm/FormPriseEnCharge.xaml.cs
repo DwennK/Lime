@@ -23,9 +23,14 @@ namespace Lime
     /// </summary>
     public partial class FormPriseEnCharge
     {
+
         string action = "";
         Client client = new Client();
         PriseEnCharge priseEnCharge = new PriseEnCharge();
+
+
+
+
 
 
         public FormPriseEnCharge()
@@ -57,6 +62,7 @@ namespace Lime
 
         private void Populate()
         {
+
             #region Combobox Liste des Magasins Source
                 //On vide, puis insère la liste des magasins dans le combobox approprié.
                 ComboBoxMagasinSource.Items.Clear();
@@ -110,9 +116,10 @@ namespace Lime
                 {
                     Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
                 }
+                //Fermeture de la fenêtre
+                this.Close();
             }
-            //Fermeture de la fenêtre
-            this.Close();
+
         }
 
         private bool DonnéesValides()
@@ -178,18 +185,8 @@ namespace Lime
             RadGridView1.ItemsSource = ListClient;
         }
 
-        //Après un double click sur un Client dans le GridView, on l'affecte.
-        private void RadGridView1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
 
-        }
-
-        //Après un double click sur un Client dans le GridView, on l'affecte.
-        private void RadGridView1_MouseDoubleClick(object sender, SelectionChangeEventArgs e)
-        {
-
-        }
-        //Après un double click sur un Client dans le GridView, on l'affecte.
+        //Après un click sur un Client dans le GridView, on l'affecte.
         private void RadGridView1_SelectionChanged(object sender, SelectionChangeEventArgs e)
         {
             this.client = (Client)RadGridView1.SelectedItem;
