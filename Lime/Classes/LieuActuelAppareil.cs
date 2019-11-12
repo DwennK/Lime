@@ -13,7 +13,7 @@ namespace Lime
 {
     public class LieuActuelAppareil
     {
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Computed]
         public int ID { get; set; }
         public string Libelle { get; set; }

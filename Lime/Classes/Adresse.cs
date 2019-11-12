@@ -17,7 +17,7 @@ namespace Lime
     public class Adresse
     {
         [Computed]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
         public string adresse { get; set; }
         public string NPA { get; set; }

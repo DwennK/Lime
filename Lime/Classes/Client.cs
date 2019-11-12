@@ -16,10 +16,10 @@ namespace Lime
     [Table("Clients")]
     public class Client
     {
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Computed]
         public int ID { get; set; }
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Display(Name = "ID Adresse")]
         //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         public int? ID_Adresse { get; set; }

@@ -16,22 +16,22 @@ namespace Lime
     public class PriseEnCharge
     {
         [Computed]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
         [Display(Name = "ID Client")]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int? ID_Clients { get; set; }        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Adresse")]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int? ID_Adresses { get; set; } //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Magasin Source")]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_MagasinSource { get; set; }
         [Display(Name = "ID Magasin Destination")]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_MagasinDestination { get; set; }
         [Display(Name = "ID LieuActuelAppareil")]
-        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_LieuActuelAppareil { get; set; }
         public string Nom { get; set; }
         [Display(Name = "Téléphone 1")]
