@@ -24,11 +24,11 @@
         <telerik:GroupBox x:Name="grpAdresseFacturation" Height="86" Margin="10,140,9.714,0" VerticalAlignment="Top" Header="Adresse">
             <Grid Margin="0,0,-2,-1">
                 <telerik:Label x:Name="lblAdresse" Content="Adresse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadWatermarkTextBox x:Name="tbxAdresse" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="540" telerik:StyleManager.Theme="Crystal" TabIndex="4"/>
+                <telerik:RadWatermarkTextBox x:Name="tbxAdresse" WatermarkContent="Adresse de facturation" HorizontalAlignment="Left" Height="23" Margin="68,10,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="530" telerik:StyleManager.Theme="Crystal" TabIndex="4"/>
                 <telerik:Label x:Name="lblNPAFacturation" Content="NPA" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
                 <telerik:RadWatermarkTextBox x:Name="tbxNPA" WatermarkContent="NPA" HorizontalAlignment="Left" Height="23" Margin="68,38,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="89" telerik:StyleManager.Theme="Crystal" TabIndex="5" TextChanged="tbxNPA_TextChanged" MaxLength="10" MaxLines="1"/>
                 <telerik:Label x:Name="lblVilleFacturation" Content="Ville" HorizontalAlignment="Left" Margin="314,38,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
-                <telerik:RadComboBox x:Name="tbxVille"  Height="25"  Margin="394,36,0,3" telerik:StyleManager.Theme="Crystal" EmptyText="Ville" TabIndex="6" IsEditable="True" />
+                <telerik:RadComboBox x:Name="tbxVille"  Height="25"  Margin="373,36,10.286,2.857" telerik:StyleManager.Theme="Crystal" EmptyText="Ville" TabIndex="6" IsEditable="True" />
 
             </Grid>
         </telerik:GroupBox>
