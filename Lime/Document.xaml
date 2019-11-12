@@ -4,7 +4,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Header="Document" Height="900" Width="1206" telerik:StyleManager.Theme="Crystal" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <telerik:RadGridView Margin="5,465,5,0" VerticalAlignment="Top" Height="330" ShowSearchPanel="False" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Horizontal" ShowGroupPanel="False"/>
+        <telerik:RadGridView Margin="5,465,5,0" VerticalAlignment="Top" ItemsSource="{Binding Lignes}" Height="330" ShowSearchPanel="False" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Horizontal" ShowGroupPanel="False"/>
         <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5,5,0,0" VerticalAlignment="Top" Width="220">
             <Grid>
                 <StackPanel>

@@ -22,14 +22,28 @@ namespace Lime
     {
         //Globals
         PriseEnCharge priseEnCharge;
+        List<Documents_Lignes> Lignes;
+
 
         public Document(PriseEnCharge priseEnCharge)
         {
             InitializeComponent();
-            this.priseEnCharge = priseEnCharge;
-            this.DataContext = this.priseEnCharge;
+
+            //On crée un DataContext qui contient deux variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            DataContext = new
+            {
+                priseEnCharge,
+                Lignes
+            };
+
+
         }
+
+
+
+
 
 
     }
 }
+
