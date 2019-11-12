@@ -64,6 +64,7 @@ namespace Lime
                 if (adresseFacturation.Ville != null) { tbxVille.Text = adresseFacturation.Ville; }
             }
 
+            this.tbxVille.IsDropDownOpen = false;
 
         }
 
@@ -121,7 +122,7 @@ namespace Lime
                 }
 
                 //On regarde si l'adresse de livriason a été changée, et si oui, on la modifie
-                if (tbxAdresse.Text != AdresseFacturationActuelle.adresse)
+                if (tbxAdresse.Text != AdresseFacturationActuelle.adresse || tbxNPA.Text != AdresseFacturationActuelle.NPA || tbxVille.Text != AdresseFacturationActuelle.Ville)
                 {
                     //Du coup, on update l'adresse
 
@@ -238,19 +239,17 @@ namespace Lime
                     tbxVille.ItemsSource = NomVilles;
                 }
 
-                //Cette action ne doit se produire que lors de l'insertion. En mode update, le bon Item dans la combobox sera déjà sélectionné.
-                if(Action == "Insert")
+                //Si y'a que une Ville qui a ce NPA, on sélectionne direct la bonne.
+                if (NomVilles.Count == 1)
                 {
-                    //Si y'a que une Ville qui a ce NPA, on sélectionne direct la bonne.
-                    if (NomVilles.Count == 1)
-                    {
-                        tbxVille.SelectedIndex = 0;
-                    }
-                    else if (NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
-                    {
-                        tbxVille.IsDropDownOpen = true;
-                    }
+                    tbxVille.SelectedIndex = 0;
                 }
+                else if (NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
+                {
+
+                    tbxVille.IsDropDownOpen = true;
+                }
+                
             }
 
         }

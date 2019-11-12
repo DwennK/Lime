@@ -27,15 +27,20 @@ namespace Lime
         {
             InitializeComponent();
             btnValider.Focus();
-            #region Populate Combobox Liste des Magasins
-            //On vide, puis insère la liste des magasins dans le combobox approprié.
-            cmbMagasin.Items.Clear();
-            cmbMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
-            //Ce qu'on affiche textuellemtn dans le combobox.
-            cmbMagasin.DisplayMemberPath = "Libelle";
-            //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
-            cmbMagasin.SelectedValuePath = "ID";
-            #endregion
+
+            if(Connexion.CheckForInternetConnection())
+            {
+                #region Populate Combobox Liste des Magasins
+                //On vide, puis insère la liste des magasins dans le combobox approprié.
+                cmbMagasin.Items.Clear();
+                cmbMagasin.ItemsSource = Connexion.maBDD.GetAll<Magasin>();
+                //Ce qu'on affiche textuellemtn dans le combobox.
+                cmbMagasin.DisplayMemberPath = "Libelle";
+                //Ce qu'on veut comme valeur réelle qui sera sauvée (Donc l'ID du Magasin dans la BDD)
+                cmbMagasin.SelectedValuePath = "ID";
+                #endregion
+            }
+
 
             this.DataContext = magasin;
 
