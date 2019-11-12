@@ -17,9 +17,13 @@ namespace Lime
     public class Article
     {
         [Computed]
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_CodeArticles { get; set; }
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_Marques { get; set; }
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_Categories { get; set; }
         [Display(Name = "Libellé")]
         public string Libelle { get; set; }

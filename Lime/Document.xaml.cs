@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using Telerik.Windows.Controls;
+using Dapper.Contrib.Extensions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Lime
 {
@@ -21,26 +23,24 @@ namespace Lime
     public partial class Document
     {
         //Globals
-        PriseEnCharge priseEnCharge;
-        List<Documents_Lignes> Lignes;
+        PriseEnCharge priseEnCharge = new PriseEnCharge();
+        Client client = new Client();
+        List<Documents_Lignes> Lignes = new List<Documents_Lignes>();
 
 
         public Document(PriseEnCharge priseEnCharge)
         {
             InitializeComponent();
 
-            //On crée un DataContext qui contient deux variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
-                priseEnCharge,
+                priseEnCharge = priseEnCharge,
+                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
                 Lignes
             };
-
-
         }
-
-
-
 
 
 

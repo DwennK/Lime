@@ -17,7 +17,9 @@ namespace Lime
     public class Documents_Lignes
     {
         [Computed]
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple. //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple. //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID_Documents { get; set; }
         [Display(Name = "Code Article")]
         public string CodeArticle { get; set; }

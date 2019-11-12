@@ -10,11 +10,11 @@
                 <StackPanel>
                     <DockPanel >
                         <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="999999" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                     </DockPanel>
                                         <DockPanel >
                         <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                     </DockPanel>
                 </StackPanel>
             </Grid>
@@ -24,15 +24,15 @@
                 <StackPanel>
                     <DockPanel >
                         <telerik:Label Content="Nom:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding Nom}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        <telerik:Label Content="{Binding priseEnCharge.Nom}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                     </DockPanel>
                     <DockPanel >
                         <telerik:Label Content="Téléphone:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding Telephone1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        <telerik:Label Content="{Binding priseEnCharge.Telephone1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                     </DockPanel>
                     <DockPanel >
                         <telerik:Label Content="Email:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        <telerik:Label Content="{Binding priseEnCharge.Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                     </DockPanel>
                 </StackPanel>
             </Grid>

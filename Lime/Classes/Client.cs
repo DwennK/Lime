@@ -9,14 +9,17 @@ using Dapper.Contrib.Extensions;
 using System.ComponentModel; //Sert à changer l'affichage du nom de la propritéé dans la BDD par un texte(Last Name au lieu de lastname par exemple)
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Lime
 {
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
     [Table("Clients")]
     public class Client
     {
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Computed]
         public int ID { get; set; }
+        //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Display(Name = "ID Adresse")]
         //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         public int? ID_Adresse { get; set; }

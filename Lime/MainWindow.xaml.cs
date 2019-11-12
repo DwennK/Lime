@@ -22,7 +22,7 @@ using System.Text.RegularExpressions;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
-using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace Lime
 {
@@ -31,14 +31,9 @@ namespace Lime
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Petit trick qui Va nous permettre d'accéder aux contrôle depuis une autre classe. (Par exemple : Lime.MainWindow.AppWindow.maFonction();
-        public static MainWindow AppWindow;
-        //Petit trick qui Va nous permettre d'accéder aux contrôle depuis une autre classe. (Par exemple : Lime.MainWindow.AppWindow.maFonction();
-        void Awake()
-        {
-            AppWindow = this;
-        }
-
+        //GLOBAL VARIABLES
+        readonly static string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+        SqlConnectionStringBuilder sqlString = new SqlConnectionStringBuilder(strConnexionString);
 
         public MainWindow()
         {
@@ -46,13 +41,12 @@ namespace Lime
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
 
-            
+            //IP Server dans la statusBar
+            this.lblStatusConnexion.Content = "Server :" + sqlString.DataSource;
+            this.lblDatabase.Content = "Database :" + sqlString.InitialCatalog;
         }
 
 
-
-        //GLOBAL VARIABLES
-        readonly string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
 
 
         //RowActivated = DoubleClick sur un ligne
