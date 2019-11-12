@@ -26,6 +26,7 @@ namespace Lime
         PriseEnCharge priseEnCharge = new PriseEnCharge();
         Client client = new Client();
         List<Documents_Lignes> Lignes = new List<Documents_Lignes>();
+        
 
 
         public Document(PriseEnCharge priseEnCharge)
@@ -42,8 +43,14 @@ namespace Lime
             };
         }
 
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            this.
 
 
+
+            this.Close();
+        }
     }
 }
 

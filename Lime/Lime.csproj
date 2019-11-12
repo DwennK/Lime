@@ -407,6 +407,9 @@
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="DataForm\btnValider.xaml.cs">
+      <DependentUpon>btnValider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataForm\FormClient.xaml.cs">
       <DependentUpon>FormClient.xaml</DependentUpon>
     </Compile>
@@ -427,6 +430,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Page Include="AjoutArticles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataForm\btnValider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
