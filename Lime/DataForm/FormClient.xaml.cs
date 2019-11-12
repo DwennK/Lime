@@ -238,14 +238,18 @@ namespace Lime
                     tbxVille.ItemsSource = NomVilles;
                 }
 
-                //Si y'a que une Ville qui a ce NPA, on sélectionne direct la bonne.
-                if (NomVilles.Count == 1)
+                //Cette action ne doit se produire que lors de l'insertion. En mode update, le bon Item dans la combobox sera déjà sélectionné.
+                if(Action == "Insert")
                 {
-                    tbxVille.SelectedIndex = 0;
-                }
-                else if (NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
-                {
-                    tbxVille.IsDropDownOpen = true;
+                    //Si y'a que une Ville qui a ce NPA, on sélectionne direct la bonne.
+                    if (NomVilles.Count == 1)
+                    {
+                        tbxVille.SelectedIndex = 0;
+                    }
+                    else if (NomVilles.Count > 1) //Si y'a plus que 1 ville, on ouvre le Dropdown pour les afficher.
+                    {
+                        tbxVille.IsDropDownOpen = true;
+                    }
                 }
             }
 
