@@ -34,10 +34,12 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public decimal? PrixAchatUnite { get; set; }
         [Display(Name = "Taux TVA")]
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public decimal? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
         public decimal? TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public string TotalTVA { get; set; }
         [Display(Name = "Prix TTC")]
         public decimal PrixTotal { get; set; }

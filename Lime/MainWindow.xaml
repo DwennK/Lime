@@ -18,7 +18,7 @@
 
         <telerik:RadNumericUpDown x:Name="Limite" Margin="0,153,1505,0" VerticalAlignment="Top" Height="22" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="0"  Minimum="0" LostFocus="Limite_LostFocus" HorizontalAlignment="Right" Width="114"   />
         <Label x:Name="lblNombreLignes" Content="Nombre de lignes :" Margin="0,125,1505,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Right" Width="112"/>
-        <telerik:RadGridView x:Name="RadGridView1" Margin="0,495,0,29" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Horizontal" />
+        <telerik:RadGridView x:Name="RadGridView1" Margin="0,495,0,29" IsReadOnly="True" RowActivated="RadGridView1_RowActivated" ShowSearchPanel="True" TextOptions.TextFormattingMode="Display" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Horizontal" AlternationCount="2"/>
         <DockPanel Height="29" LastChildFill="False" VerticalAlignment="Bottom" Margin="0,0,0.429,0.286">
             <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-0.143,0">
                 <Label x:Name="lblStatusConnexion" Content="Server: "/>
