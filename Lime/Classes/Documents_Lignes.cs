@@ -25,18 +25,21 @@ namespace Lime
         public string CodeArticle { get; set; }
         [Display(Name = "Libellé")]
         public string Libelle { get; set; }
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+
         public int Ordre { get; set; }
         [Display(Name = "Quantité")]
         public int Quantite { get; set; }
         [Display(Name = "Prix achat")]
+        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public decimal? PrixAchatUnite { get; set; }
-        [Display(Name = "Taux TAV")]
+        [Display(Name = "Taux TVA")]
         public decimal? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
         public decimal? TauxRemise { get; set; }
-        [Display(Name = "Prix TTC")]
-        public decimal PrixTotal { get; set; }
         [Display(Name = "Total TVA")]
         public string TotalTVA { get; set; }
+        [Display(Name = "Prix TTC")]
+        public decimal PrixTotal { get; set; }
     }
 }

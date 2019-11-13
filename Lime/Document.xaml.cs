@@ -45,7 +45,7 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            this.
+            
 
 
 
