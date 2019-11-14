@@ -423,12 +423,14 @@
     <Compile Include="Document.xaml.cs">
       <DependentUpon>Document.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DropIndicationDetails.cs" />
     <Compile Include="GridViews\GridViewClients.xaml.cs">
       <DependentUpon>GridViewClients.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RowReorderBehavior.cs" />
     <Page Include="AjoutArticles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
