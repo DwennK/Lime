@@ -7,10 +7,17 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="100" 
+                        Margin="5,185,5,5" 
                         Name="radGridView" 
                         AllowDrop="True" 
-                        GroupRenderMode="Flat">
+                        GroupRenderMode="Flat" 
+                        telerik:StyleManager.Theme="Crystal" 
+                        IsFilteringAllowed="False" 
+                        GridLinesVisibility="Both" 
+                        NewRowPosition="Bottom" 
+                        ShowGroupPanel="False"
+                        
+                    >
 
 
             <telerik:RadGridView.Resources>
@@ -97,7 +104,6 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
             </StackPanel>
         </telerik:RadButton>
-
 
     </Grid>
 </telerik:RadWindow>

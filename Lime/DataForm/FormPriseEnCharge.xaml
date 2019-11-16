@@ -11,7 +11,7 @@
             <Grid>
                 <telerik:RadButton x:Name="btnInsertClient" Content="Créer un nouveau client" HorizontalAlignment="Left" Height="Auto" Margin="689,9,0,0" VerticalAlignment="Top" Width="295" telerik:StyleManager.Theme="Crystal" Click="btnInsertClient_Click" />
                 <telerik:RadWatermarkTextBox x:Name="tbxNom" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" WatermarkContent="Nom du client" VerticalAlignment="Top" Width="465" telerik:StyleManager.Theme="Crystal" TextChanged="tbxNom_TextChanged" TabIndex="1"/>
-                <telerik:RadGridView x:Name="RadGridView1" Margin="5,48,5,5" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" RowHeight="20" ShowGroupPanel="False" MouseDoubleClick="RadGridView1_SelectionChanged" SelectionChanged="RadGridView1_SelectionChanged"/>
+                <telerik:RadGridView x:Name="RadGridView1" Margin="5,48,5,5" IsReadOnly="True" telerik:StyleManager.Theme="Crystal" GridLinesVisibility="Both" RowHeight="20" ShowGroupPanel="False" MouseDoubleClick="RadGridView1_SelectionChanged" SelectionChanged="RadGridView1_SelectionChanged"/>
             </Grid>
         </telerik:GroupBox>
         <telerik:GroupBox Height="95" Margin="5,240,543,0" VerticalAlignment="Top" Header="2) Magasins">
