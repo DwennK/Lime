@@ -127,15 +127,18 @@ namespace Lime
         private void Duplicate_Click(object sender, RoutedEventArgs e)
         {
             Documents_Lignes item = new Documents_Lignes();
-            item = ((Lime.Documents_Lignes)radGridView.SelectedItem);
-            //item.ID = Lignesx.Count+1;
+            var xx = ((Lime.Documents_Lignes)radGridView.SelectedItem);
 
-            Lignesx.Add(item);
+
+
+
+
+            this.Lignesx.Add(item);
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Lignesx.Remove((Lime.Documents_Lignes)radGridView.SelectedItem);
+            this.Lignesx.Remove((Lime.Documents_Lignes)radGridView.SelectedItem);
         }
     }
 }
