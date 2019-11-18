@@ -23,6 +23,7 @@ namespace Lime
         {
             try
             {
+                //Page Google faite exprès dans ce but là, pas mal de monde l'utilise exprès dans ce but là.
                 using (var client = new WebClient())
                 using (client.OpenRead("http://clients3.google.com/generate_204"))
                 {

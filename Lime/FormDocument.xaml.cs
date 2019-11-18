@@ -20,18 +20,19 @@ using System.Collections.ObjectModel;
 namespace Lime
 {
     /// <summary>
-    /// Interaction logic for Document.xaml
+    /// Interaction logic for FormDocument.xaml
     /// </summary>
-    public partial class Document
+    public partial class FormDocument
     {
         //Globals
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
         public List<Documents_Lignes> Lignes;
 
+
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
-        public Document(PriseEnCharge priseEnCharge)
+        public FormDocument(PriseEnCharge priseEnCharge)
         {
             InitializeComponent();
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
@@ -51,6 +52,7 @@ namespace Lime
             };
 
 
+
             //TEST //
             //this.radGridViewx.ItemsSource = MessageViewModel.Generate();
             //RowReorderBehavior.SetIsEnabled(this.radGridViewx, true);
@@ -62,7 +64,12 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Insertion du document dans la BDD
+
+
+
+            //Insertion des lignes dans la BDD.
+            Connexion.maBDD.Insert(Lignesx);
 
 
 
@@ -114,6 +121,8 @@ namespace Lime
 
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
+
+
             Documents_Lignes item = new Documents_Lignes();
             this.Lignesx.Add(item);
 

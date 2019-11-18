@@ -398,6 +398,7 @@
     <Compile Include="AjoutArticles.xaml.cs">
       <DependentUpon>AjoutArticles.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Document.cs" />
     <Compile Include="Classes\Documents_Lignes.cs" />
     <Compile Include="Classes\Adresse.cs" />
     <Compile Include="Classes\Article.cs" />
@@ -420,8 +421,8 @@
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
-    <Compile Include="Document.xaml.cs">
-      <DependentUpon>Document.xaml</DependentUpon>
+    <Compile Include="FormDocument.xaml.cs">
+      <DependentUpon>FormDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="DropIndicationDetails.cs" />
     <Compile Include="GridViews\GridViewClients.xaml.cs">
@@ -447,7 +448,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Document.xaml">
+    <Page Include="FormDocument.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
