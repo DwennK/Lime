@@ -121,18 +121,18 @@ namespace Lime
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-
+            radGridView.BeginEdit();
         }
 
         private void Duplicate_Click(object sender, RoutedEventArgs e)
         {
-            Documents_Lignes item = new Documents_Lignes();
-            var xx = ((Lime.Documents_Lignes)radGridView.SelectedItem);
-
-
-
-
-
+            //Récupération de la Row à Copier.
+            var aCopier = ((Lime.Documents_Lignes)radGridView.SelectedItem);
+           
+            //Création et affectation de la nouvelle ligne.
+            Documents_Lignes item;
+            item = (Lime.Documents_Lignes)aCopier.Clone();
+            //Ajout de la ligne
             this.Lignesx.Add(item);
         }
 

@@ -107,10 +107,11 @@ namespace Lime
         {
             if (DonnéesValides())
             {
-                var AdresseFacturationActuelle = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
+                Adresse AdresseFacturationActuelle = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
+
 
                 //On regarde s'il avait une adresse de facturation, s'il n'en avait pas, on la crée
-                if (AdresseFacturationActuelle == null)
+                if (AdresseFacturationActuelle == null || client.ID_Adresse == null)
                 {
                     AdresseFacturationActuelle = new Adresse
                     {
@@ -118,10 +119,13 @@ namespace Lime
                         NPA = tbxNPA.Text,
                         Ville = tbxVille.Text,
                     };
-                    Connexion.maBDD.Insert<Adresse>(AdresseFacturationActuelle);
+
+                    //On récupère l'ID de l'adresse qu'on insert, et on l'affecte au client.
+                    int ID_Adresse = (int)Connexion.maBDD.Insert<Adresse>(AdresseFacturationActuelle);
+                    client.ID_Adresse = ID_Adresse;
                 }
 
-                //On regarde si l'adresse de livriason a été changée, et si oui, on la modifie
+                //On regarde si l'adresse a été changée, et si oui, on la modifie
                 if (tbxAdresse.Text != AdresseFacturationActuelle.adresse || tbxNPA.Text != AdresseFacturationActuelle.NPA || tbxVille.Text != AdresseFacturationActuelle.Ville)
                 {
                     //Du coup, on update l'adresse
