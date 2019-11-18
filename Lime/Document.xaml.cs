@@ -112,6 +112,31 @@ namespace Lime
             }
         }
 
+        private void Insert_Click(object sender, RoutedEventArgs e)
+        {
+            Documents_Lignes item = new Documents_Lignes();
+            this.Lignesx.Add(item);
+
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Duplicate_Click(object sender, RoutedEventArgs e)
+        {
+            Documents_Lignes item = new Documents_Lignes();
+            item = ((Lime.Documents_Lignes)radGridView.SelectedItem);
+            //item.ID = Lignesx.Count+1;
+
+            Lignesx.Add(item);
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Lignesx.Remove((Lime.Documents_Lignes)radGridView.SelectedItem);
+        }
     }
 }
 

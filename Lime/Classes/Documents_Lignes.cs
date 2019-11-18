@@ -40,7 +40,7 @@ namespace Lime
         public decimal? TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-        public string TotalTVA { get; set; }
+        public decimal? TotalTVA { get; set; }
         [Display(Name = "Prix TTC")]
         public decimal PrixTotal { get; set; }
     }
