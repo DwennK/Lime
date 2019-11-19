@@ -40,9 +40,7 @@ namespace Lime
         {
             InitializeComponent();
 
-            //Affectation des valeurs au document.
-            document.ID_PriseEnCharge = priseEnCharge.ID;
-            document.ID_TypeDocument = ID_TypeDocuments;
+
 
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>();
@@ -62,7 +60,9 @@ namespace Lime
                 typeDocument = typeDocument
             };
 
-
+            //Affectation des valeurs au document.
+            document.ID_PriseEnCharge = priseEnCharge.ID;
+            document.ID_TypeDocument = ID_TypeDocuments;
 
             //TEST //
             //this.radGridViewx.ItemsSource = MessageViewModel.Generate();
@@ -72,17 +72,17 @@ namespace Lime
             //FIN /
 
         }
-
+        
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
+            string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
+            var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
+            
 
-            string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocuments = @ID_TypeDocument;";
-            var numeroActuel =  Connexion.maBDD.Query<Document>(SQL, new { ID_TypeDocument = document.ID_TypeDocument } ).ToString();
-            if(numeroActuel == null) { numeroActuel = "0"; } 
+            numeroActuel += 1;
+            document.Numero = numeroActuel;
 
-            var numeroAInserer = Convert.ToInt32(numeroActuel) + 1;
-            document.Numero = numeroAInserer.ToString();
 
             //Insertion du document dans la BDD
             Connexion.maBDD.Insert(document);
@@ -93,56 +93,10 @@ namespace Lime
             this.Close();
         }
 
-        public class MessageViewModel
-        {
-            public static IList Generate()
-            {
-                IList data = new ObservableCollection<MessageViewModel>();
-                data.Add(new MessageViewModel("tom@hanna-barbera.com", "Cats are cool", 100));
-                data.Add(new MessageViewModel("jerry@hanna-barbera.com", "Mice are cool", 100));
-                data.Add(new MessageViewModel("spike@hanna-barbera.com", "Dogs are cool", 100));
-                data.Add(new MessageViewModel("jerry2@hanna-barbera.com", "2Mice are cool", 200));
-                data.Add(new MessageViewModel("spike2@hanna-barbera.com", "2Dogs are cool", 200));
-                data.Add(new MessageViewModel("jerry3@hanna-barbera.com", "3Mice are cool", 300));
-                data.Add(new MessageViewModel("spike3@hanna-barbera.com", "3Dogs are cool", 300));
-                data.Add(new MessageViewModel("spike3@hanna-barbera.com", "3Dogs are cool", 300));
-                data.Add(new MessageViewModel("spike3@hanna-barbera.com", "3Dogs are cool", 300));
-                return data;
-            }
-            public MessageViewModel(string sender, string subject, int size)
-            {
-                this.Sender = sender;
-                this.Subject = subject;
-                this.Size = size;
-            }
-            public string Subject
-            {
-                get;
-                set;
-            }
-            public string Sender
-            {
-                get;
-                set;
-            }
-            public int Size
-            {
-                get;
-                set;
-            }
-            public override string ToString()
-            {
-                return this.Sender;
-            }
-        }
-
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
-
-
             Documents_Lignes item = new Documents_Lignes();
             this.Lignesx.Add(item);
-
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)

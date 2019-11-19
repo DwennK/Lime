@@ -18,16 +18,14 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
 
         public int ID { get; set; }
-        [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
 
         public int ID_PriseEnCharge { get; set; }
-        [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
 
         public int ID_TypeDocument { get; set; }
         [Display(Name = "Numéro")]
-        public string Numero { get; set; }
+        public int Numero { get; set; }
         [Display(Name = "Clôturé")]
         public string Cloture { get; set; }
 
@@ -36,7 +34,7 @@ namespace Lime
 
         }
 
-        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, string Numero_, string Cloture_)
+        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, string Cloture_)
         {
             this.ID = ID_;
             this.ID_PriseEnCharge = ID_PriseEnCharge_;

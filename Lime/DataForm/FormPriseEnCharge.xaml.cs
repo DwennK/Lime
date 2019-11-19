@@ -110,14 +110,17 @@ namespace Lime
             {
                 if (action == "Insert")
                 {
-                    Connexion.maBDD.Insert<PriseEnCharge>(priseEnCharge);
+                    //On insère la prise en charge dans la BDD, et on récupère l'ID.
+                    var id = Connexion.maBDD.Insert(priseEnCharge);
+                    this.priseEnCharge.ID = (int)id;
                 }
                 else if (action == "Update")
                 {
                     Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
                 }
-                //Fermeture de la fenêtre
-                this.Close();
+
+                //On enable les boutons en dessous
+                grpDocuments.IsEnabled = true;
             }
 
         }

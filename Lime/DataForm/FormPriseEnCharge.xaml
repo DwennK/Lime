@@ -65,7 +65,7 @@
                 <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloturé"  CheckedContent="Oui" IsChecked="{Binding Closed}" HorizontalAlignment="Center" Margin="0" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Center"/>
             </Grid>
         </telerik:GroupBox>
-        <telerik:GroupBox Height="115" Margin="5,570,5,0" VerticalAlignment="Top" Header="9) Documents liés ">
+        <telerik:GroupBox x:Name="grpDocuments" Height="115" Margin="5,644,5,0" VerticalAlignment="Top" Header="9) Documents liés " IsEnabled="False">
             <Grid>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="Auto" >
                     
@@ -109,7 +109,7 @@
                 </StackPanel>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="435,713,428,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
+        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="430,585,433,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>

@@ -16,7 +16,7 @@
                         GridLinesVisibility="Both" 
                         NewRowPosition="Bottom" 
                         ShowGroupPanel="False"
-                        
+                        AlternationCount="2"
                     >
 
 
