@@ -25,14 +25,16 @@ namespace Lime
     public partial class FormDocument
     {
         //Globals
+        public Document document;
+        public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
         public List<Documents_Lignes> Lignes;
-
-
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
-        public FormDocument(PriseEnCharge priseEnCharge)
+
+
+        public FormDocument(PriseEnCharge priseEnCharge, TypeDocuments typeDocument)
         {
             InitializeComponent();
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
@@ -48,7 +50,9 @@ namespace Lime
                 priseEnCharge = priseEnCharge,
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
                 Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList(),
-                Lignesx
+                Lignesx,
+                document,
+                typeDocument = typeDocument
             };
 
 
@@ -65,7 +69,9 @@ namespace Lime
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
             //Insertion du document dans la BDD
-
+            document.ID_PriseEnCharge = priseEnCharge.ID;
+            document.ID_TypeDocument = typeDocument.ID;
+            document.Numero = 
 
 
             //Insertion des lignes dans la BDD.

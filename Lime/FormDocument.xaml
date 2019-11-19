@@ -64,40 +64,58 @@
 
         </telerik:RadGridView>
 
+        <StackPanel Orientation="Horizontal">
+            <telerik:GroupBox Header="Informations Document" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+                <Grid>
+                    <StackPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </telerik:GroupBox>
+
+            <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+                <Grid>
+                    <StackPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </telerik:GroupBox>
 
 
-        <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5,5,0,0" VerticalAlignment="Top" Width="220">
-            <Grid>
-                <StackPanel>
-                    <DockPanel >
-                        <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                    </DockPanel>
-                    <DockPanel >
-                        <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                    </DockPanel>
-                </StackPanel>
-            </Grid>
-        </telerik:GroupBox>
-        <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="240,5,0,0" VerticalAlignment="Top" Width="220">
-            <Grid>
-                <StackPanel>
-                    <DockPanel >
-                        <telerik:Label Content="Nom:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding priseEnCharge.Nom}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                    </DockPanel>
-                    <DockPanel >
-                        <telerik:Label Content="Téléphone:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding priseEnCharge.Telephone1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                    </DockPanel>
-                    <DockPanel >
-                        <telerik:Label Content="Email:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                        <telerik:Label Content="{Binding priseEnCharge.Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                    </DockPanel>
-                </StackPanel>
-            </Grid>
-        </telerik:GroupBox>
+            <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+                <Grid>
+                    <StackPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Nom:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.Nom}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Téléphone:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.Telephone1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Email:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </telerik:GroupBox>
+        </StackPanel>
+        
         <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,10,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>

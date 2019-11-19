@@ -12,13 +12,14 @@ using System.ComponentModel.DataAnnotations;
 namespace Lime
 {
     [Table("TypeDocuments")]
-    class TypeDocuments
+    public class TypeDocuments
     {
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
         public string Libelle { get; set; }
 
+        public string Prefixe { get; set; }
 
     }
 }
