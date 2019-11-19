@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using Telerik.Windows.Controls;
+using Dapper;
+using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
 using System.Collections;
@@ -25,7 +27,7 @@ namespace Lime
     public partial class FormDocument
     {
         //Globals
-        public Document document;
+        public Document document = new Document();
         public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
@@ -34,9 +36,14 @@ namespace Lime
 
 
 
-        public FormDocument(PriseEnCharge priseEnCharge, TypeDocuments typeDocument)
+        public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments)
         {
             InitializeComponent();
+
+            //Affectation des valeurs au document.
+            document.ID_PriseEnCharge = priseEnCharge.ID;
+            document.ID_TypeDocument = ID_TypeDocuments;
+
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>();
             foreach (Documents_Lignes value in xx)
@@ -68,16 +75,20 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            //Insertion du document dans la BDD
-            document.ID_PriseEnCharge = priseEnCharge.ID;
-            document.ID_TypeDocument = typeDocument.ID;
-            document.Numero = 
+            //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
 
+            string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocuments = @ID_TypeDocument;";
+            var numeroActuel =  Connexion.maBDD.Query<Document>(SQL, new { ID_TypeDocument = document.ID_TypeDocument } ).ToString();
+            if(numeroActuel == null) { numeroActuel = "0"; } 
+
+            var numeroAInserer = Convert.ToInt32(numeroActuel) + 1;
+            document.Numero = numeroAInserer.ToString();
+
+            //Insertion du document dans la BDD
+            Connexion.maBDD.Insert(document);
 
             //Insertion des lignes dans la BDD.
             Connexion.maBDD.Insert(Lignesx);
-
-
 
             this.Close();
         }
