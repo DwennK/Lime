@@ -48,15 +48,17 @@ namespace Lime
 
 
             Populate();
-
         }
 
-        public FormPriseEnCharge(PriseEnCharge priseEnCharge)
+        public FormPriseEnCharge(int ID_PriseEnCharge)
         {
             InitializeComponent();
-            this.DataContext = this.priseEnCharge;
+            this.priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(ID_PriseEnCharge);
+            this.DataContext = priseEnCharge;
             this.action = "Update";
-            this.priseEnCharge = priseEnCharge;
+
+            this.DatePickerDebut.IsEnabled = false;
+
             Populate();
         }
 
@@ -108,6 +110,8 @@ namespace Lime
             //Ces actions sont définies par le constructeur appelé
             if(DonnéesValides())
             {
+
+
                 if (action == "Insert")
                 {
                     //On insère la prise en charge dans la BDD, et on récupère l'ID.

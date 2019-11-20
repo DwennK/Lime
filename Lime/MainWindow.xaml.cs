@@ -172,7 +172,12 @@ namespace Lime
 
         private void UpdatePriseEnCharge_Click(object sender, RoutedEventArgs e)
         {
+            PriseEnCharge item = (PriseEnCharge)RadGridView1.SelectedItem;
+            int ID_PriseEnCharge = item.ID;
 
+            FormPriseEnCharge maFenetre = new FormPriseEnCharge(ID_PriseEnCharge);
+            maFenetre.Closed += FormPriseEnChargeHandler;
+            maFenetre.Show();
         }
 
         private void DeletePriseEnCharge_Click(object sender, RoutedEventArgs e)
