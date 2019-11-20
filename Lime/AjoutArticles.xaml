@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Lime"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="Lime.AjoutArticles"
         mc:Ignorable="d"
+            xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
         Title="AjoutArticles" Height="450" Width="800" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Window.Resources>
         <CollectionViewSource x:Key="clientViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Client}, CreateList=True}"/>
