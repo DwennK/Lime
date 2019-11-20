@@ -39,6 +39,7 @@ namespace Lime
             this.DataContext = this.priseEnCharge;
             this.action = "Insert";
 
+            grpDocuments.IsEnabled = false;
             //Insertion automatique de la Date dans le DatePic1kerDebut
             priseEnCharge.DateDebut = DateTime.Now;
             this.DatePickerDebut.IsEnabled = false;
@@ -53,9 +54,19 @@ namespace Lime
         public FormPriseEnCharge(int ID_PriseEnCharge)
         {
             InitializeComponent();
+            this.tbxNom.Visibility = Visibility.Hidden;
+            this.btnInsertClient.Visibility = Visibility.Hidden;
             this.priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(ID_PriseEnCharge);
             this.DataContext = priseEnCharge;
             this.action = "Update";
+
+
+            grpDocuments.IsEnabled = true;
+            //On met le client dans le GridView.
+            this.client = Connexion.maBDD.Get<Client>(priseEnCharge.ID_Clients);
+            RadGridView1.ItemsSource = client;
+            RadGridView1.SelectedItem = client;
+
 
             this.DatePickerDebut.IsEnabled = false;
 
@@ -134,7 +145,7 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (client.Nom == null)
+            if (client.ID == 0)
             {
                 messageErreur += "Veuillez sélectionner un client existant dans la liste.\n";
             }
@@ -177,8 +188,7 @@ namespace Lime
             client = maFenetre.client;
             priseEnCharge.Nom = client.Nom;
             priseEnCharge.ID_Adresses = client.ID_Adresse;
-            //CONTINUER CA, PAS FINI, mettre encore les autres champs
-            //TODO, TO-DO
+
         }
 
 
@@ -205,11 +215,6 @@ namespace Lime
             priseEnCharge.PersonneDeContact = client.PersonneDeContact;
             priseEnCharge.RemisePermanente = client.RemisePermanente;
             priseEnCharge.PersonneDeContact = client.PersonneDeContact;
-        }
-
-        private void RadGridView1_SelectionChanged(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)

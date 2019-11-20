@@ -91,7 +91,6 @@ namespace Lime
 
                 }
 
-
                 //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
                 client.ID_Adresse = idAdresseFacturation;
                 Connexion.maBDD.Insert<Client>(client);

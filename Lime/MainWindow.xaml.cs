@@ -172,16 +172,27 @@ namespace Lime
 
         private void UpdatePriseEnCharge_Click(object sender, RoutedEventArgs e)
         {
-            PriseEnCharge item = (PriseEnCharge)RadGridView1.SelectedItem;
-            int ID_PriseEnCharge = item.ID;
+            if(RadGridView1.SelectedItem != null)
+            {
+                PriseEnCharge item = (PriseEnCharge)RadGridView1.SelectedItem;
+                int ID_PriseEnCharge = item.ID;
 
-            FormPriseEnCharge maFenetre = new FormPriseEnCharge(ID_PriseEnCharge);
-            maFenetre.Closed += FormPriseEnChargeHandler;
-            maFenetre.Show();
+                FormPriseEnCharge maFenetre = new FormPriseEnCharge(ID_PriseEnCharge);
+                maFenetre.Closed += FormPriseEnChargeHandler;
+                maFenetre.Show();
+            }
+
         }
 
         private void DeletePriseEnCharge_Click(object sender, RoutedEventArgs e)
         {
+            RadWindow.Confirm(new DialogParameters
+            {
+                Header = "Attention",
+                Content = "Êtes-vous sûr de vouloir supprimer cet élément ?\nCette action est définitive",
+                Theme = new CrystalTheme()
+            });
+
 
         }
 
@@ -192,5 +203,7 @@ namespace Lime
             GridDataGridViews.Children.Add(gridViewClients);
 
         }
+
+
     }
 }
