@@ -245,8 +245,15 @@ namespace Lime
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)
         {
+            //INSERT
             FormDocument maFenetre = new FormDocument(this.priseEnCharge, 1);
             maFenetre.Show();
+
+
+            //UPDATE
+            //(SI un devis a déjà été créé depuis cette priseEnCharge
+            var devisExistant = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID);
+            //TODO
         }
 
 

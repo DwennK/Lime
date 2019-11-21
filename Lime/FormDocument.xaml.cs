@@ -26,6 +26,7 @@ namespace Lime
     public partial class FormDocument
     {
         //Globals
+        string action = "";
         public Document document = new Document();
         public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
@@ -34,11 +35,11 @@ namespace Lime
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
 
-
+        //Constructeur INSERT
         public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments)
         {
             InitializeComponent();
-
+            this.action = "Insert";
 
 
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
@@ -53,7 +54,7 @@ namespace Lime
             {
                 priseEnCharge = priseEnCharge,
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList(),
+                Lignes,
                 Lignesx,
                 document,
                 typeDocument = typeDocument
@@ -71,23 +72,75 @@ namespace Lime
             //FIN /
 
         }
-        
+
+        //Constructeur UPDATE
+        public FormDocument(Document document)
+        {
+            InitializeComponent();
+            this.action = "Update";
+
+
+            //On récupèreToutes les lignes appartenant à ce document
+            Lignesx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+
+
+            //foreach (Documents_Lignes value in Lignesx)
+            //{
+            //    Lignesx.Add(value);
+            //}
+
+
+
+
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-éléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            DataContext = new
+            {
+                priseEnCharge = priseEnCharge,
+                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
+                Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList(),
+                Lignesx,
+                document,
+                typeDocument = typeDocument
+            };
+
+
+
+
+            //Permet de Reorder les lignes //
+            this.radGridView.ItemsSource = Lignesx;
+            RowReorderBehavior.SetIsEnabled(this.radGridView, true);
+
+        }
+
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
-            string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
-            var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
-            
-
-            numeroActuel += 1;
-            document.Numero = numeroActuel;
+            if(this.action == "Insert")
+            {
+                //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
+                string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
+                var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
 
 
-            //Insertion du document dans la BDD
-            Connexion.maBDD.Insert(document);
+                numeroActuel += 1;
+                document.Numero = numeroActuel;
 
-            //Insertion des lignes dans la BDD.
-            Connexion.maBDD.Insert(Lignesx);
+
+                //Insertion du document dans la BDD
+                Connexion.maBDD.Insert(document);
+
+                //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
+                foreach (Documents_Lignes item in Lignesx)
+                {
+                    item.ID_Documents = document.ID;
+                }
+                //Insertion des lignes dans la BDD.
+                Connexion.maBDD.Insert(Lignesx);
+
+            }
+            if(this.action == "Update")
+            {
+
+            }
 
             this.Close();
         }

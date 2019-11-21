@@ -46,16 +46,7 @@ namespace Lime
             this.lblDatabase.Content = "Database :" + sqlString.InitialCatalog;
         }
 
-
-
-
-        //RowActivated = DoubleClick sur un ligne
-        private void RadGridView1_RowActivated(object sender, Telerik.Windows.Controls.GridView.RowEventArgs e)
-        {
-            //A modifier pour modifier aussi les autres types de documents !
-            ModifierClient_Click(sender, e);
-        }
-        
+      
 
         private void tabClients_Click(object sender, RoutedEventArgs e)
         {
