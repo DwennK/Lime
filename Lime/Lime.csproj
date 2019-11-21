@@ -531,8 +531,60 @@
     <Resource Include="Images\Icons\delete.png" />
     <Resource Include="Images\Icons\checked.png" />
     <Resource Include="Images\Icons\duplicate.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\001-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\002-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\003-clipboard.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\004-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\005-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\006-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\007-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\008-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\009-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\010-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\011-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\012-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\013-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\014-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\015-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\016-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\017-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\018-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\019-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\020-folder.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\021-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\022-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\023-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\024-folder.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\025-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\026-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\027-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\028-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\029-clipboard.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\030-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\031-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\032-folder.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\033-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\034-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\035-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\036-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\037-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\038-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\039-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\040-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\041-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\042-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\043-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\044-folder.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\045-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\046-download.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\047-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\048-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\049-file.png" />
+    <Resource Include="Images\Icons\document-pack\32x32\050-file.png" />
     <Content Include="Images\lemon.svg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\Icons\document-pack\512x512\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -71,40 +71,40 @@
         <telerik:GroupBox x:Name="grpDocuments" Height="115" Margin="5,644,5,0" VerticalAlignment="Top" Header="9) Documents liés " IsEnabled="False">
             <Grid>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="Auto" >
-                    
+
                     <telerik:RadButton x:Name="btnDevis"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" Click="btnDevis_Click" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/048-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Devis</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
                     <telerik:RadButton x:Name="btnDevisAssurance"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/049-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Devis Assurance</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
                     <telerik:RadButton x:Name="btnCommandePieces"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/041-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Commande Pièce</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
                     <telerik:RadButton x:Name="btnReparation"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/043-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Réparation</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
                     <telerik:RadButton x:Name="btnFacture"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/005-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Facture</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
                     <telerik:RadButton x:Name="btnSAV"  Margin="5,5,5,5" Width="120" telerik:StyleManager.Theme="Crystal" >
                         <StackPanel Orientation="Vertical">
-                            <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Center" Height="32" Width="32"/>
+                            <Image Source="/Images/Icons/document-pack/32x32/050-file.png" HorizontalAlignment="Center" Height="32" Width="32"/>
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">SAV</TextBlock>
                         </StackPanel>
                     </telerik:RadButton>
@@ -112,9 +112,9 @@
                 </StackPanel>
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="430,585,433,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
+        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="44" Margin="430,595,433,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
+                <Image Source="/Images/Icons/document-pack/32x32/038-file.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0" SnapsToDevicePixels="False"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
             </StackPanel>
         </telerik:RadButton>
