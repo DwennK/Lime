@@ -16,6 +16,7 @@ namespace Lime
     [Table("Clients")]
     public class Client
     {
+        [Dapper.Contrib.Extensions.ExplicitKey]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [Computed]
         public int ID { get; set; }

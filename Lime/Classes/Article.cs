@@ -16,6 +16,7 @@ namespace Lime
     [Table("Articles")]
     public class Article
     {
+        [Dapper.Contrib.Extensions.Key]
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }

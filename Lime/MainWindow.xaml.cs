@@ -122,7 +122,7 @@ namespace Lime
         {
             if(Connexion.CheckForInternetConnection())
             {
-                //Si le client confirme la supression, alors son supprime vraiment le client.
+                //Si le client confirme la supression, alors son supprime vraiment l'item.
                 var result = e.DialogResult;
                 if (result == true)
                 {
@@ -131,7 +131,6 @@ namespace Lime
                     UpdateGridView(Connexion.maBDD.GetAll<Client>());
                 }
             }
-
         }
 
         private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
@@ -174,10 +173,10 @@ namespace Lime
         {
             if(RadGridView1.SelectedItem != null)
             {
-                PriseEnCharge item = (PriseEnCharge)RadGridView1.SelectedItem;
-                int ID_PriseEnCharge = item.ID;
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
 
-                FormPriseEnCharge maFenetre = new FormPriseEnCharge(ID_PriseEnCharge);
+
+                FormPriseEnCharge maFenetre = new FormPriseEnCharge(priseEnCharge);
                 maFenetre.Closed += FormPriseEnChargeHandler;
                 maFenetre.Show();
             }
@@ -186,24 +185,32 @@ namespace Lime
 
         private void DeletePriseEnCharge_Click(object sender, RoutedEventArgs e)
         {
+
+
             RadWindow.Confirm(new DialogParameters
             {
                 Header = "Attention",
                 Content = "Êtes-vous sûr de vouloir supprimer cet élément ?\nCette action est définitive",
+                Closed = DeletePriseEnCharge_Click_OnClosed,
                 Theme = new CrystalTheme()
             });
 
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DeletePriseEnCharge_Click_OnClosed(object sender, WindowClosedEventArgs e)
         {
-            GridViewClients gridViewClients = new GridViewClients();
-            GridDataGridViews.Children.Clear();
-            GridDataGridViews.Children.Add(gridViewClients);
-
+            if (Connexion.CheckForInternetConnection())
+            {
+                //Si le client confirme la supression, alors on supprime vraiment l'item.
+                var result = e.DialogResult;
+                if (result == true)
+                {
+                    PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+                    Connexion.maBDD.Delete<PriseEnCharge>(priseEnCharge);
+                    UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
+                }
+            }
         }
-
 
     }
 }

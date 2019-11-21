@@ -25,8 +25,10 @@ namespace Lime
     {
 
         public string action = "";
+
         public Client client = new Client();
         public List<Client> listeClients = new List<Client>();
+
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
 
         public FormPriseEnCharge()
@@ -47,15 +49,29 @@ namespace Lime
             Populate();
         }
 
-        public FormPriseEnCharge(int ID_PriseEnCharge)
+        public FormPriseEnCharge(PriseEnCharge priseEnCharge)
         {
 
             InitializeComponent();
 
             //Vu que la prise en Charge existe déjà, le client existe déjà lui aussi.
-            this.priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(ID_PriseEnCharge);
-            this.client = Connexion.maBDD.Get<Client>(priseEnCharge.ID_Clients);
+            this.priseEnCharge = priseEnCharge;
 
+            //On affecte le client (vide pour l'instant) avec les infos déjà présentes dans la PriseEnCharge
+            this.client.ID = (int)priseEnCharge.ID_Clients;
+            this.client.Nom = priseEnCharge.Nom;
+            this.client.ID_Adresse = priseEnCharge.ID_Adresses;
+            this.client.PersonneDeContact = priseEnCharge.PersonneDeContact;
+            this.client.RemisePermanente = priseEnCharge.RemisePermanente;
+            this.client.Telephone1 = priseEnCharge.Telephone1;
+            this.client.Telephone2 = priseEnCharge.Telephone2;
+            this.client.PersonneDeContact = priseEnCharge.PersonneDeContact;
+
+            //On met le client qu'on vient d'affecter dans le GridView.
+            listeClients.Clear();
+            listeClients.Add(client);
+            RadGridView1.ItemsSource = listeClients;
+            RadGridView1.SelectedItem = client;
 
             this.tbxNom.Visibility = Visibility.Hidden;
             this.btnInsertClient.Visibility = Visibility.Hidden;
@@ -67,11 +83,7 @@ namespace Lime
             //Vu qu'on sait que la prise en charge existe déjà, on enable. 
             grpDocuments.IsEnabled = true;
 
-            //On met le client dans le GridView.
-            listeClients.Clear();
-            listeClients.Add(client);
-            RadGridView1.ItemsSource = listeClients;
-            RadGridView1.SelectedItem = client;
+
 
 
             ////De cette manière, le Nom du client, qui se trouve à la colonne 0 dans le GridView, ne sera pas modifiable.

@@ -15,6 +15,8 @@ namespace Lime
     [Table("PriseEnCharges")]
     public class PriseEnCharge
     {
+        [Dapper.Contrib.Extensions.Key]
+
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
@@ -49,7 +51,7 @@ namespace Lime
         public string IMEI { get; set; }
         public string SerialNumber { get; set; }
         public string Commentaire { get; set; }
-        public decimal RemisePermanente { get; set; }
+        public int RemisePermanente { get; set; }
         public string PersonneDeContact { get; set; }
         public bool PaiementSurFacture { get; set; }
         public bool AppareilRenduAuClient { get; set; }

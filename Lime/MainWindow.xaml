@@ -80,7 +80,7 @@
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="InsertPriseEnCharge" />
                         <telerik:RadRibbonButton x:Name="UpdatePriseEnCharge" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="UpdatePriseEnCharge_Click"  />
-                        <telerik:RadRibbonButton x:Name="DeletePriseEnCharge" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DeletePriseEnCharge_Click"  />
+                        <telerik:RadRibbonButton x:Name="DeletePriseEnCharge" IsEnabled="False" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DeletePriseEnCharge_Click"  />
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
                     <telerik:RadRibbonGroup Header="Font">
@@ -145,10 +145,6 @@
 
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
-        <Grid x:Name="GridDataGridViews" HorizontalAlignment="Left" Height="120" Margin="350,120,0,0" VerticalAlignment="Top" Width="1275">
-            
-        </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="155,153,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
 
 
