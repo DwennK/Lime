@@ -24,14 +24,10 @@ namespace Lime
     public partial class FormPriseEnCharge
     {
 
-        string action = "";
-        Client client = new Client();
-        PriseEnCharge priseEnCharge = new PriseEnCharge();
-
-
-
-
-
+        public string action = "";
+        public Client client = new Client();
+        public List<Client> listeClients = new List<Client>();
+        public PriseEnCharge priseEnCharge = new PriseEnCharge();
 
         public FormPriseEnCharge()
         {
@@ -53,20 +49,33 @@ namespace Lime
 
         public FormPriseEnCharge(int ID_PriseEnCharge)
         {
+
             InitializeComponent();
+
+            //Vu que la prise en Charge existe déjà, le client existe déjà lui aussi.
+            this.priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(ID_PriseEnCharge);
+            this.client = Connexion.maBDD.Get<Client>(priseEnCharge.ID_Clients);
+
+
             this.tbxNom.Visibility = Visibility.Hidden;
             this.btnInsertClient.Visibility = Visibility.Hidden;
-            this.priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(ID_PriseEnCharge);
+
             this.DataContext = priseEnCharge;
             this.action = "Update";
 
 
+            //Vu qu'on sait que la prise en charge existe déjà, on enable. 
             grpDocuments.IsEnabled = true;
+
             //On met le client dans le GridView.
-            this.client = Connexion.maBDD.Get<Client>(priseEnCharge.ID_Clients);
-            RadGridView1.ItemsSource = client;
+            listeClients.Clear();
+            listeClients.Add(client);
+            RadGridView1.ItemsSource = listeClients;
             RadGridView1.SelectedItem = client;
 
+
+            ////De cette manière, le Nom du client, qui se trouve à la colonne 0 dans le GridView, ne sera pas modifiable.
+            //RadGridView1.Columns[0].IsReadOnly = true;
 
             this.DatePickerDebut.IsEnabled = false;
 
@@ -121,16 +130,19 @@ namespace Lime
             //Ces actions sont définies par le constructeur appelé
             if(DonnéesValides())
             {
-
+                this.client = (Client)RadGridView1.SelectedItem;
+                AffecterPriseEnCharge();
 
                 if (action == "Insert")
                 {
+
                     //On insère la prise en charge dans la BDD, et on récupère l'ID.
                     var id = Connexion.maBDD.Insert(priseEnCharge);
                     this.priseEnCharge.ID = (int)id;
                 }
                 else if (action == "Update")
                 {
+                    //Si des données ont été modifiées (par exemple en changeant le numéro de téléphone), on vient modifier ça dans la priseEnCahrge
                     Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
                 }
 
@@ -143,7 +155,7 @@ namespace Lime
         private bool DonnéesValides()
         {
             string messageErreur = string.Empty;
-            bool isValidData = true;
+            bool isValidData;
 
             if (client.ID == 0)
             {
@@ -194,16 +206,20 @@ namespace Lime
 
         private void tbxNom_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //On rempli le gridview de la liste des clients qui ont ce nom.
-            var NomClient = tbxNom.Text;
-            var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient ";
-            IEnumerable<Client> ListClient = Connexion.maBDD.Query<Client>(sql, new { NomClient = "%"+NomClient+"%" });
+            //Si le client Existe
+            if (client != null)
+            {
+                if (this.action == "Insert")
+                {
+                    var NomClient = tbxNom.Text;
+                    var sql = "SELECT * FROM Clients WHERE Nom LIKE @NomClient ";
 
-            RadGridView1.ItemsSource = ListClient;
-
-            //De cette manière, le Nom du client, qui se trouve à la colonne 0 dans le GridView, ne sera pas modifiable.
-            RadGridView1.Columns[0].IsReadOnly = true;
-
+                    listeClients.Clear();
+                    listeClients = Connexion.maBDD.Query<Client>(sql, new { NomClient = "%" + NomClient + "%" }).ToList();
+                    //On rempli le gridview de la liste des clients qui ont ce nom.
+                    RadGridView1.ItemsSource = listeClients;
+                }
+            }
         }
 
 
@@ -211,14 +227,8 @@ namespace Lime
         private void RadGridView1_SelectionChanged(object sender, SelectionChangeEventArgs e)
         {
             this.client = (Client)RadGridView1.SelectedItem;
-            priseEnCharge.Nom = client.Nom;
-            priseEnCharge.Telephone1 = client.Telephone1;
-            priseEnCharge.Telephone2 = client.Telephone2;
-            priseEnCharge.Email1 = client.Email1;
-            priseEnCharge.Email2 = client.Email2;
-            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
-            priseEnCharge.RemisePermanente = client.RemisePermanente;
-            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
+
+            AffecterPriseEnCharge();
         }
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)
@@ -227,5 +237,19 @@ namespace Lime
             maFenetre.Show();
         }
 
+
+        private void AffecterPriseEnCharge()
+        {
+            priseEnCharge.Nom = client.Nom;
+            priseEnCharge.ID_Clients = client.ID;
+            priseEnCharge.ID_Adresses = client.ID_Adresse;
+            priseEnCharge.Telephone1 = client.Telephone1;
+            priseEnCharge.Telephone2 = client.Telephone2;
+            priseEnCharge.Email1 = client.Email1;
+            priseEnCharge.Email2 = client.Email2;
+            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
+            priseEnCharge.RemisePermanente = client.RemisePermanente;
+            priseEnCharge.PersonneDeContact = client.PersonneDeContact;
+        }
     }
 }
