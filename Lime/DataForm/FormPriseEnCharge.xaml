@@ -22,7 +22,7 @@
         <telerik:GroupBox Height="95" Margin="5,240,543,0" VerticalAlignment="Top" Header="2) Magasins">
             <Grid>
                 <Label Content="Magasin dans lequel la prise en charge a eu lieu :" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,209,0" Width="294"/>
-                <telerik:RadComboBox x:Name="ComboBoxMagasinSource" SelectedValue="{Binding ID_MagasinSource}" Height="25" HorizontalAlignment="Center" Margin="343,2,8,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
+                <telerik:RadComboBox x:Name="ComboBoxMagasinSource" SelectedValue="{Binding ID_MagasinSource}" Height="25" HorizontalAlignment="Center" Margin="343,2,5,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
                 <Label Content="Dans quel magasin souhaitez-vous récupérer l'appareil ?" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="7,36,177,0"/>
                 <telerik:RadComboBox x:Name="ComboBoxMagasinDestination" SelectedValue="{Binding ID_MagasinDestination}" Height="25" HorizontalAlignment="Center" Margin="343,38,8,0" VerticalAlignment="Top" Width="162" telerik:StyleManager.Theme="Crystal" />
             </Grid>
@@ -122,9 +122,9 @@
         <telerik:GroupBox Height="103" Margin="5,337,544,0" VerticalAlignment="Top" Header="4) Codes">
             <Grid>
                 <Label Content="Code de l'appareil: " Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
-                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeAppareil}" Height="25"  Margin="198,10,0,45"  TextWrapping="Wrap"  WatermarkContent="Code appareil"  Width="152" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeAppareil}" Height="25"  Margin="344,10,0,45"  TextWrapping="Wrap"  WatermarkContent="Code appareil"  Width="158" telerik:StyleManager.Theme="Crystal"/>
                 <Label Content="Code SIM: " Margin="10,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
-                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeSIM}" Height="25" Margin="198,45,0,10"  MaxLength="10" TextWrapping="Wrap" WatermarkContent="Code SIM"  Width="152" telerik:StyleManager.Theme="Crystal"/>
+                <telerik:RadWatermarkTextBox HorizontalAlignment="Left" Text="{Binding CodeSIM}" Height="25" Margin="344,45,0,10"  MaxLength="10" TextWrapping="Wrap" WatermarkContent="Code SIM"  Width="158" telerik:StyleManager.Theme="Crystal"/>
             </Grid>
         </telerik:GroupBox>
 
