@@ -200,6 +200,10 @@ namespace Lime
             IEnumerable<Client> ListClient = Connexion.maBDD.Query<Client>(sql, new { NomClient = "%"+NomClient+"%" });
 
             RadGridView1.ItemsSource = ListClient;
+
+            //De cette manière, le Nom du client, qui se trouve à la colonne 0 dans le GridView, ne sera pas modifiable.
+            RadGridView1.Columns[0].IsReadOnly = true;
+
         }
 
 
@@ -222,5 +226,6 @@ namespace Lime
             FormDocument maFenetre = new FormDocument(this.priseEnCharge, 1);
             maFenetre.Show();
         }
+
     }
 }
