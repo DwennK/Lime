@@ -41,9 +41,9 @@ namespace Lime
             InitializeComponent();
             this.action = "Insert";
 
-
-            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList();
-            var xx = Connexion.maBDD.GetAll<Documents_Lignes>();
+            //TODO TO DO TO-DO
+            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID).ToList();
+            var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
             foreach (Documents_Lignes value in xx)
             {
                 Lignesx.Add(value);
@@ -80,17 +80,17 @@ namespace Lime
             this.action = "Update";
 
 
-            //On récupèreToutes les lignes appartenant à ce document
+            //On récupère Toutes les lignes appartenant à ce document
             Lignesx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
 
 
-            //foreach (Documents_Lignes value in Lignesx)
-            //{
-            //    Lignesx.Add(value);
-            //}
+            foreach (Documents_Lignes value in Lignesx)
+            {
+                Lignesx.Add(value);
+            }
 
 
-
+            this.document = document;
 
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-éléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
@@ -99,7 +99,7 @@ namespace Lime
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
                 Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList(),
                 Lignesx,
-                document,
+                this.document,
                 typeDocument = typeDocument
             };
 
@@ -114,35 +114,42 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            if(this.action == "Insert")
-            {
+
                 //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
                 string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
                 var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
 
-
                 numeroActuel += 1;
                 document.Numero = numeroActuel;
 
+                if(this.action=="Insert")
+                {
+                    Connexion.maBDD.Insert(document);
+                }
 
-                //Insertion du document dans la BDD
-                Connexion.maBDD.Insert(document);
 
-                //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
                 foreach (Documents_Lignes item in Lignesx)
                 {
+                    //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
                     item.ID_Documents = document.ID;
+
+
+                    //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
+                    var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
+
+                    if(exists)
+                    {
+                        //Insertion des la ligne dans la BDD.
+                        Connexion.maBDD.Update(item);
+                    }
+                    else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
+                    {
+                        //Insertion des la ligne dans la BDD.
+                        Connexion.maBDD.Insert(item);
+                    }
                 }
-                //Insertion des lignes dans la BDD.
-                Connexion.maBDD.Insert(Lignesx);
 
-            }
-            if(this.action == "Update")
-            {
-
-            }
-
-            this.Close();
+                this.Close();
         }
 
         private void Insert_Click(object sender, RoutedEventArgs e)
