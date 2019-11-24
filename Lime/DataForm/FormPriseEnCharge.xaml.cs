@@ -31,6 +31,7 @@ namespace Lime
 
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
 
+        //INSERT
         public FormPriseEnCharge()
         {
             InitializeComponent();
@@ -49,10 +50,13 @@ namespace Lime
             Populate();
         }
 
+        //UPDATE
         public FormPriseEnCharge(PriseEnCharge priseEnCharge)
         {
 
             InitializeComponent();
+            this.action = "Update";
+
 
             //Vu que la prise en Charge existe déjà, le client existe déjà lui aussi.
             this.priseEnCharge = priseEnCharge;
@@ -77,12 +81,10 @@ namespace Lime
             this.btnInsertClient.Visibility = Visibility.Hidden;
 
             this.DataContext = priseEnCharge;
-            this.action = "Update";
 
 
             //Vu qu'on sait que la prise en charge existe déjà, on enable. 
             grpDocuments.IsEnabled = true;
-
 
 
 

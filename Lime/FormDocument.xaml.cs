@@ -78,31 +78,29 @@ namespace Lime
         {
             InitializeComponent();
             this.action = "Update";
+            this.document = document;
 
 
             //On récupère Toutes les lignes appartenant à ce document
-            Lignesx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
 
-
-            foreach (Documents_Lignes value in Lignesx)
+            Lignesx.Clear();
+            foreach (Documents_Lignes value in Lignes)
             {
                 Lignesx.Add(value);
             }
 
-
-            this.document = document;
 
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-éléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge = priseEnCharge,
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().ToList(),
+                Lignes,
                 Lignesx,
                 this.document,
                 typeDocument = typeDocument
             };
-
 
 
 
@@ -115,15 +113,14 @@ namespace Lime
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
 
-                //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
-                string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
-                var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
-
-                numeroActuel += 1;
-                document.Numero = numeroActuel;
 
                 if(this.action=="Insert")
                 {
+                    //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
+                    string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
+                    var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
+                    numeroActuel += 1;
+                    document.Numero = numeroActuel;
                     Connexion.maBDD.Insert(document);
                 }
 
@@ -177,7 +174,9 @@ namespace Lime
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            this.Lignesx.Remove((Lime.Documents_Lignes)radGridView.SelectedItem);
+            var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
+            Connexion.maBDD.Delete(item);
+            Lignesx.Remove(item);
         }
     }
 }
