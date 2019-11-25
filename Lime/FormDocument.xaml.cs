@@ -17,6 +17,7 @@ using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace Lime
 {
@@ -40,6 +41,8 @@ namespace Lime
         {
             InitializeComponent();
             this.action = "Insert";
+
+
 
             //TODO TO DO TO-DO
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID).ToList();
@@ -79,6 +82,7 @@ namespace Lime
             InitializeComponent();
             this.action = "Update";
             this.document = document;
+
 
 
             //On récupère Toutes les lignes appartenant à ce document

@@ -259,7 +259,7 @@ namespace Lime
             {
                 //UPDATE
                 //(SI un devis a déjà été créé depuis cette priseEnCharge)
-                var document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID).First<Document>();
+                var document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID).FirstOrDefault<Document>();
                 FormDocument maFenetre = new FormDocument(document);
                 maFenetre.Show();
             }

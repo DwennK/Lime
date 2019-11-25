@@ -21,6 +21,7 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
         [Display(Name = "ID Client")]
+        [ReadOnly(true)]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int? ID_Clients { get; set; }        //Le "?" Sert à ce que le champs accepte un Null dans Dapper
         [Display(Name = "ID Adresse")]

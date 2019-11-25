@@ -10,12 +10,11 @@ using System.ComponentModel; //Sert à changer l'affichage du nom de la proprit�
 using System.ComponentModel.DataAnnotations;
 
 
-
 namespace Lime
 {
     [Serializable]
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
-    [Table("Documents_Lignes")]
+    [System.ComponentModel.DataAnnotations.Schema.Table("Documents_Lignes")]
     public class Documents_Lignes : ICloneable
     {
         [Computed]
@@ -44,6 +43,7 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public decimal? TotalTVA { get; set; }
         [Display(Name = "Prix TTC")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal PrixTotal { get; set; }
 
         public virtual object Clone()

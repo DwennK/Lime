@@ -23,6 +23,8 @@ using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Threading;
 
 namespace Lime
 {
@@ -40,6 +42,13 @@ namespace Lime
             InitializeComponent();
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
+
+     // Change current culture
+            CultureInfo culture;
+                culture = CultureInfo.CreateSpecificCulture("fr-FR");
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
             //IP Server dans la statusBar
             this.lblStatusConnexion.Content = "Server :" + sqlString.DataSource;
