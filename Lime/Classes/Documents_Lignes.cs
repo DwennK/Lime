@@ -27,24 +27,32 @@ namespace Lime
         [Display(Name = "Libellé")]
         public string Libelle { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-
         public int Ordre { get; set; }
         [Display(Name = "Quantité")]
         public int Quantite { get; set; }
         [Display(Name = "Prix achat")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal? PrixAchatUnite { get; set; }
         [Display(Name = "Taux TVA")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
+        [DisplayFormat(DataFormatString = "{0:D}")]
         public decimal? TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public decimal? TotalTVA { get; set; }
         [Display(Name = "Prix TTC")]
-        [DisplayFormat(DataFormatString = "{0:c}")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal PrixTotal { get; set; }
+
+        public Documents_Lignes()
+        {
+            this.Quantite = 1; //Valeur par défaut lors de la création d'une nouvelle ligne
+        }
 
         public virtual object Clone()
         {

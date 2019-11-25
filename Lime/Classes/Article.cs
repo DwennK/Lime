@@ -29,8 +29,10 @@ namespace Lime
         [Display(Name = "Libellé")]
         public string Libelle { get; set; }
         [Display(Name = "Prix de vente")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public double Prixvente { get; set; }
         [Display(Name = "Prix d'achat")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public double PrixAchat { get; set; }
         [Display(Name = "Gérer le stock ?")]
         public bool GererStock { get; set; }
