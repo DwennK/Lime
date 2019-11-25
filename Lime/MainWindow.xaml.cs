@@ -212,5 +212,10 @@ namespace Lime
             }
         }
 
+        private void btnSMS_Click(object sender, RoutedEventArgs e)
+        {
+            SMS maFenetre = new SMS();
+            maFenetre.Show();
+        }
     }
 }
