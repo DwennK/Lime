@@ -60,6 +60,7 @@ namespace Lime
 
             //Vu que la prise en Charge existe déjà, le client existe déjà lui aussi.
             this.priseEnCharge = priseEnCharge;
+            this.DataContext = this.priseEnCharge;
 
             //On affecte le client (vide pour l'instant) avec les infos déjà présentes dans la PriseEnCharge
             this.client.ID = (int)priseEnCharge.ID_Clients;
@@ -80,7 +81,7 @@ namespace Lime
             this.tbxNom.Visibility = Visibility.Hidden;
             this.btnInsertClient.Visibility = Visibility.Hidden;
 
-            this.DataContext = priseEnCharge;
+
 
 
             //Vu qu'on sait que la prise en charge existe déjà, on enable. 
@@ -260,7 +261,7 @@ namespace Lime
                 //UPDATE
                 //(SI un devis a déjà été créé depuis cette priseEnCharge)
                 var document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID).FirstOrDefault<Document>();
-                FormDocument maFenetre = new FormDocument(document);
+                FormDocument maFenetre = new FormDocument(priseEnCharge, document);
                 maFenetre.Show();
             }
 

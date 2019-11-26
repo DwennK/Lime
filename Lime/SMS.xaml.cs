@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,16 @@ namespace Lime
         {
             InitializeComponent();
 
-            webBrowser.Navigate("http://perdu.com", null, null,
-                    "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36");
+
+
+
+            //Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION",
+            //System.AppDomain.CurrentDomain.FriendlyName.Replace(".exe", ".vshost.exe"), 8000);
+
+
+
+            webBrowser.Navigate("https://messages.google.com/web/", null, null,
+                    "User-Agent: Chrome/74.0.3729.169");
         }
     }
 }

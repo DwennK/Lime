@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lime"
         mc:Ignorable="d"
-        Title="SMS" Height="450" Width="800">
+        Title="SMS" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <WebBrowser  x:Name="webBrowser" HorizontalAlignment="Left" Height="215" Margin="195,120,0,0" VerticalAlignment="Top" Width="490"/>
+        <DockPanel >
+            <WebBrowser  x:Name="webBrowser" HorizontalAlignment="Stretch" />
+
+        </DockPanel>
 
     </Grid>
 </Window>

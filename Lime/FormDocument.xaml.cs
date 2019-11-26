@@ -67,17 +67,14 @@ namespace Lime
             document.ID_PriseEnCharge = priseEnCharge.ID;
             document.ID_TypeDocument = ID_TypeDocuments;
 
-            //TEST //
-            //this.radGridViewx.ItemsSource = MessageViewModel.Generate();
-            //RowReorderBehavior.SetIsEnabled(this.radGridViewx, true);
+            //Permet de Reorder les lignes //
             this.radGridView.ItemsSource = Lignesx;
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
-            //FIN /
 
         }
 
         //Constructeur UPDATE
-        public FormDocument(Document document)
+        public FormDocument(PriseEnCharge priseEnCharge, Document document)
         {
             InitializeComponent();
             this.action = "Update";
