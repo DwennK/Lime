@@ -15,6 +15,7 @@ using Telerik.Windows.Controls;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
+using System.Collections.ObjectModel;
 
 namespace Lime
 {
@@ -281,5 +282,6 @@ namespace Lime
             priseEnCharge.RemisePermanente = client.RemisePermanente;
             priseEnCharge.PersonneDeContact = client.PersonneDeContact;
         }
+
     }
 }
