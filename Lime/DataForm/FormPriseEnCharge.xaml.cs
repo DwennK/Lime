@@ -137,12 +137,12 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
+            //Si l'utilisateur n'as pas sélectionné de client dans la liste, on le sélectionnne.
             if(client==null)
             {
                 this.client = listeClients.First();
             }
 
-            
             //Ces actions sont définies par le constructeur appelé
             if (DonnéesValides())
             {
