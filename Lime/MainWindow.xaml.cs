@@ -217,5 +217,59 @@ namespace Lime
             SMS maFenetre = new SMS();
             maFenetre.Show();
         }
+
+        private void btnDevis_Click(object sender, RoutedEventArgs e)
+        {
+            PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+            //Numéro des DEVIS dans la BDD
+            int NumeroDuTypeDeDocument = NumeroDocumentDansBDD.ID_Devis;
+
+            //On récupère le document correspondant, s'il en existe un.
+            var temp = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_PriseEnCharge == priseEnCharge.ID && x.ID_TypeDocument == NumeroDuTypeDeDocument);
+            
+            if(temp != null)//Si le document existe déjà.
+            {
+                //UPDATE
+                var document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID).FirstOrDefault<Document>();
+                FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                maFenetre.Show();
+            }
+            else //Si le document n'existe pas encore.
+            {
+                //INSERT
+                FormDocument maFenetre = new FormDocument(priseEnCharge, 1);
+                maFenetre.Show();
+
+            }
+
+
+        }
+
+
+        private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCommandePieces_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnReparation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFacture_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSAV_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

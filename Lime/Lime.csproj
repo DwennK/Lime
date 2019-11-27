@@ -404,6 +404,7 @@
     <Compile Include="Classes\Article.cs" />
     <Compile Include="Classes\LieuActuelAppareil.cs" />
     <Compile Include="Classes\Magasin.cs" />
+    <Compile Include="Classes\NumeroDocumentDansBDD.cs" />
     <Compile Include="Classes\PriseEnCharge.cs" />
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />

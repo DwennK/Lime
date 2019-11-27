@@ -111,6 +111,28 @@ namespace Lime
 
         }
 
+        //TODO TO-DO
+        public void CalculerTotaux()
+        {
+            decimal TVATotal = 0;
+            decimal PrixTotal = 0;
+            decimal RemiseTotal = 0;
+
+
+            foreach(Documents_Lignes item in Lignesx)
+            {
+                TVATotal += (decimal)item.TotalTVA;
+                PrixTotal += item.PrixTotal;
+                RemiseTotal += (decimal)(PrixTotal * item.TauxRemise / 100);
+
+
+            }
+
+
+        }
+
+
+
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
 

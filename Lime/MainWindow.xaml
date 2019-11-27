@@ -81,19 +81,21 @@
                         <telerik:RadRibbonButton x:Name="SupprimmerClient" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="SupprimmerClient_Click"  />
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
-                    <telerik:RadRibbonGroup Header="Font">
-                        <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
-                    </telerik:RadRibbonGroup>
+                   
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabPriseEnCharge" Header="Prise en Charge" MouseLeftButtonUp="tabPriseEnCharge_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="Gestion">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="InsertPriseEnCharge" />
                         <telerik:RadRibbonButton x:Name="UpdatePriseEnCharge" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="UpdatePriseEnCharge_Click"  />
                         <telerik:RadRibbonButton x:Name="DeletePriseEnCharge" IsEnabled="False" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DeletePriseEnCharge_Click"  />
-                        <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
-                    <telerik:RadRibbonGroup Header="Font">
-                        <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
+                    <telerik:RadRibbonGroup Header="Documents liés">
+                        <telerik:RadRibbonButton Name="btnDevis" Text="Devis" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/048-file.png" Click="btnDevis_Click" />
+                        <telerik:RadRibbonButton Name="btnDevisAssurance" Text="Devis Assurance" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/049-file.png" Click="btnDevisAssurance_Click" />
+                        <telerik:RadRibbonButton Name="btnCommandePieces" Text="Commande Pièce" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/041-file.png" Click="btnCommandePieces_Click" />
+                        <telerik:RadRibbonButton Name="btnReparation" Text="Réparation" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/043-file.png" Click="btnReparation_Click" />
+                        <telerik:RadRibbonButton Name="btnFacture" Text="Facture" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnFacture_Click" />
+                        <telerik:RadRibbonButton Name="btnSAV" Text="SAV" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnSAV_Click" />
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabDevis" Header="Devis" >
@@ -102,9 +104,6 @@
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
                         <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
                         <telerik:RadRibbonButton/>
-                    </telerik:RadRibbonGroup>
-                    <telerik:RadRibbonGroup Header="Font">
-                        <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabCommande" Header="Commandes" >
