@@ -220,18 +220,12 @@ namespace Lime
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)
         {
+            Document document = GetDocument(1);
             PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
 
-            //Numéro des DEVIS dans la BDD
-            int NumeroDuTypeDeDocument = NumeroDocumentDansBDD.ID_Devis;
-
-            //On récupère le document correspondant, s'il en existe un.
-            var temp = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_PriseEnCharge == priseEnCharge.ID && x.ID_TypeDocument == NumeroDuTypeDeDocument);
-            
-            if(temp != null)//Si le document existe déjà.
+            if (document != null)//Si le document existe déjà.
             {
                 //UPDATE
-                var document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 1 && x.ID_PriseEnCharge == priseEnCharge.ID).FirstOrDefault<Document>();
                 FormDocument maFenetre = new FormDocument(priseEnCharge, document);
                 maFenetre.Show();
             }
@@ -240,9 +234,7 @@ namespace Lime
                 //INSERT
                 FormDocument maFenetre = new FormDocument(priseEnCharge, 1);
                 maFenetre.Show();
-
             }
-
 
         }
 
@@ -270,6 +262,17 @@ namespace Lime
         private void btnSAV_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private Document GetDocument(int NumeroDuTypeDocumentDansLaBDD) //Cette fonction retourne un Document (si existant), lié à une prise en charge.
+        {
+            PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+            //On récupère le document correspondant, s'il en existe un.
+            Document document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_PriseEnCharge == priseEnCharge.ID && x.ID_TypeDocument == NumeroDuTypeDocumentDansLaBDD).FirstOrDefault();
+
+            //Retourne le document correspondant 
+            return document;
         }
     }
 }

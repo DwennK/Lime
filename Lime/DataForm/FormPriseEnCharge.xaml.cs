@@ -39,7 +39,6 @@ namespace Lime
             this.DataContext = this.priseEnCharge;
             this.action = "Insert";
 
-            grpDocuments.IsEnabled = false;
             //Insertion automatique de la Date dans le DatePic1kerDebut
             priseEnCharge.DateDebut = DateTime.Now;
             this.DatePickerDebut.IsEnabled = false;
@@ -82,11 +81,6 @@ namespace Lime
             this.tbxNom.Visibility = Visibility.Hidden;
             this.btnInsertClient.Visibility = Visibility.Hidden;
 
-
-
-
-            //Vu qu'on sait que la prise en charge existe déjà, on enable. 
-            grpDocuments.IsEnabled = true;
 
 
 
@@ -143,10 +137,15 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            //Ces actions sont définies par le constructeur appelé
-            if(DonnéesValides())
+            if(client==null)
             {
-                this.client = (Client)RadGridView1.SelectedItem;
+                this.client = listeClients.First();
+            }
+
+            
+            //Ces actions sont définies par le constructeur appelé
+            if (DonnéesValides())
+            {
                 AffecterPriseEnCharge();
 
                 if (action == "Insert")
@@ -162,8 +161,8 @@ namespace Lime
                     Connexion.maBDD.Update<PriseEnCharge>(priseEnCharge);
                 }
 
-                //On enable les boutons en dessous
-                grpDocuments.IsEnabled = true;
+                //Fermture de la fenêtre.
+                this.Close();
             }
 
         }
