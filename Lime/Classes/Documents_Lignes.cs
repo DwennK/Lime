@@ -33,25 +33,26 @@ namespace Lime
         [Display(Name = "Prix achat")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal? PrixAchatUnite { get; set; }
+        public double? PrixAchatUnite { get; set; }
         [Display(Name = "Taux TVA")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal? TauxTVA { get; set; }
+        public double? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
         [DisplayFormat(DataFormatString = "{0:D}")]
-        public decimal? TauxRemise { get; set; }
+        public double? TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-        public decimal? TotalTVA { get; set; }
+        public double? TotalTVA { get; set; }
         [Display(Name = "Prix TTC")]
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public decimal PrixTotal { get; set; }
+        public double PrixTotal { get; set; }
 
         public Documents_Lignes()
         {
             this.Quantite = 1; //Valeur par défaut lors de la création d'une nouvelle ligne
+            this.TauxTVA = Connexion.maBDD.Get<Parametres>(1).TauxTVAParDefaut; //Valeur par défaut lors de la création d'une nouvelle ligne
         }
 
         public virtual object Clone()

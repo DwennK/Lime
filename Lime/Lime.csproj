@@ -399,6 +399,7 @@
       <DependentUpon>AjoutArticles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Document.cs" />
+    <Compile Include="Classes\Parametre.cs" />
     <Compile Include="Classes\Documents_Lignes.cs" />
     <Compile Include="Classes\Adresse.cs" />
     <Compile Include="Classes\Article.cs" />

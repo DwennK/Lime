@@ -140,7 +140,7 @@ namespace Lime
             foreach (Documents_Lignes item in Lignesx) //Ces variables sont dans le DataContext
             {
                 //Total TTC
-                TotalTTC += (double)item.PrixTotal;
+                TotalTTC += item.PrixTotal;
 
                 //TotalTVA
                 if (item.TauxTVA != null)
@@ -151,7 +151,7 @@ namespace Lime
                 { TotalRemise += (double)(item.PrixTotal * item.TauxRemise) / 100; }
 
                 //TotalHT
-                TotalRemise += (double)(TotalTTC - TotalRemise - TotalTVA);
+                TotalHT += (TotalTTC - TotalRemise - TotalTVA);
 
                 //TotalRéglé
                 TotalRegle = 0; //TODO TO DO To-DO
