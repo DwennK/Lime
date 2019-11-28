@@ -15,7 +15,7 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="5,185,5,82" 
+                        Margin="5,185,5,65" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -155,14 +155,50 @@
                 </StackPanel>
             </Grid>
         </telerik:GroupBox>
-        <StackPanel Name="Sommaires" Margin="5,770,5,5" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <telerik:GroupBox Header="Montant Total"  Height="72"  Width="110" Margin="5">
+        <StackPanel Name="Sommaires" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <telerik:GroupBox Header="Total Remise"  Height="50"  Width="110" Margin="1">
                 <Grid>
-                    <telerik:Label Content="{Binding PrixTotal}" HorizontalAlignment="Center" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
-
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding TotalRemise}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Header="Total HT"  Height="50"  Width="110" Margin="1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding TotalHT}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Header="Total TVA"  Height="50"  Width="110" Margin="1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding TotalTVA}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Header="Total TTC"  Height="50"  Width="110" Margin="1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding TotalTTC}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Header="Total réglé"  Height="50"  Width="110" Margin="1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding TotalRegle}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>                </Grid>
+            </telerik:GroupBox>
+            <telerik:GroupBox Header="Net à payer"  Height="50"  Width="110" Margin="5">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:Label Content="{Binding NetAPayer}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                        <telerik:Label Content="CHF" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+                    </StackPanel>
                 </Grid>
             </telerik:GroupBox>
-
         </StackPanel>
     </Grid>
 </telerik:RadWindow>

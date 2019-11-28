@@ -35,12 +35,14 @@ namespace Lime
         public List<Documents_Lignes> Lignes;
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
-        public double RabaisTotal { get; set; }
-        public double PrixTotal { get; set; }
-        public double TVATotal { get; set; }
 
-
-
+        public double TotalRemise;
+        public double TotalHT;
+        public double TotalTVA;
+        public double TotalTTC;
+        public double TotalRegle;
+        public double NetAPayer;
+                                    
 
         //Constructeur INSERT
         public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments)
@@ -111,13 +113,16 @@ namespace Lime
                 Lignesx,
                 typeDocument,
                 document,
-                PrixTotal,
-                RabaisTotal,
-                TVATotal
+                TotalRemise,
+                TotalHT,
+                TotalTVA,
+                TotalTTC,
+                TotalRegle,
+                NetAPayer,
             };
         }
 
-        //TODO TO-DO
+
         public void CalculerTotaux()
         {
             //Cet event sera appelé après chaque modification de valeur dans le GridView.
@@ -125,19 +130,34 @@ namespace Lime
 
 
             //Reset des valeurs à zero
-            PrixTotal = 0;
-            RabaisTotal = 0;
-            TVATotal = 0;
+            TotalRemise = 0;
+            TotalHT = 0;
+            TotalTVA = 0;
+            TotalTTC = 0;
+            TotalRegle = 0;
+            NetAPayer = 0;
 
             foreach (Documents_Lignes item in Lignesx) //Ces variables sont dans le DataContext
             {
+                //Total TTC
+                TotalTTC += (double)item.PrixTotal;
 
-                PrixTotal += (double)item.PrixTotal;
-
-                if (item.TauxRemise != null)
-                { RabaisTotal += (double)(item.PrixTotal * item.TauxRemise) / 100; }
+                //TotalTVA
                 if (item.TauxTVA != null)
-                { TVATotal += (double)(item.PrixTotal * item.TauxTVA) / 100; }
+                { TotalTVA += (double)(item.PrixTotal * item.TauxTVA) / 100; }
+
+                //TotalRemise
+                if (item.TauxRemise != null)
+                { TotalRemise += (double)(item.PrixTotal * item.TauxRemise) / 100; }
+
+                //TotalHT
+                TotalRemise += (double)(TotalTTC - TotalRemise - TotalTVA);
+
+                //TotalRéglé
+                TotalRegle = 0; //TODO TO DO To-DO
+
+                //NetAPayer
+                NetAPayer = 0;//TODO TO DO To-DO
 
             }
             SetDataContext();
@@ -188,11 +208,15 @@ namespace Lime
         {
             Documents_Lignes item = new Documents_Lignes();
             this.Lignesx.Add(item);
+
+            CalculerTotaux();
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             radGridView.BeginEdit();
+            CalculerTotaux();
+
         }
 
         private void Duplicate_Click(object sender, RoutedEventArgs e)
@@ -205,6 +229,8 @@ namespace Lime
             item = (Lime.Documents_Lignes)aCopier.Clone();
             //Ajout de la ligne
             this.Lignesx.Add(item);
+            CalculerTotaux();
+
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -212,6 +238,7 @@ namespace Lime
             var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
             Connexion.maBDD.Delete(item);
             Lignesx.Remove(item);
+            CalculerTotaux();
         }
 
         private void radGridView_CellEditEnded(object sender, GridViewCellEditEndedEventArgs e)
