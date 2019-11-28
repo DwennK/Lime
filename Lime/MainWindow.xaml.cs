@@ -43,9 +43,9 @@ namespace Lime
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
 
-     // Change current culture
+            // Change current culture
             CultureInfo culture;
-                culture = CultureInfo.CreateSpecificCulture("fr-FR");
+            culture = CultureInfo.CreateSpecificCulture("fr-FR");
 
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;

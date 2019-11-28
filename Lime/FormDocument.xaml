@@ -3,11 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="Lime.FormDocument"
-        Header="Document" Height="900" Width="1206" telerik:StyleManager.Theme="Crystal" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Header="{Binding typeDocument.Libelle}" 
+        Height="900" 
+        Width="1206" 
+        telerik:StyleManager.Theme="Crystal" 
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen"
+        xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png">
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="5,185,5,102" 
+                        Margin="5,185,5,82" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -18,6 +26,8 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
+                        CellEditEnded="radGridView_CellEditEnded"
+                        RowEditEnded="radGridView_RowEditEnded"
                     >
 
 
@@ -70,6 +80,10 @@
                 <Grid>
                     <StackPanel>
                         <DockPanel >
+                            <telerik:Label Content="Type:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding typeDocument.Libelle}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
                             <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
                             <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
@@ -116,7 +130,7 @@
                 </Grid>
             </telerik:GroupBox>
         </StackPanel>
-        
+
         <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,10,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
@@ -141,5 +155,14 @@
                 </StackPanel>
             </Grid>
         </telerik:GroupBox>
+        <StackPanel Name="Sommaires" Margin="5,770,5,5" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <telerik:GroupBox Header="Montant Total"  Height="72"  Width="110" Margin="5">
+                <Grid>
+                    <telerik:Label Content="{Binding PrixTotal}" HorizontalAlignment="Center" telerik:StyleManager.Theme="Crystal" FontWeight="Bold"/>
+
+                </Grid>
+            </telerik:GroupBox>
+
+        </StackPanel>
     </Grid>
 </telerik:RadWindow>

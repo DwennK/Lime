@@ -35,14 +35,22 @@ namespace Lime
         public List<Documents_Lignes> Lignes;
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
+        public double RabaisTotal { get; set; }
+        public double PrixTotal { get; set; }
+        public double TVATotal { get; set; }
+
+
+
 
         //Constructeur INSERT
         public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments)
         {
             InitializeComponent();
             this.action = "Insert";
+            this.priseEnCharge = priseEnCharge;
 
 
+            this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
 
             //TODO TO DO TO-DO
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID).ToList();
@@ -52,16 +60,6 @@ namespace Lime
                 Lignesx.Add(value);
             }
 
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
-            DataContext = new
-            {
-                priseEnCharge = priseEnCharge,
-                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignes,
-                Lignesx,
-                document,
-                typeDocument = typeDocument
-            };
 
             //Affectation des valeurs au document.
             document.ID_PriseEnCharge = priseEnCharge.ID;
@@ -70,7 +68,8 @@ namespace Lime
             //Permet de Reorder les lignes //
             this.radGridView.ItemsSource = Lignesx;
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
-
+            SetDataContext();
+            CalculerTotaux();
         }
 
         //Constructeur UPDATE
@@ -78,9 +77,10 @@ namespace Lime
         {
             InitializeComponent();
             this.action = "Update";
+            this.priseEnCharge = priseEnCharge;
             this.document = document;
 
-
+            this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
             //On récupère Toutes les lignes appartenant à ce document
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
@@ -92,43 +92,55 @@ namespace Lime
             }
 
 
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-éléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
-            DataContext = new
-            {
-                priseEnCharge = priseEnCharge,
-                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignes,
-                Lignesx,
-                this.document,
-                typeDocument = typeDocument
-            };
-
-
 
             //Permet de Reorder les lignes //
             this.radGridView.ItemsSource = Lignesx;
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
+            SetDataContext();
+            CalculerTotaux();
+        }
 
+        private void SetDataContext()
+        {
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            DataContext = new
+            {
+                priseEnCharge,
+                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
+                Lignes,
+                Lignesx,
+                typeDocument,
+                document,
+                PrixTotal,
+                RabaisTotal,
+                TVATotal
+            };
         }
 
         //TODO TO-DO
         public void CalculerTotaux()
         {
-            decimal TVATotal = 0;
-            decimal PrixTotal = 0;
-            decimal RemiseTotal = 0;
+            //Cet event sera appelé après chaque modification de valeur dans le GridView.
+            //Cet event va nous servir à mettre à jour les totaux etc.
 
 
-            foreach(Documents_Lignes item in Lignesx)
+            //Reset des valeurs à zero
+            PrixTotal = 0;
+            RabaisTotal = 0;
+            TVATotal = 0;
+
+            foreach (Documents_Lignes item in Lignesx) //Ces variables sont dans le DataContext
             {
-                TVATotal += (decimal)item.TotalTVA;
-                PrixTotal += item.PrixTotal;
-                RemiseTotal += (decimal)(PrixTotal * item.TauxRemise / 100);
 
+                PrixTotal += (double)item.PrixTotal;
+
+                if (item.TauxRemise != null)
+                { RabaisTotal += (double)(item.PrixTotal * item.TauxRemise) / 100; }
+                if (item.TauxTVA != null)
+                { TVATotal += (double)(item.PrixTotal * item.TauxTVA) / 100; }
 
             }
-
-
+            SetDataContext();
         }
 
 
@@ -200,6 +212,17 @@ namespace Lime
             var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
             Connexion.maBDD.Delete(item);
             Lignesx.Remove(item);
+        }
+
+        private void radGridView_CellEditEnded(object sender, GridViewCellEditEndedEventArgs e)
+        {
+            CalculerTotaux();
+
+        }
+
+        private void radGridView_RowEditEnded(object sender, GridViewRowEditEndedEventArgs e)
+        {
+            CalculerTotaux();
         }
     }
 }
