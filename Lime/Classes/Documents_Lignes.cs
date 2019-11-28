@@ -41,18 +41,21 @@ namespace Lime
         public double? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
         [DisplayFormat(DataFormatString = "{0:D}")]
-        public double? TauxRemise { get; set; }
+        public double TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public double? TotalTVA { get; set; }
+        [Display(Name = "Prix Unité TTC")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public double PrixUniteTTC { get; set; }
         [Display(Name = "Prix TTC")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         public double PrixTotal { get; set; }
 
         public Documents_Lignes()
         {
-
+            this.TauxRemise = 0;
             this.Quantite = 1; //Valeur par défaut lors de la création d'une nouvelle ligne
 
 

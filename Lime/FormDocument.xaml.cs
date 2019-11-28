@@ -32,7 +32,6 @@ namespace Lime
         public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
-        public List<Documents_Lignes> Lignes;
         public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
 
 
@@ -54,8 +53,6 @@ namespace Lime
 
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
 
-            //TODO TO DO TO-DO
-            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID).ToList();
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
             foreach (Documents_Lignes value in xx)
             {
@@ -85,10 +82,10 @@ namespace Lime
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
             //On récupère Toutes les lignes appartenant à ce document
-            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+            Lignesx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
 
             Lignesx.Clear();
-            foreach (Documents_Lignes value in Lignes)
+            foreach (Documents_Lignes value in Lignesx)
             {
                 Lignesx.Add(value);
             }
@@ -109,7 +106,6 @@ namespace Lime
             {
                 priseEnCharge,
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignes,
                 Lignesx,
                 typeDocument,
                 document,
@@ -137,18 +133,19 @@ namespace Lime
             TotalRegle = 0;
             NetAPayer = 0;
 
+
+
             foreach (Documents_Lignes item in Lignesx) //Ces variables sont dans le DataContext
             {
                 //Total TTC
-                TotalTTC += item.PrixTotal;
+                item.PrixTotal = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
 
                 //TotalTVA
                 if (item.TauxTVA != null)
                 { TotalTVA += (double)(item.PrixTotal * item.TauxTVA) / 100; }
 
                 //TotalRemise
-                if (item.TauxRemise != null)
-                { TotalRemise += (double)(item.PrixTotal * item.TauxRemise) / 100; }
+                TotalRemise += (double)(item.PrixTotal * item.TauxRemise) / 100;
 
                 //TotalHT
                 TotalHT += (TotalTTC - TotalRemise - TotalTVA);

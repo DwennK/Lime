@@ -159,9 +159,5 @@
 
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
-
-
-
-
     </Grid>
 </Window>
