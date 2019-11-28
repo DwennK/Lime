@@ -104,7 +104,7 @@ namespace Lime
 
         private void SetDataContext()
         {
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy souséléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge,

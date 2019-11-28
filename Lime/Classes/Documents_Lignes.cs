@@ -8,7 +8,8 @@ using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
 using System.ComponentModel; //Sert à changer l'affichage du nom de la propritéé dans la BDD par un texte(Last Name au lieu de lastname par exemple)
 using System.ComponentModel.DataAnnotations;
-
+using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace Lime
 {
@@ -51,8 +52,15 @@ namespace Lime
 
         public Documents_Lignes()
         {
+
             this.Quantite = 1; //Valeur par défaut lors de la création d'une nouvelle ligne
-            this.TauxTVA = Connexion.maBDD.Get<Parametres>(1).TauxTVAParDefaut; //Valeur par défaut lors de la création d'une nouvelle ligne
+
+
+            //Récupération de la TVA depuis les paramètres, dans la BDD
+            string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+            MySqlConnection connexion = new MySqlConnection(strConnexionString);
+            this.TauxTVA = connexion.Get<Parametres>(1).TauxTVAParDefaut;
+            connexion.Close();
         }
 
         public virtual object Clone()
