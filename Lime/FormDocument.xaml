@@ -28,6 +28,7 @@
                         Language="fr-CH"
                         CellEditEnded="radGridView_CellEditEnded"
                         RowEditEnded="radGridView_RowEditEnded"
+                        ItemsSource="{Binding Lignes}"
                     >
 
 
@@ -129,6 +130,7 @@
                     </StackPanel>
                 </Grid>
             </telerik:GroupBox>
+
         </StackPanel>
 
         <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,10,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
@@ -160,32 +162,37 @@
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBox Text="{Binding TotalRemise, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
-                    </StackPanel>                </Grid>
+                    </StackPanel>
+                </Grid>
             </telerik:GroupBox>
             <telerik:GroupBox Header="Total HT"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBox Text="{Binding TotalHT, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
-                    </StackPanel>                </Grid>
+                    </StackPanel>
+                </Grid>
             </telerik:GroupBox>
             <telerik:GroupBox Header="Total TVA"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBox Text="{Binding TotalTVA, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
-                    </StackPanel>                </Grid>
+                    </StackPanel>
+                </Grid>
             </telerik:GroupBox>
             <telerik:GroupBox Header="Total TTC"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
                         <TextBox Text="{Binding TotalTTC, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
-                    </StackPanel>                </Grid>
+                    </StackPanel>
+                </Grid>
             </telerik:GroupBox>
             <telerik:GroupBox Header="Total réglé"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBox Text="{Binding TotalRegle, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
-                    </StackPanel>                </Grid>
+                    </StackPanel>
+                </Grid>
             </telerik:GroupBox>
             <telerik:GroupBox Header="Net à payer"  Height="50"  Width="130" Margin="5">
                 <Grid>

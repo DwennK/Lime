@@ -32,8 +32,8 @@ namespace Lime
         public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
-        public IList<Documents_Lignes> Lignesx = new ObservableCollection<Documents_Lignes>();
-
+        public List<Documents_Lignes> Lignes = new List<Documents_Lignes>();
+        public string str1 = "sss";
 
         public double TotalRemise;
         public double TotalHT;
@@ -54,10 +54,29 @@ namespace Lime
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
 
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
-            foreach (Documents_Lignes value in xx)
+            //foreach (Documents_Lignes value in xx)
+            //{
+            //    Lignes.Add(value);
+            //}
+
+
+
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            DataContext = new
             {
-                Lignesx.Add(value);
-            }
+                priseEnCharge,
+                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
+                Lignes,
+                typeDocument,
+                document,
+                TotalRemise,
+                TotalHT,
+                TotalTVA,
+                TotalTTC,
+                TotalRegle,
+                NetAPayer,
+                str1
+            };
 
 
             //Affectation des valeurs au document.
@@ -65,11 +84,11 @@ namespace Lime
             document.ID_TypeDocument = ID_TypeDocuments;
 
             //Permet de Reorder les lignes //
-            this.radGridView.ItemsSource = Lignesx;
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
             SetDataContext();
             CalculerTotaux();
         }
+
 
         //Constructeur UPDATE
         public FormDocument(PriseEnCharge priseEnCharge, Document document)
@@ -82,31 +101,21 @@ namespace Lime
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
             //On récupère Toutes les lignes appartenant à ce document
-            Lignesx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
 
-            Lignesx.Clear();
-            foreach (Documents_Lignes value in Lignesx)
-            {
-                Lignesx.Add(value);
-            }
+            //Lignes.Clear();
+            //foreach (Documents_Lignes value in Lignes)
+            //{
+            //    Lignes.Add(value);
+            //}
 
 
-
-            //Permet de Reorder les lignes //
-            this.radGridView.ItemsSource = Lignesx;
-            RowReorderBehavior.SetIsEnabled(this.radGridView, true);
-            SetDataContext();
-            CalculerTotaux();
-        }
-
-        private void SetDataContext()
-        {
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge,
                 client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
-                Lignesx,
+                Lignes,
                 typeDocument,
                 document,
                 TotalRemise,
@@ -115,7 +124,19 @@ namespace Lime
                 TotalTTC,
                 TotalRegle,
                 NetAPayer,
+                str1
             };
+
+
+            //Permet de Reorder les lignes //
+            RowReorderBehavior.SetIsEnabled(this.radGridView, true);
+            SetDataContext();
+            CalculerTotaux();
+        }
+
+        public void SetDataContext()
+        {
+
         }
 
 
@@ -135,17 +156,17 @@ namespace Lime
 
 
 
-            foreach (Documents_Lignes item in Lignesx) //Ces variables sont dans le DataContext
+            foreach (Documents_Lignes item in Lignes) //Ces variables sont dans le DataContext
             {
                 //Total TTC
-                item.PrixTotal = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
+                item.PrixTTC = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
 
                 //TotalTVA
                 if (item.TauxTVA != null)
-                { TotalTVA += (double)(item.PrixTotal * item.TauxTVA) / 100; }
+                { TotalTVA += (double)(item.PrixTTC * item.TauxTVA) / 100; }
 
                 //TotalRemise
-                TotalRemise += (double)(item.PrixTotal * item.TauxRemise) / 100;
+                TotalRemise += (double)(item.PrixTTC * item.TauxRemise) / 100;
 
                 //TotalHT
                 TotalHT += (TotalTTC - TotalRemise - TotalTVA);
@@ -177,7 +198,7 @@ namespace Lime
                 }
 
 
-                foreach (Documents_Lignes item in Lignesx)
+                foreach (Documents_Lignes item in Lignes)
                 {
                     //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
                     item.ID_Documents = document.ID;
@@ -204,7 +225,7 @@ namespace Lime
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
             Documents_Lignes item = new Documents_Lignes();
-            this.Lignesx.Add(item);
+            this.Lignes.Add(item);
 
             CalculerTotaux();
         }
@@ -225,16 +246,16 @@ namespace Lime
             Documents_Lignes item;
             item = (Lime.Documents_Lignes)aCopier.Clone();
             //Ajout de la ligne
-            this.Lignesx.Add(item);
+            this.Lignes.Add(item);
             CalculerTotaux();
-
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
+            Lignes.Remove(item);
             Connexion.maBDD.Delete(item);
-            Lignesx.Remove(item);
+            radGridView.Rebind();
             CalculerTotaux();
         }
 

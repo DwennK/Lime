@@ -51,7 +51,7 @@ namespace Lime
         public double PrixUniteTTC { get; set; }
         [Display(Name = "Prix TTC")]
         [DisplayFormat(DataFormatString = "{0:C}")]
-        public double PrixTotal { get; set; }
+        public double PrixTTC { get; set; }
 
         public Documents_Lignes()
         {
