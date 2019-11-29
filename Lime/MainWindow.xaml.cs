@@ -47,8 +47,6 @@ namespace Lime
 
 
 
-
-
             // Change current culture
             CultureInfo culture;
             culture = CultureInfo.CreateSpecificCulture("fr-FR");

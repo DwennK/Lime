@@ -50,18 +50,12 @@ namespace Lime
             this.action = "Insert";
             this.priseEnCharge = priseEnCharge;
 
-
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
 
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
-            //foreach (Documents_Lignes value in xx)
-            //{
-            //    Lignes.Add(value);
-            //}
 
 
-
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge,
@@ -97,6 +91,7 @@ namespace Lime
             this.action = "Update";
             this.priseEnCharge = priseEnCharge;
             this.document = document;
+
 
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
@@ -226,14 +221,28 @@ namespace Lime
         {
             Documents_Lignes item = new Documents_Lignes();
             this.Lignes.Add(item);
-
+            radGridView.Rebind();
             CalculerTotaux();
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            radGridView.BeginEdit();
-            CalculerTotaux();
+            if (radGridView.SelectedItem != null)
+            {
+                radGridView.BeginEdit();
+                radGridView.Rebind();
+                CalculerTotaux();
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+
 
         }
 
@@ -249,6 +258,7 @@ namespace Lime
                 item = (Lime.Documents_Lignes)aCopier.Clone();
                 //Ajout de la ligne
                 this.Lignes.Add(item);
+                radGridView.Rebind();
                 CalculerTotaux();
             }
             else

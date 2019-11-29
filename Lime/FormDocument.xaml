@@ -29,6 +29,7 @@
                         CellEditEnded="radGridView_CellEditEnded"
                         RowEditEnded="radGridView_RowEditEnded"
                         ItemsSource="{Binding Lignes}"
+
                     >
 
 
