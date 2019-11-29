@@ -252,11 +252,25 @@ namespace Lime
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
-            Lignes.Remove(item);
-            Connexion.maBDD.Delete(item);
-            radGridView.Rebind();
-            CalculerTotaux();
+            
+            if(radGridView.SelectedItem != null)
+            {
+                var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
+                Lignes.Remove(item);
+                Connexion.maBDD.Delete(item);
+                radGridView.Rebind();
+                CalculerTotaux();
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Erreur",
+                    Content = "Veuillez choisir un élément",
+                    Theme = new CrystalTheme()
+                });
+            }
+
         }
 
         private void radGridView_CellEditEnded(object sender, GridViewCellEditEndedEventArgs e)
