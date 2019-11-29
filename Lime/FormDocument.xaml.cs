@@ -239,15 +239,29 @@ namespace Lime
 
         private void Duplicate_Click(object sender, RoutedEventArgs e)
         {
-            //Récupération de la Row à Copier.
-            var aCopier = ((Lime.Documents_Lignes)radGridView.SelectedItem);
-           
-            //Création et affectation de la nouvelle ligne.
-            Documents_Lignes item;
-            item = (Lime.Documents_Lignes)aCopier.Clone();
-            //Ajout de la ligne
-            this.Lignes.Add(item);
-            CalculerTotaux();
+            if (radGridView.SelectedItem != null)
+            {
+                //Récupération de la Row à Copier.
+                var aCopier = ((Lime.Documents_Lignes)radGridView.SelectedItem);
+
+                //Création et affectation de la nouvelle ligne.
+                Documents_Lignes item;
+                item = (Lime.Documents_Lignes)aCopier.Clone();
+                //Ajout de la ligne
+                this.Lignes.Add(item);
+                CalculerTotaux();
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+
+
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
