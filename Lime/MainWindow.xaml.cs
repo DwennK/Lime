@@ -39,9 +39,15 @@ namespace Lime
 
         public MainWindow()
         {
+            //Theme Global
+            //StyleManager.ApplicationTheme = new CrystalTheme();
             InitializeComponent();
             Properties.Settings.Default.Reload();
             this.Limite.Value = Properties.Settings.Default.Limite;
+
+
+
+
 
             // Change current culture
             CultureInfo culture;

@@ -265,8 +265,8 @@ namespace Lime
             {
                 RadWindow.Alert(new DialogParameters
                 {
-                    Header = "Erreur",
-                    Content = "Veuillez choisir un élément",
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
                     Theme = new CrystalTheme()
                 });
             }
