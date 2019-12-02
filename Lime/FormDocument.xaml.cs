@@ -41,6 +41,7 @@ namespace Lime
         public double TotalTTC;
         public double TotalRegle;
         public double NetAPayer;
+
                                     
 
         //Constructeur INSERT
@@ -49,8 +50,10 @@ namespace Lime
             InitializeComponent();
             this.action = "Insert";
             this.priseEnCharge = priseEnCharge;
-
+            client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
+
+
 
             var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
 
@@ -59,7 +62,7 @@ namespace Lime
             DataContext = new
             {
                 priseEnCharge,
-                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
+                client,
                 Lignes,
                 typeDocument,
                 document,
@@ -71,6 +74,8 @@ namespace Lime
                 NetAPayer,
                 str1
             };
+
+
 
 
             //Affectation des valeurs au document.
@@ -91,8 +96,7 @@ namespace Lime
             this.action = "Update";
             this.priseEnCharge = priseEnCharge;
             this.document = document;
-
-
+            this.client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
             //On récupère Toutes les lignes appartenant à ce document
@@ -109,7 +113,7 @@ namespace Lime
             DataContext = new
             {
                 priseEnCharge,
-                client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients),
+                client,
                 Lignes,
                 typeDocument,
                 document,
@@ -153,24 +157,34 @@ namespace Lime
 
             foreach (Documents_Lignes item in Lignes) //Ces variables sont dans le DataContext
             {
-                //Total TTC
-                item.PrixTTC = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
 
-                //TotalTVA
-                if (item.TauxTVA != null)
-                { TotalTVA += (double)(item.PrixTTC * item.TauxTVA) / 100; }
+                //ITEM/////////////////////
+                    //Total TTC ITEM
+                    item.PrixTTC = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
+                    //Total TVA ITEM
+                    item.TotalTVA = (item.PrixTTC * item.TauxTVA/100) / 100;
+                // FIN ITEM////////////////
 
-                //TotalRemise
-                TotalRemise += (double)(item.PrixTTC * item.TauxRemise) / 100;
 
-                //TotalHT
-                TotalHT += (TotalTTC - TotalRemise - TotalTVA);
 
-                //TotalRéglé
-                TotalRegle = 0; //TODO TO DO To-DO
+                //GLOBAL DOCUMENT//////////
+                    //TotalTVA
+                    if (item.TauxTVA != null)
+                    { TotalTVA += (double)(item.PrixTTC * item.TauxTVA) / 100; }
 
-                //NetAPayer
-                NetAPayer = 0;//TODO TO DO To-DO
+                    //TotalRemise
+                    TotalRemise += (double)(item.PrixTTC * item.TauxRemise) / 100;
+
+                    //TotalHT
+                    TotalHT += (TotalTTC - TotalRemise - TotalTVA);
+
+                    //TotalRéglé
+                    TotalRegle = 0; //TODO TO DO To-DO
+
+                    //NetAPayer
+                    NetAPayer = 0;//TODO TO DO To-DO
+
+                //FIN GOBAL DOCUMENT///////
 
             }
             SetDataContext();
