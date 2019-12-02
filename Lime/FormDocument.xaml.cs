@@ -135,7 +135,21 @@ namespace Lime
 
         public void SetDataContext()
         {
-
+            DataContext = new
+            {
+                priseEnCharge,
+                client,
+                Lignes,
+                typeDocument,
+                document,
+                TotalRemise,
+                TotalHT,
+                TotalTVA,
+                TotalTTC,
+                TotalRegle,
+                NetAPayer,
+                str1
+            };
         }
 
 
@@ -155,34 +169,49 @@ namespace Lime
 
 
 
-            foreach (Documents_Lignes item in Lignes) //Ces variables sont dans le DataContext
+            foreach(var item in Lignes) //Ces variables sont dans le DataContext
             {
-
                 //ITEM/////////////////////
-                    //Total TTC ITEM
-                    item.PrixTTC = (double)item.PrixUniteTTC - (item.PrixUniteTTC * item.Quantite * (double)item.TauxRemise);
-                    //Total TVA ITEM
-                    item.TotalTVA = (item.PrixTTC * item.TauxTVA/100) / 100;
+
+                //Total TTC ITEM
+                if (item.TauxRemise > 0)
+                {
+                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite);
+                }
+                else
+                {
+                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite);
+                }
+
+                //Total TVA ITEM
+                item.TotalTVA = (item.PrixTTC * item.TauxTVA/100);
                 // FIN ITEM////////////////
 
 
+                double TotalTaxesItem = (item.PrixTTC * item.Quantite) * (double)item.TauxTVA/100;
+                double TotalRemiseItem = (item.PrixUniteTTC * item.Quantite) * item.TauxRemise / 100;
 
                 //GLOBAL DOCUMENT//////////
+                    //Total TTC
+                    TotalTTC += item.PrixTTC * item.Quantite;
+
                     //TotalTVA
-                    if (item.TauxTVA != null)
-                    { TotalTVA += (double)(item.PrixTTC * item.TauxTVA) / 100; }
+                    TotalTVA += TotalTaxesItem;
 
                     //TotalRemise
-                    TotalRemise += (double)(item.PrixTTC * item.TauxRemise) / 100;
+                    if(item.TauxRemise > 0)
+                    TotalRemise += (item.PrixTTC * item.TauxRemise) / 100;
+                    else
+                    TotalRemise += 0;
 
                     //TotalHT
-                    TotalHT += (TotalTTC - TotalRemise - TotalTVA);
+                    TotalHT += item.PrixTTC - TotalTaxesItem;
 
                     //TotalRéglé
                     TotalRegle = 0; //TODO TO DO To-DO
 
                     //NetAPayer
-                    NetAPayer = 0;//TODO TO DO To-DO
+                    NetAPayer = 0; //TODO TO DO To-DO
 
                 //FIN GOBAL DOCUMENT///////
 
@@ -233,7 +262,7 @@ namespace Lime
 
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
-            Documents_Lignes item = new Documents_Lignes();
+            Documents_Lignes item = new Documents_Lignes(document.ID);
             this.Lignes.Add(item);
             radGridView.Rebind();
             CalculerTotaux();

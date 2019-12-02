@@ -40,7 +40,7 @@ namespace Lime
         [DisplayFormat(DataFormatString = "{0:C}")]
         public double? TauxTVA { get; set; }
         [Display(Name = "Taux Remise")]
-        [DisplayFormat(DataFormatString = "{0:D}")]
+        [DisplayFormat(DataFormatString = "{0:N}")]
         public double TauxRemise { get; set; }
         [Display(Name = "Total TVA")]
         [DisplayFormat(DataFormatString = "{0:C}")]
@@ -51,7 +51,9 @@ namespace Lime
         public double PrixUniteTTC { get; set; }
         [Display(Name = "Prix TTC")]
         [DisplayFormat(DataFormatString = "{0:C}")]
+        [Editable(false)] //Vu que ce champ est calculé (Prix Unite * Quantité), on le rend non modifiable.
         public double PrixTTC { get; set; }
+
 
         public Documents_Lignes()
         {
@@ -62,7 +64,21 @@ namespace Lime
             //Récupération de la TVA depuis les paramètres, dans la BDD
             string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
             MySqlConnection connexion = new MySqlConnection(strConnexionString);
-            this.TauxTVA = connexion.Get<Parametres>(1).TauxTVAParDefaut;
+            this.TauxTVA = connexion.Get<Parametre>(1).TauxTVAParDefaut;
+            connexion.Close();
+        }
+
+        public Documents_Lignes(int ID_Documents) //Constructeur avec l'identifiant pour le lier directement à un document.
+        {
+            this.ID_Documents = ID_Documents;
+            this.TauxRemise = 0;
+            this.Quantite = 1; //Valeur par défaut lors de la création d'une nouvelle ligne
+
+
+            //Récupération de la TVA depuis les paramètres, dans la BDD
+            string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+            MySqlConnection connexion = new MySqlConnection(strConnexionString);
+            this.TauxTVA = connexion.Get<Parametre>(1).TauxTVAParDefaut;
             connexion.Close();
         }
 

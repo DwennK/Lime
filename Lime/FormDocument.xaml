@@ -4,7 +4,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="Lime.FormDocument"
         Header="{Binding typeDocument.Libelle}" 
-        Height="900" 
+        Height="1007" 
         Width="1206" 
         telerik:StyleManager.Theme="Crystal" 
         ResizeMode="CanMinimize" 
@@ -15,7 +15,7 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="5,185,5,65" 
+                        Margin="5,302,5,65" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -77,8 +77,14 @@
 
         </telerik:RadGridView>
 
+        <telerik:RadRibbonView ApplicationName="RadRibbonView" 
+                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016">
+            <telerik:RadRibbonTab Header="RibbonTab"/>
+        </telerik:RadRibbonView>
+
         <StackPanel Orientation="Horizontal">
-            <telerik:GroupBox Header="Informations Document" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+
+            <telerik:GroupBox Header="Informations Document" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
                 <Grid>
                     <StackPanel>
                         <DockPanel >
@@ -97,7 +103,7 @@
                 </Grid>
             </telerik:GroupBox>
 
-            <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+            <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
                 <Grid>
                     <StackPanel>
                         <DockPanel >
@@ -113,7 +119,7 @@
             </telerik:GroupBox>
 
 
-            <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="5" VerticalAlignment="Top" Width="220">
+            <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
                 <Grid>
                     <StackPanel>
                         <DockPanel >
@@ -134,13 +140,13 @@
 
         </StackPanel>
 
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,10,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
+        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,127,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
             </StackPanel>
         </telerik:RadButton>
-        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,110,0,0" VerticalAlignment="Top" Width="235">
+        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,227,0,0" VerticalAlignment="Top" Width="235">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
@@ -159,6 +165,13 @@
             </Grid>
         </telerik:GroupBox>
         <StackPanel Name="Sommaires" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <telerik:GroupBox Header="Régler en ...."  Height="50"  Width="130" Margin="1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <telerik:RadButton Content="Espèces" telerik:StyleManager.Theme="Crystal"></telerik:RadButton>
+                    </StackPanel>
+                </Grid>
+            </telerik:GroupBox>
             <telerik:GroupBox Header="Total Remise"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

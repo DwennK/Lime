@@ -15,7 +15,7 @@ namespace Lime
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
     [Table("Parametres")]
 
-    public class Parametres
+    public class Parametre
     {
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
