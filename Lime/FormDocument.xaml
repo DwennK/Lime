@@ -157,7 +157,7 @@
 
         </telerik:RadRibbonView>
 
-        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,140,5,5" VerticalAlignment="Top" Width="235">
+        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,127,0,0" VerticalAlignment="Top" Width="235">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
