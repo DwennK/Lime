@@ -350,6 +350,16 @@ namespace Lime
         {
             CalculerTotaux();
         }
+
+        private void btnFermer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegler_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -15,7 +15,7 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="5,302,5,65" 
+                        Margin="5,230,5,65" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -79,13 +79,33 @@
 
         <telerik:RadRibbonView ApplicationName="RadRibbonView" 
                        Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016">
-            <telerik:RadRibbonTab Header="RibbonTab"/>
-        </telerik:RadRibbonView>
-
-        <StackPanel Orientation="Horizontal">
-
-            <telerik:GroupBox Header="Informations Document" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
-                <Grid>
+            <telerik:RadRibbonTab Header="Document">
+                <telerik:RadRibbonGroup Header="Gestion">
+                    <telerik:RadRibbonButton Name="btnvalider" Text="Valider" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/038-file.png"  Click="btnValider_Click"/>
+                    <telerik:RadRibbonButton Name="btnFermer" Text="Fermer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/039-file.png" Click="btnFermer_Click" />
+                    <telerik:RadRibbonButton/>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Reglements">
+                    <telerik:RadRibbonButton Name="btnReglements" Text="Règlements" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/005-file.png" />
+                    <telerik:RadRibbonButton>
+                        <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en..." Width="Auto" Size="Large" telerik:StyleManager.Theme="Office2016" Click="btnRegler_Click">
+                            <telerik:RadDropDownButton.DropDownContent telerik:StyleManager.Theme="Office2016">
+                                <ListBox telerik:StyleManager.Theme="Crystal">
+                                    <ListBoxItem Content="Item 1"/>
+                                    <ListBoxItem Content="Item 2" />
+                                    <ListBoxItem Content="Item 3"/>
+                                </ListBox>
+                            </telerik:RadDropDownButton.DropDownContent>
+                        </telerik:RadRibbonDropDownButton>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Envoi et Impression">
+                    <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" />
+                    <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" />
+                    <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
+                    <telerik:RadRibbonButton/>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Informations Document">
                     <StackPanel>
                         <DockPanel >
                             <telerik:Label Content="Type:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
@@ -100,27 +120,9 @@
                             <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                     </StackPanel>
-                </Grid>
-            </telerik:GroupBox>
 
-            <telerik:GroupBox Header="Informations Prise en Charge" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
-                <Grid>
-                    <StackPanel>
-                        <DockPanel >
-                            <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                            <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                        </DockPanel>
-                        <DockPanel >
-                            <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                            <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                        </DockPanel>
-                    </StackPanel>
-                </Grid>
-            </telerik:GroupBox>
-
-
-            <telerik:GroupBox Header="Informations Client" HorizontalAlignment="Left" Height="100" Margin="5,122,5,0" VerticalAlignment="Top" Width="220">
-                <Grid>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Informations Client">
                     <StackPanel>
                         <DockPanel >
                             <telerik:Label Content="Nom:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
@@ -135,18 +137,27 @@
                             <telerik:Label Content="{Binding priseEnCharge.Email1}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                     </StackPanel>
-                </Grid>
-            </telerik:GroupBox>
+                </telerik:RadRibbonGroup>
 
-        </StackPanel>
+                <telerik:RadRibbonGroup Header="Information Prise en Charge">
+                    <StackPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                    </StackPanel>
 
-        <telerik:RadButton x:Name="btnValider" HorizontalAlignment="Center" Height="40" Margin="974,127,10,0" Width="210" telerik:StyleManager.Theme="Crystal" VerticalAlignment="Top" Click="btnValider_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/Icons/checked.png" HorizontalAlignment="Left"  Height="32" Width="32" Margin="0,0,10,0"/>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Valider</TextBlock>
-            </StackPanel>
-        </telerik:RadButton>
-        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,227,0,0" VerticalAlignment="Top" Width="235">
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+
+
+        </telerik:RadRibbonView>
+
+        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,140,5,5" VerticalAlignment="Top" Width="235">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
@@ -165,13 +176,6 @@
             </Grid>
         </telerik:GroupBox>
         <StackPanel Name="Sommaires" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <telerik:GroupBox Header="Régler en ...."  Height="50"  Width="130" Margin="1">
-                <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <telerik:RadButton Content="Espèces" telerik:StyleManager.Theme="Crystal"></telerik:RadButton>
-                    </StackPanel>
-                </Grid>
-            </telerik:GroupBox>
             <telerik:GroupBox Header="Total Remise"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
