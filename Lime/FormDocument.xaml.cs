@@ -360,6 +360,40 @@ namespace Lime
         {
 
         }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            //On déclare un item qui représente celui que l'utilisateur a cliqué
+            ListBoxItem lbi = e.Source as ListBoxItem;
+
+            //Affectation du contenu du ListBoxItem dans une variable.
+            string MoyenDePaiement = string.Empty ;
+            if (lbi != null)
+            {
+                MoyenDePaiement = lbi.Content.ToString();
+            }
+
+
+            //On récupère l'ID du moyen de paiement sélectionné (Le match se fait sur le Texte contenu)
+            MethodePaiement methodePaiement = new MethodePaiement();
+            var sql = "SELECT * FROM MethodePaiements WHERE Libelle = @Libelle";
+            methodePaiement = Connexion.maBDD.QueryFirstOrDefault<MethodePaiement>(sql,new {Libelle = MoyenDePaiement});
+
+
+            //Calcul du montant
+            double Montant = NetAPayer;
+
+            //Affectation des variables
+            Reglement reglement = new Reglement();
+            reglement.ID_Documents = document.ID;
+            reglement.ID_MethodePaiement = methodePaiement.ID;
+            reglement.Montant = NetAPayer;
+            reglement.Date = DateTime.Now;
+
+            //Insertion dans la BDD
+            Connexion.maBDD.Insert<Reglement>(reglement);
+
+        }
     }
 }
 
