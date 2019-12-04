@@ -86,6 +86,7 @@ namespace Lime
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
             SetDataContext();
             CalculerTotaux();
+            Populate();
         }
 
 
@@ -101,12 +102,6 @@ namespace Lime
 
             //On récupère Toutes les lignes appartenant à ce document
             Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
-
-            //Lignes.Clear();
-            //foreach (Documents_Lignes value in Lignes)
-            //{
-            //    Lignes.Add(value);
-            //}
 
 
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
@@ -131,6 +126,7 @@ namespace Lime
             RowReorderBehavior.SetIsEnabled(this.radGridView, true);
             SetDataContext();
             CalculerTotaux();
+            Populate();
         }
 
         public void SetDataContext()
@@ -153,6 +149,23 @@ namespace Lime
         }
 
 
+        public void Populate()
+        {
+            #region Populate ListBox MethodePaiement
+            //On récupère la liste des Methodes de paiement dans la BDD
+            var listMethodePaiements = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
+
+            //Insertion de la liste des methodes de paiement dans la Listbox correspondante.
+            ListboxMethodePaiement.Items.Clear();
+
+            ListboxMethodePaiement.ItemsSource = listMethodePaiements;
+            ListboxMethodePaiement.DisplayMemberPath = "Libelle"; //Valeur à afficher
+            ListboxMethodePaiement.SelectedValuePath = "ID"; //Valeur à selectionner en faisant .SelectedItem
+
+            #endregion
+
+        }
+
         public void CalculerTotaux()
         {
             //Cet event sera appelé après chaque modification de valeur dans le GridView.
@@ -167,6 +180,19 @@ namespace Lime
             TotalRegle = 0;
             NetAPayer = 0;
 
+            #region NetAPayer
+
+            double TotalDesPaiements = 0;
+            //Récupération de la liste des paiements appartenant à ce document.
+
+            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID || x.ID_Documents == document. );
+            foreach ( var item in ListeDesReglements)
+            {
+                TotalDesPaiements += item.Montant;
+            }
+
+
+            #endregion
 
 
             foreach(var item in Lignes) //Ces variables sont dans le DataContext
@@ -361,38 +387,23 @@ namespace Lime
 
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        private void ListboxMethodePaiement_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //On déclare un item qui représente celui que l'utilisateur a cliqué
-            ListBoxItem lbi = e.Source as ListBoxItem;
+            MethodePaiement methodePaiement = (MethodePaiement)ListboxMethodePaiement.SelectedItem;
 
-            //Affectation du contenu du ListBoxItem dans une variable.
-            string MoyenDePaiement = string.Empty ;
-            if (lbi != null)
+            if (methodePaiement != null && NetAPayer > 0)
             {
-                MoyenDePaiement = lbi.Content.ToString();
+                //Affectation des variables
+                Reglement reglement = new Reglement();
+                reglement.ID_Documents = document.ID;
+                reglement.ID_MethodePaiement = methodePaiement.ID;
+                reglement.Montant = NetAPayer;
+                reglement.Date = DateTime.Now;
+
+                //Insertion dans la BDD
+                Connexion.maBDD.Insert<Reglement>(reglement);
             }
-
-
-            //On récupère l'ID du moyen de paiement sélectionné (Le match se fait sur le Texte contenu)
-            MethodePaiement methodePaiement = new MethodePaiement();
-            var sql = "SELECT * FROM MethodePaiements WHERE Libelle = @Libelle";
-            methodePaiement = Connexion.maBDD.QueryFirstOrDefault<MethodePaiement>(sql,new {Libelle = MoyenDePaiement});
-
-
-            //Calcul du montant
-            double Montant = NetAPayer;
-
-            //Affectation des variables
-            Reglement reglement = new Reglement();
-            reglement.ID_Documents = document.ID;
-            reglement.ID_MethodePaiement = methodePaiement.ID;
-            reglement.Montant = NetAPayer;
-            reglement.Date = DateTime.Now;
-
-            //Insertion dans la BDD
-            Connexion.maBDD.Insert<Reglement>(reglement);
-
         }
     }
 }

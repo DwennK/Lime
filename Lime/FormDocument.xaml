@@ -90,8 +90,8 @@
                     <telerik:RadRibbonButton>
                         <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en..." Width="Auto" Size="Large" telerik:StyleManager.Theme="Office2016" Click="btnRegler_Click">
                             <telerik:RadDropDownButton.DropDownContent>
-                                <ListBox telerik:StyleManager.Theme="Crystal">
-                                    <ListBoxItem Content="Item 1" Selected="ListBoxItem_Selected"/>
+                                <ListBox Name="ListboxMethodePaiement"  telerik:StyleManager.Theme="Crystal" SelectionChanged="ListboxMethodePaiement_SelectionChanged" >
+                                    <ListBoxItem Content="Item 1"/>
                                     <ListBoxItem Content="Item 2" />
                                     <ListBoxItem Content="Item 3"/>
                                 </ListBox>
