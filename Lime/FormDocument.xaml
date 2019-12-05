@@ -15,7 +15,7 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="5,230,5,65" 
+                        Margin="55,375,5,65" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -101,6 +101,7 @@
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Envoi et Impression">
                     <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" />
+                    <telerik:RadRibbonButton Name="btnImprimer" Text="Imprimer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/009-file.png" />
                     <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" />
                     <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
                     <telerik:RadRibbonButton/>
@@ -156,25 +157,6 @@
 
 
         </telerik:RadRibbonView>
-
-        <telerik:GroupBox Header="Gestion Articles" HorizontalAlignment="Left" Height="70" Margin="5,127,0,0" VerticalAlignment="Top" Width="235">
-            <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
-                        <Image Source="/Images/Icons/add.png" HorizontalAlignment="Center" Width="32" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Update" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Update_Click">
-                        <Image Source="/Images/Icons/edit.png" HorizontalAlignment="Center" Width="32" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Duplicate" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Duplicate_Click">
-                        <Image Source="/Images/Icons/duplicate.png" HorizontalAlignment="Center" Width="32" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Delete" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
-                        <Image Source="/Images/Icons/delete.png" HorizontalAlignment="Center" Width="32" />
-                    </telerik:RadButton>
-                </StackPanel>
-            </Grid>
-        </telerik:GroupBox>
         <StackPanel Name="Sommaires" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <telerik:GroupBox Header="Total Remise"  Height="50"  Width="130" Margin="1">
                 <Grid>
@@ -220,5 +202,29 @@
                 </Grid>
             </telerik:GroupBox>
         </StackPanel>
+        
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,500,0,65">
+                    <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
+                        <Image Source="Images/Icons/add.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="Update" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Update_Click">
+                        <Image Source="Images/Icons/edit.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="Duplicate" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Duplicate_Click">
+                        <Image Source="Images/Icons/duplicate.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="Delete" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                        <Image Source="Images/Icons/delete.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="Descendre" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                    <Image Source="Images/Icons/up-chevron.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+                    <telerik:RadButton x:Name="Monter" ToolTip="Monter la ligne sélectionnée" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                        <Image Source="Images/Icons/down-chevron.png" HorizontalAlignment="Center" Width="Auto" />
+                    </telerik:RadButton>
+        </StackPanel>
+
+
     </Grid>
 </telerik:RadWindow>

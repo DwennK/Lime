@@ -592,6 +592,8 @@
     <Resource Include="Images\Icons\document-pack\32x32\048-file.png" />
     <Resource Include="Images\Icons\document-pack\32x32\049-file.png" />
     <Resource Include="Images\Icons\document-pack\32x32\050-file.png" />
+    <Resource Include="Images\Icons\down-chevron.png" />
+    <Resource Include="Images\Icons\up-chevron.png" />
     <Content Include="Images\lemon.svg" />
   </ItemGroup>
   <ItemGroup>

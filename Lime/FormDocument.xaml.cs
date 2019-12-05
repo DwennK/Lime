@@ -185,7 +185,7 @@ namespace Lime
             double TotalDesPaiements = 0;
             //Récupération de la liste des paiements appartenant à ce document.
 
-            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID || x.ID_Documents == document. );
+            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID );
             foreach ( var item in ListeDesReglements)
             {
                 TotalDesPaiements += item.Montant;
