@@ -4,7 +4,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="Lime.FormDocument"
         Header="{Binding typeDocument.Libelle}" 
-        Height="1007" 
+        Height="947.286" 
         Width="1206" 
         telerik:StyleManager.Theme="Crystal" 
         ResizeMode="CanMinimize" 
@@ -15,7 +15,7 @@
     <Grid>
         <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="55,375,5,65" 
+                        Margin="55,127,5.143,64.857" 
                         Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -106,6 +106,17 @@
                     <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
                     <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Transformation">
+                    <telerik:RadRibbonButton Name="btnDevis" Text="Devis" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/048-file.png" Click="btnDevis_Click" />
+                    <telerik:RadRibbonButton Name="btnDevisAssurance" Text="Devis Assurance" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/049-file.png" Click="btnDevisAssurance_Click" />
+                    <telerik:RadRibbonButton Name="btnCommandePieces" Text="Commande Pièce" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/041-file.png" Click="btnCommandePieces_Click" />
+                    <telerik:RadRibbonButton Name="btnReparation" Text="Réparation" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/043-file.png" Click="btnReparation_Click" />
+                    <telerik:RadRibbonButton Name="btnFacture" Text="Facture" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnFacture_Click" />
+                    <telerik:RadRibbonButton Name="btnSAV" Text="SAV" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnSAV_Click" />
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+            
+            <telerik:RadRibbonTab Header="Informations">
                 <telerik:RadRibbonGroup Header="Informations Document">
                     <StackPanel>
                         <DockPanel >
@@ -151,7 +162,6 @@
                             <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                     </StackPanel>
-
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
@@ -204,7 +214,7 @@
         </StackPanel>
         
 
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,500,0,65">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,127,0,64.857">
                     <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
                         <Image Source="Images/Icons/add.png" HorizontalAlignment="Center" Width="Auto" />
                     </telerik:RadButton>

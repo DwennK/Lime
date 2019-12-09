@@ -43,5 +43,23 @@ namespace Lime
             this.Numero = Numero_;
             this.Cloture = Cloture_;
         }
+
+        //Constructeur qui contient déjà des lignes
+        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, string Cloture_, List<Documents_Lignes> ListeLignes)
+        {
+            this.ID = ID_;
+            this.ID_PriseEnCharge = ID_PriseEnCharge_;
+            this.ID_TypeDocument = ID_TypeDocument_;
+            this.Numero = Numero_;
+            this.Cloture = Cloture_;
+
+            //Insertion des lignes dans le document.
+            foreach(Documents_Lignes item in ListeLignes)
+            {
+                //item.ID_Documents
+                Connexion.maBDD.Insert(item);
+            }
+
+        }
     }
 }

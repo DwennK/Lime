@@ -164,6 +164,33 @@ namespace Lime
 
             #endregion
 
+
+            #region Cacher le bouton de transformation du même type de document que celui existant
+            switch(document.ID_TypeDocument)
+            {
+                case 1:
+                    btnDevis.IsEnabled = false;
+                    break;
+                case 2:
+                    btnDevisAssurance.IsEnabled = false;
+                    break;
+                case 3:
+                    btnCommandePieces.IsEnabled = false;
+                    break;
+                case 4:
+                    btnReparation.IsEnabled = false;
+                    break;
+                case 5:
+                    btnFacture.IsEnabled = false;
+                    break;
+                case 6:
+                    btnSAV.IsEnabled = false;
+                    break;
+
+            }
+
+            #endregion
+
         }
 
         public void CalculerTotaux()
@@ -202,7 +229,7 @@ namespace Lime
                 //Total TTC ITEM
                 if (item.TauxRemise > 0)
                 {
-                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite);
+                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite) *item.TauxRemise/100;
                 }
                 else
                 {
@@ -405,6 +432,39 @@ namespace Lime
                 Connexion.maBDD.Insert<Reglement>(reglement);
             }
         }
+
+
+        #region Transformer le document en un autre type de document. (Devis->Facture, Devis->Commande, Commande->Réparation etc)
+            private void btnDevis_Click(object sender, RoutedEventArgs e)
+            {
+               
+            }
+
+            private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void btnCommandePieces_Click(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void btnReparation_Click(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void btnFacture_Click(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void btnSAV_Click(object sender, RoutedEventArgs e)
+            {
+
+            }
+        #endregion
     }
 }
 
