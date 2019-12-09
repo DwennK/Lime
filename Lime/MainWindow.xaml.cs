@@ -236,7 +236,7 @@ namespace Lime
             else //Si le document n'existe pas encore.
             {
                 //INSERT
-                FormDocument maFenetre = new FormDocument(priseEnCharge, 1);
+                FormDocument maFenetre = new FormDocument(priseEnCharge, 1, null);
                 maFenetre.Show();
             }
 

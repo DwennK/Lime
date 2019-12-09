@@ -28,14 +28,14 @@ namespace Lime
         [Display(Name = "Numéro")]
         public int Numero { get; set; }
         [Display(Name = "Clôturé")]
-        public string Cloture { get; set; }
+        public bool Cloture { get; set; }
 
         public Document()
         {
 
         }
 
-        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, string Cloture_)
+        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, bool Cloture_)
         {
             this.ID = ID_;
             this.ID_PriseEnCharge = ID_PriseEnCharge_;
@@ -44,22 +44,5 @@ namespace Lime
             this.Cloture = Cloture_;
         }
 
-        //Constructeur qui contient déjà des lignes
-        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, string Cloture_, List<Documents_Lignes> ListeLignes)
-        {
-            this.ID = ID_;
-            this.ID_PriseEnCharge = ID_PriseEnCharge_;
-            this.ID_TypeDocument = ID_TypeDocument_;
-            this.Numero = Numero_;
-            this.Cloture = Cloture_;
-
-            //Insertion des lignes dans le document.
-            foreach(Documents_Lignes item in ListeLignes)
-            {
-                //item.ID_Documents
-                Connexion.maBDD.Insert(item);
-            }
-
-        }
     }
 }

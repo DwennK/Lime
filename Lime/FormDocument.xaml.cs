@@ -45,17 +45,18 @@ namespace Lime
                                     
 
         //Constructeur INSERT
-        public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments)
+        public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments, List<Documents_Lignes> documents_Lignes)
         {
             InitializeComponent();
             this.action = "Insert";
             this.priseEnCharge = priseEnCharge;
             client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
+            this.Lignes = documents_Lignes; //Sert dans le cas ou on transforme crée, par exemple, une Facture sur la base d'un devis : On va y copier toutes les lignes qui étaients présentes.
 
 
 
-            var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
+            //var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
 
 
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
@@ -437,11 +438,15 @@ namespace Lime
         #region Transformer le document en un autre type de document. (Devis->Facture, Devis->Commande, Commande->Réparation etc)
             private void btnDevis_Click(object sender, RoutedEventArgs e)
             {
-               
+                
             }
 
             private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
             {
+                //DEVIS = 2
+                int ID_TypeDocument = 2;
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, Lignes);
+                maFenetre.Show();
 
             }
 
