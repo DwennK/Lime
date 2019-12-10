@@ -213,6 +213,12 @@ namespace Lime
 
             #endregion
 
+
+            #region Remplissage ListeReglements
+
+            //var ListeRèglements = 
+            #endregion
+
         }
 
         public void CalculerTotaux()
@@ -279,11 +285,23 @@ namespace Lime
 
 
 
-            #region Calcul montant TotalPaiements
+            #region Calcul montant TotalPaiements et Ajout dans le RadGridView Correspondant.
 
             double TotalDesPaiements = 0;
             //Récupération de la liste des paiements appartenant à ce document.
             var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID);
+
+
+
+            //TODO TO DO TO-DO
+            //GridViewReglements
+            radGridViewReglements.Items.Clear();
+            string SQL = "SELECT Montant, Date FROM Reglements WHERE ID_Documents = @ID_DOCUMENT;";
+            var ListeNewxxxx = Connexion.maBDD.Query(SQL, new { ID_DOCUMENT = document.ID });
+            radGridViewReglements.ItemsSource = ListeNewxxxx;
+            //radGridViewReglements.ItemsSource = ListeDesReglements;
+
+
             foreach (var item in ListeDesReglements)
             {
                 TotalDesPaiements += item.Montant;
@@ -505,6 +523,36 @@ namespace Lime
         {
             //Sélection du tabItem contenant les reglements.
             tabControl1.SelectedIndex = 1;
+
+        }
+
+        private void InsertReglement_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateReglement_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DuplicateReglement_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteReglement_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DescendreReglement_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MonterReglement_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
