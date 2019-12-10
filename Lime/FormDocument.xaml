@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="Lime.FormDocument"
-        Header="{Binding typeDocument.Libelle}" 
+        Header="Document" 
         Height="947.286" 
         Width="1206" 
         telerik:StyleManager.Theme="Crystal" 
@@ -13,69 +13,6 @@
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
         navigation:RadWindowInteropHelper.Icon="/Images/lemon.png">
     <Grid>
-        <telerik:RadGridView   
-                        AutoGenerateColumns="True" 
-                        Margin="55,127,5.143,64.857" 
-                        Name="radGridView" 
-                        AllowDrop="True" 
-                        GroupRenderMode="Flat" 
-                        telerik:StyleManager.Theme="Crystal" 
-                        IsFilteringAllowed="False" 
-                        GridLinesVisibility="Both" 
-                        NewRowPosition="Bottom" 
-                        ShowGroupPanel="False"
-                        AlternationCount="2"
-                        Language="fr-CH"
-                        CellEditEnded="radGridView_CellEditEnded"
-                        RowEditEnded="radGridView_RowEditEnded"
-                        ItemsSource="{Binding Lignes}"
-
-                    >
-
-
-            <telerik:RadGridView.Resources>
-                <DataTemplate x:Key="DraggedItemTemplate">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Dragging:" />
-                            <TextBlock Text="{Binding CurrentDraggedItem}" 
-                               FontWeight="Bold" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding CurrentDropPosition}" 
-                               FontWeight="Bold" 
-                               MinWidth="45" />
-                            <TextBlock Text=", (" 
-                               Foreground="Gray" />
-                            <TextBlock Text="{Binding CurrentDraggedOverItem}" />
-                            <TextBlock Text=")" 
-                               Foreground="Gray" />
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </telerik:RadGridView.Resources>
-            <telerik:RadGridView.RowStyle>
-                <Style TargetType="telerik:GridViewRow">
-                    <Setter Property="telerik:DragDropManager.AllowDrag" 
-                    Value="True" />
-                    <Setter Property="telerik:DragDropManager.TouchDragTrigger" 
-                    Value="TapAndHold"/>
-                </Style>
-            </telerik:RadGridView.RowStyle>
-
-
-            <telerik:RadContextMenu.ContextMenu>
-                <telerik:RadContextMenu x:Name="GridContextMenu" telerik:StyleManager.Theme="Crystal">
-                    <telerik:RadContextMenu.Items>
-                        <telerik:RadMenuItem Header="Ajouter" />
-                        <telerik:RadMenuItem Header="Modifier" />
-                        <telerik:RadMenuItem Header="Supprimer" />
-                    </telerik:RadContextMenu.Items>
-                </telerik:RadContextMenu>
-            </telerik:RadContextMenu.ContextMenu>
-
-
-        </telerik:RadGridView>
 
         <telerik:RadRibbonView ApplicationName="RadRibbonView" 
                        Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016">
@@ -86,7 +23,7 @@
                     <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Reglements">
-                    <telerik:RadRibbonButton Name="btnReglements" Text="Règlements" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/005-file.png" />
+                    <telerik:RadRibbonButton Name="btnReglements" Text="Règlements" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnReglements_Click" />
                     <telerik:RadRibbonButton>
                         <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en..." Width="Auto" Size="Large" telerik:StyleManager.Theme="Office2016" Click="btnRegler_Click">
                             <telerik:RadDropDownButton.DropDownContent>
@@ -115,7 +52,7 @@
                     <telerik:RadRibbonButton Name="btnSAV" Text="SAV" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnSAV_Click" />
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
-            
+
             <telerik:RadRibbonTab Header="Informations">
                 <telerik:RadRibbonGroup Header="Informations Document">
                     <StackPanel>
@@ -125,7 +62,7 @@
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                            <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                            <telerik:Label Content="{Binding document.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
@@ -212,28 +149,98 @@
                 </Grid>
             </telerik:GroupBox>
         </StackPanel>
-        
 
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,127,0,64.857">
-                    <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
-                        <Image Source="Images/Icons/add.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Update" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Update_Click">
-                        <Image Source="Images/Icons/edit.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Duplicate" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Duplicate_Click">
-                        <Image Source="Images/Icons/duplicate.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Delete" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
-                        <Image Source="Images/Icons/delete.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Descendre" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
-                    <Image Source="Images/Icons/up-chevron.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-                    <telerik:RadButton x:Name="Monter" ToolTip="Monter la ligne sélectionnée" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
-                        <Image Source="Images/Icons/down-chevron.png" HorizontalAlignment="Center" Width="Auto" />
-                    </telerik:RadButton>
-        </StackPanel>
+
+        
+        <telerik:RadTabControl x:Name="tabControl1" HorizontalAlignment="Stretch" Margin="0,127,0.143,60.857" VerticalAlignment="Stretch" telerik:StyleManager.Theme="Fluent">
+            <telerik:RadTabItem x:Name="tabLignes" Header="Lignes de détails">
+                <Grid>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,10,0,64.714">
+                        <telerik:RadButton x:Name="Insert" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="Insert_Click">
+                            <Image Source="Images/Icons/add.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Update" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Update_Click">
+                            <Image Source="Images/Icons/edit.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Duplicate" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Duplicate_Click">
+                            <Image Source="Images/Icons/duplicate.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Delete" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                            <Image Source="Images/Icons/delete.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Descendre" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                            <Image Source="Images/Icons/up-chevron.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Monter" ToolTip="Monter la ligne sélectionnée" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Delete_Click">
+                            <Image Source="Images/Icons/down-chevron.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                    </StackPanel>
+                    <telerik:RadGridView   
+                        AutoGenerateColumns="True" 
+                        Margin="60,0,-0.143,-0.286" 
+                        x:Name="radGridView" 
+                        AllowDrop="True" 
+                        GroupRenderMode="Flat" 
+                        telerik:StyleManager.Theme="Crystal" 
+                        IsFilteringAllowed="False" 
+                        GridLinesVisibility="Both" 
+                        NewRowPosition="Bottom" 
+                        ShowGroupPanel="False"
+                        AlternationCount="2"
+                        Language="fr-CH"
+                        CellEditEnded="radGridView_CellEditEnded"
+                        RowEditEnded="radGridView_RowEditEnded"
+                        ItemsSource="{Binding Lignes}"
+
+                    >
+
+
+                        <telerik:RadGridView.Resources>
+                            <DataTemplate x:Key="DraggedItemTemplate">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Dragging:" />
+                                        <TextBlock Text="{Binding CurrentDraggedItem}" 
+                               FontWeight="Bold" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding CurrentDropPosition}" 
+                               FontWeight="Bold" 
+                               MinWidth="45" />
+                                        <TextBlock Text=", (" 
+                               Foreground="Gray" />
+                                        <TextBlock Text="{Binding CurrentDraggedOverItem}" />
+                                        <TextBlock Text=")" 
+                               Foreground="Gray" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadGridView.Resources>
+                        <telerik:RadGridView.RowStyle>
+                            <Style TargetType="{x:Type telerik:GridViewRow}">
+                                <Setter Property="telerik:DragDropManager.AllowDrag" 
+                    Value="True" />
+                                <Setter Property="telerik:DragDropManager.TouchDragTrigger" 
+                    Value="TapAndHold"/>
+                            </Style>
+                        </telerik:RadGridView.RowStyle>
+
+
+                        <telerik:RadContextMenu.ContextMenu>
+                            <telerik:RadContextMenu x:Name="GridContextMenu" telerik:StyleManager.Theme="Crystal">
+                                <telerik:RadMenuItem Header="Ajouter" />
+                                <telerik:RadMenuItem Header="Modifier" />
+                                <telerik:RadMenuItem Header="Supprimer" />
+                            </telerik:RadContextMenu>
+                        </telerik:RadContextMenu.ContextMenu>
+
+
+                    </telerik:RadGridView>
+
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="tabReglements" Header="Règlements"/>
+        </telerik:RadTabControl>
 
 
     </Grid>

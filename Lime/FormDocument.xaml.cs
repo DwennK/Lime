@@ -152,6 +152,11 @@ namespace Lime
 
         public void Populate()
         {
+            #region Titre de la fenêtre
+            this.Header = typeDocument.Libelle+" n° "+document.ID;
+            #endregion
+
+
             #region Populate ListBox MethodePaiement
             //On récupère la liste des Methodes de paiement dans la BDD
             var listMethodePaiements = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
@@ -169,22 +174,38 @@ namespace Lime
             #region Cacher le bouton de transformation du même type de document que celui existant
             switch(document.ID_TypeDocument)
             {
-                case 1:
+                
+                case 1: //DEVIS
                     btnDevis.IsEnabled = false;
                     break;
-                case 2:
+                case 2: //DEVIS ASSURANCE
+                    btnDevis.IsEnabled = false;
                     btnDevisAssurance.IsEnabled = false;
                     break;
-                case 3:
+                case 3: //COMMANDE PIECE
+                    btnDevis.IsEnabled = false;
+                    btnDevisAssurance.IsEnabled = false;
                     btnCommandePieces.IsEnabled = false;
                     break;
-                case 4:
+                case 4: //REPARATION
+                    btnDevis.IsEnabled = false;
+                    btnDevisAssurance.IsEnabled = false;
+                    btnCommandePieces.IsEnabled = false;
                     btnReparation.IsEnabled = false;
                     break;
-                case 5:
+                case 5: //FACTURE
+                    btnDevis.IsEnabled = false;
+                    btnDevisAssurance.IsEnabled = false;
+                    btnCommandePieces.IsEnabled = false;
+                    btnReparation.IsEnabled = false;
                     btnFacture.IsEnabled = false;
                     break;
-                case 6:
+                case 6: //SAV
+                    btnDevis.IsEnabled = false;
+                    btnDevisAssurance.IsEnabled = false;
+                    btnCommandePieces.IsEnabled = false;
+                    btnReparation.IsEnabled = false;
+                    btnFacture.IsEnabled = false;
                     btnSAV.IsEnabled = false;
                     break;
 
@@ -208,22 +229,10 @@ namespace Lime
             TotalRegle = 0;
             NetAPayer = 0;
 
-            #region NetAPayer
-
-            double TotalDesPaiements = 0;
-            //Récupération de la liste des paiements appartenant à ce document.
-
-            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID );
-            foreach ( var item in ListeDesReglements)
-            {
-                TotalDesPaiements += item.Montant;
-            }
 
 
-            #endregion
 
-
-            foreach(var item in Lignes) //Ces variables sont dans le DataContext
+            foreach (var item in Lignes) //Ces variables sont dans le DataContext
             {
                 //ITEM/////////////////////
 
@@ -261,15 +270,36 @@ namespace Lime
                     //TotalHT
                     TotalHT += item.PrixTTC - TotalTaxesItem;
 
-                    //TotalRéglé
-                    TotalRegle = 0; //TODO TO DO To-DO
+                    
 
-                    //NetAPayer
-                    NetAPayer = 0; //TODO TO DO To-DO
 
                 //FIN GOBAL DOCUMENT///////
 
             }
+
+
+
+            #region Calcul montant TotalPaiements
+
+            double TotalDesPaiements = 0;
+            //Récupération de la liste des paiements appartenant à ce document.
+            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID);
+            foreach (var item in ListeDesReglements)
+            {
+                TotalDesPaiements += item.Montant;
+            }
+            //TotalRéglé
+            TotalRegle = TotalDesPaiements;
+
+            #endregion
+
+            #region NetAPayer
+
+            //NetAPayer
+            NetAPayer = TotalTTC - TotalRegle;
+
+            #endregion
+
             SetDataContext();
         }
 
@@ -470,6 +500,13 @@ namespace Lime
 
             }
         #endregion
+
+        private void btnReglements_Click(object sender, RoutedEventArgs e)
+        {
+            //Sélection du tabItem contenant les reglements.
+            tabControl1.SelectedIndex = 1;
+
+        }
     }
 }
 
