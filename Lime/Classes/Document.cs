@@ -28,20 +28,20 @@ namespace Lime
         [Display(Name = "Numéro")]
         public int Numero { get; set; }
         [Display(Name = "Clôturé")]
-        public bool Cloture { get; set; }
+        public bool Closed { get; set; }
 
         public Document()
         {
 
         }
 
-        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, bool Cloture_)
+        public Document(int ID_, int ID_PriseEnCharge_, int ID_TypeDocument_, int Numero_, bool Closed_)
         {
             this.ID = ID_;
             this.ID_PriseEnCharge = ID_PriseEnCharge_;
             this.ID_TypeDocument = ID_TypeDocument_;
             this.Numero = Numero_;
-            this.Cloture = Cloture_;
+            this.Closed = Closed_;
         }
 
     }

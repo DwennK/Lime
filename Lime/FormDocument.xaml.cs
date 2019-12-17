@@ -56,10 +56,6 @@ namespace Lime
             this.Lignes = documents_Lignes; //Sert dans le cas ou on transforme crée, par exemple, une Facture sur la base d'un devis : On va y copier toutes les lignes qui étaients présentes.
 
 
-
-            //var xx = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID && document.ID_PriseEnCharge == priseEnCharge.ID);
-
-
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
@@ -218,9 +214,10 @@ namespace Lime
             #endregion
 
 
-            #region Remplissage ListeReglements
+            #region Remplissage ListeReglements dans gridView des Règlements
 
-            //var ListeRèglements = 
+            var ListeReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_PriseEnCharges == priseEnCharge.ID);
+            radGridViewReglements.ItemsSource = ListeReglements;
             #endregion
 
         }
@@ -229,10 +226,6 @@ namespace Lime
         {
             if(Lignes != null)
             {
-                if (Lignes != null)
-                {
-
-                }
                 //Cet event sera appelé après chaque modification de valeur dans le GridView.
                 //Cet event va nous servir à mettre à jour les totaux etc.
 
@@ -244,7 +237,7 @@ namespace Lime
                 TotalTTC = 0;
                 TotalRegle = 0;
                 NetAPayer = 0;
-
+                
 
 
 

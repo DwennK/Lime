@@ -33,7 +33,6 @@ namespace Lime
         public double Montant { get; set; }
         public DateTime Date { get; set; }
 
-        public List<MethodePaiement> methodePaiements { get; set; }
 
         private static string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
         public static MySqlConnection maBDD2 = new MySqlConnection(strConnexionString);
@@ -41,8 +40,6 @@ namespace Lime
         public Reglement()
         {
             this.Date = DateTime.Now;
-
-            this.methodePaiements = maBDD2.GetAll<MethodePaiement>().ToList();
         }
 
         public Reglement(int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)
@@ -51,7 +48,6 @@ namespace Lime
             this.ID_MethodePaiement = ID_MethodePaiement_;
             this.Montant = Montant_;
             this.Date = Date_;
-            this.methodePaiements = maBDD2.GetAll<MethodePaiement>().ToList();
         }
 
         public Reglement(int ID_, int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)

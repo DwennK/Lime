@@ -224,8 +224,13 @@ namespace Lime
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)
         {
-            Document document = GetDocument(1);
+            //DEVIS
+            int ID_TypeDocuments = 1; //Représente le numéro de ce Type de Document dans la BDD
+            Document document = GetDocument(ID_TypeDocuments);
+
+
             PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
 
             if (document != null)//Si le document existe déjà.
             {
@@ -236,7 +241,11 @@ namespace Lime
             else //Si le document n'existe pas encore.
             {
                 //INSERT
-                FormDocument maFenetre = new FormDocument(priseEnCharge, 1, null);
+
+                List<Documents_Lignes> Document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+
+
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Document_Lignes);
                 maFenetre.Show();
             }
 
