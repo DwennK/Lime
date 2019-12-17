@@ -280,6 +280,16 @@
 
                     >
 
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewComboBoxColumn
+                                    Header="Méthode Paiement"
+                                    ItemsSource="{Binding Lignes}"
+                                    SelectedValueMemberPath="ID" 
+                                    DisplayMemberPath="Libelle">
+                            </telerik:GridViewComboBoxColumn>
+                        </telerik:RadGridView.Columns>
+
+
 
                         <telerik:RadGridView.Resources>
                             <DataTemplate x:Key="DraggedItemTemplate">

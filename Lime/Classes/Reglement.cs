@@ -27,31 +27,37 @@ namespace Lime
         public int ID { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
 
-        public int ID_Documents { get; set; }
-        [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
+        public int ID_PriseEnCharges { get; set; }
 
         public int ID_MethodePaiement { get; set; }
         public double Montant { get; set; }
         public DateTime Date { get; set; }
 
+        public List<MethodePaiement> methodePaiements { get; set; }
+
+        private static string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+        public static MySqlConnection maBDD2 = new MySqlConnection(strConnexionString);
 
         public Reglement()
         {
             this.Date = DateTime.Now;
+
+            this.methodePaiements = maBDD2.GetAll<MethodePaiement>().ToList();
         }
 
-        public Reglement(int ID_Documents_, int ID_MethodePaiement_, double Montant_, DateTime Date_)
+        public Reglement(int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)
         {
-            this.ID_Documents = ID_Documents_;
+            this.ID_PriseEnCharges = ID_PriseEnCharges;
             this.ID_MethodePaiement = ID_MethodePaiement_;
             this.Montant = Montant_;
             this.Date = Date_;
+            this.methodePaiements = maBDD2.GetAll<MethodePaiement>().ToList();
         }
 
-        public Reglement(int ID_, int ID_Documents_, int ID_MethodePaiement_, double Montant_, DateTime Date_)
+        public Reglement(int ID_, int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)
         {
             this.ID = ID_;
-            this.ID_Documents = ID_Documents_;
+            this.ID_PriseEnCharges = ID_PriseEnCharges;
             this.ID_MethodePaiement = ID_MethodePaiement_;
             this.Montant = Montant_;
             this.Date = Date_;

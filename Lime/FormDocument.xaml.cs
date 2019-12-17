@@ -34,6 +34,7 @@ namespace Lime
         public Client client = new Client();
         public List<Documents_Lignes> Lignes = new List<Documents_Lignes>();
         public string str1 = "sss";
+        public List<MethodePaiement>methodePaiement = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
         public double TotalRemise;
         public double TotalHT;
@@ -66,6 +67,7 @@ namespace Lime
                 client,
                 Lignes,
                 typeDocument,
+                methodePaiement,
                 document,
                 TotalRemise,
                 TotalHT,
@@ -112,6 +114,7 @@ namespace Lime
                 client,
                 Lignes,
                 typeDocument,
+                methodePaiement,
                 document,
                 TotalRemise,
                 TotalHT,
@@ -138,6 +141,7 @@ namespace Lime
                 client,
                 Lignes,
                 typeDocument,
+                methodePaiement,
                 document,
                 TotalRemise,
                 TotalHT,
@@ -223,44 +227,50 @@ namespace Lime
 
         public void CalculerTotaux()
         {
-            //Cet event sera appelé après chaque modification de valeur dans le GridView.
-            //Cet event va nous servir à mettre à jour les totaux etc.
-
-
-            //Reset des valeurs à zero
-            TotalRemise = 0;
-            TotalHT = 0;
-            TotalTVA = 0;
-            TotalTTC = 0;
-            TotalRegle = 0;
-            NetAPayer = 0;
-
-
-
-
-            foreach (var item in Lignes) //Ces variables sont dans le DataContext
+            if(Lignes != null)
             {
-                //ITEM/////////////////////
-
-                //Total TTC ITEM
-                if (item.TauxRemise > 0)
+                if (Lignes != null)
                 {
-                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite) *item.TauxRemise/100;
+
                 }
-                else
+                //Cet event sera appelé après chaque modification de valeur dans le GridView.
+                //Cet event va nous servir à mettre à jour les totaux etc.
+
+
+                //Reset des valeurs à zero
+                TotalRemise = 0;
+                TotalHT = 0;
+                TotalTVA = 0;
+                TotalTTC = 0;
+                TotalRegle = 0;
+                NetAPayer = 0;
+
+
+
+
+                foreach (var item in Lignes) //Ces variables sont dans le DataContext
                 {
-                    item.PrixTTC = (item.PrixUniteTTC * item.Quantite);
-                }
+                    //ITEM/////////////////////
 
-                //Total TVA ITEM
-                item.TotalTVA = (item.PrixTTC * item.TauxTVA/100);
-                // FIN ITEM////////////////
+                    //Total TTC ITEM
+                    if (item.TauxRemise > 0)
+                    {
+                        item.PrixTTC = (item.PrixUniteTTC * item.Quantite) * item.TauxRemise / 100;
+                    }
+                    else
+                    {
+                        item.PrixTTC = (item.PrixUniteTTC * item.Quantite);
+                    }
+
+                    //Total TVA ITEM
+                    item.TotalTVA = (item.PrixTTC * item.TauxTVA / 100);
+                    // FIN ITEM////////////////
 
 
-                double TotalTaxesItem = (item.PrixTTC * item.Quantite) * (double)item.TauxTVA/100;
-                double TotalRemiseItem = (item.PrixUniteTTC * item.Quantite) * item.TauxRemise / 100;
+                    double TotalTaxesItem = (item.PrixTTC * item.Quantite) * (double)item.TauxTVA / 100;
+                    double TotalRemiseItem = (item.PrixUniteTTC * item.Quantite) * item.TauxRemise / 100;
 
-                //GLOBAL DOCUMENT//////////
+                    //GLOBAL DOCUMENT//////////
                     //Total TTC
                     TotalTTC += item.PrixTTC * item.Quantite;
 
@@ -268,57 +278,58 @@ namespace Lime
                     TotalTVA += TotalTaxesItem;
 
                     //TotalRemise
-                    if(item.TauxRemise > 0)
-                    TotalRemise += (item.PrixTTC * item.TauxRemise) / 100;
+                    if (item.TauxRemise > 0)
+                        TotalRemise += (item.PrixTTC * item.TauxRemise) / 100;
                     else
-                    TotalRemise += 0;
+                        TotalRemise += 0;
 
                     //TotalHT
                     TotalHT += item.PrixTTC - TotalTaxesItem;
 
-                    
 
 
-                //FIN GOBAL DOCUMENT///////
+
+                    //FIN GOBAL DOCUMENT///////
+
+                }
+
+
+
+                #region Calcul montant TotalPaiements et Ajout dans le RadGridView Correspondant.
+
+                double TotalDesPaiements = 0;
+                //Récupération de la liste des paiements appartenant à ce document.
+                var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_PriseEnCharges == priseEnCharge.ID);
+
+
+
+                //TODO TO DO TO-DO
+                //GridViewReglements
+                string SQL = "SELECT Montant, Date FROM Reglements WHERE ID_PriseEnCharges = @ID_PriseEnCharges;";
+                var ListeNewxxxx = Connexion.maBDD.Query(SQL, new { ID_PriseEnCharges = priseEnCharge.ID });
+                radGridViewReglements.ItemsSource = ListeNewxxxx;
+                //radGridViewReglements.ItemsSource = ListeDesReglements;
+
+
+                foreach (var item in ListeDesReglements)
+                {
+                    TotalDesPaiements += item.Montant;
+                }
+                //TotalRéglé
+                TotalRegle = TotalDesPaiements;
+
+                #endregion
+
+                #region NetAPayer
+
+                //NetAPayer
+                NetAPayer = TotalTTC - TotalRegle;
+
+                #endregion
+
+                SetDataContext();
 
             }
-
-
-
-            #region Calcul montant TotalPaiements et Ajout dans le RadGridView Correspondant.
-
-            double TotalDesPaiements = 0;
-            //Récupération de la liste des paiements appartenant à ce document.
-            var ListeDesReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_Documents == document.ID);
-
-
-
-            //TODO TO DO TO-DO
-            //GridViewReglements
-            radGridViewReglements.Items.Clear();
-            string SQL = "SELECT Montant, Date FROM Reglements WHERE ID_Documents = @ID_DOCUMENT;";
-            var ListeNewxxxx = Connexion.maBDD.Query(SQL, new { ID_DOCUMENT = document.ID });
-            radGridViewReglements.ItemsSource = ListeNewxxxx;
-            //radGridViewReglements.ItemsSource = ListeDesReglements;
-
-
-            foreach (var item in ListeDesReglements)
-            {
-                TotalDesPaiements += item.Montant;
-            }
-            //TotalRéglé
-            TotalRegle = TotalDesPaiements;
-
-            #endregion
-
-            #region NetAPayer
-
-            //NetAPayer
-            NetAPayer = TotalTTC - TotalRegle;
-
-            #endregion
-
-            SetDataContext();
         }
 
 
@@ -472,7 +483,7 @@ namespace Lime
             {
                 //Affectation des variables
                 Reglement reglement = new Reglement();
-                reglement.ID_Documents = document.ID;
+                reglement.ID_PriseEnCharges = priseEnCharge.ID;
                 reglement.ID_MethodePaiement = methodePaiement.ID;
                 reglement.Montant = NetAPayer;
                 reglement.Date = DateTime.Now;
