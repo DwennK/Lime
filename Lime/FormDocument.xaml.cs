@@ -32,7 +32,7 @@ namespace Lime
         public TypeDocuments typeDocument;
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
-        public List<Documents_Lignes> Lignes = new List<Documents_Lignes>();
+        public ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>();
         public string str1 = "sss";
         public List<MethodePaiement>methodePaiement = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
@@ -46,7 +46,7 @@ namespace Lime
                                     
 
         //Constructeur INSERT
-        public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments, List<Documents_Lignes> documents_Lignes)
+        public FormDocument(PriseEnCharge priseEnCharge, int ID_TypeDocuments, ObservableCollection<Documents_Lignes> documents_Lignes)
         {
             InitializeComponent();
             this.action = "Insert";
@@ -99,11 +99,13 @@ namespace Lime
             this.client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
-            //On récupère Toutes les lignes appartenant à ce document
-            Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+            //On récupère Toutes les lignes appartenant à ce document, et  on les place dans une liste
+            var ListeLignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+            //On met cette liste dans un ObservableCollection
+            Lignes = new ObservableCollection<Documents_Lignes>(ListeLignes as List<Documents_Lignes>);
 
 
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge,
@@ -147,6 +149,8 @@ namespace Lime
                 NetAPayer,
                 str1
             };
+
+
         }
 
 
@@ -320,6 +324,9 @@ namespace Lime
 
                 #endregion
 
+
+
+                //On set le dataContext
                 SetDataContext();
 
             }
@@ -406,8 +413,7 @@ namespace Lime
                 Documents_Lignes item;
                 item = (Lime.Documents_Lignes)aCopier.Clone();
                 //Ajout de la ligne
-                this.Lignes.Add(item);
-                radGridView.Rebind();
+                Lignes.Add(item);
                 CalculerTotaux();
             }
             else
@@ -431,7 +437,6 @@ namespace Lime
                 var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
                 Lignes.Remove(item);
                 Connexion.maBDD.Delete(item);
-                radGridView.Rebind();
                 CalculerTotaux();
             }
             else
@@ -446,16 +451,47 @@ namespace Lime
 
         }
 
-        private void radGridView_CellEditEnded(object sender, GridViewCellEditEndedEventArgs e)
+        private void MoveUp_Click(object sender, RoutedEventArgs e)
         {
-            CalculerTotaux();
+
+            if (radGridView.SelectedItem != null)
+            {
+                //var temp = (Documents_Lignes)radGridView.SelectedItem;
+
+                //TODO TO DO TO-DO
+
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
 
         }
 
-        private void radGridView_RowEditEnded(object sender, GridViewRowEditEndedEventArgs e)
+        private void MoveDown_Click(object sender, RoutedEventArgs e)
         {
-            CalculerTotaux();
+
+            if (radGridView.SelectedItem != null)
+            {
+
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+
         }
+
 
         private void btnFermer_Click(object sender, RoutedEventArgs e)
         {
@@ -558,6 +594,62 @@ namespace Lime
         private void MonterReglement_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+        private void radGridView_CellUnloaded(object sender, Telerik.Windows.Controls.GridView.CellEventArgs e)
+        {
+
+
+
+        }
+
+        private void radGridView_CellEditEnded(object sender, GridViewCellEditEndedEventArgs e)
+        {
+            CalculerTotaux();
+
+        }
+
+        private void radGridView_CellValidated(object sender, GridViewCellValidatedEventArgs e)
+        {
+
+            radGridView.UpdateLayout();
+
+            //Refresh de l'UI du GridView
+            //radGridView.Items.Refresh();
+        }
+
+        private void radGridView_CellValidating(object sender, GridViewCellValidatingEventArgs e)
+        {
+
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            radGridView.Rebind();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            radGridView.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            radGridView.UpdateLayout();
+        }
+
+        private void radGridView_RowEditEnded(object sender, GridViewRowEditEndedEventArgs e)
+        {
+            radGridView.Items.Refresh();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Documents_Lignes item = new Documents_Lignes(5);
+            Lignes.Add(item);
         }
     }
 }

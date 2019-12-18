@@ -242,10 +242,10 @@ namespace Lime
             {
                 //INSERT
 
-                List<Documents_Lignes> Document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+                List<Documents_Lignes> document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+                ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(document_Lignes);
 
-
-                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Document_Lignes);
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
                 maFenetre.Show();
             }
 

@@ -177,7 +177,7 @@
                     </StackPanel>
                     <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="60,0,-0.143,-0.286" 
+                        Margin="60,67,0,0" 
                         x:Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -188,9 +188,8 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
-                        CellEditEnded="radGridView_CellEditEnded"
-                        RowEditEnded="radGridView_RowEditEnded"
-                        ItemsSource="{Binding Lignes}"
+
+                        ItemsSource="{Binding Lignes}" CellUnloaded="radGridView_CellUnloaded" CellEditEnded="radGridView_CellEditEnded" CellValidated="radGridView_CellValidated" CellValidating="radGridView_CellValidating" RowEditEnded="radGridView_RowEditEnded"
 
                     >
 
@@ -236,6 +235,10 @@
 
 
                     </telerik:RadGridView>
+                    <Button Content="Rebind()" HorizontalAlignment="Left" Margin="89,22,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                    <Button Content="Items.Refresh()" HorizontalAlignment="Left" Margin="184,22,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_1"/>
+                    <Button Content="UpdateLayout()" HorizontalAlignment="Left" Margin="304,22,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_2"/>
+                    <Button Content="Add Element To Collection Of Lines" HorizontalAlignment="Left" Margin="439,22,0,0" VerticalAlignment="Top" Width="220" Click="Button_Click_3"/>
 
                 </Grid>
             </telerik:RadTabItem>
@@ -274,8 +277,6 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
-                        CellEditEnded="radGridView_CellEditEnded"
-                        RowEditEnded="radGridView_RowEditEnded"
                         ItemsSource="{Binding Lignes}"
 
                     >

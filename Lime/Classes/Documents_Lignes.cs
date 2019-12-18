@@ -82,6 +82,7 @@ namespace Lime
             connexion.Close();
         }
 
+
         public virtual object Clone()
         {
             return this.MemberwiseClone();
