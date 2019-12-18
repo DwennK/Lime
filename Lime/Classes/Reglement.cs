@@ -28,9 +28,11 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
 
         public int ID_PriseEnCharges { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public double Montant { get; set; }
 
         public int ID_MethodePaiement { get; set; }
-        public double Montant { get; set; }
+
         public DateTime Date { get; set; }
 
 
