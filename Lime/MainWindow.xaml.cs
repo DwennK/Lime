@@ -150,13 +150,6 @@ namespace Lime
             }
         }
 
-        private void tabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (Connexion.CheckForInternetConnection())
-            {
-                UpdateGridView(Connexion.maBDD.GetAll<Article>());
-            }
-        }
 
         private void tabPriseEnCharge_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -286,6 +279,67 @@ namespace Lime
 
             //Retourne le document correspondant 
             return document;
+        }
+
+        private void tabDevis_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 1; //Devis
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+        private void tabDevisAssurance_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 2; //Devis Assurance
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+
+        private void tabCommande_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 3; //Commande
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+
+        private void tabReparation_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 4; //Réparation
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+
+        private void tabFactures_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 5; //Facture
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+
+        private void tabSAV_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                int ID_typeDocument = 6; //SAV
+                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+            }
+        }
+
+        private void tabArticles_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                UpdateGridView(Connexion.maBDD.GetAll<Article>());
+            }
         }
     }
 }
