@@ -651,6 +651,19 @@ namespace Lime
             Documents_Lignes item = new Documents_Lignes(5);
             Lignes.Add(item);
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            GridViewComboBoxColumn supplierColumn = new GridViewComboBoxColumn();
+            supplierColumn.Name = "SupplierColumn";
+            supplierColumn.Header = "Supplier";
+            supplierColumn.ItemsSource = this.methodePaiement;
+            supplierColumn.SelectedValueMemberPath = "ID";
+            supplierColumn.DisplayMemberPath = "Libelle";
+            supplierColumn.Name = "SupplierID";
+            supplierColumn.Width = 200;
+            this.radGridViewReglements.Columns.Add(supplierColumn);
+        }
     }
 }
 

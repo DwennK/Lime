@@ -285,7 +285,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                int ID_typeDocument = 1; //Devis
+                int ID_typeDocument = 1; //SAV
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
         }
