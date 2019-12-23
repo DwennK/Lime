@@ -28,9 +28,6 @@
                         <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en..." Width="Auto" Size="Large" telerik:StyleManager.Theme="Office2016" Click="btnRegler_Click">
                             <telerik:RadDropDownButton.DropDownContent>
                                 <ListBox Name="ListboxMethodePaiement"  telerik:StyleManager.Theme="Crystal" SelectionChanged="ListboxMethodePaiement_SelectionChanged" >
-                                    <ListBoxItem Content="Item 1"/>
-                                    <ListBoxItem Content="Item 2" />
-                                    <ListBoxItem Content="Item 3"/>
                                 </ListBox>
                             </telerik:RadDropDownButton.DropDownContent>
                         </telerik:RadRibbonDropDownButton>
@@ -266,7 +263,7 @@
                         </telerik:RadButton>
                     </StackPanel>
                     <telerik:RadGridView   
-                        AutoGenerateColumns="True" 
+                        AutoGenerateColumns="False" 
                         Margin="60,72,0,0" 
                         x:Name="radGridViewReglements" 
                         AllowDrop="True" 
@@ -278,17 +275,58 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
-                        ItemsSource="{Binding Lignes}"
-
+                        IsReadOnly="False"
                     >
 
                         <telerik:RadGridView.Columns>
-                            <telerik:GridViewComboBoxColumn
-                                    Header="Méthode Paiement"
+                            <telerik:GridViewColumn
+                                    Header="ID"
                                     IsReadOnly="False"
+                                    ="{Binding methodePaiement}"
+                                    SelectedValueMemberPath="ID" 
+                                    DisplayMemberPath="Libelle"
+                                    DataMemberBinding="{Binding ID_MethodePaiement}">
+                            </telerik:GridViewColumn>
+                            <telerik:GridViewComboBoxColumn Header="Methode de Paiement (XAML)" 
+                                    ItemsSource="{Binding methodePaiement}" 
+                                    SelectedValueMemberPath="ID" 
+                                    DisplayMemberPath="Libelle" 
+                                    Width="300" 
+                                    DataMemberBinding="{Binding ID_MethodePaiement}"
+                                    >
+                                <telerik:GridViewComboBoxColumn.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding ID}"></TextBlock>
+                                            <TextBlock Text="{Binding Libelle}"  Grid.Column="1"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewComboBoxColumn.ItemTemplate>
+                            </telerik:GridViewComboBoxColumn>
+                            <telerik:GridViewComboBoxColumn 
+                                    Header="newxxxxxxxxxxxxxxxxxxxxxx" 
                                     ItemsSource="{Binding methodePaiement}"
-                                    SelectedValueMemberPath="{Binding Path=methodePaiement.ID}" 
-                                    DisplayMemberPath="{Binding Path=methodePaiement.Libelle}">
+                                    SelectedValueMemberPath="ID" 
+                                    DisplayMemberPath="Libelle" 
+                                    DataMemberBinding="{Binding ID_MethodePaiement}"
+                                    Width="300" 
+                                    >
+                                <telerik:GridViewComboBoxColumn.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding ID}"></TextBlock>
+                                            <TextBlock Text="{Binding Libelle}"  Grid.Column="1"></TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </telerik:GridViewComboBoxColumn.ItemTemplate>
                             </telerik:GridViewComboBoxColumn>
                         </telerik:RadGridView.Columns>
 
@@ -336,10 +374,23 @@
 
                     </telerik:RadGridView>
                     <Button Content="Add Column Programtically Combobox" HorizontalAlignment="Left" Margin="124,27,0,0" VerticalAlignment="Top" Width="235" Click="Button_Click_4"/>
+                    <Button Content="test" HorizontalAlignment="Left" Margin="394,27,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+                    <ComboBox HorizontalAlignment="Left" 
+                              Margin="534,27,0,0" 
+                              VerticalAlignment="Top" 
+                              Width="235"
+                                    IsReadOnly="False"
+                                    ItemsSource="{Binding methodePaiement}"
+                                    SelectedValuePath="{Binding methodePaiement.ID}"
+                                    DisplayMemberPath="{Binding methodePaiement.Libelle}"
+                                    >
+                            
+                        </ComboBox>
 
                 </Grid>
             </telerik:RadTabItem>
             <Button Content="Button" Height="100" Width="75"/>
+            <ComboBox Height="100" Width="120"/>
         </telerik:RadTabControl>
 
 

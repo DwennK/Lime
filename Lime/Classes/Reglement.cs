@@ -10,13 +10,13 @@ using System.ComponentModel; //Sert à changer l'affichage du nom de la proprit�
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lime
 {
     [Serializable]
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
-    [Table("Reglements")]
+    [Dapper.Contrib.Extensions.Table("Reglements")]
     public class Reglement : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,8 +30,10 @@ namespace Lime
         public int ID_PriseEnCharges { get; set; }
         [DisplayFormat(DataFormatString = "{0:C}")]
         public double Montant { get; set; }
-
+        [Required]
+        [ForeignKeyAttribute("fk_Reglements_MethodePaiements1")]
         public int ID_MethodePaiement { get; set; }
+        public List<string> ListMethodePaiement {get;set;}
 
         public DateTime Date { get; set; }
 

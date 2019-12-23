@@ -166,8 +166,6 @@ namespace Lime
             var listMethodePaiements = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
             //Insertion de la liste des methodes de paiement dans la Listbox correspondante.
-            ListboxMethodePaiement.Items.Clear();
-
             ListboxMethodePaiement.ItemsSource = listMethodePaiements;
             ListboxMethodePaiement.DisplayMemberPath = "Libelle"; //Valeur à afficher
             ListboxMethodePaiement.SelectedValuePath = "ID"; //Valeur à selectionner en faisant .SelectedItem
@@ -223,7 +221,6 @@ namespace Lime
             var ListeReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_PriseEnCharges == priseEnCharge.ID);
             radGridViewReglements.ItemsSource = ListeReglements;
             #endregion
-
         }
 
         public void CalculerTotaux()
@@ -654,15 +651,40 @@ namespace Lime
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            GridViewComboBoxColumn supplierColumn = new GridViewComboBoxColumn();
-            supplierColumn.Name = "SupplierColumn";
-            supplierColumn.Header = "Supplier";
-            supplierColumn.ItemsSource = this.methodePaiement;
-            supplierColumn.SelectedValueMemberPath = "ID";
-            supplierColumn.DisplayMemberPath = "Libelle";
-            supplierColumn.Name = "SupplierID";
-            supplierColumn.Width = 200;
-            this.radGridViewReglements.Columns.Add(supplierColumn);
+            GridViewComboBoxColumn colonne = new GridViewComboBoxColumn();
+            colonne.Name = "MethodePaiementxxx";
+            colonne.UniqueName = "MethodePaiementxxx";
+            colonne.Header = "MethodePaiementxxx";
+            colonne.ItemsSource = this.methodePaiement;
+            colonne.SelectedValueMemberPath = "ID";
+            colonne.DisplayMemberPath = "Libelle";
+            colonne.Width = 200;
+            colonne.IsComboBoxEditable = true;
+            colonne.IsReadOnly = false;
+            this.radGridViewReglements.Columns.Add(colonne);
+
+
+
+
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Name = "MethodePaiementx";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).UniqueName = "MethodePaiementx";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Header = "MethodePaiementx";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).ItemsSource = this.methodePaiement;
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).SelectedValueMemberPath = "ID";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DisplayMemberPath = "Libelle";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Width = 200;
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+
+            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Header = "yyyyyyyyyyyyyyyy";
+            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).ItemsSource = methodePaiement;
+            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).SelectedValueMemberPath = "ID";
+            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DisplayMemberPath = "Libelle";
+            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DataMemberBinding = "{Binding ID}";
+            //Binding xx = 
+            Populate();
         }
     }
 }
