@@ -217,30 +217,43 @@ namespace Lime
 
         private void btnDevis_Click(object sender, RoutedEventArgs e)
         {
-            //DEVIS
-            int ID_TypeDocuments = 1; //Représente le numéro de ce Type de Document dans la BDD
-            Document document = GetDocument(ID_TypeDocuments);
-
-
-            PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
-
-
-            if (document != null)//Si le document existe déjà.
+            if(RadGridView1.SelectedItem != null)
             {
-                //UPDATE
-                FormDocument maFenetre = new FormDocument(priseEnCharge, document);
-                maFenetre.Show();
+                //DEVIS
+                int ID_TypeDocuments = 1; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
+
+
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+
+                    List<Documents_Lignes> document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(document_Lignes);
+
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
             }
-            else //Si le document n'existe pas encore.
+            else 
             {
-                //INSERT
-
-                List<Documents_Lignes> document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
-                ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(document_Lignes);
-
-                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
-                maFenetre.Show();
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez sélectionner un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
             }
+            
 
         }
 
@@ -272,13 +285,17 @@ namespace Lime
 
         private Document GetDocument(int NumeroDuTypeDocumentDansLaBDD) //Cette fonction retourne un Document (si existant), lié à une prise en charge.
         {
-            PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+            if (Connexion.CheckForInternetConnection())
+            {
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
 
-            //On récupère le document correspondant, s'il en existe un.
-            Document document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_PriseEnCharge == priseEnCharge.ID && x.ID_TypeDocument == NumeroDuTypeDocumentDansLaBDD).FirstOrDefault();
+                //On récupère le document correspondant, s'il en existe un.
+                Document document = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_PriseEnCharge == priseEnCharge.ID && x.ID_TypeDocument == NumeroDuTypeDocumentDansLaBDD).FirstOrDefault();
 
-            //Retourne le document correspondant 
-            return document;
+                //Retourne le document correspondant 
+                return document;
+            }
+            return null;
         }
 
         private void tabDevis_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

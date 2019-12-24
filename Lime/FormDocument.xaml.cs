@@ -33,6 +33,7 @@ namespace Lime
         public PriseEnCharge priseEnCharge = new PriseEnCharge();
         public Client client = new Client();
         public ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>();
+        public ObservableCollection<Reglement> ListeReglements = new ObservableCollection<Reglement>();
         public string str1 = "sss";
         public List<MethodePaiement>methodePaiement = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
@@ -217,8 +218,12 @@ namespace Lime
 
 
             #region Remplissage ListeReglements dans gridView des Règlements
-
-            var ListeReglements = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_PriseEnCharges == priseEnCharge.ID);
+            ListeReglements.Clear();
+            var temp = Connexion.maBDD.GetAll<Reglement>().Where(x => x.ID_PriseEnCharges == priseEnCharge.ID);
+            foreach( var item in temp)
+            {
+                ListeReglements.Add(item);
+            }
             radGridViewReglements.ItemsSource = ListeReglements;
             #endregion
         }
@@ -409,6 +414,10 @@ namespace Lime
                 //Création et affectation de la nouvelle ligne.
                 Documents_Lignes item;
                 item = (Lime.Documents_Lignes)aCopier.Clone();
+
+                //On le sauve dans la BDD
+                Connexion.maBDD.Insert(item);
+
                 //Ajout de la ligne
                 Lignes.Add(item);
                 CalculerTotaux();
@@ -570,17 +579,41 @@ namespace Lime
 
         private void UpdateReglement_Click(object sender, RoutedEventArgs e)
         {
-
+            if (radGridViewReglements.SelectedItem != null)
+            {
+                radGridViewReglements.BeginEdit();
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
         }
 
-        private void DuplicateReglement_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void DeleteReglement_Click(object sender, RoutedEventArgs e)
         {
-
+            if (radGridViewReglements.SelectedItem != null)
+            {
+                var item = (Lime.Reglement)radGridViewReglements.SelectedItem;
+                ListeReglements.Remove(item);
+                Connexion.maBDD.Delete(item);
+                CalculerTotaux();
+                Populate();
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez chosir un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
         }
 
         private void DescendreReglement_Click(object sender, RoutedEventArgs e)
@@ -662,28 +695,11 @@ namespace Lime
             colonne.IsComboBoxEditable = true;
             colonne.IsReadOnly = false;
             this.radGridViewReglements.Columns.Add(colonne);
-
-
-
-
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Name = "MethodePaiementx";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).UniqueName = "MethodePaiementx";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Header = "MethodePaiementx";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).ItemsSource = this.methodePaiement;
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).SelectedValueMemberPath = "ID";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DisplayMemberPath = "Libelle";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Width = 200;
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void test_Click(object sender, RoutedEventArgs e)
         {
 
-            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).Header = "yyyyyyyyyyyyyyyy";
-            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).ItemsSource = methodePaiement;
-            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).SelectedValueMemberPath = "ID";
-            ((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DisplayMemberPath = "Libelle";
-            //((GridViewComboBoxColumn)this.radGridViewReglements.Columns[2]).DataMemberBinding = "{Binding ID}";
-            //Binding xx = 
             Populate();
         }
     }

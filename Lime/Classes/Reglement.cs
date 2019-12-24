@@ -32,18 +32,15 @@ namespace Lime
         public double Montant { get; set; }
         [Required]
         [ForeignKeyAttribute("fk_Reglements_MethodePaiements1")]
+        [Browsable(false)]
         public int ID_MethodePaiement { get; set; }
-        public List<string> ListMethodePaiement {get;set;}
-
         public DateTime Date { get; set; }
 
-
-        private static string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
-        public static MySqlConnection maBDD2 = new MySqlConnection(strConnexionString);
 
         public Reglement()
         {
             this.Date = DateTime.Now;
+
         }
 
         public Reglement(int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)
@@ -52,6 +49,7 @@ namespace Lime
             this.ID_MethodePaiement = ID_MethodePaiement_;
             this.Montant = Montant_;
             this.Date = Date_;
+
         }
 
         public Reglement(int ID_, int ID_PriseEnCharges, int ID_MethodePaiement_, double Montant_, DateTime Date_)
@@ -61,6 +59,7 @@ namespace Lime
             this.ID_MethodePaiement = ID_MethodePaiement_;
             this.Montant = Montant_;
             this.Date = Date_;
+
         }
     }
 

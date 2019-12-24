@@ -229,8 +229,6 @@
                                 <telerik:RadMenuItem Header="Supprimer" />
                             </telerik:RadContextMenu>
                         </telerik:RadContextMenu.ContextMenu>
-
-
                     </telerik:RadGridView>
                     <Button Content="Rebind()" HorizontalAlignment="Left" Margin="89,22,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                     <Button Content="Items.Refresh()" HorizontalAlignment="Left" Margin="184,22,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_1"/>
@@ -243,27 +241,15 @@
                 <Grid>
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="55" Height="Auto" Margin="0,10,0,64.714">
-                        <telerik:RadButton x:Name="InsertReglement" Margin="5,2,5,2" telerik:StyleManager.Theme="Crystal" Click="InsertReglement_Click">
-                            <Image Source="Images/Icons/add.png" HorizontalAlignment="Center" Width="Auto" />
-                        </telerik:RadButton>
                         <telerik:RadButton x:Name="UpdateReglement" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="UpdateReglement_Click">
                             <Image Source="Images/Icons/edit.png" HorizontalAlignment="Center" Width="Auto" />
-                        </telerik:RadButton>
-                        <telerik:RadButton x:Name="DuplicateReglement" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="DuplicateReglement_Click">
-                            <Image Source="Images/Icons/duplicate.png" HorizontalAlignment="Center" Width="Auto" />
                         </telerik:RadButton>
                         <telerik:RadButton x:Name="DeleteReglement" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="DeleteReglement_Click">
                             <Image Source="Images/Icons/delete.png" HorizontalAlignment="Center" Width="Auto" />
                         </telerik:RadButton>
-                        <telerik:RadButton x:Name="DescendreReglement" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="DescendreReglement_Click">
-                            <Image Source="Images/Icons/up-chevron.png" HorizontalAlignment="Center" Width="Auto" />
-                        </telerik:RadButton>
-                        <telerik:RadButton x:Name="MonterReglement" ToolTip="Monter la ligne sélectionnée" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="MonterReglement_Click">
-                            <Image Source="Images/Icons/down-chevron.png" HorizontalAlignment="Center" Width="Auto" />
-                        </telerik:RadButton>
                     </StackPanel>
                     <telerik:RadGridView   
-                        AutoGenerateColumns="False" 
+                        AutoGenerateColumns="True" 
                         Margin="60,72,0,0" 
                         x:Name="radGridViewReglements" 
                         AllowDrop="True" 
@@ -279,41 +265,13 @@
                     >
 
                         <telerik:RadGridView.Columns>
-                            <telerik:GridViewColumn
-                                    Header="ID"
-                                    IsReadOnly="False"
-                                    ="{Binding methodePaiement}"
-                                    SelectedValueMemberPath="ID" 
-                                    DisplayMemberPath="Libelle"
-                                    DataMemberBinding="{Binding ID_MethodePaiement}">
-                            </telerik:GridViewColumn>
-                            <telerik:GridViewComboBoxColumn Header="Methode de Paiement (XAML)" 
+                            <telerik:GridViewComboBoxColumn 
+                                    Header="Methode de Paiement (XAML)" 
                                     ItemsSource="{Binding methodePaiement}" 
                                     SelectedValueMemberPath="ID" 
                                     DisplayMemberPath="Libelle" 
                                     Width="300" 
                                     DataMemberBinding="{Binding ID_MethodePaiement}"
-                                    >
-                                <telerik:GridViewComboBoxColumn.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid >
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition />
-                                                <ColumnDefinition Width="200"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="{Binding ID}"></TextBlock>
-                                            <TextBlock Text="{Binding Libelle}"  Grid.Column="1"></TextBlock>
-                                        </Grid>
-                                    </DataTemplate>
-                                </telerik:GridViewComboBoxColumn.ItemTemplate>
-                            </telerik:GridViewComboBoxColumn>
-                            <telerik:GridViewComboBoxColumn 
-                                    Header="newxxxxxxxxxxxxxxxxxxxxxx" 
-                                    ItemsSource="{Binding methodePaiement}"
-                                    SelectedValueMemberPath="ID" 
-                                    DisplayMemberPath="Libelle" 
-                                    DataMemberBinding="{Binding ID_MethodePaiement}"
-                                    Width="300" 
                                     >
                                 <telerik:GridViewComboBoxColumn.ItemTemplate>
                                     <DataTemplate>
@@ -374,18 +332,7 @@
 
                     </telerik:RadGridView>
                     <Button Content="Add Column Programtically Combobox" HorizontalAlignment="Left" Margin="124,27,0,0" VerticalAlignment="Top" Width="235" Click="Button_Click_4"/>
-                    <Button Content="test" HorizontalAlignment="Left" Margin="394,27,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
-                    <ComboBox HorizontalAlignment="Left" 
-                              Margin="534,27,0,0" 
-                              VerticalAlignment="Top" 
-                              Width="235"
-                                    IsReadOnly="False"
-                                    ItemsSource="{Binding methodePaiement}"
-                                    SelectedValuePath="{Binding methodePaiement.ID}"
-                                    DisplayMemberPath="{Binding methodePaiement.Libelle}"
-                                    >
-                            
-                        </ComboBox>
+                    <Button Content="test" HorizontalAlignment="Left" Margin="394,27,0,0" VerticalAlignment="Top" Width="75" Click="test_Click"/>
 
                 </Grid>
             </telerik:RadTabItem>
