@@ -261,7 +261,7 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
-                        IsReadOnly="False"
+                        IsReadOnly="False" LostFocus="radGridViewReglements_LostFocus"
                     >
 
                         <telerik:RadGridView.Columns>
