@@ -377,7 +377,12 @@ namespace Lime
 
         private void Insert_Click(object sender, RoutedEventArgs e)
         {
+            //Création de la nouvelle Ligne
             Documents_Lignes item = new Documents_Lignes(document.ID);
+
+            //On récupère le nombre de d'items dans la liste, et on rajoute 1 (comme ça il sera placé en dernier)
+            item.Ordre = Lignes.Count+1;
+
             this.Lignes.Add(item);
             radGridView.Rebind();
             CalculerTotaux();
@@ -437,7 +442,6 @@ namespace Lime
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            
             if(radGridView.SelectedItem != null)
             {
                 var item = (Lime.Documents_Lignes)radGridView.SelectedItem;
@@ -462,9 +466,27 @@ namespace Lime
 
             if (radGridView.SelectedItem != null)
             {
-                //var temp = (Documents_Lignes)radGridView.SelectedItem;
+                //On récupère l'index de la ligne
+                int index = this.Lignes.IndexOf((radGridView.SelectedItem as Documents_Lignes));
 
-                //TODO TO DO TO-DO
+
+                if (index > 0)
+                {
+                    //Copie de la ligne à bouger
+                    var LigneActuelle = Lignes[index];
+
+                    //Copie de la ligne sur laquelle on va déplacer
+                    var LigneNouvelle = Lignes[index - 1];
+
+                    ////On change l'ordre de celle à déplacer
+                    Lignes[index].Ordre = LigneNouvelle.Ordre;
+
+                    ////On change l'ordre de la Ligne nouvelle, pour la mettre à celui de la LigneActuelle
+                    Lignes[index - 1].Ordre = LigneActuelle.Ordre+1;
+
+                    //Maintenant qu'on a correctement changé la valeur ordre pour ces deux Lignes, on fait le tri grâce à OrderBy , en fonction de la valeur Ordre de chaque objet
+                    OrderLignes();
+                }
 
             }
             else
@@ -476,6 +498,8 @@ namespace Lime
                     Theme = new CrystalTheme()
                 });
             }
+
+
 
         }
 
@@ -484,6 +508,27 @@ namespace Lime
 
             if (radGridView.SelectedItem != null)
             {
+                //On récupère l'index de la ligne
+                int index = this.Lignes.IndexOf((radGridView.SelectedItem as Documents_Lignes));
+
+
+                if(index < Lignes.Count()-1)
+                {
+                    //Copie de la ligne à bouger
+                    var LigneActuelle = Lignes[index];
+
+                    //Copie de la ligne sur laquelle on va déplacer
+                    var LigneNouvelle = Lignes[index + 1];
+
+                    ////On change l'ordre de celle à déplacer
+                    Lignes[index].Ordre = LigneNouvelle.Ordre;
+
+                    ////On change l'ordre de la Ligne nouvelle, pour la mettre à celui de la LigneActuelle
+                    Lignes[index + 1].Ordre = LigneActuelle.Ordre-1;
+
+                    //Maintenant qu'on a correctement changé la valeur ordre pour ces deux Lignes, on fait le tri grâce à OrderBy , en fonction de la valeur Ordre de chaque objet
+                    OrderLignes();
+                }
 
             }
             else
@@ -498,6 +543,17 @@ namespace Lime
 
         }
 
+        private void OrderLignes()
+        {
+            //Maintenant qu'on a correctement changé la valeur ordre pour ces deux Lignes, on fait le tri grâce à OrderBy , en fonction de la valeur Ordre de chaque objet
+            var maList = Lignes.OrderBy(x => x.Ordre).ToList();
+
+            Lignes.Clear();
+            foreach (var item in maList)
+            {
+                Lignes.Add(item);
+            }
+        }
 
         private void btnFermer_Click(object sender, RoutedEventArgs e)
         {
@@ -703,6 +759,10 @@ namespace Lime
             Populate();
         }
 
+        private void radGridViewReglements_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
