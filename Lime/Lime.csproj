@@ -425,16 +425,19 @@
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
-    <Compile Include="DataForm\btnValider.xaml.cs">
+    <Compile Include="Formulaires\btnValider.xaml.cs">
       <DependentUpon>btnValider.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataForm\FormClient.xaml.cs">
+    <Compile Include="Formulaires\FormParametre.xaml.cs">
+      <DependentUpon>FormParametre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulaires\FormClient.xaml.cs">
       <DependentUpon>FormClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataForm\FormPriseEnCharge.xaml.cs">
+    <Compile Include="Formulaires\FormPriseEnCharge.xaml.cs">
       <DependentUpon>FormPriseEnCharge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataForm\RadDataFormClient.xaml.cs">
+    <Compile Include="Formulaires\RadDataFormClient.xaml.cs">
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
@@ -456,15 +459,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DataForm\btnValider.xaml">
+    <Page Include="Formulaires\btnValider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DataForm\FormPriseEnCharge.xaml">
+    <Page Include="Formulaires\FormParametre.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DataForm\RadDataFormClient.xaml">
+    <Page Include="Formulaires\FormPriseEnCharge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Formulaires\RadDataFormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -492,7 +499,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="DataForm\FormClient.xaml">
+    <Page Include="Formulaires\FormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

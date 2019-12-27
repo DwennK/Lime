@@ -43,7 +43,6 @@ namespace Lime
             //StyleManager.ApplicationTheme = new CrystalTheme();
             InitializeComponent();
             Properties.Settings.Default.Reload();
-            this.Limite.Value = Properties.Settings.Default.Limite;
 
 
 
@@ -73,13 +72,6 @@ namespace Lime
             this.RadGridView1.ItemsSource = mesData;
         }
 
-        private void Limite_LostFocus(object sender, RoutedEventArgs e)
-        {
-            //Sauvegarde de la limite dans les paramètres//
-            Properties.Settings.Default.Limite = Convert.ToInt32(Limite.Value);
-            Properties.Settings.Default.Save();
-            Properties.Settings.Default.Reload();
-        }
 
 
         private void AjoutClient_Click(object sender, RoutedEventArgs e)
@@ -357,6 +349,17 @@ namespace Lime
             {
                 UpdateGridView(Connexion.maBDD.GetAll<Article>());
             }
+        }
+
+        private void tabAccueil_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RadTabbedWindow1.SelectedIndex = 0;
+        }
+
+        private void tabParametres_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            FormParametre maFenetre = new FormParametre();
+            maFenetre.ShowDialog();
         }
     }
 }
