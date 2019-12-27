@@ -56,6 +56,12 @@ namespace Lime
             //IP Server dans la statusBar
             this.lblStatusConnexion.Content = "Server :" + sqlString.DataSource;
             this.lblDatabase.Content = "Database :" + sqlString.InitialCatalog;
+
+            //Nom du magasin acutellement connecté
+            if(Connexion.CheckForInternetConnection())
+            {
+                this.lblNomDuMagasin.Content = Connexion.maBDD.Get<Magasin>(Properties.Settings.Default.ID_Magasin).Libelle;
+            }
         }
 
       
