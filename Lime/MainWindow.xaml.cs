@@ -356,7 +356,7 @@ namespace Lime
             RadTabbedWindow1.SelectedIndex = 0;
         }
 
-        private void tabParametres_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void btnParametres_Click(object sender, RoutedEventArgs e)
         {
             FormParametre maFenetre = new FormParametre();
             maFenetre.ShowDialog();
