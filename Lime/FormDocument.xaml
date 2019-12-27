@@ -50,7 +50,7 @@
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
-            <telerik:RadRibbonTab Header="Informations">
+            <telerik:RadRibbonTab Header="Informations Document">
                 <telerik:RadRibbonGroup Header="Informations Document">
                     <StackPanel>
                         <DockPanel >
