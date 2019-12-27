@@ -141,7 +141,6 @@
                 <telerik:RadRibbonTab x:Name="tabSMS" Header="SMS" MouseLeftButtonDown="tabArticles_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="SMS">
                         <telerik:RadRibbonButton Name="btnSMS" Text="SMS Clients" Size="Large" LargeImage="Images/Icons/edit.png" Click="btnSMS_Click"   />
-                        <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabParametres" Header="Paramètres">
