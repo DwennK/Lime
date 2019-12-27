@@ -153,12 +153,12 @@
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
         <telerik:RadTabbedWindow x:Name="RadTabbedWindow1"  Header="Lime" Left="50" Top="50" Margin="0,127,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder">
-            <telerik:RadTabItem Header="Accueil" Name="RadTabbedWindowAcceuil" CloseButtonVisibility="Hidden" >
+            <telerik:RadTabItem Header="Accueil" Name="RadTabAcceuil" CloseButtonVisibility="Hidden" >
                 <Grid Margin="10">
                     <Label Content="Bienvenue !  Vous êtes connecté en tant que " />
                 </Grid>
             </telerik:RadTabItem>
-            <telerik:RadTabItem Header="Lignes" Margin="0" CloseButtonVisibility="Hidden">
+            <telerik:RadTabItem Header="Lignes" Margin="0" Name="RadTabLignes" CloseButtonVisibility="Hidden">
                 <Grid>
                     <telerik:RadGridView x:Name="RadGridView1" 
                              Margin="5,5,5,5" 

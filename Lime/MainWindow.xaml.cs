@@ -138,6 +138,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 UpdateGridView(Connexion.maBDD.GetAll<Client>());
             }
         }
@@ -147,6 +148,7 @@ namespace Lime
         {
             if(Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 UpdateGridView(Connexion.maBDD.GetAll<PriseEnCharge>());
             }
         }
@@ -294,6 +296,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 1; //SAV
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -302,6 +305,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 2; //Devis Assurance
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -311,6 +315,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 3; //Commande
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -320,6 +325,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 4; //Réparation
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -329,6 +335,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 5; //Facture
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -338,6 +345,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 int ID_typeDocument = 6; //SAV
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
@@ -353,7 +361,7 @@ namespace Lime
 
         private void tabAccueil_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            RadTabbedWindow1.SelectedIndex = 0;
+            RadTabbedWindow1.SelectedItem = RadTabAcceuil;
         }
 
         private void btnParametres_Click(object sender, RoutedEventArgs e)
