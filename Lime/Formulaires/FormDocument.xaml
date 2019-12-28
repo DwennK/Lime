@@ -15,7 +15,7 @@
     <Grid>
 
         <telerik:RadRibbonView ApplicationName="RadRibbonView" 
-                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016">
+                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016" IsMinimizable="False">
             <telerik:RadRibbonTab Header="Document">
                 <telerik:RadRibbonGroup Header="Gestion">
                     <telerik:RadRibbonButton Name="btnvalider" Text="Valider" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/038-file.png"  Click="btnValider_Click"/>
