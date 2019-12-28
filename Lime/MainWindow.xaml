@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lime"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Name="Lime" x:Class="Lime.MainWindow"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Title="Lime - Acceuil" Height="850.714" Width="1633.118" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Images/Lime.ico">
     <Grid>
@@ -138,7 +139,7 @@
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
-                <telerik:RadRibbonTab x:Name="tabSMS" Header="SMS" MouseLeftButtonDown="tabArticles_MouseLeftButtonUp" >
+                <telerik:RadRibbonTab x:Name="tabSMS" Header="SMS" MouseLeftButtonUp="tabSMS_MouseLeftButtonUp">
                     <telerik:RadRibbonGroup Header="SMS">
                         <telerik:RadRibbonButton Name="btnSMS" Text="SMS Clients" Size="Large" LargeImage="Images/Icons/edit.png" Click="btnSMS_Click"   />
                     </telerik:RadRibbonGroup>
@@ -152,22 +153,24 @@
 
             </telerik:RadRibbonView.Items>
         </telerik:RadRibbonView>
-        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1"  Header="Lime" Left="50" Top="50" Margin="0,127,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder">
-            <telerik:RadTabItem Header="Accueil" Name="RadTabAcceuil" CloseButtonVisibility="Hidden" >
+        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1" AddButtonVisibility="Hidden" Header="Lime" Left="50" Top="50" Margin="0,127,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder" PreviewTabClosed="RadTabbedWindow1_PreviewTabClosed" 
+                                 >
+            <telerik:RadTabItem Header="Accueil"  Name="RadTabAcceuil" CloseButtonVisibility="Hidden" >
                 <Grid Margin="10">
                     <StackPanel>
-                        <StackPanel Orientation="Horizontal" Height="auto">
-                            <Label Content="Bienvenue !  Vous êtes connecté en tant que" />
-                            <Label Name="lblNomDuMagasin" Content="xxxxxx"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Bienvenue !  Vous êtes connecté en tant que:      " />
+                            <telerik:RadWatermarkTextBox Name="lblNomDuMagasin" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>                        
                         </StackPanel>
-                        <StackPanel>
-                            <Label Content="Bienvenue !  Vous êtes connecté en tant que " />
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Nombre de prises en charges créées aujourd'hui:" />
+                            <telerik:RadWatermarkTextBox Name="lblNombreDePriseEnChargeAujourdhui" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>
                         </StackPanel>
                     </StackPanel>
 
                 </Grid>
             </telerik:RadTabItem>
-            <telerik:RadTabItem Header="Lignes" Margin="0" Name="RadTabLignes" CloseButtonVisibility="Hidden">
+            <telerik:RadTabItem Header="Lignes" Margin="0" Name="RadTabLignes" CloseButtonVisibility="Hidden"  ContextMenuClosing="RadTabLignes_ContextMenuClosing" ToolTipClosing="RadTabLignes_ToolTipClosing">
                 <Grid>
                     <telerik:RadGridView x:Name="RadGridView1" 
                              Margin="5,5,5,5" 
@@ -184,7 +187,14 @@
                 </Grid>
             </telerik:RadTabItem>
 
-            <telerik:RadTabItem Header="Tab item 3" CloseButtonVisibility="Hidden"/>
+            <telerik:RadTabItem Header="SMS" Name="RadTabSMS" CloseButtonVisibility="Hidden">
+                <Grid>
+                    <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">
+                        <wpf:ChromiumWebBrowser x:Name="Browser" Address="https://messages.google.com/web/authentication"/>
+                    </Border>
+
+                </Grid>
+            </telerik:RadTabItem>
 
         </telerik:RadTabbedWindow>
     </Grid>

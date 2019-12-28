@@ -60,8 +60,15 @@ namespace Lime
             //Nom du magasin acutellement connecté
             if(Connexion.CheckForInternetConnection())
             {
-                this.lblNomDuMagasin.Content = Connexion.maBDD.Get<Magasin>(Properties.Settings.Default.ID_Magasin).Libelle;
+                this.lblNomDuMagasin.Text = Connexion.maBDD.Get<Magasin>(Properties.Settings.Default.ID_Magasin).Libelle;
             }
+
+            //Nombre de prises en charges aujourd'hui
+            if (Connexion.CheckForInternetConnection())
+            {
+                this.lblNombreDePriseEnChargeAujourdhui.Text = Connexion.maBDD.GetAll<PriseEnCharge>().Where(x => x.DateDebut.Date == DateTime.Now.Date).Count<PriseEnCharge>().ToString();
+            }
+
         }
 
       
@@ -361,6 +368,7 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
+                RadTabbedWindow1.SelectedItem = RadTabLignes;
                 UpdateGridView(Connexion.maBDD.GetAll<Article>());
             }
         }
@@ -374,6 +382,17 @@ namespace Lime
         {
             FormParametre maFenetre = new FormParametre();
             maFenetre.ShowDialog();
+        }
+
+        private void tabSMS_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RadTabbedWindow1.SelectedItem = RadTabSMS;
+        }
+
+        private void RadTabbedWindow1_PreviewTabClosed(object sender, PreviewTabChangedEventArgs e)
+        {
+            //Comme ça ça empêche la fermeture des tabs (vu qu'il n'y a pas de propriété pour le faire)
+            e.Cancel = true;
         }
     }
 }
