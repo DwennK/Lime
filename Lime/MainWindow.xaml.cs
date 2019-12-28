@@ -394,5 +394,6 @@ namespace Lime
             //Comme ça ça empêche la fermeture des tabs (vu qu'il n'y a pas de propriété pour le faire)
             e.Cancel = true;
         }
+
     }
 }

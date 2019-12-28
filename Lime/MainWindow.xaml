@@ -102,9 +102,6 @@
                         <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
                         <telerik:RadRibbonButton/>
                     </telerik:RadRibbonGroup>
-                    <telerik:RadRibbonGroup Header="Font">
-                        <telerik:RadRibbonDropDownButton LargeImage="Images/Icons/delete.png" Text="test222" Content="errtttt"/>
-                    </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabReparation" Header="Réparation" MouseLeftButtonUp="tabReparation_MouseLeftButtonUp" >
                     <telerik:RadRibbonGroup Header="Gestion">
@@ -132,7 +129,7 @@
                     </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
                 <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" MouseLeftButtonUp="tabArticles_MouseLeftButtonUp" >
-                    <telerik:RadRibbonGroup Header="Gestion">
+                    <telerik:RadRibbonGroup Header="Gestion des articles">
                         <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                         <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png"  />
                         <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
@@ -170,7 +167,7 @@
 
                 </Grid>
             </telerik:RadTabItem>
-            <telerik:RadTabItem Header="Lignes" Margin="0" Name="RadTabLignes" CloseButtonVisibility="Hidden"  ContextMenuClosing="RadTabLignes_ContextMenuClosing" ToolTipClosing="RadTabLignes_ToolTipClosing">
+            <telerik:RadTabItem Header="Lignes" Margin="0" Name="RadTabLignes" CloseButtonVisibility="Hidden" >
                 <Grid>
                     <telerik:RadGridView x:Name="RadGridView1" 
                              Margin="5,5,5,5" 

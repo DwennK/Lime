@@ -489,7 +489,7 @@
       <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
-    <Compile Include="FormDocument.xaml.cs">
+    <Compile Include="Formulaires\FormDocument.xaml.cs">
       <DependentUpon>FormDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="DropIndicationDetails.cs" />
@@ -523,7 +523,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="FormDocument.xaml">
+    <Page Include="Formulaires\FormDocument.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
