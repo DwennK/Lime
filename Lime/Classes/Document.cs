@@ -26,11 +26,14 @@ namespace Lime
         public int ID_TypeDocument { get; set; }
         [Display(Name = "Numéro")]
         public int Numero { get; set; }
+        [Display(Name = "Date de Création")]
+        public DateTime DateCreation { get; set; }
         [Display(Name = "Clôturé")]
         public bool Closed { get; set; }
 
         public Document()
         {
+            this.DateCreation = DateTime.Now;
 
         }
 
@@ -41,6 +44,7 @@ namespace Lime
             this.ID_TypeDocument = ID_TypeDocument_;
             this.Numero = Numero_;
             this.Closed = Closed_;
+            this.DateCreation = DateTime.Now;
         }
 
     }

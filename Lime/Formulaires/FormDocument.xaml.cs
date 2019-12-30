@@ -57,7 +57,7 @@ namespace Lime
             this.Lignes = documents_Lignes; //Sert dans le cas ou on transforme crée, par exemple, une Facture sur la base d'un devis : On va y copier toutes les lignes qui étaients présentes.
 
 
-            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-géléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
+            //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-éléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
                 priseEnCharge,
@@ -74,9 +74,6 @@ namespace Lime
                 NetAPayer,
                 str1
             };
-
-
-
 
             //Affectation des valeurs au document.
             document.ID_PriseEnCharge = priseEnCharge.ID;
@@ -338,41 +335,43 @@ namespace Lime
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
+            int numeroActuel = 0;
+            if(this.action=="Insert")
+            {
+                //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
+                string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
+                numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
+                numeroActuel += 1;
+                document.Numero = numeroActuel;
+                Connexion.maBDD.Insert(document);
+            }
 
 
-                if(this.action=="Insert")
+
+            foreach (Documents_Lignes item in Lignes)
+            {
+             
+
+                //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
+                item.ID_Documents = document.ID;
+
+
+                //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
+                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
+
+                if (exists)
                 {
-                    //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
-                    string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
-                    var numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
-                    numeroActuel += 1;
-                    document.Numero = numeroActuel;
-                    Connexion.maBDD.Insert(document);
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Update(item);
                 }
-
-
-                foreach (Documents_Lignes item in Lignes)
+                else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
                 {
-                    //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
-                    item.ID_Documents = document.ID;
-
-
-                    //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
-                    var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
-
-                    if(exists)
-                    {
-                        //Insertion des la ligne dans la BDD.
-                        Connexion.maBDD.Update(item);
-                    }
-                    else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
-                    {
-                        //Insertion des la ligne dans la BDD.
-                        Connexion.maBDD.Insert(item);
-                    }
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Insert(item);
                 }
+            }
 
-                this.Close();
+            this.Close();
         }
 
         private void Insert_Click(object sender, RoutedEventArgs e)
@@ -593,11 +592,24 @@ namespace Lime
 
             private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
             {
+                //On valide ce document
+                btnValider_Click(sender, e);
+
+
+                //Copie des Lignes dans une Liste temporaire
+                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+                foreach(var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
+                {
+                    item.ID = 0; 
+                    item.ID_Documents = 0; //Le 0 est traité plus tard dans la methode de validation du nouveau doucment. (une fois que le document a un ID, il l'affecte)
+                    LignesPourLeNouveauDocument.Add(item);
+                }
+
                 //DEVIS = 2
                 int ID_TypeDocument = 2;
-                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, Lignes);
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
                 maFenetre.Show();
-
+                this.Close();
             }
 
             private void btnCommandePieces_Click(object sender, RoutedEventArgs e)

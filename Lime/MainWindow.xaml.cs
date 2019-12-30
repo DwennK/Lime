@@ -44,8 +44,6 @@ namespace Lime
             InitializeComponent();
             Properties.Settings.Default.Reload();
 
-
-
             // Change current culture
             CultureInfo culture;
             culture = CultureInfo.CreateSpecificCulture("fr-FR");
@@ -53,12 +51,19 @@ namespace Lime
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
 
+
+            Populate();
+        }
+
+
+        public void Populate()
+        {
             //IP Server dans la statusBar
             this.lblStatusConnexion.Content = "Server :" + sqlString.DataSource;
             this.lblDatabase.Content = "Database :" + sqlString.InitialCatalog;
 
             //Nom du magasin acutellement connecté
-            if(Connexion.CheckForInternetConnection())
+            if (Connexion.CheckForInternetConnection())
             {
                 this.lblNomDuMagasin.Text = Connexion.maBDD.Get<Magasin>(Properties.Settings.Default.ID_Magasin).Libelle;
             }
@@ -69,8 +74,13 @@ namespace Lime
                 this.lblNombreDePriseEnChargeAujourdhui.Text = Connexion.maBDD.GetAll<PriseEnCharge>().Where(x => x.DateDebut.Date == DateTime.Now.Date).Count<PriseEnCharge>().ToString();
             }
 
+            //Nombre de factures crées aujourd'hui
+            if (Connexion.CheckForInternetConnection())
+            {
+                var temp = Connexion.maBDD.GetAll<Document>().Where(x => x.DateCreation.Date == DateTime.Today.Date).Where(x => x.ID_TypeDocument == 5);
+                this.lblNombreDeFactureAujourdhui.Text = temp.ToString();
+            }
         }
-
       
 
         private void tabClients_Click(object sender, RoutedEventArgs e)
@@ -243,10 +253,7 @@ namespace Lime
                 else //Si le document n'existe pas encore.
                 {
                     //INSERT
-
-                    List<Documents_Lignes> document_Lignes = Connexion.maBDD.GetAll<Documents_Lignes>().Where(x => x.ID_Documents == document.ID).ToList();
-                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(document_Lignes);
-
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
                     FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
                     maFenetre.Show();
                 }
@@ -376,6 +383,7 @@ namespace Lime
         private void tabAccueil_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             RadTabbedWindow1.SelectedItem = RadTabAcceuil;
+            Populate();
         }
 
         private void btnParametres_Click(object sender, RoutedEventArgs e)

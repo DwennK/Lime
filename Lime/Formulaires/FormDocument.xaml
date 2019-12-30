@@ -40,7 +40,7 @@
                     <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
                     <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
-                <telerik:RadRibbonGroup Header="Transformation">
+                <telerik:RadRibbonGroup Header="Transformation du document en ...">
                     <telerik:RadRibbonButton Name="btnDevis" Text="Devis" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/048-file.png" Click="btnDevis_Click" />
                     <telerik:RadRibbonButton Name="btnDevisAssurance" Text="Devis Assurance" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/049-file.png" Click="btnDevisAssurance_Click" />
                     <telerik:RadRibbonButton Name="btnCommandePieces" Text="Commande Pièce" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/041-file.png" Click="btnCommandePieces_Click" />

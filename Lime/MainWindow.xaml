@@ -166,6 +166,10 @@
                             <Label Content="Nombre de prises en charges créées aujourd'hui:" />
                             <telerik:RadWatermarkTextBox Name="lblNombreDePriseEnChargeAujourdhui" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Nombre de factures créées aujourd'hui:               "/>
+                            <telerik:RadWatermarkTextBox Name="lblNombreDeFactureAujourdhui" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>
+                        </StackPanel>
                     </StackPanel>
 
                 </Grid>
