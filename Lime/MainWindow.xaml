@@ -181,7 +181,7 @@
                              GridLinesVisibility="Both" 
                              AlternationCount="2"
                              Language="fr-CH"
-                             SelectionMode="Single"
+                             SelectionMode="Single" SearchPanelCloseButtonVisibility="Hidden"
                              
                              />
                 </Grid>
@@ -197,5 +197,6 @@
             </telerik:RadTabItem>
 
         </telerik:RadTabbedWindow>
+        <Image Source="Images/lemon.png" Height="600" Panel.ZIndex="-999" />
     </Grid>
 </Window>
