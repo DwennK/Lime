@@ -145,6 +145,9 @@
                     <telerik:RadRibbonGroup Header="Paramètres de l'application">
                         <telerik:RadRibbonButton Name="btnParametres" Text="Paramètres Généraux" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/006-file.png" Click="btnParametres_Click"   />
                     </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Déconnexion">
+                        <telerik:RadRibbonButton Name="btnDeconnexion" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnDeconnexion_Click"   />
+                    </telerik:RadRibbonGroup>
                 </telerik:RadRibbonTab>
 
 

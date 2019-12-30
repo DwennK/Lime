@@ -395,5 +395,13 @@ namespace Lime
             e.Cancel = true;
         }
 
+        private void btnDeconnexion_Click(object sender, RoutedEventArgs e)
+        {
+            Login maFenetre = new Login();
+            maFenetre.Show();
+
+            this.Close();
+
+        }
     }
 }
