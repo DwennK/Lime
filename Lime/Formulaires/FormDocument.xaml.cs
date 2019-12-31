@@ -580,7 +580,12 @@ namespace Lime
 
                 //Insertion dans la BDD
                 Connexion.maBDD.Insert<Reglement>(reglement);
+                CalculerTotaux();
+                Populate();
+
+
             }
+            tabControl1.SelectedItem = tabReglements;
         }
 
 
