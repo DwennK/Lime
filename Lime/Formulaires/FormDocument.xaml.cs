@@ -605,7 +605,7 @@ namespace Lime
                     LignesPourLeNouveauDocument.Add(item);
                 }
 
-                //DEVIS = 2
+                //DEVIS ASSURANCE = 2
                 int ID_TypeDocument = 2;
                 FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
                 maFenetre.Show();
@@ -614,21 +614,91 @@ namespace Lime
 
             private void btnCommandePieces_Click(object sender, RoutedEventArgs e)
             {
+                //On valide ce document
+                btnValider_Click(sender, e);
 
-            }
+
+                //Copie des Lignes dans une Liste temporaire
+                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+                foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
+                {
+                    item.ID = 0;
+                    item.ID_Documents = 0; //Le 0 est traité plus tard dans la methode de validation du nouveau doucment. (une fois que le document a un ID, il l'affecte)
+                    LignesPourLeNouveauDocument.Add(item);
+                }
+
+                //COMMANDE PEICE  = 3
+                int ID_TypeDocument = 3;
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
+                maFenetre.Show();
+                this.Close();
+             }
 
             private void btnReparation_Click(object sender, RoutedEventArgs e)
             {
+                //On valide ce document
+                btnValider_Click(sender, e);
 
+
+                //Copie des Lignes dans une Liste temporaire
+                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+                foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
+                {
+                    item.ID = 0;
+                    item.ID_Documents = 0; //Le 0 est traité plus tard dans la methode de validation du nouveau doucment. (une fois que le document a un ID, il l'affecte)
+                    LignesPourLeNouveauDocument.Add(item);
+                }
+
+                //REPARATION  = 4
+                int ID_TypeDocument = 4;
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
+                maFenetre.Show();
+                this.Close();
             }
 
             private void btnFacture_Click(object sender, RoutedEventArgs e)
             {
+                //On valide ce document
+                btnValider_Click(sender, e);
 
+
+                //Copie des Lignes dans une Liste temporaire
+                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+                foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
+                {
+                    item.ID = 0;
+                    item.ID_Documents = 0; //Le 0 est traité plus tard dans la methode de validation du nouveau doucment. (une fois que le document a un ID, il l'affecte)
+                    LignesPourLeNouveauDocument.Add(item);
+                }
+
+                //FACTURE  = 5
+                int ID_TypeDocument = 5;
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
+                maFenetre.Show();
+                this.Close();
             }
 
             private void btnSAV_Click(object sender, RoutedEventArgs e)
             {
+                //On valide ce document
+                btnValider_Click(sender, e);
+
+
+                //Copie des Lignes dans une Liste temporaire
+                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+                foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
+                {
+                    item.ID = 0;
+                    item.ID_Documents = 0; //Le 0 est traité plus tard dans la methode de validation du nouveau doucment. (une fois que le document a un ID, il l'affecte)
+                    LignesPourLeNouveauDocument.Add(item);
+                }
+
+                //SAV  = 6
+                int ID_TypeDocument = 3;
+                FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocument, LignesPourLeNouveauDocument);
+                maFenetre.Show();
+                this.Close();
+
 
             }
         #endregion
