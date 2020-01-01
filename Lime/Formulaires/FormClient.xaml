@@ -35,6 +35,6 @@
 
             </Grid>
         </telerik:GroupBox>
-        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" Value="{Binding RemisePermanente}" HorizontalAlignment="Left" Margin="243,242,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal"  HideTrailingZeros="True" Minimum="0" Maximum="100" />
+        <telerik:RadNumericUpDown x:Name="tbxRemisePermanente" Value="{Binding RemisePermanente}" CustomUnit="%" HorizontalAlignment="Left" Margin="243,242,0,0" VerticalAlignment="Top" Width="76" telerik:StyleManager.Theme="Crystal"  HideTrailingZeros="True" Minimum="0" Maximum="100" />
     </Grid>
 </telerik:RadWindow>
