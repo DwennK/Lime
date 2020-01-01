@@ -36,7 +36,21 @@ namespace Lime
         public FormParametre()
         {
             InitializeComponent();
+
+            //LIMITE DE LIGNES
             this.Limite.Value = Properties.Settings.Default.Limite;
+
+
+            // TAUX TVA PAR DEFAUT
+            if(Connexion.CheckForInternetConnection())
+            {
+                string SQL = "SELECT TauxTVAParDefaut FROM Parametres WHERE ID=@ID";
+                Double TauxTVA = (Double)Connexion.maBDD.ExecuteScalar(SQL, new { ID = 1 }) ;
+
+                this.TauxTVAParDefaut.Value = TauxTVA;
+            }
+
+
         }
 
 
@@ -47,6 +61,14 @@ namespace Lime
             Properties.Settings.Default.Limite = Convert.ToInt32(Limite.Value);
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
+
+
+            //Sauvegarde de la TVA Par défaut dans la BDD
+            if (Connexion.CheckForInternetConnection())
+            {
+                string SQL = "UPDATE Parametres SET TauxTVAParDefaut=@NewtauxTVA WHERE ID=@ID";
+                Connexion.maBDD.Query(SQL, new { NewtauxTVA=this.TauxTVAParDefaut.Value, ID = 1 });
+            }
 
             this.Close();
         }
