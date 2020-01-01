@@ -209,7 +209,7 @@ namespace Lime
 
         private void btnInsertClient_Click(object sender, RoutedEventArgs e)
         {
-            FormClient maFenetre = new FormClient("Insert");
+            FormClient maFenetre = new FormClient("Insert", tbxNom.Text);
             maFenetre.ShowDialog();
 
             client = maFenetre.client;

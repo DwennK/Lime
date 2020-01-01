@@ -33,15 +33,14 @@ namespace Lime
         string Action;
 
         //Constructeur pour Insert
-        public FormClient(string action)
+        public FormClient(string action, string NomDuClient)
         {
             InitializeComponent();
             tbxNom.Focus();
             this.DataContext = this.client;
-            if (action == "Insert")
-            {
-                Action = "Insert";
-            }
+            Action = "Insert";
+            client.Nom = NomDuClient; //Lors de l'appel via FormPriseEnCharge, si la rehcerche n'a rien donnée, le client clique un bouton pour cérer un client avec le nom déjà rempli.
+
 
         }
 
