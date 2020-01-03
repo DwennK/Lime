@@ -174,7 +174,7 @@
                     </StackPanel>
                     <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="60,67,0,0" 
+                        Margin="60,10,0,0" 
                         x:Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -229,10 +229,6 @@
                             </telerik:RadContextMenu>
                         </telerik:RadContextMenu.ContextMenu>
                     </telerik:RadGridView>
-                    <Button Content="Rebind()" HorizontalAlignment="Left" Margin="89,22,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                    <Button Content="Items.Refresh()" HorizontalAlignment="Left" Margin="184,22,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_1"/>
-                    <Button Content="UpdateLayout()" HorizontalAlignment="Left" Margin="304,22,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_2"/>
-                    <Button Content="Add Element To Collection Of Lines" HorizontalAlignment="Left" Margin="439,22,0,0" VerticalAlignment="Top" Width="220" Click="Button_Click_3"/>
 
                 </Grid>
             </telerik:RadTabItem>

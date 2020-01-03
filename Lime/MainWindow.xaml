@@ -15,10 +15,7 @@
             <telerik:FontFamiliesProvider x:Key="FontFamiliesProvider"/>
             <telerik:EditingContextTypeToBoolConverter x:Key="EditingContextTypeToBoolConverter"/>
         </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="49*"/>
-            <ColumnDefinition Width="276*"/>
-        </Grid.ColumnDefinitions>
+
 
         <DockPanel Height="29" LastChildFill="False" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
             <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-0.143,0">
@@ -170,9 +167,7 @@
                             <telerik:RadWatermarkTextBox x:Name="lblNombreDeFactureAujourdhui" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>
 
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="5">
-                            <Button x:Name="REPORT" Content="REPORT" Width="200" Click="REPORT_Click" />
-                        </StackPanel>
+
                         <StackPanel Orientation="Horizontal" Margin="5"/>
 
                     </StackPanel>
