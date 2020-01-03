@@ -18,6 +18,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using Telerik.Windows.Documents.Fixed.Model;
+using Telerik.Windows.Documents.Fixed.Model.Editing;
+using Telerik.Windows.Documents.Fixed.FormatProviders.Pdf;
+using System.IO;
+using Block = Telerik.Windows.Documents.Fixed.Model.Editing.Block;
+using TableRow = Telerik.Windows.Documents.Fixed.Model.Editing.Tables.TableRow;
+using Table = Telerik.Windows.Documents.Fixed.Model.Editing.Tables.Table;
+using Border = Telerik.Windows.Documents.Fixed.Model.Editing.Border;
+using Telerik.Windows.Documents.Fixed.Model.ColorSpaces;
+using Telerik.Windows.Documents.Fixed.Model.Editing.Tables;
 
 namespace Lime
 {
@@ -34,7 +44,7 @@ namespace Lime
         public Client client = new Client();
         public ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>();
         public ObservableCollection<Reglement> ListeReglements = new ObservableCollection<Reglement>();
-        public string str1 = "sss";
+        public Adresse adresse = new Adresse();
         public List<MethodePaiement>methodePaiement = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
         public double TotalRemise;
@@ -53,6 +63,7 @@ namespace Lime
             this.action = "Insert";
             this.priseEnCharge = priseEnCharge;
             client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
+            adresse = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == ID_TypeDocuments).FirstOrDefault();
             this.Lignes = documents_Lignes; //Sert dans le cas ou on transforme crée, par exemple, une Facture sur la base d'un devis : On va y copier toutes les lignes qui étaients présentes.
 
@@ -71,8 +82,7 @@ namespace Lime
                 TotalTVA,
                 TotalTTC,
                 TotalRegle,
-                NetAPayer,
-                str1
+                NetAPayer
             };
 
             //Affectation des valeurs au document.
@@ -95,6 +105,7 @@ namespace Lime
             this.priseEnCharge = priseEnCharge;
             this.document = document;
             this.client = Connexion.maBDD.Get<Client>(this.priseEnCharge.ID_Clients);
+            adresse = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
             this.typeDocument = Connexion.maBDD.GetAll<TypeDocuments>().Where(x => x.ID == document.ID_TypeDocument).FirstOrDefault();
 
             //On récupère Toutes les lignes appartenant à ce document, et  on les place dans une liste
@@ -117,8 +128,8 @@ namespace Lime
                 TotalTVA,
                 TotalTTC,
                 TotalRegle,
-                NetAPayer,
-                str1
+                NetAPayer
+                
             };
 
 
@@ -144,8 +155,8 @@ namespace Lime
                 TotalTVA,
                 TotalTTC,
                 TotalRegle,
-                NetAPayer,
-                str1
+                NetAPayer
+                
             };
 
 
@@ -347,7 +358,7 @@ namespace Lime
             }
 
 
-
+            // INSERTION OU UPDATE DES LIGNES ARTICLES
             foreach (Documents_Lignes item in Lignes)
             {
              
@@ -358,6 +369,27 @@ namespace Lime
 
                 //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
                 var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
+
+                if (exists)
+                {
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Update(item);
+                }
+                else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
+                {
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Insert(item);
+                }
+            }
+
+            // INSERTION OU UPDATE DES LIGNES REGLEMENT
+            foreach(Reglement item in ListeReglements)
+            {
+                //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
+                item.ID_PriseEnCharges = priseEnCharge.ID;
+
+                //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
+                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Reglements WHERE ID=@ID", new { item.ID });
 
                 if (exists)
                 {
@@ -848,7 +880,71 @@ namespace Lime
 
         private void radGridViewReglements_LostFocus(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private void btnPDF_Click(object sender, RoutedEventArgs e)
+        {
+            //Création du document
+            RadFixedDocument document = new RadFixedDocument();
+            RadFixedDocumentEditor editor = new RadFixedDocumentEditor(document);
+
+
+            #region Contenu du document
+            //Ajout du contenu du document
+
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
+            editor.InsertParagraph();
+            editor.CharacterProperties.FontSize = 36;
+            editor.InsertRun(typeDocument.Libelle + " n° " + this.document.Numero.ToString());
+            editor.InsertLineBreak();
+
+
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
+            editor.CharacterProperties.FontSize = 16;
+            editor.InsertParagraph();
+            editor.InsertLine(client.Nom );
+            editor.InsertLine(adresse.adresse );
+            editor.InsertLine(adresse.NPA +" "+ adresse.Ville );
+            editor.InsertLine(client.Telephone1 );
+            editor.InsertLine(client.Email1 );
+            editor.InsertLineBreak();
+
+            //Table contenant les lignes Articles du document
+            Table table = new Table();
+            Border border = new Border(1, new RgbColor(0, 0, 0));
+
+            table.Borders = new TableBorders(border);
+
+            table.DefaultCellProperties.Borders = new TableCellBorders(border, border, border, border);
+            table.DefaultCellProperties.Padding = new Thickness(20, 10, 20, 10);
+            table.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
+
+            foreach (var item in Lignes)
+            {
+
+                TableRow firstRow = table.Rows.AddTableRow();
+
+                //Les "varibale" ?? "" servent à , si jamais la variable est nul, à renvoyer un string vide :)     
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.CodeArticle ?? "");
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Libelle ?? "");
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Quantite.ToString() ?? "");
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.TauxRemise.ToString() ?? "");
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixUniteTTC.ToString() ?? "") ;
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixTTC.ToString() ?? ""); ;
+            }
+
+
+
+            #endregion
+            editor.InsertTable(table);
+
+            //Export en PDF
+            PdfFormatProvider provider = new PdfFormatProvider();
+            using (Stream output = File.OpenWrite(@"D:\Users\Kafe\Desktop\temp\Hello.pdf"))
+            {
+                provider.Export(document, output);
+            }
         }
     }
 }

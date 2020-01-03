@@ -36,7 +36,7 @@
                 <telerik:RadRibbonGroup Header="Envoi et Impression">
                     <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" />
                     <telerik:RadRibbonButton Name="btnImprimer" Text="Imprimer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/009-file.png" />
-                    <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" />
+                    <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" Click="btnPDF_Click" />
                     <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
                     <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>

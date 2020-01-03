@@ -25,6 +25,10 @@ using Dapper.Contrib.Extensions;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
+using Telerik.Windows.Documents.Fixed.Model;
+using Telerik.Windows.Documents.Fixed.Model.Editing;
+using Telerik.Windows.Documents.Fixed.FormatProviders.Pdf;
+using System.IO;
 
 namespace Lime
 {
@@ -411,5 +415,12 @@ namespace Lime
             this.Close();
 
         }
+
+        private void REPORT_Click(object sender, RoutedEventArgs e)
+        {
+            ReportViewerForm2 maFenetre = new ReportViewerForm2();
+            maFenetre.Show();
+        }
+
     }
 }

@@ -46,5 +46,57 @@ namespace Lime.Properties {
                 this["ID_Magasin"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
+            "securityinfo=True;allowuservariables=True")]
+        public string Limeapp {
+            get {
+                return ((string)(this["Limeapp"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
+            "securityinfo=True;allowuservariables=True")]
+        public string LimeappConnectionString {
+            get {
+                return ((string)(this["LimeappConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
+        public string LimeappConnectionString1 {
+            get {
+                return ((string)(this["LimeappConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;database=Limeapp")]
+        public string LimeappConnectionString2 {
+            get {
+                return ((string)(this["LimeappConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
+        public string ConnexionString {
+            get {
+                return ((string)(this["ConnexionString"]));
+            }
+        }
     }
 }
