@@ -541,9 +541,6 @@
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="RowReorderBehavior.cs" />
-    <Compile Include="SMS.xaml.cs">
-      <DependentUpon>SMS.xaml</DependentUpon>
-    </Compile>
     <Page Include="AjoutArticles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -591,10 +588,6 @@
     <Page Include="Formulaires\FormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SMS.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

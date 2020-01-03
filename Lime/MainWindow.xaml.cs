@@ -231,12 +231,6 @@ namespace Lime
             }
         }
 
-        private void btnSMS_Click(object sender, RoutedEventArgs e)
-        {
-            SMS maFenetre = new SMS();
-            maFenetre.Show();
-        }
-
         private void btnDevis_Click(object sender, RoutedEventArgs e)
         {
             if(RadGridView1.SelectedItem != null)
