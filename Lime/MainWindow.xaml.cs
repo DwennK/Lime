@@ -29,6 +29,7 @@ using Telerik.Windows.Documents.Fixed.Model;
 using Telerik.Windows.Documents.Fixed.Model.Editing;
 using Telerik.Windows.Documents.Fixed.FormatProviders.Pdf;
 using System.IO;
+using Telerik.Reporting;
 
 namespace Lime
 {
@@ -418,8 +419,35 @@ namespace Lime
 
         private void REPORT_Click(object sender, RoutedEventArgs e)
         {
-            ReportViewerForm2 maFenetre = new ReportViewerForm2();
-            maFenetre.Show();
+            // Obtain the settings of the default printer
+            System.Drawing.Printing.PrinterSettings printerSettings
+                = new System.Drawing.Printing.PrinterSettings();
+
+            // The standard print controller comes with no UI
+            System.Drawing.Printing.PrintController standardPrintController =
+                new System.Drawing.Printing.StandardPrintController();
+
+            // Print the report using the custom print controller
+            Telerik.Reporting.Processing.ReportProcessor reportProcessor
+                = new Telerik.Reporting.Processing.ReportProcessor();
+
+            reportProcessor.PrintController = standardPrintController;
+
+            Telerik.Reporting.UriReportSource uriReportSource =
+                new Telerik.Reporting.UriReportSource();
+
+            // Specifying an URL or a file path
+            uriReportSource.Uri = @"D:\Users\Kafe\Desktop\temp\Invoice.trdp";
+
+            // Adding the initial parameter values
+            //uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("OrderNumber", "SO43659"));
+
+            reportProcessor.PrintReport(uriReportSource, printerSettings);
+
+
+
+            //ReportViewerForm2 maFenetre = new ReportViewerForm2();
+            //maFenetre.Show();
         }
 
     }

@@ -890,35 +890,92 @@ namespace Lime
             RadFixedDocumentEditor editor = new RadFixedDocumentEditor(document);
 
 
-            #region Contenu du document
             //Ajout du contenu du document
-
-            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
             editor.InsertParagraph();
             editor.CharacterProperties.FontSize = 36;
-            editor.InsertRun(typeDocument.Libelle + " n° " + this.document.Numero.ToString());
+            editor.InsertRun(typeDocument.Libelle);
             editor.InsertLineBreak();
 
 
+            //Table Infos Document
+            //Table contenant les lignes Articles du document
             editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
-            editor.CharacterProperties.FontSize = 16;
             editor.InsertParagraph();
-            editor.InsertLine(client.Nom );
-            editor.InsertLine(adresse.adresse );
-            editor.InsertLine(adresse.NPA +" "+ adresse.Ville );
-            editor.InsertLine(client.Telephone1 );
-            editor.InsertLine(client.Email1 );
+            Table tableInfosDocument = new Table();
+            Border cellborderInfosDocument = new Border(1, new RgbColor(0, 0, 0));
+            Border tableborderInfosDocument = new Border(1, new RgbColor(0, 0, 0));
+            tableInfosDocument.Borders = new TableBorders(tableborderInfosDocument);
+
+            tableInfosDocument.DefaultCellProperties.Borders = new TableCellBorders(cellborderInfosDocument, cellborderInfosDocument, cellborderInfosDocument, cellborderInfosDocument);
+            tableInfosDocument.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
+            tableInfosDocument.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
+
+            //Table Header
+            TableRow headerRowInfosDocument = tableInfosDocument.Rows.AddTableRow();
+            headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Numéro");
+            headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Date");
+            headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Echéance");
+
+
+            TableRow firstRowInfosDocument = tableInfosDocument.Rows.AddTableRow();
+            //Les "varibale" ?? "" servent à , si jamais la variable est nul, à renvoyer un string vide :)     
+            firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.document.Numero.ToString());
+            firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.document.DateCreation.ToShortDateString());
+            firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.priseEnCharge.DateEcheance.ToShortDateString());
+
+
+            editor.InsertTable(tableInfosDocument);
             editor.InsertLineBreak();
+
+
+            //Infos Entreprise
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
+            editor.InsertParagraph();
+            editor.CharacterProperties.FontSize = 12;
+            editor.InsertLine("Microwest");
+            editor.InsertLine("Rue de la Pierre-à-Mazel 2");
+            editor.InsertLine("Tel : 032 841 50 88");
+            editor.InsertLine("Email : info@microwest.ch");
+            editor.InsertLine("TVA : CHE-351.511.695");
+            editor.InsertLineBreak();
+
+
+            //Infos Client
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
+            editor.InsertParagraph();
+            editor.CharacterProperties.FontSize = 12;
+            editor.InsertLine(client.Nom);
+            editor.InsertLine(adresse.adresse);
+            editor.InsertLine(adresse.NPA + " " + adresse.Ville);
+            editor.InsertLine(client.Telephone1);
+            editor.InsertLine(client.Email1);
+            editor.InsertLineBreak();
+
+
+
 
             //Table contenant les lignes Articles du document
+            editor.InsertParagraph();
             Table table = new Table();
-            Border border = new Border(1, new RgbColor(0, 0, 0));
+            Border cellborder = new Border(1, new RgbColor(0, 0, 0));
+            Border tableborder = new Border(2, new RgbColor(0, 0, 0));
+            table.Borders = new TableBorders(tableborder);
 
-            table.Borders = new TableBorders(border);
-
-            table.DefaultCellProperties.Borders = new TableCellBorders(border, border, border, border);
-            table.DefaultCellProperties.Padding = new Thickness(20, 10, 20, 10);
+            table.DefaultCellProperties.Borders = new TableCellBorders(cellborder, cellborder, cellborder, cellborder);
+            table.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
             table.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
+
+
+            //Table Header
+            TableRow headerRow = table.Rows.AddTableRow();
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Code");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Description");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Qté");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Taux Remise");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Taux TVA");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Prix Unité");
+            headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Prix Total TTC");
 
             foreach (var item in Lignes)
             {
@@ -930,14 +987,64 @@ namespace Lime
                 firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Libelle ?? "");
                 firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Quantite.ToString() ?? "");
                 firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.TauxRemise.ToString() ?? "");
-                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixUniteTTC.ToString() ?? "") ;
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.TauxTVA.ToString() ?? "");
+                firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixUniteTTC.ToString() ?? "");
                 firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixTTC.ToString() ?? ""); ;
             }
 
-
-
-            #endregion
             editor.InsertTable(table);
+            editor.InsertLineBreak();
+
+
+            //Table contenant les Totaux
+            editor.InsertParagraph();
+            Table tableTotaux = new Table();
+            Border borderTotauxCell = new Border(1, new RgbColor(0, 0, 0));
+            Border borderTotauxTable = new Border(2, new RgbColor(0, 0, 0));
+            tableTotaux.Borders = new TableBorders(borderTotauxTable);
+
+            tableTotaux.DefaultCellProperties.Borders = new TableCellBorders(borderTotauxCell, borderTotauxCell, borderTotauxCell, borderTotauxCell);
+            tableTotaux.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
+            tableTotaux.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
+
+            //Header Totaux
+            TableRow headerRowTotaux = tableTotaux.Rows.AddTableRow();
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total Remise");
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total HT");
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total TVA");
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total TTC");
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total Reglé");
+            headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Net à payer");
+
+
+            //Lignes Contenant les totaux (BODY du table)
+            TableRow rowTotaux = tableTotaux.Rows.AddTableRow();
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalRemise.ToString() ?? "");
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalHT.ToString() ?? "");
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalTVA.ToString() ?? "");
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalTTC.ToString() ?? "");
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalRegle.ToString() ?? "");
+            rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(NetAPayer.ToString() ?? "");
+
+            editor.InsertTable(tableTotaux);
+
+
+
+            editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
+            editor.InsertParagraph();
+            editor.InsertLineBreak();
+            //Liste des règlements
+            editor.InsertLine("Règlements :");
+            foreach (var item in ListeReglements)
+            {
+                editor.InsertRun(item.Date.ToShortDateString());
+                editor.InsertRun(" / " + item.Montant.ToString() + " CHF");
+                editor.InsertRun(" / " + Connexion.maBDD.Get<MethodePaiement>(item.ID_MethodePaiement).Libelle);
+                editor.InsertLineBreak();
+                editor.InsertParagraph();
+            }
+
+
 
             //Export en PDF
             PdfFormatProvider provider = new PdfFormatProvider();
@@ -945,6 +1052,7 @@ namespace Lime
             {
                 provider.Export(document, output);
             }
+
         }
     }
 }

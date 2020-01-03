@@ -185,7 +185,7 @@
 <body>
 
     <div id="header">
-        <p>Congratulations! You've successfully added a Form with Windows Forms Report Viewer</p>
+        <p><span style="color: red;">ERROR!</span> An error occurred while adding a Form with Windows Forms Report Viewer</p>
     </div>
 
     <div id="main">
@@ -200,10 +200,26 @@
         <div class="section last">
             <h2>Summary</h2>
             <ul style="padding-bottom: 10px; padding-left: 7px;">
-                <li style="color: none;">Project reference added: Reports</li>
-<li style="color: none;">Added ReportViewerForm2.cs</li>
-<li style="color: none;">Added ReportViewerForm2.Designer.cs</li>
-<li style="color: none;">Added ReportViewerForm2.resx</li>
+                <li style="color: #FF0000;">Error: System.ArgumentOutOfRangeException: L'index était hors limites. Il ne doit pas être négatif et doit être inférieur à la taille de la collection.
+Nom du paramètre : index
+   à System.ComponentModel.ReflectPropertyDescriptor.SetValue(Object component, Object value)
+   à System.Windows.Forms.Binding.SetPropValue(Object value)
+   à System.Windows.Forms.Binding.PushData(Boolean force)
+   à System.Windows.Forms.BindingManagerBase.PushData(Boolean&amp; success)
+   à System.Windows.Forms.PropertyManager.OnCurrentChanged(EventArgs ea)
+   à System.Windows.Forms.BindToObject.PropValueChanged(Object sender, EventArgs e)
+   à System.ComponentModel.PropertyDescriptor.OnValueChanged(Object component, EventArgs e)
+   à System.ComponentModel.ReflectPropertyDescriptor.OnValueChanged(Object component, EventArgs e)
+   à System.ComponentModel.ReflectPropertyDescriptor.OnINotifyPropertyChanged(Object component, PropertyChangedEventArgs e)
+   à System.ComponentModel.PropertyChangedEventHandler.Invoke(Object sender, PropertyChangedEventArgs e)
+   à Telerik.Reporting.Design.Common.ObservableObject.NotifyPropertyChanged(String propertyName)
+   à Telerik.Reporting.Design.Common.ObservableObject.NotifyPropertyChanged(Expression`1 propertyExpression)
+   à Telerik.ReportViewer.Design.Common.NewReportEditorViewModel.set_TypeReportSelected(Boolean value)
+   à Telerik.ReportViewer.Design.Common.NewReportEditorViewModel.InitializeReportLibraries()</li>
+<li style="color: none;">Project reference added: ReportLibrary</li>
+<li style="color: none;">Added ReportViewerForm1.cs</li>
+<li style="color: none;">Added ReportViewerForm1.Designer.cs</li>
+<li style="color: none;">Added ReportViewerForm1.resx</li>
 
             </ul>
 
@@ -213,8 +229,7 @@
             <label for="show" class="show" unselectable="on"></label> 
 
             <ul id="details">
-                02.01.2020 03:14:16
-<li style="color: none;">Build Started</li>
+                03.01.2020 16:27:51
 <li style="color: none;">Check Framework Support</li>
 <li style="color: none;">Assembly name is null: False</li>
 <li style="color: none;">Assembly : BouncyCastle.Crypto</li>
@@ -242,6 +257,16 @@
 <li style="color: none;">Product Version: 13.2.19.1030</li>
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
 <li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : EntityFramework</li>
+<li style="color: none;">Assembly Version: 6.0.0.0</li>
+<li style="color: none;">Product Version: 13.2.19.1030</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : EntityFramework.SqlServer</li>
+<li style="color: none;">Assembly Version: 6.0.0.0</li>
+<li style="color: none;">Product Version: 13.2.19.1030</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
 <li style="color: none;">Assembly : Google.Protobuf</li>
 <li style="color: none;">Assembly Version: 3.11.2.0</li>
 <li style="color: none;">Product Version: 13.2.19.1030</li>
@@ -253,6 +278,11 @@
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
 <li style="color: none;">Assembly name is null: False</li>
 <li style="color: none;">Assembly : MySql.Data</li>
+<li style="color: none;">Assembly Version: 8.0.18.0</li>
+<li style="color: none;">Product Version: 13.2.19.1030</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : MySql.Data.EntityFramework</li>
 <li style="color: none;">Assembly Version: 8.0.18.0</li>
 <li style="color: none;">Product Version: 13.2.19.1030</li>
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
@@ -383,6 +413,11 @@
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
 <li style="color: none;">Assembly name is null: False</li>
 <li style="color: none;">Assembly : System.Runtime.Serialization</li>
+<li style="color: none;">Assembly Version: </li>
+<li style="color: none;">Product Version: 13.2.19.1030</li>
+<li style="color: none;">Verify Telerik Reporting Version: True</li>
+<li style="color: none;">Assembly name is null: False</li>
+<li style="color: none;">Assembly : System.Security</li>
 <li style="color: none;">Assembly Version: </li>
 <li style="color: none;">Product Version: 13.2.19.1030</li>
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
@@ -836,22 +871,29 @@
 <li style="color: none;">Assembly Version: </li>
 <li style="color: none;">Product Version: 13.2.19.1030</li>
 <li style="color: none;">Verify Telerik Reporting Version: True</li>
-<li style="color: none;">Build Completed</li>
+<li style="color: none;">Check project: Reports</li>
 <li style="color: none;">Get project references.</li>
-<li style="color: none;">Probe for types project: Lime</li>
+<li style="color: none;">Report Library available: Reports</li>
+<li style="color: #FF0000;">Error: System.ArgumentOutOfRangeException: L'index était hors limites. Il ne doit pas être négatif et doit être inférieur à la taille de la collection.
+Nom du paramètre : index
+   à System.ComponentModel.ReflectPropertyDescriptor.SetValue(Object component, Object value)
+   à System.Windows.Forms.Binding.SetPropValue(Object value)
+   à System.Windows.Forms.Binding.PushData(Boolean force)
+   à System.Windows.Forms.BindingManagerBase.PushData(Boolean&amp; success)
+   à System.Windows.Forms.PropertyManager.OnCurrentChanged(EventArgs ea)
+   à System.Windows.Forms.BindToObject.PropValueChanged(Object sender, EventArgs e)
+   à System.ComponentModel.PropertyDescriptor.OnValueChanged(Object component, EventArgs e)
+   à System.ComponentModel.ReflectPropertyDescriptor.OnValueChanged(Object component, EventArgs e)
+   à System.ComponentModel.ReflectPropertyDescriptor.OnINotifyPropertyChanged(Object component, PropertyChangedEventArgs e)
+   à System.ComponentModel.PropertyChangedEventHandler.Invoke(Object sender, PropertyChangedEventArgs e)
+   à Telerik.Reporting.Design.Common.ObservableObject.NotifyPropertyChanged(String propertyName)
+   à Telerik.Reporting.Design.Common.ObservableObject.NotifyPropertyChanged(Expression`1 propertyExpression)
+   à Telerik.ReportViewer.Design.Common.NewReportEditorViewModel.set_TypeReportSelected(Boolean value)
+   à Telerik.ReportViewer.Design.Common.NewReportEditorViewModel.InitializeReportLibraries()</li>
+<li style="color: none;">Adding project with parameters - ProjectTemplate:C:\Users\Kafe\AppData\Local\Microsoft\VisualStudio\16.0_e7429eb9\VTC\709f2e292bc5d1f94372dce9fac04f43\~PC\PT\CSharp\Reporting\ReportLibraryCS.zip\ReportLibraryCS.vstemplate; TargetDir:C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary; ProjectWithParamsName: ReportLibrary,Facture</li>
 <li style="color: none;">Get project references.</li>
-<li style="color: none;">Can not get project Fichiers divers references.</li>
-<li style="color: none;">Probe for types project: Fichiers divers</li>
+<li style="color: none;">Project reference added: ReportLibrary</li>
 <li style="color: none;">Get project references.</li>
-<li style="color: none;">Initialize available report types.</li>
-<li style="color: none;">Class with name Report1 is not found</li>
-<li style="color: none;">Class with name Report1 is not found</li>
-<li style="color: none;">Class with name Report1 is found in Reports project.</li>
-<li style="color: none;">Get project references.</li>
-<li style="color: none;">Project reference added: Reports</li>
-<li style="color: none;">Class with name Report1 is not found</li>
-<li style="color: none;">Class with name Report1 is not found</li>
-<li style="color: none;">Class with name Report1 is found in Reports project.</li>
 <li style="color: none;">Add project references</li>
 <li style="color: none;">Reference already available: Telerik.Reporting.OpenXmlRendering.2.7.2, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be</li>
 <li style="color: none;">Verify DocumentFormat.OpenXml package version</li>
@@ -863,15 +905,15 @@
 <li style="color: none;">Reference already available: Telerik.Reporting.XpsRendering, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be</li>
 <li style="color: none;">Adding CS\WF\TelerikViewerForm.cs project item</li>
 <li style="color: none;">Template file name not checked: CS\WF\TelerikViewerForm.cs</li>
-<li style="color: none;">Added ReportViewerForm2.cs</li>
+<li style="color: none;">Added ReportViewerForm1.cs</li>
 <li style="color: none;">Adding CS\WF\TelerikViewerForm.Designer.cs.Type project item</li>
-<li style="color: none;">Added ReportViewerForm2.Designer.cs</li>
+<li style="color: none;">Added ReportViewerForm1.Designer.cs</li>
 <li style="color: none;">Adding CS\WF\TelerikViewerForm.Designer.cs.Trdx project item</li>
 <li style="color: none;">Adding CS\WF\TelerikViewerForm.Designer.cs.ServiceUrl project item</li>
 <li style="color: none;">Adding CS\WF\TelerikViewerForm.Designer.cs.ReportServer project item</li>
 <li style="color: none;">Adding Common\TelerikViewerForm.resx project item</li>
 <li style="color: none;">Template file name not checked: Common\TelerikViewerForm.resx</li>
-<li style="color: none;">Added ReportViewerForm2.resx</li>
+<li style="color: none;">Added ReportViewerForm1.resx</li>
 
             </ul>
         </div>

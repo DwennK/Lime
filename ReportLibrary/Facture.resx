@@ -117,6 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="dataSource1.SelectCommand" xml:space="preserve">
+    <value>SELECT        PriseEnCharges.Nom, PriseEnCharges.Telephone1, PriseEnCharges.Email1, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, PriseEnCharges.CodeAppareil, PriseEnCharges.CodeSIM, PriseEnCharges.IMEI, 
+                         PriseEnCharges.SerialNumber, Adresses.Adresse, Adresses.NPA, Adresses.Ville, Documents.DateCreation, Documents.Numero
+FROM            PriseEnCharges INNER JOIN
+                         Adresses ON PriseEnCharges.ID_Adresses = Adresses.ID INNER JOIN
+                         Documents ON PriseEnCharges.ID = Documents.ID_PriseEnCharge</value>
+  </data>
+  <data name="dataSource2.SelectCommand" xml:space="preserve">
+    <value>SELECT        Libelle AS Ligne_Libelle, ID AS Ligne_ID, Quantite AS Ligne_Quantite, TauxRemise AS Ligne_TauxRemise, PrixUniteTTC AS Ligne_PrixUniteTTC, TotalTVA AS Ligne_TotalTVA
+FROM            Documents_Lignes</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="companyLogoPictureBox.Value" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

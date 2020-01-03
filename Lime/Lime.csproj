@@ -534,18 +534,15 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs" />
-    <Compile Include="ReportViewerForm2.cs">
+    <Compile Include="ReportViewerForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportViewerForm2.Designer.cs">
-      <DependentUpon>ReportViewerForm2.cs</DependentUpon>
+    <Compile Include="ReportViewerForm1.Designer.cs">
+      <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="RowReorderBehavior.cs" />
     <Compile Include="SMS.xaml.cs">
       <DependentUpon>SMS.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="AjoutArticles.xaml">
       <SubType>Designer</SubType>
@@ -599,10 +596,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -623,8 +616,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportViewerForm2.resx">
-      <DependentUpon>ReportViewerForm2.cs</DependentUpon>
+    <EmbeddedResource Include="ReportViewerForm1.resx">
+      <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -730,9 +723,9 @@
     <Folder Include="Images\Icons\document-pack\512x512\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Reports\Reports.csproj">
-      <Project>{E36338FB-6D89-484E-8C79-C3E55B88B83F}</Project>
-      <Name>Reports</Name>
+    <ProjectReference Include="..\ReportLibrary\ReportLibrary.csproj">
+      <Project>{569B0EF8-1AFB-4B6A-9B34-308D8C4C8F36}</Project>
+      <Name>ReportLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

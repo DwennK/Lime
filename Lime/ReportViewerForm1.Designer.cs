@@ -1,6 +1,6 @@
 ﻿namespace Lime
 {
-    partial class ReportViewerForm2
+    partial class ReportViewerForm1
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            typeReportSource1.TypeName = "Lime.Reports.Report1, Lime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
+            typeReportSource1.TypeName = "ReportLibrary.Facture, ReportLibrary";
             this.reportViewer1.ReportSource = typeReportSource1;
             this.reportViewer1.EnableAccessibility = true;
             this.reportViewer1.Name = "reportViewer1";
@@ -49,9 +49,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 700);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "ReportViewerForm2";
+            this.Name = "ReportViewerForm1";
             this.Text = "Report Viewer Form";
-            this.Load += new System.EventHandler(this.ReportViewerForm2_Load);
+            this.Load += new System.EventHandler(this.ReportViewerForm1_Load);
             this.ResumeLayout(false);
 
         }

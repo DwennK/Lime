@@ -1,4 +1,4 @@
-namespace Lime.Reports
+namespace Reports
 {
     using System;
     using System.ComponentModel;
@@ -22,8 +22,6 @@ namespace Lime.Reports
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-            //int ID_Document = 2;
-            //sqlDataSource1.Parameters[0].Value = ID_Document;
         }
     }
 }

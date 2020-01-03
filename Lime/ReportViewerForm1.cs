@@ -9,17 +9,16 @@ using System.Windows.Forms;
 
 namespace Lime
 {
-    public partial class ReportViewerForm2 : Form
+    public partial class ReportViewerForm1 : Form
     {
-        public ReportViewerForm2()
+        public ReportViewerForm1()
         {
             InitializeComponent();
         }
 
-        private void ReportViewerForm2_Load(object sender, EventArgs e)
+        private void ReportViewerForm1_Load(object sender, EventArgs e)
         {
             this.reportViewer1.RefreshReport();
-
         }
     }
 }
