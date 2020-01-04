@@ -413,16 +413,69 @@ namespace Lime
 
         private void DocumentModifier_Click(object sender, RoutedEventArgs e)
         {
-            Document document = (Document)RadGridView1.SelectedItem;
-
-            PriseEnCharge priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(document.ID_PriseEnCharge);
-
-            if (document != null)//Si le document existe déjà.
+            if (RadGridView1.SelectedItem != null)
             {
-                //UPDATE
-                FormDocument maFenetre = new FormDocument(priseEnCharge, document);
-                maFenetre.Show();
+                Document document = (Document)RadGridView1.SelectedItem;
+
+                PriseEnCharge priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(document.ID_PriseEnCharge);
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez sélectionner un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
             }
         }
+
+        private void DocumentSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            if (RadGridView1.SelectedItem != null)
+            {
+                RadWindow.Confirm(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Êtes-vous sûr de vouloir supprimer ce document ?\nCette action est définitive",
+                    Closed = this.SupprimmerDocument_Click_OnClosed,
+                    Theme = new CrystalTheme()
+                });
+
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez sélectionner un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+        }
+
+        private void SupprimmerDocument_Click_OnClosed(object sender, WindowClosedEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                //Récupération du document
+                Document documentASupprimer = (Document)RadGridView1.SelectedItem;
+
+                //Si confirmation la supression, alors son supprime vraiment le document
+                var result = e.DialogResult;
+                if (result == true)
+                {
+                    Connexion.maBDD.Delete(documentASupprimer);
+                }
+            }
+        }
+
     }
 }
