@@ -245,7 +245,7 @@
                     </StackPanel>
                     <telerik:RadGridView   
                         AutoGenerateColumns="True" 
-                        Margin="60,72,0,0" 
+                        Margin="60,10,0,0" 
                         x:Name="radGridViewReglements" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
@@ -255,7 +255,7 @@
                         ShowGroupPanel="False"
                         AlternationCount="2"
                         Language="fr-CH"
-                        IsReadOnly="False" LostFocus="radGridViewReglements_LostFocus"
+                        IsReadOnly="False"  RowEditEnded="radGridViewReglements_RowEditEnded"
                     >
 
                         <telerik:RadGridView.Columns>
@@ -325,8 +325,6 @@
 
 
                     </telerik:RadGridView>
-                    <Button Content="Add Column Programtically Combobox" HorizontalAlignment="Left" Margin="124,27,0,0" VerticalAlignment="Top" Width="235" Click="Button_Click_4"/>
-                    <Button Content="test" HorizontalAlignment="Left" Margin="394,27,0,0" VerticalAlignment="Top" Width="75" Click="test_Click"/>
 
                 </Grid>
             </telerik:RadTabItem>

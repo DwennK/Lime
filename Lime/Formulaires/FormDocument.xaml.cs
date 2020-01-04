@@ -851,38 +851,6 @@ namespace Lime
             radGridView.Items.Refresh();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            Documents_Lignes item = new Documents_Lignes(5);
-            Lignes.Add(item);
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            GridViewComboBoxColumn colonne = new GridViewComboBoxColumn();
-            colonne.Name = "MethodePaiementxxx";
-            colonne.UniqueName = "MethodePaiementxxx";
-            colonne.Header = "MethodePaiementxxx";
-            colonne.ItemsSource = this.methodePaiement;
-            colonne.SelectedValueMemberPath = "ID";
-            colonne.DisplayMemberPath = "Libelle";
-            colonne.Width = 200;
-            colonne.IsComboBoxEditable = true;
-            colonne.IsReadOnly = false;
-            this.radGridViewReglements.Columns.Add(colonne);
-        }
-
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-
-            Populate();
-        }
-
-        private void radGridViewReglements_LostFocus(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
 
         private void MakePDF()
         {
@@ -907,8 +875,11 @@ namespace Lime
             uriReportSource.Uri = @"D:\Users\Kafe\Desktop\temp\Invoice.trdp";
 
             // Adding the initial parameter values
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", 1));
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDTypeDocument", 1));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDTypeDocument", document.ID_TypeDocument));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDPriseEnCharge", priseEnCharge.ID));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("TotalRegle", TotalRegle));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NetAPayer", NetAPayer));
 
 
             //Print to PDF
@@ -1089,6 +1060,11 @@ namespace Lime
             ////    provider.Export(document, output);
             ////}
 
+        }
+
+
+        private void radGridViewReglements_RowEditEnded(object sender, GridViewRowEditEndedEventArgs e)
+        {
         }
     }
 }

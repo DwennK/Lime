@@ -411,5 +411,18 @@ namespace Lime
 
         }
 
+        private void DocumentModifier_Click(object sender, RoutedEventArgs e)
+        {
+            Document document = (Document)RadGridView1.SelectedItem;
+
+            PriseEnCharge priseEnCharge = Connexion.maBDD.Get<PriseEnCharge>(document.ID_PriseEnCharge);
+
+            if (document != null)//Si le document existe déjà.
+            {
+                //UPDATE
+                FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                maFenetre.Show();
+            }
+        }
     }
 }
