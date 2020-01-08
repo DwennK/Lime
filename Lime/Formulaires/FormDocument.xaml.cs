@@ -866,13 +866,13 @@ namespace Lime
             Telerik.Reporting.Processing.ReportProcessor reportProcessor
                 = new Telerik.Reporting.Processing.ReportProcessor();
 
-            reportProcessor.PrintController = standardPrintController;
+            //reportProcessor.PrintController = standardPrintController;
 
             Telerik.Reporting.UriReportSource uriReportSource =
                 new Telerik.Reporting.UriReportSource();
 
             // Specifying an URL or a file path of the Report
-            uriReportSource.Uri = @"D:\Users\Kafe\Desktop\temp\Invoice.trdp";
+            uriReportSource.Uri = @"C:\Users\Dwenn\Desktop\Invoice.trdp";
 
             // Adding the initial parameter values
             uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
@@ -889,6 +889,8 @@ namespace Lime
 
         private void btnPDF_Click(object sender, RoutedEventArgs e)
         {
+            //On valide le document
+            btnValider_Click(sender, e);
             //Céraiton du PDF et on récupère le chemin
             MakePDF();
 

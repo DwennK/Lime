@@ -482,9 +482,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AjoutArticles.xaml.cs">
-      <DependentUpon>AjoutArticles.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Document.cs" />
     <Compile Include="Classes\MethodePaiement.cs" />
     <Compile Include="Classes\Reglement.cs" />
@@ -541,10 +538,6 @@
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="RowReorderBehavior.cs" />
-    <Page Include="AjoutArticles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Formulaires\btnValider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
