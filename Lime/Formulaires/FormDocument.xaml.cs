@@ -342,12 +342,10 @@ namespace Lime
             }
         }
 
-
-
-        private void btnValider_Click(object sender, RoutedEventArgs e)
+        private void ValiderDocument()
         {
             int numeroActuel = 0;
-            if(this.action=="Insert")
+            if (this.action == "Insert")
             {
                 //On récupère le numéro à insérer. (On prends le numéro maximum correspondant à ce type de document, et on incrémente
                 string SQL = "SELECT MAX(Numero) FROM Documents WHERE ID_TypeDocument = @ID_TypeDocument;";
@@ -361,7 +359,7 @@ namespace Lime
             // INSERTION OU UPDATE DES LIGNES ARTICLES
             foreach (Documents_Lignes item in Lignes)
             {
-             
+
 
                 //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
                 item.ID_Documents = document.ID;
@@ -383,7 +381,7 @@ namespace Lime
             }
 
             // INSERTION OU UPDATE DES LIGNES REGLEMENT
-            foreach(Reglement item in ListeReglements)
+            foreach (Reglement item in ListeReglements)
             {
                 //Pour chaque ligne, on leur attribue l'ID de document pour les lier.
                 item.ID_PriseEnCharges = priseEnCharge.ID;
@@ -402,7 +400,11 @@ namespace Lime
                     Connexion.maBDD.Insert(item);
                 }
             }
+        }
 
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            ValiderDocument();
             this.Close();
         }
 
