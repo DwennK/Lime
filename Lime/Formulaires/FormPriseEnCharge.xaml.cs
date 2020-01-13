@@ -55,6 +55,7 @@ namespace Lime
         {
 
             InitializeComponent();
+            Populate();
             this.action = "Update";
 
 
@@ -89,7 +90,7 @@ namespace Lime
 
             this.DatePickerDebut.IsEnabled = false;
 
-            Populate();
+
         }
 
         private void Populate()
