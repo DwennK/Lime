@@ -85,7 +85,14 @@ namespace Lime
 
         public virtual object Clone()
         {
-            return this.MemberwiseClone();
+            //On stocke le clone dans un Dynamic
+            dynamic temp = this.MemberwiseClone();
+
+            //On retire l'ID
+            temp.ID = 0;
+
+            //On renvoie le clone de la ligne, mais sans l'ID.
+            return temp;
         }
     }
 

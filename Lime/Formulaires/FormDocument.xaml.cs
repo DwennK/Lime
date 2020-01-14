@@ -453,9 +453,6 @@ namespace Lime
                 Documents_Lignes item;
                 item = (Lime.Documents_Lignes)aCopier.Clone();
 
-                //On le sauve dans la BDD
-                Connexion.maBDD.Insert(item);
-
                 //Ajout de la ligne
                 Lignes.Add(item);
                 CalculerTotaux();
