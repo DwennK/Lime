@@ -1,0 +1,55 @@
+﻿<telerik:RadWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:Lime" x:Class="Lime.FormArticle"
+        xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
+        Header="Article" Height="417" Width="456" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <telerik:RadWatermarkTextBox x:Name="tbxLibelle" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="130,10,0,0" TextWrapping="Wrap"  WatermarkContent="Nom" VerticalAlignment="Top" Width="310" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
+        <telerik:Label x:Name="lblLibelle" Content="Libelle" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" Height="24" Width="48"/>
+
+        <telerik:Label x:Name="lblCodeArticle" Content="CodeArticle" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24"/>
+        <telerik:RadWatermarkTextBox x:Name="tbxCodeArticle" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="130,40,0,0" TextWrapping="Wrap"  WatermarkContent="Nom" VerticalAlignment="Top" Width="310" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
+
+
+        <telerik:Label x:Name="lblPrixAchat" Content="Prix Achat" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24" Width="65"/>
+        <telerik:RadNumericUpDown x:Name="tbxPrixAchat"  Height="22" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" NumberDecimalDigits="1" NumberDecimalSeparator="," Margin="130,76,0,0"   />
+
+        <telerik:Label x:Name="lblPrixVente" Content="Prix Vente" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24"/>
+        <telerik:RadNumericUpDown x:Name="tbxPrixVente"  Height="22" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" NumberDecimalDigits="1" NumberDecimalSeparator="," Margin="130,111,0,0"   />
+
+
+
+
+
+
+
+
+
+
+
+        <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="39"  VerticalAlignment="Bottom"  Width="102" telerik:StyleManager.Theme="Crystal" TabIndex="9" Click="btnValider_Click" Margin="10,10,10,10"/>
+        <telerik:GroupBox  Header="Gestion du stock" Height="131" Margin="10,149,10,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal">
+            <Grid>
+                <telerik:Label x:Name="lblGererStock" Content="Gérer Stock" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24"/>
+                <CheckBox Name="cbxGererStock" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" RenderTransformOrigin="0.6,0" Width="18"/>
+
+
+                <telerik:Label x:Name="lblQuantiteStock" Content="Quantité en stock" HorizontalAlignment="Left" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24" Margin="5,34,0,0"/>
+                <telerik:RadNumericUpDown x:Name="tbxQuantiteStock"  Height="22" IsInteger="True" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0"  VerticalAlignment="Top" NumberDecimalDigits="0" Margin="119,34,205,0"   />
+
+
+                <telerik:Label x:Name="lblSeuilAlerte" Content="Seuil alerte" HorizontalAlignment="Left" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24" Margin="5,58,0,0"/>
+                <telerik:RadNumericUpDown x:Name="tbxSeuilAlerte"  Height="22" IsInteger="True" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0"  VerticalAlignment="Top" Width="90" NumberDecimalDigits="0" Margin="119,60,205,0"   />
+
+            </Grid>
+        </telerik:GroupBox>
+    </Grid>
+</telerik:RadWindow>
