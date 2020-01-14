@@ -33,14 +33,13 @@ namespace Lime
         string Action;
 
         //Constructeur pour Insert
-        public FormArticle(string action, string NomDuClient)
+        public FormArticle(Article _article)
         {
             InitializeComponent();
             tbxLibelle.Focus();
+
+            this.article = _article;
             this.DataContext = this.article;
-            Action = "Insert";
-
-
 
             CheckGestionStock();
         }
@@ -59,38 +58,33 @@ namespace Lime
             }
         }
 
-        //Constructeur pour Update
-        public FormClient(Client client)
+        private void GererStock_changed(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            tbxNom.Focus();
-            this.client = client;
-            this.DataContext = this.client;
-            Action = "Update";
-
-
-            Adresse adresseFacturation = Connexion.maBDD.Get<Adresse>(client.ID_Adresse);
-            if (adresseFacturation != null)
-            {
-                if (adresseFacturation.adresse != null) { tbxAdresse.Text = adresseFacturation.adresse; }
-
-                if (adresseFacturation.NPA != null) { tbxNPA.Text = adresseFacturation.NPA; }
-                if (adresseFacturation.Ville != null) { tbxVille.Text = adresseFacturation.Ville; }
-            }
-
-            this.tbxVille.IsDropDownOpen = false;
-
+            CheckGestionStock();
         }
 
 
-        private void InsertClient()
+        private void Upsert()
         {
             if (DonnéesValides())
             {
 
-                //Une fois les deux adresse créées, on va finalement créer et insérer le client dans la BDD.
-                client.ID_Adresse = idAdresseFacturation;
-                Connexion.maBDD.Insert<Client>(client);
+                //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
+                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Articles WHERE ID=@ID", new { article.ID });
+                if (exists)
+                {
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Update(article);
+                }
+                else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
+                {
+                    //Check si le code Article existe
+
+
+
+                    //Insertion des la ligne dans la BDD.
+                    Connexion.maBDD.Insert(article);
+                }
 
                 //Ferme la Fenêtre
                 this.Close();
@@ -99,31 +93,10 @@ namespace Lime
         }
 
 
-        private void UpdateClient()
-        {
-            if (DonnéesValides())
-            {
-
-                //On update le client
-                Connexion.maBDD.Update<Client>(client);
-
-                //Ferme la fenêtre
-                this.Close();
-
-            }
-        }
-
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            //Ces actions sont définies par le constructeur appelé
-            if (Action == "Insert")
-            {
-                InsertClient();
-            }
-            else if (Action == "Update")
-            {
-                UpdateClient();
-            }
+            //Update or Insert, depends if item already exists.
+            Upsert();
         }
 
         private bool DonnéesValides()
@@ -131,9 +104,14 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (tbxNom.Text == "")
+            if (tbxLibelle.Text == "")
             {
-                messageErreur += "Veuillez rentrer le nom du client.\n";
+                messageErreur += "Veuillez rentrer le Libellé de l'article.\n";
+            }
+
+            if (tbxPrixVente.Value == 0)
+            {
+                messageErreur += "Veuillez rentrer le Prix de Vente de l'article.\n";
             }
 
             //S'il y a des erreurs, on les affiche

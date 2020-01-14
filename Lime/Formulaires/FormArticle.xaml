@@ -6,13 +6,13 @@
         xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
         navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
-        Header="Article" Height="417" Width="456" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
+        Header="Article" Height="397" Width="456" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <telerik:RadWatermarkTextBox x:Name="tbxLibelle" Text="{Binding Nom}" HorizontalAlignment="Left" Height="23" Margin="130,10,0,0" TextWrapping="Wrap"  WatermarkContent="Nom" VerticalAlignment="Top" Width="310" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
+        <telerik:RadWatermarkTextBox x:Name="tbxLibelle" Text="{Binding Libelle}" HorizontalAlignment="Left" Height="23" Margin="130,10,0,0" TextWrapping="Wrap"  WatermarkContent="Nom" VerticalAlignment="Top" Width="310" telerik:StyleManager.Theme="Crystal" TabIndex="0"/>
         <telerik:Label x:Name="lblLibelle" Content="Libelle" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" Height="24" Width="48"/>
 
         <telerik:Label x:Name="lblCodeArticle" Content="CodeArticle" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24"/>
@@ -39,7 +39,7 @@
         <telerik:GroupBox  Header="Gestion du stock" Height="131" Margin="10,149,10,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal">
             <Grid>
                 <telerik:Label x:Name="lblGererStock" Content="Gérer Stock" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24"/>
-                <CheckBox Name="cbxGererStock" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" RenderTransformOrigin="0.6,0" Width="18"/>
+                <CheckBox Name="cbxGererStock" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" RenderTransformOrigin="0.6,0" Width="18" Checked="GererStock_changed" Unchecked="GererStock_changed"/>
 
 
                 <telerik:Label x:Name="lblQuantiteStock" Content="Quantité en stock" HorizontalAlignment="Left" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal" Height="24" Margin="5,34,0,0"/>

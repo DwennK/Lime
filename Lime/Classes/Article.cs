@@ -21,11 +21,11 @@ namespace Lime
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-        public int ID_CodeArticles { get; set; }
+        public int? ID_CodeArticles { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-        public int ID_Marques { get; set; }
+        public int? ID_Marques { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
-        public int ID_Categories { get; set; }
+        public int? ID_Categories { get; set; }
         [Display(Name = "Libellé")]
         public string Libelle { get; set; }
         [Display(Name = "Prix de vente")]

@@ -468,7 +468,7 @@ namespace Lime
                 //Récupération du document
                 Document documentASupprimer = (Document)RadGridView1.SelectedItem;
 
-                //Si confirmation la supression, alors son supprime vraiment le document
+                //Si confirmation la supression, alors on supprime vraiment le document
                 var result = e.DialogResult;
                 if (result == true)
                 {
@@ -477,5 +477,39 @@ namespace Lime
             }
         }
 
+        private void InsertArticle_Click(object sender, RoutedEventArgs e)
+        {
+            //Article Vide
+            Article article = new Article();
+
+
+            FormArticle maFenetre = new FormArticle(article);
+            maFenetre.ShowDialog();
+
+        }
+
+        private void UpdateArticle_Click(object sender, RoutedEventArgs e)
+        {
+            if (RadGridView1.SelectedItem != null)
+            {
+                Article article = (Article)RadGridView1.SelectedItem;
+
+                if (article != null)//Si l'article existe déjà.
+                {
+                    //UPDATE
+                    FormArticle maFenetre = new FormArticle(article);
+                    maFenetre.ShowDialog();
+                }
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez sélectionner un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+        }
     }
 }
