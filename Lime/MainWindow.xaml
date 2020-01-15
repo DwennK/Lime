@@ -129,7 +129,7 @@
                 <telerik:RadRibbonGroup Header="Gestion des articles">
                     <telerik:RadRibbonButton Name="InsertArticle" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="InsertArticle_Click"  />
                     <telerik:RadRibbonButton Name="UpdateArticle" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="UpdateArticle_Click"  />
-                    <telerik:RadRibbonButton Name="DeleteArticle" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png"  />
+                    <telerik:RadRibbonButton Name="DeleteArticle" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DeleteArticle_Click"  />
                     <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>

@@ -486,6 +486,10 @@ namespace Lime
             FormArticle maFenetre = new FormArticle(article);
             maFenetre.ShowDialog();
 
+            //On actualise la liste à nouveau.
+            RadTabbedWindow1.SelectedItem = RadTabLignes;
+            UpdateGridView(Connexion.maBDD.GetAll<Article>());
+
         }
 
         private void UpdateArticle_Click(object sender, RoutedEventArgs e)
@@ -499,6 +503,10 @@ namespace Lime
                     //UPDATE
                     FormArticle maFenetre = new FormArticle(article);
                     maFenetre.ShowDialog();
+
+                    //On actualise la liste à nouveau.
+                    RadTabbedWindow1.SelectedItem = RadTabLignes;
+                    UpdateGridView(Connexion.maBDD.GetAll<Article>());
                 }
             }
             else
@@ -511,5 +519,49 @@ namespace Lime
                 });
             }
         }
+
+        private void DeleteArticle_Click(object sender, RoutedEventArgs e)
+        {
+            if (RadGridView1.SelectedItem != null)
+            {
+                RadWindow.Confirm(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Êtes-vous sûr de vouloir supprimer cet article ?\nCette action est définitive",
+                    Closed = this.DeleteArticle_Click_OnClosed,
+                    Theme = new CrystalTheme()
+                });
+
+            }
+            else
+            {
+                RadWindow.Alert(new DialogParameters
+                {
+                    Header = "Attention",
+                    Content = "Veuillez sélectionner un élément dans la liste.",
+                    Theme = new CrystalTheme()
+                });
+            }
+        }
+        private void DeleteArticle_Click_OnClosed(object sender, WindowClosedEventArgs e)
+        {
+            if (Connexion.CheckForInternetConnection())
+            {
+                //Récupération du document
+                Article articleASupprimer = (Article)RadGridView1.SelectedItem;
+
+                //Si confirmation la supression, alors on supprime vraiment le document
+                var result = e.DialogResult;
+                if (result == true)
+                {
+                    Connexion.maBDD.Delete(articleASupprimer);
+
+                    //On actualise la liste à nouveau.
+                    RadTabbedWindow1.SelectedItem = RadTabLignes;
+                    UpdateGridView(Connexion.maBDD.GetAll<Article>());
+                }
+            }
+        }
+
     }
 }
