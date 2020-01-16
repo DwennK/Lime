@@ -57,7 +57,6 @@
                     <telerik:RadRibbonButton x:Name="CréerClient" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                     <telerik:RadRibbonButton x:Name="ModifierClient" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="ModifierClient_Click"  />
                     <telerik:RadRibbonButton x:Name="SupprimmerClient" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="SupprimmerClient_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
 
             </telerik:RadRibbonTab>
@@ -81,7 +80,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                     <telerik:RadRibbonButton Name="Devis_Modifier" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Name="Devis_Supprimer" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabDevisAssurance" Header="Constat Assurance" MouseLeftButtonUp="tabDevisAssurance_MouseLeftButtonUp" >
@@ -89,7 +87,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabCommande" Header="Commandes" MouseLeftButtonUp="tabCommande_MouseLeftButtonUp" >
@@ -97,7 +94,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png"/>
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabReparation" Header="Réparation" MouseLeftButtonUp="tabReparation_MouseLeftButtonUp" >
@@ -105,7 +101,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" />
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabFactures" Header="Factures" MouseLeftButtonUp="tabFactures_MouseLeftButtonUp" >
@@ -113,7 +108,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png"  />
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
 
             </telerik:RadRibbonTab>
@@ -122,7 +116,6 @@
                     <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" />
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabArticles" Header="Articles" MouseLeftButtonUp="tabArticles_MouseLeftButtonUp" >
@@ -130,7 +123,6 @@
                     <telerik:RadRibbonButton Name="InsertArticle" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="InsertArticle_Click"  />
                     <telerik:RadRibbonButton Name="UpdateArticle" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="UpdateArticle_Click"  />
                     <telerik:RadRibbonButton Name="DeleteArticle" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DeleteArticle_Click"  />
-                    <telerik:RadRibbonButton/>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabSMS" Header="SMS" MouseLeftButtonUp="tabSMS_MouseLeftButtonUp">
