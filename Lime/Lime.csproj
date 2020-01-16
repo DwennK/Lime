@@ -519,6 +519,9 @@
     <Compile Include="Formulaires\btnValider.xaml.cs">
       <DependentUpon>btnValider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formulaires\FormChercherArticle.xaml.cs">
+      <DependentUpon>FormChercherArticle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulaires\FormArticle.xaml.cs">
       <DependentUpon>FormArticle.xaml</DependentUpon>
     </Compile>
@@ -556,6 +559,10 @@
     <Page Include="Formulaires\btnValider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulaires\FormChercherArticle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Formulaires\FormArticle.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -1067,6 +1067,12 @@ namespace Lime
         private void radGridViewReglements_RowEditEnded(object sender, GridViewRowEditEndedEventArgs e)
         {
         }
+
+        private void Chercher_Click(object sender, RoutedEventArgs e)
+        {
+            FormChercherArticle maFenetre = new FormChercherArticle();
+            maFenetre.ShowDialog();
+        }
     }
 }
 

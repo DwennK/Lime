@@ -50,7 +50,7 @@
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
-            <telerik:RadRibbonTab Header="Informations Document">
+            <telerik:RadRibbonTab Header="Informations Document / Prise en Charge ">
                 <telerik:RadRibbonGroup Header="Informations Document">
                     <StackPanel>
                         <DockPanel >
@@ -90,6 +90,8 @@
                         <DockPanel >
                             <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
                             <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                            <telerik:Label Content="{Binding priseEnCharge.}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                            <telerik:Label Content="{Binding priseEnCharge.}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
@@ -170,6 +172,9 @@
                         </telerik:RadButton>
                         <telerik:RadButton x:Name="Monter" ToolTip="Monter la ligne sélectionnée" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="MoveDown_Click">
                             <Image Source="/Images/Icons/down-chevron.png" HorizontalAlignment="Center" Width="Auto" />
+                        </telerik:RadButton>
+                        <telerik:RadButton x:Name="Chercher" ToolTip="Rechercher un article" Margin="5,2,5,2"  telerik:StyleManager.Theme="Crystal" Click="Chercher_Click">
+                            <Image Source="/Images/Icons/document-pack/32x32/018-file.png" HorizontalAlignment="Center" Width="Auto" />
                         </telerik:RadButton>
                     </StackPanel>
                     <telerik:RadGridView   
