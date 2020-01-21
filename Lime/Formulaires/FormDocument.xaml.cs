@@ -160,7 +160,6 @@ namespace Lime
                 
             };
 
-
         }
 
 
@@ -195,7 +194,6 @@ namespace Lime
             ComboboxLieuActuelAppareil.SelectedIndex = priseEnCharge.ID_LieuActuelAppareil;
 
             #endregion
-
 
 
             #region Cacher le bouton de transformation du même type de document que celui existant
@@ -268,9 +266,7 @@ namespace Lime
                 TotalRegle = 0;
                 NetAPayer = 0;
                 
-
-
-
+                               
                 foreach (var item in Lignes) //Ces variables sont dans le DataContext
                 {
                     //ITEM/////////////////////
@@ -349,7 +345,6 @@ namespace Lime
                 NetAPayer = TotalTTC - TotalRegle;
 
                 #endregion
-
 
 
                 //On set le dataContext
@@ -774,16 +769,6 @@ namespace Lime
             }
         }
 
-        private void DescendreReglement_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MonterReglement_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
 
         private void radGridView_CellUnloaded(object sender, Telerik.Windows.Controls.GridView.CellEventArgs e)
         {
@@ -875,176 +860,44 @@ namespace Lime
             //On valide le document
             btnValider_Click(sender, e);
             //Céraiton du PDF et on récupère le chemin
-            MakePDF();
-
-            //////Création du document
-            ////RadFixedDocument document = new RadFixedDocument();
-            ////RadFixedDocumentEditor editor = new RadFixedDocumentEditor(document);
+            //MakePDF();
 
 
-            //////Ajout du contenu du document
-            ////editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
-            ////editor.InsertParagraph();
-            ////editor.CharacterProperties.FontSize = 36;
-            ////editor.InsertRun(typeDocument.Libelle);
-            ////editor.InsertLineBreak();
+            // Obtain the settings of the default printer
+            System.Drawing.Printing.PrinterSettings printerSettings
+                = new System.Drawing.Printing.PrinterSettings()
+                {
+                    PrinterName = "Microsoft Print to PDF",
+                    PrintToFile = true,
+                    PrintFileName = @"test.pdf"
+                };
+
+            // The standard print controller comes with no UI
+            System.Drawing.Printing.PrintController standardPrintController =
+                new System.Drawing.Printing.StandardPrintController();
+
+            // Print the report using the custom print controller
+            Telerik.Reporting.Processing.ReportProcessor reportProcessor
+                = new Telerik.Reporting.Processing.ReportProcessor();
+
+            //reportProcessor.PrintController = standardPrintController;
+
+            Telerik.Reporting.UriReportSource uriReportSource =
+                new Telerik.Reporting.UriReportSource();
+
+            // Specifying an URL or a file path of the Report
+            uriReportSource.Uri = @"C:\Users\Dwenn\Desktop\Invoice.trdp";
+
+            // Adding the initial parameter values
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDTypeDocument", document.ID_TypeDocument));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDPriseEnCharge", priseEnCharge.ID));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("TotalRegle", TotalRegle));
+            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NetAPayer", NetAPayer));
 
 
-            //////Table Infos Document
-            //////Table contenant les lignes Articles du document
-            ////editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
-            ////editor.InsertParagraph();
-            ////Table tableInfosDocument = new Table();
-            ////Border cellborderInfosDocument = new Border(1, new RgbColor(0, 0, 0));
-            ////Border tableborderInfosDocument = new Border(1, new RgbColor(0, 0, 0));
-            ////tableInfosDocument.Borders = new TableBorders(tableborderInfosDocument);
-
-            ////tableInfosDocument.DefaultCellProperties.Borders = new TableCellBorders(cellborderInfosDocument, cellborderInfosDocument, cellborderInfosDocument, cellborderInfosDocument);
-            ////tableInfosDocument.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
-            ////tableInfosDocument.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
-
-            //////Table Header
-            ////TableRow headerRowInfosDocument = tableInfosDocument.Rows.AddTableRow();
-            ////headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Numéro");
-            ////headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Date");
-            ////headerRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText("Echéance");
-
-
-            ////TableRow firstRowInfosDocument = tableInfosDocument.Rows.AddTableRow();
-            //////Les "varibale" ?? "" servent à , si jamais la variable est nul, à renvoyer un string vide :)     
-            ////firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.document.Numero.ToString());
-            ////firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.document.DateCreation.ToShortDateString());
-            ////firstRowInfosDocument.Cells.AddTableCell().Blocks.AddBlock().InsertText(this.priseEnCharge.DateEcheance.ToShortDateString());
-
-
-            ////editor.InsertTable(tableInfosDocument);
-            ////editor.InsertLineBreak();
-
-
-            //////Infos Entreprise
-            ////editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
-            ////editor.InsertParagraph();
-            ////editor.CharacterProperties.FontSize = 12;
-            ////editor.InsertLine("Microwest");
-            ////editor.InsertLine("Rue de la Pierre-à-Mazel 2");
-            ////editor.InsertLine("Tel : 032 841 50 88");
-            ////editor.InsertLine("Email : info@microwest.ch");
-            ////editor.InsertLine("TVA : CHE-351.511.695");
-            ////editor.InsertLineBreak();
-
-
-            //////Infos Client
-            ////editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Right;
-            ////editor.InsertParagraph();
-            ////editor.CharacterProperties.FontSize = 12;
-            ////editor.InsertLine(client.Nom);
-            ////editor.InsertLine(adresse.adresse);
-            ////editor.InsertLine(adresse.NPA + " " + adresse.Ville);
-            ////editor.InsertLine(client.Telephone1);
-            ////editor.InsertLine(client.Email1);
-            ////editor.InsertLineBreak();
-
-
-
-
-            //////Table contenant les lignes Articles du document
-            ////editor.InsertParagraph();
-            ////Table table = new Table();
-            ////Border cellborder = new Border(1, new RgbColor(0, 0, 0));
-            ////Border tableborder = new Border(2, new RgbColor(0, 0, 0));
-            ////table.Borders = new TableBorders(tableborder);
-
-            ////table.DefaultCellProperties.Borders = new TableCellBorders(cellborder, cellborder, cellborder, cellborder);
-            ////table.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
-            ////table.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
-
-
-            //////Table Header
-            ////TableRow headerRow = table.Rows.AddTableRow();
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Code");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Description");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Qté");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Taux Remise");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Taux TVA");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Prix Unité");
-            ////headerRow.Cells.AddTableCell().Blocks.AddBlock().InsertText("Prix Total TTC");
-
-            ////foreach (var item in Lignes)
-            ////{
-
-            ////    TableRow firstRow = table.Rows.AddTableRow();
-
-            ////    //Les "varibale" ?? "" servent à , si jamais la variable est nul, à renvoyer un string vide :)     
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.CodeArticle ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Libelle ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.Quantite.ToString() ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.TauxRemise.ToString() ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.TauxTVA.ToString() ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixUniteTTC.ToString() ?? "");
-            ////    firstRow.Cells.AddTableCell().Blocks.AddBlock().InsertText(item.PrixTTC.ToString() ?? ""); ;
-            ////}
-
-            ////editor.InsertTable(table);
-            ////editor.InsertLineBreak();
-
-
-            //////Table contenant les Totaux
-            ////editor.InsertParagraph();
-            ////Table tableTotaux = new Table();
-            ////Border borderTotauxCell = new Border(1, new RgbColor(0, 0, 0));
-            ////Border borderTotauxTable = new Border(2, new RgbColor(0, 0, 0));
-            ////tableTotaux.Borders = new TableBorders(borderTotauxTable);
-
-            ////tableTotaux.DefaultCellProperties.Borders = new TableCellBorders(borderTotauxCell, borderTotauxCell, borderTotauxCell, borderTotauxCell);
-            ////tableTotaux.DefaultCellProperties.Padding = new Thickness(5, 5, 5, 5);
-            ////tableTotaux.DefaultCellProperties.Background = new RgbColor(250, 250, 250);
-
-            //////Header Totaux
-            ////TableRow headerRowTotaux = tableTotaux.Rows.AddTableRow();
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total Remise");
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total HT");
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total TVA");
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total TTC");
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Total Reglé");
-            ////headerRowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText("Net à payer");
-
-
-            //////Lignes Contenant les totaux (BODY du table)
-            ////TableRow rowTotaux = tableTotaux.Rows.AddTableRow();
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalRemise.ToString() ?? "");
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalHT.ToString() ?? "");
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalTVA.ToString() ?? "");
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalTTC.ToString() ?? "");
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(TotalRegle.ToString() ?? "");
-            ////rowTotaux.Cells.AddTableCell().Blocks.AddBlock().InsertText(NetAPayer.ToString() ?? "");
-
-            ////editor.InsertTable(tableTotaux);
-
-
-
-            ////editor.ParagraphProperties.HorizontalAlignment = Telerik.Windows.Documents.Fixed.Model.Editing.Flow.HorizontalAlignment.Left;
-            ////editor.InsertParagraph();
-            ////editor.InsertLineBreak();
-            //////Liste des règlements
-            ////editor.InsertLine("Règlements :");
-            ////foreach (var item in ListeReglements)
-            ////{
-            ////    editor.InsertRun(item.Date.ToShortDateString());
-            ////    editor.InsertRun(" / " + item.Montant.ToString() + " CHF");
-            ////    editor.InsertRun(" / " + Connexion.maBDD.Get<MethodePaiement>(item.ID_MethodePaiement).Libelle);
-            ////    editor.InsertLineBreak();
-            ////    editor.InsertParagraph();
-            ////}
-
-
-
-            //////Export en PDF
-            ////PdfFormatProvider provider = new PdfFormatProvider();
-            ////using (Stream output = File.OpenWrite(@"D:\Users\Kafe\Desktop\temp\Hello.pdf"))
-            ////{
-            ////    provider.Export(document, output);
-            ////}
-
+            //Print to PDF
+            reportProcessor.PrintReport(uriReportSource, printerSettings);
         }
 
 
@@ -1074,6 +927,17 @@ namespace Lime
                 //Ajout de la ligne à la liste de Lignes
                 Lignes.Add(ligne);
             }
+        }
+
+        private void btnApercu_Click(object sender, RoutedEventArgs e)
+        {
+            MakePDF();
+            System.Diagnostics.Process.Start("http://www.webpage.com"); //Si on met le PDF il va souvrir dans le navugateur par defaut
+        }
+
+        private void btnImprimer_Click(object sender, RoutedEventArgs e)
+        {
+            MakePDF();
         }
     }
 }

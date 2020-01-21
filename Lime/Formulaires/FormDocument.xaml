@@ -25,7 +25,7 @@
                 <telerik:RadRibbonGroup Header="Reglements">
                     <telerik:RadRibbonButton Name="btnReglements" Text="Règlements" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnReglements_Click" />
                     <telerik:RadRibbonButton>
-                        <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en..." Width="Auto" Size="Large" telerik:StyleManager.Theme="Office2016" Click="btnRegler_Click">
+                        <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en ... " telerik:StyleManager.Theme="VisualStudio2013"  Width="Auto" Size="Large"   Click="btnRegler_Click">
                             <telerik:RadDropDownButton.DropDownContent>
                                 <ListBox Name="ListboxMethodePaiement"  telerik:StyleManager.Theme="Crystal" SelectionChanged="ListboxMethodePaiement_SelectionChanged" >
                                 </ListBox>
@@ -34,8 +34,8 @@
                     </telerik:RadRibbonButton>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Envoi et Impression">
-                    <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" />
-                    <telerik:RadRibbonButton Name="btnImprimer" Text="Imprimer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/009-file.png" />
+                    <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" Click="btnApercu_Click" />
+                    <telerik:RadRibbonButton Name="btnImprimer" Text="Imprimer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/009-file.png" Click="btnImprimer_Click" />
                     <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" Click="btnPDF_Click" />
                     <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" />
                     <telerik:RadRibbonButton/>
@@ -335,8 +335,6 @@
 
                 </Grid>
             </telerik:RadTabItem>
-            <Button Content="Button" Height="100" Width="75"/>
-            <ComboBox Height="100" Width="120"/>
         </telerik:RadTabControl>
 
 
