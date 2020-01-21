@@ -30,7 +30,8 @@ namespace Lime
     public partial class FormChercherArticle
     {
         public Article article = new Article();
-        public IEnumerable<Article> ListeArticles;
+
+    public IEnumerable<Article> ListeArticles;
 
         //Constructeur pour Insert
         public FormChercherArticle()

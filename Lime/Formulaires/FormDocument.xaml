@@ -59,7 +59,7 @@
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
-                            <telerik:Label Content="{Binding document.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                            <telerik:Label Content="{Binding document.Numero}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
@@ -90,12 +90,14 @@
                         <DockPanel >
                             <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
                             <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                            <telerik:Label Content="{Binding priseEnCharge.}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
-                            <telerik:Label Content="{Binding priseEnCharge.}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                         <DockPanel >
                             <telerik:Label Content="Date échéance:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
                             <telerik:Label Content="{Binding priseEnCharge.DateEcheance}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <telerik:Label Content="Lieu actuel appareil:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:RadComboBox x:Name="ComboboxLieuActuelAppareil" SelectedValue="{Binding priseEnCharge.ID_LieuActuelAppareil}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal"/>
                         </DockPanel>
                     </StackPanel>
                 </telerik:RadRibbonGroup>

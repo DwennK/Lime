@@ -47,6 +47,7 @@ namespace Lime
         public Adresse adresse = new Adresse();
         public List<MethodePaiement>methodePaiement = Connexion.maBDD.GetAll<MethodePaiement>().ToList();
 
+
         public double TotalRemise;
         public double TotalHT;
         public double TotalTVA;
@@ -71,7 +72,7 @@ namespace Lime
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder auy sous-éléments en XAML avec par exemple Text = "{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
-                priseEnCharge,
+                this.priseEnCharge,
                 client,
                 Lignes,
                 typeDocument,
@@ -117,7 +118,7 @@ namespace Lime
             //On crée un DataContext qui contient nos variables. Comme ça, on peut accéder aux sous-géléments en XAML avec par exemple Text="{Binding priseEnCharge.nom}" ))  :)
             DataContext = new
             {
-                priseEnCharge,
+                this.priseEnCharge,
                 client,
                 Lignes,
                 typeDocument,
@@ -181,9 +182,24 @@ namespace Lime
 
             #endregion
 
+            #region Populate Combobox LieuActuelAppareil
+            //On récupère la liste des Lieus Actuels
+            var listLieuActuelAppareil = Connexion.maBDD.GetAll<LieuActuelAppareil>().ToList();
+
+            //Insertion de la liste dans le combobox correspondant.
+            ComboboxLieuActuelAppareil.ItemsSource = listLieuActuelAppareil;
+            ComboboxLieuActuelAppareil.DisplayMemberPath = "Libelle"; //Valeur à afficher
+            ComboboxLieuActuelAppareil.SelectedValuePath = "ID"; //Valeur à selectionner en faisant .SelectedItem
+
+            //On a la valeur stockée dans la prise en charge, on l'affecte donc au Combobox
+            ComboboxLieuActuelAppareil.SelectedIndex = priseEnCharge.ID_LieuActuelAppareil;
+
+            #endregion
+
+
 
             #region Cacher le bouton de transformation du même type de document que celui existant
-            switch(document.ID_TypeDocument)
+            switch (document.ID_TypeDocument)
             {
                 
                 case 1: //DEVIS
@@ -400,6 +416,9 @@ namespace Lime
                     Connexion.maBDD.Insert(item);
                 }
             }
+
+            //Update de la PriseEnCharge
+            Connexion.maBDD.Update(priseEnCharge);
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
