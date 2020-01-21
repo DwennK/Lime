@@ -25,7 +25,8 @@
                         Language="fr-CH"
 
                         ItemsSource="{Binding ListeArticles}" ShowSearchPanel="True" 
-
+                        CanUserDeleteRows="False" IsReadOnly="True"
+            
                     />
 
 

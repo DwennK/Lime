@@ -1059,7 +1059,7 @@ namespace Lime
 
             Article article = maFenetre.article;
 
-            if(article.Libelle != "")
+            if(article.Libelle != null)
             {
                 //On crée la ligne à partir de l'article
                 Documents_Lignes ligne = new Documents_Lignes();
