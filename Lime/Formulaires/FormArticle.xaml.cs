@@ -30,7 +30,7 @@ namespace Lime
     public partial class FormArticle
     {
         public Article article = new Article();
-        string Action;
+
 
         //Constructeur pour Insert
         public FormArticle(Article _article)
@@ -79,8 +79,6 @@ namespace Lime
                 else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
                 {
                     //Check si le code Article existe
-
-
 
                     //Insertion des la ligne dans la BDD.
                     Connexion.maBDD.Insert(article);

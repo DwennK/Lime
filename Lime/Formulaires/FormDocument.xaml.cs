@@ -167,7 +167,7 @@ namespace Lime
         public void Populate()
         {
             #region Titre de la fenêtre
-            this.Header = typeDocument.Libelle+" n° "+document.ID;
+            this.Header = typeDocument.Libelle+" n° "+document.Numero;
             #endregion
 
 

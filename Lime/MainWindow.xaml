@@ -8,7 +8,7 @@
         xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         xmlns:tr="http://schemas.telerik.com/wpf" x:Name="Lime" x:Class="Lime.MainWindow"
         mc:Ignorable="d"
-        Title="Lime - Acceuil" Height="850.714" Width="1633.118" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Images/Lime.ico">
+        Title="Lime - Acceuil" Height="850.714" Width="1633.118" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Images/lemon.png">
     <Grid>
         <Grid.Resources>
             <telerik:IconSources x:Key="IconSources" DarkBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/Dark/" LightBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/" ModernBasePath="pack://application:,,,/Telerik.Windows.Controls.RichTextBoxUI;component/Images/MSOffice/Modern/"/>
