@@ -450,12 +450,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
 
 
@@ -478,12 +473,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
 
 
@@ -500,12 +490,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
 
         }
@@ -540,12 +525,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
 
 
@@ -582,12 +562,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
 
         }
@@ -778,12 +753,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
         }
 
@@ -800,12 +770,7 @@ namespace Lime
             }
             else
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez chosir un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
         }
 
@@ -1090,7 +1055,25 @@ namespace Lime
         private void Chercher_Click(object sender, RoutedEventArgs e)
         {
             FormChercherArticle maFenetre = new FormChercherArticle();
-            maFenetre.ShowDialog();
+            var result = maFenetre.ShowDialog();
+
+            Article article = maFenetre.article;
+
+            if(article.Libelle != "")
+            {
+                //On crée la ligne à partir de l'article
+                Documents_Lignes ligne = new Documents_Lignes();
+                ligne.ID_Documents = document.ID;
+                ligne.Libelle = article.Libelle;
+                ligne.Ordre = Lignes.Count + 1;
+                ligne.PrixAchatUnite = article.PrixAchat;
+                ligne.PrixTTC = article.Prixvente;
+                ligne.Quantite = 1;
+                ligne.TauxTVA = Connexion.maBDD.Get<Parametre>(1).TauxTVAParDefaut;
+
+                //Ajout de la ligne à la liste de Lignes
+                Lignes.Add(ligne);
+            }
         }
     }
 }

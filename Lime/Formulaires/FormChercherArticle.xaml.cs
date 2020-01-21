@@ -30,8 +30,7 @@ namespace Lime
     public partial class FormChercherArticle
     {
         public Article article = new Article();
-
-    public IEnumerable<Article> ListeArticles;
+        public IEnumerable<Article> ListeArticles;
 
         //Constructeur pour Insert
         public FormChercherArticle()
@@ -48,16 +47,6 @@ namespace Lime
         }
 
 
-        private void btnValider_Click(object sender, RoutedEventArgs e)
-        {
-
-            //Récupération de l'article
-            this.article = (Article)radGridView.SelectedItem;
-
-            
-        }
-
-
         //Quand on presse Enter, cela appelle cette méthode, qui va ensuite presser le bouton de validation du formulaire.
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
@@ -67,6 +56,26 @@ namespace Lime
                 btnValider.Focus();
                 btnValider_Click(sender, e);
             }
+        }
+
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            if(radGridView.SelectedItem != null)
+            {
+                //Récupération de l'article
+                if (Connexion.CheckForInternetConnection())
+                {
+                    var temp = (Article)radGridView.SelectedItem;
+                    this.article = Connexion.maBDD.Get<Article>(temp.ID);
+                }
+
+                this.Close();
+            }
+            else //Si la sélection est vide
+            {
+                Alerte.SelectionVide();
+            }
+
         }
     }
 }

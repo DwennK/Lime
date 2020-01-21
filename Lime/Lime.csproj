@@ -494,6 +494,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Alerte.cs" />
     <Compile Include="Classes\Document.cs" />
     <Compile Include="Classes\MethodePaiement.cs" />
     <Compile Include="Classes\Reglement.cs" />
