@@ -840,7 +840,7 @@ namespace Lime
                 new Telerik.Reporting.UriReportSource();
 
             // Specifying an URL or a file path of the Report
-            uriReportSource.Uri = @"C:\Users\Dwenn\Desktop\Invoice.trdp";
+            uriReportSource.Uri = "Reports/Invoice.trdp";
 
             // Adding the initial parameter values
             uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
@@ -886,7 +886,7 @@ namespace Lime
                 new Telerik.Reporting.UriReportSource();
 
             // Specifying an URL or a file path of the Report
-            uriReportSource.Uri = @"C:\Users\Dwenn\Desktop\Invoice.trdp";
+            uriReportSource.Uri = "Reports/Invoice.trdp";
 
             // Adding the initial parameter values
             uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
