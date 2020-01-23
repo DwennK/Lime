@@ -924,12 +924,14 @@ namespace Lime
                 ligne.Libelle = article.Libelle;
                 ligne.Ordre = Lignes.Count + 1;
                 ligne.PrixAchatUnite = article.PrixAchat;
+                ligne.PrixUniteTTC = article.Prixvente;
                 ligne.PrixTTC = article.Prixvente;
                 ligne.Quantite = 1;
                 ligne.TauxTVA = Connexion.maBDD.Get<Parametre>(1).TauxTVAParDefaut;
 
                 //Ajout de la ligne à la liste de Lignes
                 Lignes.Add(ligne);
+                CalculerTotaux();
             }
         }
 
