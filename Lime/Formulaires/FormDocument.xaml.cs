@@ -355,6 +355,8 @@ namespace Lime
 
         private void ValiderDocument()
         {
+            radGridView.CommitEdit();
+
             int numeroActuel = 0;
             if (this.action == "Insert")
             {

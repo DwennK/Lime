@@ -205,7 +205,7 @@ namespace Lime
             //Conversion de la réponse en JSON
             string maRep_JSON = reader.ReadToEnd();
 
-            //Désérialization de l'object en Dynmic
+            //Désérialization de l'object en Dynamic
             dynamic parsedObject = JsonConvert.DeserializeObject(maRep_JSON);
 
             //On crée la liste dans laquelle on va mettre tout les resultats
