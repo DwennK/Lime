@@ -26,7 +26,7 @@
 
         <telerik:RadRibbonView 
                        ApplicationName="RadRibbonView" 
-                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Office2016" IsMinimizable="False" Grid.ColumnSpan="2">
+                       Title="Document 1" TitleBarVisibility="Collapsed" telerik:StyleManager.Theme="Crystal" IsMinimizable="False" Grid.ColumnSpan="2" Margin="5">
             <telerik:RadRibbonView.QuickAccessToolBar>
                 <telerik:QuickAccessToolBar>
                     <telerik:RadRibbonButton SmallImage="images/icons/add.png" telerik:RadToolTipService.ToolTipContent="Save"/>
@@ -141,7 +141,7 @@
 
 
         </telerik:RadRibbonView>
-        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1" AddButtonVisibility="Hidden" Header="Lime" Left="50" Top="50" Margin="0,127,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder" PreviewTabClosed="RadTabbedWindow1_PreviewTabClosed" Grid.ColumnSpan="2" 
+        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1" AddButtonVisibility="Hidden" Header="Lime" Left="50" Top="50" Margin="0,148,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder" PreviewTabClosed="RadTabbedWindow1_PreviewTabClosed" 
                                  >
             <telerik:RadTabItem Header="Accueil"  x:Name="RadTabAcceuil" CloseButtonVisibility="Hidden" >
                 <Grid Margin="10">

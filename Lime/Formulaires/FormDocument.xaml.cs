@@ -416,6 +416,8 @@ namespace Lime
 
             //Update de la PriseEnCharge
             Connexion.maBDD.Update(priseEnCharge);
+            //Update du Document
+            Connexion.maBDD.Update(document);
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
