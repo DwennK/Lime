@@ -51,7 +51,11 @@
                     </telerik:RadRibbonBackstageItem>
                 </telerik:RadRibbonBackstage>
             </telerik:RadRibbonView.Backstage>
-            <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" MouseLeftButtonUp="tabAccueil_MouseLeftButtonUp"/>
+            <telerik:RadRibbonTab x:Name="tabAccueil" Header="Accueil" MouseLeftButtonUp="tabAccueil_MouseLeftButtonUp">
+                <telerik:RadRibbonGroup Header="Déconnexion">
+                    <telerik:RadRibbonButton x:Name="btnDeconnexionAccueil" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnDeconnexion_Click"   />
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonDown="tabClients_MouseLeftButtonUp" MouseLeftButtonUp="tabClients_MouseLeftButtonUp">
                 <telerik:RadRibbonGroup Header="Gestion">
                     <telerik:RadRibbonButton x:Name="CréerClient" Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="AjoutClient_Click" />
