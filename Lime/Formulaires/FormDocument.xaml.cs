@@ -28,6 +28,7 @@ using Table = Telerik.Windows.Documents.Fixed.Model.Editing.Tables.Table;
 using Border = Telerik.Windows.Documents.Fixed.Model.Editing.Border;
 using Telerik.Windows.Documents.Fixed.Model.ColorSpaces;
 using Telerik.Windows.Documents.Fixed.Model.Editing.Tables;
+using System.Threading.Tasks;
 
 namespace Lime
 {
@@ -824,49 +825,11 @@ namespace Lime
         }
 
 
-        private void MakePDF()
+        private string MakePDF()
         {
-            // Obtain the settings of the default printer
-            System.Drawing.Printing.PrinterSettings printerSettings
-                = new System.Drawing.Printing.PrinterSettings();
-
-            // The standard print controller comes with no UI
-            System.Drawing.Printing.PrintController standardPrintController =
-                new System.Drawing.Printing.StandardPrintController();
-
-            // Print the report using the custom print controller
-            Telerik.Reporting.Processing.ReportProcessor reportProcessor
-                = new Telerik.Reporting.Processing.ReportProcessor();
-
-            //reportProcessor.PrintController = standardPrintController;
-
-            Telerik.Reporting.UriReportSource uriReportSource =
-                new Telerik.Reporting.UriReportSource();
-
-            // Specifying an URL or a file path of the Report
-            uriReportSource.Uri = "Reports/Invoice.trdp";
-
-            // Adding the initial parameter values
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDTypeDocument", document.ID_TypeDocument));
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("IDPriseEnCharge", priseEnCharge.ID));
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("TotalRegle", TotalRegle));
-            uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NetAPayer", NetAPayer));
-
-
-            //Print to PDF
-            reportProcessor.PrintReport(uriReportSource, printerSettings);
-
-        }
-
-        private void btnPDF_Click(object sender, RoutedEventArgs e)
-        {
-            //On valide le document
-            btnValider_Click(sender, e);
-            //Céraiton du PDF et on récupère le chemin
-            //MakePDF();
-
-            string chemin = Properties.Settings.Default.EmplacementParDefaultDocuments + "\\" + document.Numero.ToString();
+            string chemin = Properties.Settings.Default.EmplacementParDefaultDocuments + "\\";
+            string nomFichier = Connexion.maBDD.Get<TypeDocuments>(document.ID_TypeDocument).Prefixe + "-"+  document.Numero.ToString() + "     "  + DateTime.Now.Date.Year.ToString() + "." + DateTime.Now.Date.Month.ToString() + "." + DateTime.Now.Date.Day.ToString() + " (" + DateTime.Now.Millisecond.ToString() + ")";
+            string extension = ".pdf";
 
             // Obtain the settings of the default printer
             System.Drawing.Printing.PrinterSettings printerSettings
@@ -874,7 +837,7 @@ namespace Lime
                 {
                     PrinterName = "Microsoft Print to PDF",
                     PrintToFile = true,
-                    PrintFileName = chemin+".pdf"
+                    PrintFileName = chemin + nomFichier + extension
                 };
 
             // The standard print controller comes with no UI
@@ -903,6 +866,19 @@ namespace Lime
 
             //Print to PDF
             reportProcessor.PrintReport(uriReportSource, printerSettings);
+
+            //Retour du nom du fichier (Concaténé)
+            return chemin + nomFichier + extension;
+        }
+
+        private void btnPDF_Click(object sender, RoutedEventArgs e)
+        {
+            //On valide le document
+            btnValider_Click(sender, e);
+
+            //Creaton du PDF et on récupère le chemin
+            MakePDF();
+
         }
 
 
@@ -938,13 +914,36 @@ namespace Lime
 
         private void btnApercu_Click(object sender, RoutedEventArgs e)
         {
-            MakePDF();
-            System.Diagnostics.Process.Start("http://www.webpage.com"); //Si on met le PDF il va souvrir dans le navugateur par defaut
+            string chemin = MakePDF();
+
+
+            //Attends que le fichier soit prêt.
+            while (!IsFileReady(chemin)) {
+                
+            }
+            System.Diagnostics.Process.Start(chemin);
+                                          
         }
 
         private void btnImprimer_Click(object sender, RoutedEventArgs e)
         {
             MakePDF();
+        }
+
+
+        public static bool IsFileReady(string filename)
+        {
+            // If the file can be opened for exclusive access it means that the file
+            // is no longer locked by another process.
+            try
+            {
+                using (FileStream inputStream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.None))
+                    return inputStream.Length > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
