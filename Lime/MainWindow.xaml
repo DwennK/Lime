@@ -18,9 +18,9 @@
 
 
         <DockPanel Height="29" LastChildFill="False" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-            <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-0.143,0">
+            <StatusBar Height="30" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,-0.143,0" telerik:StyleManager.Theme="Crystal">
                 <Label x:Name="lblStatusConnexion" Content="Server: "/>
-                <Label x:Name="lblDatabase" Content="Database: "/>
+                <Label x:Name="lblDatabase" Content="Database:"/>
             </StatusBar>
         </DockPanel>
 
@@ -81,14 +81,14 @@
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabDevis" Header="Devis" MouseLeftButtonUp="tabDevis_MouseLeftButtonUp" >
                 <telerik:RadRibbonGroup Header="Gestion">
-                    <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="" IsEnabled="False"/>
+                    <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png"  IsEnabled="False"/>
                     <telerik:RadRibbonButton Name="Devis_Modifier" Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Name="Devis_Supprimer" Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabDevisAssurance" Header="Constat Assurance" MouseLeftButtonUp="tabDevisAssurance_MouseLeftButtonUp" >
                 <telerik:RadRibbonGroup Header="Gestion">
-                    <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png" Click="" IsEnabled="False"/>
+                    <telerik:RadRibbonButton Text="Créer" Size="Large"   LargeImage="Images/Icons/add.png"  IsEnabled="False"/>
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
                 </telerik:RadRibbonGroup>
@@ -145,8 +145,7 @@
 
 
         </telerik:RadRibbonView>
-        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1" AddButtonVisibility="Hidden" Header="Lime" Left="50" Top="50" Margin="0,148,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False" ResizeMode="CanMinimize" CanMove="False" DragDropMode="Reorder" PreviewTabClosed="RadTabbedWindow1_PreviewTabClosed" 
-                                 >
+        <telerik:RadTabbedWindow x:Name="RadTabbedWindow1" AddButtonVisibility="Hidden" Header="Lime" Left="50" Top="50" Margin="0,148,0,29" telerik:StyleManager.Theme="Crystal" CanClose="False"  CanMove="False" DragDropMode="Reorder" PreviewTabClosed="RadTabbedWindow1_PreviewTabClosed" ResizeMode="CanMinimize">
             <telerik:RadTabItem Header="Accueil"  x:Name="RadTabAcceuil" CloseButtonVisibility="Hidden" >
                 <Grid Margin="10">
                     <StackPanel>

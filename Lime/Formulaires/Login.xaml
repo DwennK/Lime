@@ -10,7 +10,7 @@
         Header="Login" Height="300" Width="531" telerik:StyleManager.Theme="Crystal" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler">
     <Grid>
         <StackPanel VerticalAlignment="Top" Margin="5,5,5,5" Height="150" Width="auto" HorizontalAlignment="Center">
-            <Image HorizontalAlignment="Left"  Width="145" Margin="0,0,0,0" VerticalAlignment="Top" Source="Images/lemon.png" />
+            <Image HorizontalAlignment="Left"  Width="145" Margin="0,0,0,0" VerticalAlignment="Top" Source="/Images/lemon.png" />
         </StackPanel>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="32,140,29,34" Width="auto">
             <Label Content="Dans quel Magasin êtes vous ?" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5,5,5,5" />

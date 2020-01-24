@@ -61,6 +61,7 @@ namespace Lime
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
 
+
             this.Close();
         }
 
