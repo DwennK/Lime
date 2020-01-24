@@ -68,7 +68,7 @@
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Documents liés">
                     <telerik:RadRibbonButton x:Name="btnDevis" Text="Devis" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/048-file.png" Click="btnDevis_Click" />
-                    <telerik:RadRibbonButton x:Name="btnDevisAssurance" Text="Devis Assurance" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/049-file.png" Click="btnDevisAssurance_Click" />
+                    <telerik:RadRibbonButton x:Name="btnDevisAssurance" Text="Constat Assurance" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/049-file.png" Click="btnDevisAssurance_Click" />
                     <telerik:RadRibbonButton x:Name="btnCommandePieces" Text="Commande Pièce" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/041-file.png" Click="btnCommandePieces_Click" />
                     <telerik:RadRibbonButton x:Name="btnReparation" Text="Réparation" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/043-file.png" Click="btnReparation_Click" />
                     <telerik:RadRibbonButton x:Name="btnFacture" Text="Facture" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnFacture_Click" />

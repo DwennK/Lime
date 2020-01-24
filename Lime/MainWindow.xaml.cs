@@ -238,7 +238,7 @@ namespace Lime
                 int ID_TypeDocuments = 1; //Représente le numéro de ce Type de Document dans la BDD
                 Document document = GetDocument(ID_TypeDocuments);
 
-
+                //Récupération de la prise en charge
                 PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
 
 
@@ -258,41 +258,169 @@ namespace Lime
             }
             else 
             {
-                RadWindow.Alert(new DialogParameters
-                {
-                    Header = "Attention",
-                    Content = "Veuillez sélectionner un élément dans la liste.",
-                    Theme = new CrystalTheme()
-                });
+                Alerte.SelectionVide();
             }
-            
-
         }
 
 
         private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
         {
+            if (RadGridView1.SelectedItem != null)
+            {
+                //CONSTAT ASSURANCE
+                int ID_TypeDocuments = 2; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
 
+                //Récupération de la prise en charge
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                Alerte.SelectionVide();
+            }
         }
 
         private void btnCommandePieces_Click(object sender, RoutedEventArgs e)
         {
+            if (RadGridView1.SelectedItem != null)
+            {
+                //COMMANDE PIECE
+                int ID_TypeDocuments = 3; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
 
+                //Récupération de la prise en charge
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                Alerte.SelectionVide();
+            }
         }
 
         private void btnReparation_Click(object sender, RoutedEventArgs e)
         {
+            if (RadGridView1.SelectedItem != null)
+            {
+                //Reparation
+                int ID_TypeDocuments = 4; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
 
+                //Récupération de la prise en charge
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                Alerte.SelectionVide();
+            }
         }
 
         private void btnFacture_Click(object sender, RoutedEventArgs e)
         {
+            if (RadGridView1.SelectedItem != null)
+            {
+                //Facture
+                int ID_TypeDocuments = 5; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
 
+                //Récupération de la prise en charge
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                Alerte.SelectionVide();
+            }
         }
 
         private void btnSAV_Click(object sender, RoutedEventArgs e)
         {
+            if (RadGridView1.SelectedItem != null)
+            {
+                //SAV
+                int ID_TypeDocuments = 6; //Représente le numéro de ce Type de Document dans la BDD
+                Document document = GetDocument(ID_TypeDocuments);
 
+                //Récupération de la prise en charge
+                PriseEnCharge priseEnCharge = (PriseEnCharge)RadGridView1.SelectedItem;
+
+
+                if (document != null)//Si le document existe déjà.
+                {
+                    //UPDATE
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, document);
+                    maFenetre.Show();
+                }
+                else //Si le document n'existe pas encore.
+                {
+                    //INSERT
+                    ObservableCollection<Documents_Lignes> Lignes = new ObservableCollection<Documents_Lignes>(); //Vide.
+                    FormDocument maFenetre = new FormDocument(priseEnCharge, ID_TypeDocuments, Lignes);
+                    maFenetre.Show();
+                }
+            }
+            else
+            {
+                Alerte.SelectionVide();
+            }
         }
 
         private Document GetDocument(int NumeroDuTypeDocumentDansLaBDD) //Cette fonction retourne un Document (si existant), lié à une prise en charge.
