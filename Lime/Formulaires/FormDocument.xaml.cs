@@ -866,6 +866,7 @@ namespace Lime
             //Céraiton du PDF et on récupère le chemin
             //MakePDF();
 
+            string chemin = Properties.Settings.Default.EmplacementParDefaultDocuments + "\\" + document.Numero.ToString();
 
             // Obtain the settings of the default printer
             System.Drawing.Printing.PrinterSettings printerSettings
@@ -873,7 +874,7 @@ namespace Lime
                 {
                     PrinterName = "Microsoft Print to PDF",
                     PrintToFile = true,
-                    PrintFileName = @"test.pdf"
+                    PrintFileName = chemin+".pdf"
                 };
 
             // The standard print controller comes with no UI

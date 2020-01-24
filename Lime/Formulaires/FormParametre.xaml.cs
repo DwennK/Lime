@@ -50,6 +50,8 @@ namespace Lime
                 this.TauxTVAParDefaut.Value = TauxTVA;
             }
 
+            //emplacement de sauvegarde des documents
+            EmplacementSauvegardeDocuments.FilePath = Properties.Settings.Default.EmplacementParDefaultDocuments;
 
         }
 
@@ -69,6 +71,12 @@ namespace Lime
                 string SQL = "UPDATE Parametres SET TauxTVAParDefaut=@NewtauxTVA WHERE ID=@ID";
                 Connexion.maBDD.Query(SQL, new { NewtauxTVA=this.TauxTVAParDefaut.Value, ID = 1 });
             }
+
+
+            //Sauvegarde de l'emplacement de sauvegarde des documents dans les paramètres
+            Properties.Settings.Default.EmplacementParDefaultDocuments = EmplacementSauvegardeDocuments.FilePath;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
 
             this.Close();
         }

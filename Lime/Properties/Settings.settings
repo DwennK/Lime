@@ -48,5 +48,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp</Value>
     </Setting>
+    <Setting Name="EmplacementParDefaultDocuments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:/temp/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

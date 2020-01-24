@@ -98,5 +98,17 @@ namespace Lime.Properties {
                 return ((string)(this["ConnexionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:/temp/")]
+        public string EmplacementParDefaultDocuments {
+            get {
+                return ((string)(this["EmplacementParDefaultDocuments"]));
+            }
+            set {
+                this["EmplacementParDefaultDocuments"] = value;
+            }
+        }
     }
 }

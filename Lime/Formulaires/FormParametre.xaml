@@ -14,12 +14,12 @@
                 <telerik:RadNumericUpDown x:Name="Limite"  Height="22" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="50"  Minimum="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200"   />
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Taux de TVA par défaut pour les articles" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <Label Content="Taux de TVA par défaut pour les articles :" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
                 <telerik:RadNumericUpDown x:Name="TauxTVAParDefaut"  Height="22" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" NumberDecimalDigits="1" NumberDecimalSeparator=","   />
             </DockPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label  Content="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadNumericUpDown   Height="22" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200"   />
+                <Label  Content="Chemin dans quel emplacement sauver les documents :" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <telerik:RadFilePathPicker x:Name="EmplacementSauvegardeDocuments" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="198" DialogType="OpenFolder"/>
             </DockPanel>
 
         </StackPanel>
