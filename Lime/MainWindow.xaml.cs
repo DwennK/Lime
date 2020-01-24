@@ -82,8 +82,7 @@ namespace Lime
             //Nombre de factures crées aujourd'hui
             if (Connexion.CheckForInternetConnection())
             {
-                var temp = Connexion.maBDD.GetAll<Document>().Where(x => x.DateCreation.Date == DateTime.Today.Date).Where(x => x.ID_TypeDocument == 5);
-                this.lblNombreDeFactureAujourdhui.Text = temp.ToString();
+                this.lblNombreDeFactureAujourdhui.Text = Connexion.maBDD.GetAll<Document>().Where(x => x.DateCreation.Date == DateTime.Today.Date).Where(x => x.ID_TypeDocument == 5).Count<Document>().ToString();
             }
         }
       
