@@ -470,22 +470,22 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Telerik.Reporting, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.Reporting.XpsRendering, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.WinForms, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.Wpf, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.Wpf.Themes, Version=13.2.19.1030, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.Wpf.Themes, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
   </ItemGroup>
@@ -517,9 +517,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Formulaires\btnValider.xaml.cs">
-      <DependentUpon>btnValider.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Formulaires\FormChercherArticle.xaml.cs">
       <DependentUpon>FormChercherArticle.xaml</DependentUpon>
     </Compile>
@@ -534,9 +531,6 @@
     </Compile>
     <Compile Include="Formulaires\FormPriseEnCharge.xaml.cs">
       <DependentUpon>FormPriseEnCharge.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Formulaires\RadDataFormClient.xaml.cs">
-      <DependentUpon>RadDataFormClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\TypeDocuments.cs" />
     <Compile Include="Formulaires\FormDocument.xaml.cs">
@@ -557,10 +551,6 @@
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="RowReorderBehavior.cs" />
-    <Page Include="Formulaires\btnValider.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Formulaires\FormChercherArticle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -574,10 +564,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Formulaires\FormPriseEnCharge.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Formulaires\RadDataFormClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

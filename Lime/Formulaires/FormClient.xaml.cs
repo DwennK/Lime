@@ -223,6 +223,18 @@ namespace Lime
             return NomVilles;
         }
 
+        //Quand on presse Enter, cela appelle cette méthode, qui va ensuite presser le bouton de validation du formulaire.
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                //On doit focus autre chose que le nom, comme ça les Bindings modifient correctement le client (Quand on leave le focus c'est là que l'objet se modifie)
+                btnValider.Focus();
+                btnValider_Click(sender, e);
+            }
+        }
+
+
         private void tbxNPA_TextChanged(object sender, TextChangedEventArgs e)
         {
             //On vide le contenu des propositions de Combobox, au cas ou il y en avait deja.
@@ -251,20 +263,9 @@ namespace Lime
 
                     tbxVille.IsDropDownOpen = true;
                 }
-                
+
             }
 
-        }
-
-        //Quand on presse Enter, cela appelle cette méthode, qui va ensuite presser le bouton de validation du formulaire.
-        private void OnKeyDownHandler(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                //On doit focus autre chose que le nom, comme ça les Bindings modifient correctement le client (Quand on leave le focus c'est là que l'objet se modifie)
-                btnValider.Focus();
-                btnValider_Click(sender, e);
-            }
         }
     }
 }

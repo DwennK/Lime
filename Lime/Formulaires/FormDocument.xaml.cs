@@ -299,7 +299,7 @@ namespace Lime
 
                     //TotalRemise
                     if (item.TauxRemise > 0)
-                        TotalRemise += (item.PrixTTC * item.TauxRemise) / 100;
+                        TotalRemise += TotalRemiseItem;
                     else
                         TotalRemise += 0;
 

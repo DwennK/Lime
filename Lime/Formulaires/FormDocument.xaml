@@ -110,7 +110,7 @@
             <telerik:GroupBox Header="Total Remise"  Height="50"  Width="130" Margin="1">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding TotalRemise, Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
+                        <TextBox Text="{Binding TotalRemise,Mode=OneWay, StringFormat={}{0:C}}" telerik:StyleManager.Theme="Crystal" FontWeight="Bold" IsReadOnly="True" Language="fr-CH"></TextBox>
                     </StackPanel>
                 </Grid>
             </telerik:GroupBox>
