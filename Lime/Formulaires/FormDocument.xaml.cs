@@ -366,7 +366,7 @@ namespace Lime
                 numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
                 numeroActuel += 1;
                 document.Numero = numeroActuel;
-                Connexion.maBDD.Insert(document);
+
             }
 
 
@@ -410,7 +410,7 @@ namespace Lime
                 }
                 else //La Ligne n'existe pas dans la BDD, il faut donc l'insérer.
                 {
-                    //Insertion des la ligne dans la BDD.
+                    //Insertion des lignes dans la BDD.
                     Connexion.maBDD.Insert(item);
                 }
             }
@@ -827,6 +827,8 @@ namespace Lime
 
         private string MakePDF()
         {
+            ValiderDocument();
+
             string chemin = Properties.Settings.Default.EmplacementParDefaultDocuments + "\\";
             string nomFichier = Connexion.maBDD.Get<TypeDocuments>(document.ID_TypeDocument).Prefixe + "-"+  document.Numero.ToString() + "     "  + DateTime.Now.Date.Year.ToString() + "." + DateTime.Now.Date.Month.ToString() + "." + DateTime.Now.Date.Day.ToString() + " (" + DateTime.Now.Millisecond.ToString() + ")";
             string extension = ".pdf";
