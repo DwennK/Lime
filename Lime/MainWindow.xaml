@@ -190,9 +190,9 @@
                     <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="0,1">
                         <wpf:ChromiumWebBrowser x:Name="Browser" Address="https://messages.google.com/web/authentication"/>
                     </Border>
-
                 </Grid>
             </telerik:RadTabItem>
+            
 
         </telerik:RadTabbedWindow>
         <Image Source="Images/lemon.png" Height="600" Panel.ZIndex="-999" Grid.ColumnSpan="2" Margin="0,110" />

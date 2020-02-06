@@ -26,6 +26,7 @@ namespace Lime
         [Display(Name = "Code Article")]
         public string CodeArticle { get; set; }
         [Display(Name = "Libellé")]
+        [DataType(DataType.MultilineText)]
         public string Libelle { get; set; }
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple. [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int Ordre { get; set; }

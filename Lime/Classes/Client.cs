@@ -27,7 +27,9 @@ namespace Lime
         public int? ID_Adresse { get; set; }
         public string Nom { get; set; }
         [Display(Name = "Téléphone 1")]
+        [DataType(DataType.PhoneNumber)]
         public string Telephone1 { get; set; }
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Téléphone 2")]
         public string Telephone2 { get; set; }
         [Display(Name = "E-mail 1")]

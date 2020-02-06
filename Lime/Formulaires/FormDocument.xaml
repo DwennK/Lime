@@ -252,7 +252,7 @@
                         </telerik:RadButton>
                     </StackPanel>
                     <telerik:RadGridView   
-                        AutoGenerateColumns="True" 
+                        AutoGenerateColumns="False" 
                         Margin="60,10,0,0" 
                         x:Name="radGridViewReglements" 
                         AllowDrop="True" 
@@ -267,27 +267,28 @@
                     >
 
                         <telerik:RadGridView.Columns>
+
+                            <telerik:GridViewDataColumn UniqueName="ID" Header="ID" DataMemberBinding="{Binding ID}" IsVisible="False"/>
+                            <telerik:GridViewDataColumn UniqueName="ID_PriseEnCharges" Header="ID" DataMemberBinding="{Binding ID_PriseEnCharges}" IsVisible="False"/>
+
+                            <telerik:GridViewDataColumn UniqueName="Montant" Header="Montant" DataMemberBinding="{Binding Montant}" />
                             <telerik:GridViewComboBoxColumn 
-                                    Header="Methode de Paiement (XAML)" 
+                                    Header="Methode de Paiement" 
                                     ItemsSource="{Binding methodePaiement}" 
                                     SelectedValueMemberPath="ID" 
                                     DisplayMemberPath="Libelle" 
-                                    Width="300" 
                                     DataMemberBinding="{Binding ID_MethodePaiement}"
                                     >
                                 <telerik:GridViewComboBoxColumn.ItemTemplate>
                                     <DataTemplate>
                                         <Grid >
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition />
-                                                <ColumnDefinition Width="200"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="{Binding ID}"></TextBlock>
-                                            <TextBlock Text="{Binding Libelle}"  Grid.Column="1"></TextBlock>
+                                            <TextBlock Text="{Binding Libelle}"></TextBlock>
                                         </Grid>
                                     </DataTemplate>
                                 </telerik:GridViewComboBoxColumn.ItemTemplate>
                             </telerik:GridViewComboBoxColumn>
+
+                            <telerik:GridViewDataColumn UniqueName="Date" Header="Date" DataMemberBinding="{Binding Date}" />
                         </telerik:RadGridView.Columns>
 
 
