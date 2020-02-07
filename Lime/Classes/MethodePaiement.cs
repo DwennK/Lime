@@ -16,10 +16,8 @@ namespace Lime
     [Serializable]
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
     [Table("MethodePaiements")]
-    public class MethodePaiement : INotifyPropertyChanged
+    public class MethodePaiement
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
 
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.

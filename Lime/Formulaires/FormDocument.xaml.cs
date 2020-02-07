@@ -623,8 +623,11 @@ namespace Lime
 
             private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
             {
+                //On Clôture le document
+                document.Closed = true;
                 //On valide ce document
                 btnValider_Click(sender, e);
+
 
 
                 //Copie des Lignes dans une Liste temporaire
@@ -645,6 +648,8 @@ namespace Lime
 
             private void btnCommandePieces_Click(object sender, RoutedEventArgs e)
             {
+                //On Clôture le document
+                document.Closed = true;
                 //On valide ce document
                 btnValider_Click(sender, e);
 
@@ -667,12 +672,14 @@ namespace Lime
 
             private void btnReparation_Click(object sender, RoutedEventArgs e)
             {
+                //On Clôture le document
+                document.Closed = true;
                 //On valide ce document
                 btnValider_Click(sender, e);
 
 
-                //Copie des Lignes dans une Liste temporaire
-                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+            //Copie des Lignes dans une Liste temporaire
+            ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
                 foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
                 {
                     item.ID = 0;
@@ -689,12 +696,14 @@ namespace Lime
 
             private void btnFacture_Click(object sender, RoutedEventArgs e)
             {
+                //On Clôture le document
+                document.Closed = true;
                 //On valide ce document
                 btnValider_Click(sender, e);
 
 
-                //Copie des Lignes dans une Liste temporaire
-                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+            //Copie des Lignes dans une Liste temporaire
+            ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
                 foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
                 {
                     item.ID = 0;
@@ -711,12 +720,14 @@ namespace Lime
 
             private void btnSAV_Click(object sender, RoutedEventArgs e)
             {
+                //On Clôture le document
+                document.Closed = true;
                 //On valide ce document
                 btnValider_Click(sender, e);
 
 
-                //Copie des Lignes dans une Liste temporaire
-                ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
+            //Copie des Lignes dans une Liste temporaire
+            ObservableCollection<Documents_Lignes> LignesPourLeNouveauDocument = new ObservableCollection<Documents_Lignes>();
                 foreach (var item in Lignes) //Rempli la Nouvelle liste depuis celle actuelle (appartenant à ce document)
                 {
                     item.ID = 0;

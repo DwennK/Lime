@@ -17,11 +17,8 @@ namespace Lime
     [Serializable]
     //Spécifie le nom de la table à Utiliser pour Dapper Contrib (Obligatoire)
     [Dapper.Contrib.Extensions.Table("Reglements")]
-    public class Reglement : INotifyPropertyChanged
+    public class Reglement
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
         [Computed]
         [Browsable(false)] //Permet de ne pas afficher la colonne dans les DataGrid par exemple.
         public int ID { get; set; }
