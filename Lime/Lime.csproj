@@ -505,14 +505,6 @@
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Formulaires\FormChercherArticle.xaml.cs">
       <DependentUpon>FormChercherArticle.xaml</DependentUpon>
     </Compile>
@@ -532,12 +524,14 @@
     <Compile Include="Formulaires\FormDocument.xaml.cs">
       <DependentUpon>FormDocument.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DropIndicationDetails.cs" />
     <Compile Include="GridViews\GridViewClients.xaml.cs">
       <DependentUpon>GridViewClients.xaml</DependentUpon>
     </Compile>
     <Compile Include="Formulaires\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadSplashScreen1.xaml.cs">
+      <DependentUpon>RadSplashScreen1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs" />
     <Compile Include="ReportViewerForm1.cs">
@@ -546,7 +540,6 @@
     <Compile Include="ReportViewerForm1.Designer.cs">
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="RowReorderBehavior.cs" />
     <Page Include="Formulaires\FormChercherArticle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -591,6 +584,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="RadSplashScreen1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -614,30 +611,7 @@
     <EmbeddedResource Include="ReportViewerForm1.resx">
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\AjoutArticles.datasource" />
-    <None Include="Properties\DataSources\AjoutClient.datasource" />
-    <None Include="Properties\DataSources\App.datasource" />
-    <None Include="Properties\DataSources\Article.datasource" />
-    <None Include="Properties\DataSources\Client.datasource" />
-    <None Include="Properties\DataSources\Connexion.datasource" />
-    <None Include="Properties\DataSources\Lime.Properties.Resources.datasource" />
-    <None Include="Properties\DataSources\Lime.Properties.Settings.datasource" />
-    <None Include="Properties\DataSources\MainWindow.datasource" />
-    <None Include="Properties\DataSources\NEWInsertionClient.datasource" />
-    <None Include="Properties\DataSources\RadDataFormClient.datasource" />
-    <None Include="Properties\DataSources\TypeDocuments.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -653,6 +627,9 @@
     <Resource Include="Images\lime %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Splash.png" />
+    <Resource Include="lemon.png" />
+    <Resource Include="SplashScreenIcon.png" />
     <Resource Include="Images\settings.png" />
     <Resource Include="Images\Lime.ico" />
     <Resource Include="Images\lemon %281%29.png" />
@@ -719,6 +696,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\Icons\document-pack\512x512\" />
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReportLibrary\ReportLibrary.csproj">
