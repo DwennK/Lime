@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Telerik.Windows.Controls;
 using Dapper;
 using Dapper.Contrib;
 using Dapper.Contrib.Extensions;
@@ -21,6 +20,7 @@ using System.Runtime.Serialization.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Telerik.Windows.Controls;
 
 namespace Lime
 {
@@ -30,8 +30,6 @@ namespace Lime
     public partial class FormParametre
     {
         public Client client = new Client();
-        string Action;
-
 
         public FormParametre()
         {
@@ -87,7 +85,7 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (false)
+            if (isValidData == false)
             {
                 messageErreur += "Veuillez rentrer le nom du client.\n";
             }
