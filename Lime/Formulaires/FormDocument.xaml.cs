@@ -92,7 +92,6 @@ namespace Lime
             document.ID_TypeDocument = ID_TypeDocuments;
 
             //Permet de Reorder les lignes //
-            RowReorderBehavior.SetIsEnabled(this.radGridView, true);
             SetDataContext();
             CalculerTotaux();
             Populate();
@@ -135,8 +134,6 @@ namespace Lime
             };
 
 
-            //Permet de Reorder les lignes //
-            RowReorderBehavior.SetIsEnabled(this.radGridView, true);
             SetDataContext();
             CalculerTotaux();
             Populate();
@@ -359,6 +356,7 @@ namespace Lime
             radGridView.CommitEdit();
             radGridViewReglements.CommitEdit();
 
+
             int numeroActuel = 0;
             if (this.action == "Insert")
             {
@@ -367,8 +365,26 @@ namespace Lime
                 numeroActuel = Connexion.maBDD.ExecuteScalar<int>(SQL, new { ID_TypeDocument = document.ID_TypeDocument });
                 numeroActuel += 1;
                 document.Numero = numeroActuel;
-
             }
+
+
+            //On fait un UPSERT sur le document (Update or Insert)
+                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents WHERE ID=@ID", new { ID =document.ID});
+                if (exists)
+                {
+                    //Insertion dans la BDD.
+                    Connexion.maBDD.Update(document);
+                }
+                else //n'existe pas dans la BDD, il faut donc l'insérer.
+                {
+                    //Insertion dans la BDD.
+                    Connexion.maBDD.Insert(document);
+                }
+
+
+
+
+
 
 
             // INSERTION OU UPDATE DES LIGNES ARTICLES
@@ -381,7 +397,7 @@ namespace Lime
 
 
                 //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
-                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
+                exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Documents_Lignes WHERE ID=@ID", new { item.ID });
 
                 if (exists)
                 {
@@ -402,7 +418,7 @@ namespace Lime
                 item.ID_PriseEnCharges = priseEnCharge.ID;
 
                 //On check si la ligne existe. Si elle existe on la met à jour, autrement on l'insert.
-                var exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Reglements WHERE ID=@ID", new { item.ID });
+                exists = Connexion.maBDD.ExecuteScalar<bool>("SELECT COUNT(1) FROM Reglements WHERE ID=@ID", new { item.ID });
 
                 if (exists)
                 {
@@ -585,11 +601,6 @@ namespace Lime
             this.Close();
         }
 
-        private void btnRegler_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ListboxMethodePaiement_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //On déclare un item qui représente celui que l'utilisateur a cliqué
@@ -749,11 +760,6 @@ namespace Lime
         {
             //Sélection du tabItem contenant les reglements.
             tabControl1.SelectedIndex = 1;
-
-        }
-
-        private void InsertReglement_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 

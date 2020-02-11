@@ -24,7 +24,7 @@
                 <telerik:RadRibbonGroup Header="Règlements">
                     <telerik:RadRibbonButton Name="btnReglements" Text="Règlements" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnReglements_Click" />
                     <telerik:RadRibbonButton>
-                        <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en ... " telerik:StyleManager.Theme="VisualStudio2013"  Width="Auto" Size="Large"   Click="btnRegler_Click">
+                        <telerik:RadRibbonDropDownButton Height="Auto" Name="btnRegler" IsOpen="False" LargeImage="/Images/Icons/document-pack/32x32/017-file.png" Text="Régler en ... " telerik:StyleManager.Theme="VisualStudio2013"  Width="Auto" Size="Large"  >
                             <telerik:RadDropDownButton.DropDownContent>
                                 <ListBox Name="ListboxMethodePaiement"  telerik:StyleManager.Theme="Crystal" SelectionChanged="ListboxMethodePaiement_SelectionChanged" >
                                 </ListBox>
