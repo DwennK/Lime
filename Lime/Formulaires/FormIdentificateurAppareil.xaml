@@ -1,0 +1,44 @@
+﻿<telerik:RadWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:local="clr-namespace:Lime" x:Class="Lime.FormIdentificateurAppareil"
+        xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        Header="Identificateur d'Appareil" Height="952" Width="1080" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" >
+    <Grid>
+
+        <telerik:RadComboBox x:Name="cmbMarque" HorizontalAlignment="Left" SelectionChanged="cmbMarque_SelectionChanged" Margin="85,10,0,0" VerticalAlignment="Top" Width="190" telerik:StyleManager.Theme="Crystal">
+            <telerik:RadComboBoxItem Content="Apple"/>
+            <telerik:RadComboBoxItem Content="Android"/>
+        </telerik:RadComboBox>
+        <telerik:Label Content="Marque" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+
+        <telerik:Label Content="Nom / Numéro de modèle " HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" telerik:StyleManager.Theme="Crystal"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Margin="10,50,10,70">
+            <wpf:ChromiumWebBrowser x:Name="Browser" Address="https://google.ch" Margin="0,0,0,0"/>
+        </Border>
+
+        <telerik:RadGridView   
+                        AutoGenerateColumns="True" 
+                        Margin="10,839,10,10" 
+                        x:Name="radGridView" 
+                        AllowDrop="True" 
+                        GroupRenderMode="Flat" 
+                        telerik:StyleManager.Theme="Crystal" 
+                        GridLinesVisibility="Both" 
+                        ShowGroupPanel="False"
+                        AlternationCount="2"
+                        Language="fr-CH"
+
+                        ItemsSource="{Binding ListeArticles}" 
+                        ShowSearchPanel="False" 
+                        CanUserDeleteRows="False" IsReadOnly="True" 
+                        
+                    />
+        <TextBox x:Name="tbxModel" HorizontalAlignment="Left" Height="23" Margin="519,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" telerik:StyleManager.Theme="Crystal" TextChanged="tbxModel_TextChanged"/>
+    </Grid>
+</telerik:RadWindow>

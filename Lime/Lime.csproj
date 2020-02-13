@@ -505,6 +505,9 @@
     <Compile Include="Classes\Connexion.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Formulaires\FormIdentificateurAppareil.xaml.cs">
+      <DependentUpon>FormIdentificateurAppareil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulaires\FormChercherArticle.xaml.cs">
       <DependentUpon>FormChercherArticle.xaml</DependentUpon>
     </Compile>
@@ -540,6 +543,10 @@
     <Compile Include="ReportViewerForm1.Designer.cs">
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </Compile>
+    <Page Include="Formulaires\FormIdentificateurAppareil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Formulaires\FormChercherArticle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

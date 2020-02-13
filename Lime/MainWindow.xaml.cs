@@ -690,5 +690,15 @@ namespace Lime
             }
         }
 
+        private void btnIdentificateurAppareil_Click(object sender, RoutedEventArgs e)
+        {
+            FormIdentificateurAppareil maFenetre = new FormIdentificateurAppareil();
+            maFenetre.Show();
+        }
+
+        private void btnSMS_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
