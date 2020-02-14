@@ -490,21 +490,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Alerte.cs" />
-    <Compile Include="Classes\Document.cs" />
-    <Compile Include="Classes\MethodePaiement.cs" />
-    <Compile Include="Classes\Reglement.cs" />
-    <Compile Include="Classes\Parametre.cs" />
-    <Compile Include="Classes\Documents_Lignes.cs" />
-    <Compile Include="Classes\Adresse.cs" />
-    <Compile Include="Classes\Article.cs" />
-    <Compile Include="Classes\LieuActuelAppareil.cs" />
-    <Compile Include="Classes\Magasin.cs" />
-    <Compile Include="Classes\NumeroDocumentDansBDD.cs" />
-    <Compile Include="Classes\PriseEnCharge.cs" />
-    <Compile Include="Classes\Connexion.cs" />
-    <Compile Include="Classes\Settings.cs" />
-    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes-BDD\Alerte.cs" />
+    <Compile Include="Classes-BDD\Document.cs" />
+    <Compile Include="Classes-BDD\MethodePaiement.cs" />
+    <Compile Include="Classes-BDD\Reglement.cs" />
+    <Compile Include="Classes-BDD\Parametre.cs" />
+    <Compile Include="Classes-BDD\Documents_Lignes.cs" />
+    <Compile Include="Classes-BDD\Adresse.cs" />
+    <Compile Include="Classes-BDD\Article.cs" />
+    <Compile Include="Classes-BDD\LieuActuelAppareil.cs" />
+    <Compile Include="Classes-BDD\Magasin.cs" />
+    <Compile Include="Classes-BDD\NumeroDocumentDansBDD.cs" />
+    <Compile Include="Classes-BDD\PriseEnCharge.cs" />
+    <Compile Include="Classes-BDD\Connexion.cs" />
+    <Compile Include="Classes-BDD\Settings.cs" />
+    <Compile Include="Classes-BDD\Client.cs" />
+    <Compile Include="Classes-Tools\Mail.cs" />
     <Compile Include="Formulaires\FormIdentificateurAppareil.xaml.cs">
       <DependentUpon>FormIdentificateurAppareil.xaml</DependentUpon>
     </Compile>
@@ -523,7 +524,7 @@
     <Compile Include="Formulaires\FormPriseEnCharge.xaml.cs">
       <DependentUpon>FormPriseEnCharge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\TypeDocuments.cs" />
+    <Compile Include="Classes-BDD\TypeDocuments.cs" />
     <Compile Include="Formulaires\FormDocument.xaml.cs">
       <DependentUpon>FormDocument.xaml</DependentUpon>
     </Compile>

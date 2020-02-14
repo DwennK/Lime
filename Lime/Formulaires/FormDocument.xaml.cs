@@ -383,10 +383,6 @@ namespace Lime
 
 
 
-
-
-
-
             // INSERTION OU UPDATE DES LIGNES ARTICLES
             foreach (Documents_Lignes item in Lignes)
             {
@@ -947,6 +943,7 @@ namespace Lime
 
         private void btnImprimer_Click(object sender, RoutedEventArgs e)
         {
+            document.Printed = true;
             MakePDF();
             
         }
@@ -965,6 +962,24 @@ namespace Lime
             {
                 return false;
             }
+        }
+
+        private void btnMail_Click(object sender, RoutedEventArgs e)
+        {
+            document.Mailed = true;
+            string chemin = MakePDF();
+
+            //Juste pour la clarté pour le nom de paramètre, plus clair "pièceJointe" que "chemin"
+            string pieceJointe = chemin;
+
+
+            //Attends que le fichier soit prêt.
+            while (!IsFileReady(chemin))
+            {
+
+            }
+            Mail.CreateTestMessage2("yyy",priseEnCharge.Email1,"Dwennx@gmail.com", pieceJointe);
+
         }
     }
 }

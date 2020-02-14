@@ -63,10 +63,15 @@ namespace Lime
 
 
             //Récupération de la TVA depuis les paramètres, dans la BDD
-            string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
-            MySqlConnection connexion = new MySqlConnection(strConnexionString);
-            this.TauxTVA = connexion.Get<Parametre>(1).TauxTVAParDefaut;
-            connexion.Close();
+            if(Connexion.CheckForInternetConnection() )
+            {
+                string strConnexionString = ConfigurationManager.ConnectionStrings["ConnexionString"].ConnectionString;
+                MySqlConnection connexion = new MySqlConnection(strConnexionString);
+                this.TauxTVA = connexion.Get<Parametre>(1).TauxTVAParDefaut;
+                connexion.Close();
+            }
+
+
         }
 
         public Documents_Lignes(int ID_Documents) //Constructeur avec l'identifiant pour le lier directement à un document.

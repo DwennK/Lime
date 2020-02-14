@@ -36,7 +36,7 @@
                     <telerik:RadRibbonButton Name="btnApercu" Text="Aperçu" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/030-file.png" Click="btnApercu_Click" />
                     <telerik:RadRibbonButton Name="btnImprimer" Text="Imprimer" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/009-file.png" Click="btnImprimer_Click" />
                     <telerik:RadRibbonButton Name="btnPDF" Text="PDF" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/034-file.png" Click="btnPDF_Click" />
-                    <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png"  IsEnabled="False"/>
+                    <telerik:RadRibbonButton Name="btnMail" Text="Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png"  Click="btnMail_Click"/>
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Transformation du document en ...">
                     <telerik:RadRibbonButton Name="btnDevis" Text="Devis" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/048-file.png" Click="btnDevis_Click" />
@@ -54,11 +54,11 @@
                         </DockPanel>
                         <DockPanel >
                             <Label Content="Imprimé"></Label>
-                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Closed}"/>
+                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Printed}"/>
                         </DockPanel>
                         <DockPanel >
                             <Label Content="Mailé"></Label>
-                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Closed}"/>
+                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Mailed}"/>
                         </DockPanel>
                     </StackPanel>
 
