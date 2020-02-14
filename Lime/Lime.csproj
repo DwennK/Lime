@@ -515,6 +515,9 @@
     <Compile Include="Formulaires\FormArticle.xaml.cs">
       <DependentUpon>FormArticle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formulaires\FormParametreMail.xaml.cs">
+      <DependentUpon>FormParametreMail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulaires\FormParametre.xaml.cs">
       <DependentUpon>FormParametre.xaml</DependentUpon>
     </Compile>
@@ -553,6 +556,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Formulaires\FormArticle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Formulaires\FormParametreMail.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
