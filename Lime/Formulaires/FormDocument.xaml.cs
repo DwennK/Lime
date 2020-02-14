@@ -948,6 +948,7 @@ namespace Lime
         private void btnImprimer_Click(object sender, RoutedEventArgs e)
         {
             MakePDF();
+            
         }
 
 

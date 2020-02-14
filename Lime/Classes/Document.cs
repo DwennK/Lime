@@ -30,6 +30,8 @@ namespace Lime
         public DateTime DateCreation { get; set; }
         [Display(Name = "Clôturé")]
         public bool Closed { get; set; }
+        public bool Printed { get; set; }
+        public bool Mailed { get; set; }
 
         public Document()
         {

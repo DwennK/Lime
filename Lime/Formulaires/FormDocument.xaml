@@ -46,8 +46,23 @@
                     <telerik:RadRibbonButton Name="btnFacture" Text="Facture" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/005-file.png" Click="btnFacture_Click" />
                     <telerik:RadRibbonButton Name="btnSAV" Text="SAV" Size="Large"   LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnSAV_Click" />
                 </telerik:RadRibbonGroup>
-                <telerik:RadRibbonGroup Header="Clôturé" telerik:StyleManager.Theme="Crystal">
-                    <telerik:RadToggleSwitchButton x:Name="ToggleSwitchCloture" Height="25" telerik:StyleManager.Theme="Crystal"  CheckedContent="Oui" IsChecked="{Binding document.Closed}" HorizontalAlignment="Center" UncheckedContent="Non" VerticalAlignment="Center" />
+                <telerik:RadRibbonGroup Header="Etat document" telerik:StyleManager.Theme="Crystal">
+                    <StackPanel>
+                        <DockPanel >
+                            <Label Content="Clôturé"></Label>
+                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Closed}"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <Label Content="Imprimé"></Label>
+                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Closed}"/>
+                        </DockPanel>
+                        <DockPanel >
+                            <Label Content="Mailé"></Label>
+                            <telerik:RadToggleSwitchButton telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" IsChecked="{Binding document.Closed}"/>
+                        </DockPanel>
+                    </StackPanel>
+
+
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 

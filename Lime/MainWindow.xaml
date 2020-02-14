@@ -136,7 +136,7 @@
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabOutils" Header="Outils" Margin="5,0,5,0">
                 <telerik:RadRibbonGroup Header="Outils divers">
-                    <telerik:RadRibbonButton x:Name="btnIdentificateurAppareil" Text="Identidicateur d'appareil" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/006-file.png" Click="btnIdentificateurAppareil_Click"   />
+                    <telerik:RadRibbonButton x:Name="btnIdentificateurAppareil" Text="Identificateur d'appareil" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/006-file.png" Click="btnIdentificateurAppareil_Click"   />
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabParametres" Header="Paramètres" Margin="5,0,5,0">
