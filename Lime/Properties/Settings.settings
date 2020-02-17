@@ -54,8 +54,8 @@
     <Setting Name="MailServer" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MailPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="MailPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="MailFrom" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

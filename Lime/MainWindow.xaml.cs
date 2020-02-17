@@ -700,5 +700,11 @@ namespace Lime
         {
 
         }
+
+        private void btnParametresMail_Click(object sender, RoutedEventArgs e)
+        {
+            FormParametreMail maFenetre = new FormParametreMail();
+            maFenetre.ShowDialog();
+        }
     }
 }

@@ -144,7 +144,7 @@
                     <telerik:RadRibbonButton x:Name="btnParametres" Text="Paramètres Généraux" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/006-file.png" Click="btnParametres_Click"   />
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Paramètres mail">
-                    <telerik:RadRibbonButton x:Name="btnParametresMail" Text="Paramètres Serveur Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" Click="btnParametres_Click"   />
+                    <telerik:RadRibbonButton x:Name="btnParametresMail" Text="Paramètres Serveur Mail" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/031-file.png" Click="btnParametresMail_Click"   />
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="Déconnexion">
                     <telerik:RadRibbonButton x:Name="btnDeconnexion" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnDeconnexion_Click"   />

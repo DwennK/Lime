@@ -6,28 +6,34 @@
         xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
         navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
-        Header="Paramètres du Serveur Mail" Height="417" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
+        Header="Paramètres du Serveur Mail" Height="417" Width="446.571" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
     <Grid Margin="10">
         <StackPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Serveur SMTP" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadMaskedTextInput x:Name="Server" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"/>
+                <Label Content="Serveur SMTP" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left"/>
+                <telerik:RadMaskedTextInput x:Name="Server" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" TextMode="PlainText" Mask="" Height="30"/>
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Port" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadNumericUpDown x:Name="Port" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" NumberDecimalDigits="0" NumberDecimalSeparator=","   />
+                <Label Content="Port" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <telerik:RadNumericUpDown x:Name="Port" telerik:StyleManager.Theme="Crystal" HorizontalContentAlignment="Center" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="30" NumberDecimalDigits="0" NumberDecimalSeparator=","   />
             </DockPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Adresse d'envoi (From)" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadMaskedTextInput x:Name="From" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"/>
+                <Label Content="Adresse d'envoi (From)" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
+                <telerik:RadMaskedTextInput x:Name="From" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" TextMode="PlainText" Mask="" Height="30"/>
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Mot de passe" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadPasswordBox x:Name="Password" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"></telerik:RadPasswordBox>
-                
+                <Label Content="Mot de passe" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
+                <telerik:RadPasswordBox x:Name="Password" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" Height="30">
+                    
+                </telerik:RadPasswordBox>
+            </DockPanel >
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Activer SLL" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left"/>
+                <telerik:RadToggleSwitchButton Content="Activer SSL" IsChecked="True" CheckedContent="Oui" UncheckedContent="Non" telerik:StyleManager.Theme="Crystal" HorizontalAlignment="Right" ToolTip="Conseillé de le laisser activé." Height="30"
+                                               ></telerik:RadToggleSwitchButton>
             </DockPanel >
 
         </StackPanel>
-        <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="39"  VerticalAlignment="Bottom"  Width="112" telerik:StyleManager.Theme="Crystal" TabIndex="9" Click="btnValider_Click" Margin="258,0,248,13"/>
+        <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="40"  VerticalAlignment="Bottom"  Width="300" telerik:StyleManager.Theme="Crystal" TabIndex="9" Click="btnValider_Click"/>
     </Grid>
 </telerik:RadWindow>

@@ -35,9 +35,25 @@ namespace Lime
         {
             InitializeComponent();
 
+            //On charge les params
+            Properties.Settings.Default.Reload();
+
+            //Récupération des paramètres existants pour les placer dans les textbox//
+            Server.Value = Properties.Settings.Default.MailServer;
+            Port.Value = Properties.Settings.Default.MailPort;
+            From.Value = Properties.Settings.Default.MailFrom;
+            Password.Password = Properties.Settings.Default.MailPassword;
+
+
+            //On enregistre le tout et on sauve
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reload();
+
+            this.Close();
+
 
             // TAUX TVA PAR DEFAUT
-            if(Connexion.CheckForInternetConnection())
+            if (Connexion.CheckForInternetConnection())
             {
                 string SQL = "SELECT TauxTVAParDefaut FROM Parametres WHERE ID=@ID";
                 Double TauxTVA = (Double)Connexion.maBDD.ExecuteScalar(SQL, new { ID = 1 }) ;
@@ -48,25 +64,15 @@ namespace Lime
         }
 
 
-
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-            //Sauvegarde de la limite dans les paramètres//
-            //Properties.Settings.Default.Limite = Convert.ToInt32(Limite.Value);
-            //Properties.Settings.Default.Save();
-            //Properties.Settings.Default.Reload();
+            //Sauvegarde des params SMTP dans les paramètres//
+            Properties.Settings.Default.MailServer = Server.Value;
+            Properties.Settings.Default.MailPort = Convert.ToInt32(Port.Value);
+            Properties.Settings.Default.MailFrom = From.Value;
+            Properties.Settings.Default.MailPassword = Password.Password;
 
-
-            //Sauvegarde de la TVA Par défaut dans la BDD
-            if (Connexion.CheckForInternetConnection())
-            {
-                string SQL = "UPDATE Parametres SET TauxTVAParDefaut=@NewtauxTVA WHERE ID=@ID";
-                //Connexion.maBDD.Query(SQL, new { NewtauxTVA=this.TauxTVAParDefaut.Value, ID = 1 });
-            }
-
-
-            //Sauvegarde de l'emplacement de sauvegarde des documents dans les paramètres
-            //Properties.Settings.Default.EmplacementParDefaultDocuments = EmplacementSauvegardeDocuments.FilePath;
+            //On enregistre le tout et on sauve
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
 
