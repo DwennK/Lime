@@ -6,21 +6,26 @@
         xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
         navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
-        Header="Paramètres" Height="417" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
+        Header="Paramètres du Serveur Mail" Height="417" Width="650.21" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
     <Grid Margin="10">
         <StackPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label x:Name="lblNombreLignes" Content="Nombre de lignes à afficher dans les Lignes de données :" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadNumericUpDown x:Name="Limite"  Height="22" telerik:StyleManager.Theme="Crystal" IsInteger="True" Value="50"  Minimum="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200"   />
+                <Label Content="Serveur SMTP" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <telerik:RadMaskedTextInput x:Name="Server" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"/>
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Taux de TVA par défaut pour les articles :" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadNumericUpDown x:Name="TauxTVAParDefaut"  Height="22" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" NumberDecimalDigits="1" NumberDecimalSeparator=","   />
+                <Label Content="Port" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <telerik:RadNumericUpDown x:Name="Port" telerik:StyleManager.Theme="Crystal" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" NumberDecimalDigits="0" NumberDecimalSeparator=","   />
             </DockPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label  Content="Chemin dans quel emplacement sauver les documents :" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
-                <telerik:RadFilePathPicker x:Name="EmplacementSauvegardeDocuments" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="198" DialogType="OpenFolder"/>
-            </DockPanel>
+                <Label Content="Adresse d'envoi (From)" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <telerik:RadMaskedTextInput x:Name="From" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"/>
+            </DockPanel >
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Mot de passe" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" Width="340"/>
+                <telerik:RadPasswordBox x:Name="Password" HorizontalAlignment="Right" telerik:StyleManager.Theme="Crystal" Width="200"></telerik:RadPasswordBox>
+                
+            </DockPanel >
 
         </StackPanel>
         <telerik:RadButton x:Name="btnValider" Content="Valider" HorizontalAlignment="Center" Height="39"  VerticalAlignment="Bottom"  Width="112" telerik:StyleManager.Theme="Crystal" TabIndex="9" Click="btnValider_Click" Margin="258,0,248,13"/>

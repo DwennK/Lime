@@ -149,7 +149,19 @@ namespace Lime.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailPassword {
+            get {
+                return ((string)(this["MailPassword"]));
+            }
+            set {
+                this["MailPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool MailEnableSSL {
             get {
                 return ((bool)(this["MailEnableSSL"]));
