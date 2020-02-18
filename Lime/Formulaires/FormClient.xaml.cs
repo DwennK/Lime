@@ -162,9 +162,19 @@ namespace Lime
             string messageErreur = string.Empty;
             bool isValidData = true;
 
-            if (tbxNom.Text == "")
+            if (client.Nom == "")
             {
                 messageErreur += "Veuillez rentrer le nom du client.\n";
+            }
+
+            //Si Email1 est vide mais que Email2 ne l'est pas 
+            if(String.IsNullOrEmpty(client.Email1) && !String.IsNullOrEmpty(client.Email2))
+            {
+                Alerte.AlerteCustom("Email 1 est vide, mais Email 2 contient une valeur. \n"
+                                    +"Email 2 a donc remplacé Email 1.");
+
+                client.Email1 = client.Email2;
+                client.Email2 = null;
             }
 
             //S'il y a des erreurs, on les affiche

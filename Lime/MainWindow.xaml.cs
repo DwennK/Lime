@@ -263,7 +263,7 @@ namespace Lime
         }
 
 
-        private void btnDevisAssurance_Click(object sender, RoutedEventArgs e)
+        private void btnConstatAssurance_Click(object sender, RoutedEventArgs e)
         {
             if (RadGridView1.SelectedItem != null)
             {
@@ -447,7 +447,7 @@ namespace Lime
                 UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
             }
         }
-        private void tabDevisAssurance_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void tabConstatAssurance_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (Connexion.CheckForInternetConnection())
             {
@@ -706,5 +706,6 @@ namespace Lime
             FormParametreMail maFenetre = new FormParametreMail();
             maFenetre.ShowDialog();
         }
+
     }
 }

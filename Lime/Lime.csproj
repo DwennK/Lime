@@ -490,7 +490,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes-BDD\Alerte.cs" />
+    <Compile Include="Classes-Tools\Alerte.cs" />
     <Compile Include="Classes-BDD\Document.cs" />
     <Compile Include="Classes-BDD\MethodePaiement.cs" />
     <Compile Include="Classes-BDD\Reglement.cs" />
@@ -500,9 +500,8 @@
     <Compile Include="Classes-BDD\Article.cs" />
     <Compile Include="Classes-BDD\LieuActuelAppareil.cs" />
     <Compile Include="Classes-BDD\Magasin.cs" />
-    <Compile Include="Classes-BDD\NumeroDocumentDansBDD.cs" />
     <Compile Include="Classes-BDD\PriseEnCharge.cs" />
-    <Compile Include="Classes-BDD\Connexion.cs" />
+    <Compile Include="Classes-Tools\Connexion.cs" />
     <Compile Include="Classes-BDD\Settings.cs" />
     <Compile Include="Classes-BDD\Client.cs" />
     <Compile Include="Classes-Tools\Mail.cs" />
@@ -631,7 +630,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\Invoice.trdp">
+    <None Include="Reports\Document.trdp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

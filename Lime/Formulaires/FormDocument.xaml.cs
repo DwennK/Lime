@@ -844,7 +844,7 @@ namespace Lime
             ValiderDocument();
 
             string chemin = Properties.Settings.Default.EmplacementParDefaultDocuments + "\\";
-            string nomFichier = Connexion.maBDD.Get<TypeDocuments>(document.ID_TypeDocument).Prefixe + "-"+  document.Numero.ToString() + "     "  + DateTime.Now.Date.Year.ToString() + "." + DateTime.Now.Date.Month.ToString() + "." + DateTime.Now.Date.Day.ToString() + " (" + DateTime.Now.Millisecond.ToString() + ")";
+            string nomFichier = Connexion.maBDD.Get<TypeDocuments>(document.ID_TypeDocument).Prefixe + "°"+  document.Numero.ToString() + "-"  + DateTime.Now.Date.Year.ToString() + "." + DateTime.Now.Date.Month.ToString() + "." + DateTime.Now.Date.Day.ToString() + " (" + DateTime.Now.Millisecond.ToString() + ")";
             string extension = ".pdf";
 
             // Obtain the settings of the default printer
@@ -870,7 +870,7 @@ namespace Lime
                 new Telerik.Reporting.UriReportSource();
 
             // Specifying an URL or a file path of the Report
-            uriReportSource.Uri = "Reports/Invoice.trdp";
+            uriReportSource.Uri = "Reports/Document.trdp";
 
             // Adding the initial parameter values
             uriReportSource.Parameters.Add(new Telerik.Reporting.Parameter("NumeroDocument", document.Numero));
@@ -966,19 +966,26 @@ namespace Lime
 
         private void btnMail_Click(object sender, RoutedEventArgs e)
         {
-            document.Mailed = true;
-            string chemin = MakePDF();
-
-            //Juste pour la clarté pour le nom de paramètre, plus clair "pièceJointe" que "chemin"
-            string pieceJointe = chemin;
-
-
-            //Attends que le fichier soit prêt.
-            while (!IsFileReady(chemin))
+            if(priseEnCharge.Email1 != null && priseEnCharge.Email1 != string.Empty)
             {
+                document.Mailed = true;
+                string chemin = MakePDF();
 
+                //Juste pour la clarté pour le nom de paramètre, plus clair "pièceJointe" que "chemin"
+                string pieceJointe = chemin;
+
+
+                //Attends que le fichier soit prêt.
+                while (!IsFileReady(chemin))
+                {
+
+                }
+                Mail.MailDocument(priseEnCharge.Email1, pieceJointe);
             }
-            Mail.MailDocument(priseEnCharge.Email1, pieceJointe);
+            else
+            {
+                Alerte.NoMailAddressProvided();
+            }
 
         }
     }
