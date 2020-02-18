@@ -57,7 +57,7 @@
     <Setting Name="MailPort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="MailFrom" Type="System.String" Scope="User">
+    <Setting Name="MailDisplayName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MailPassword" Type="System.String" Scope="User">
@@ -65,6 +65,9 @@
     </Setting>
     <Setting Name="MailEnableSSL" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MailAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

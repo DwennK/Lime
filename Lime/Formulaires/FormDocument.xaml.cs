@@ -978,7 +978,7 @@ namespace Lime
             {
 
             }
-            Mail.CreateTestMessage2("yyy",priseEnCharge.Email1,"Dwennx@gmail.com", pieceJointe);
+            Mail.MailDocument(priseEnCharge.Email1, pieceJointe);
 
         }
     }

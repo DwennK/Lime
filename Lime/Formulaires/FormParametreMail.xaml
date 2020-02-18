@@ -6,24 +6,30 @@
         xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
         navigation:RadWindowInteropHelper.Icon="/Images/lemon.png"
-        Header="Paramètres du Serveur Mail" Height="417" Width="446.571" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
+        Header="Paramètres du Serveur Mail" Height="417" Width="550.893" telerik:StyleManager.Theme="Crystal" WindowStartupLocation="CenterScreen" KeyDown="OnKeyDownHandler" ResizeMode="CanMinimize" >
     <Grid Margin="10">
         <StackPanel>
             <DockPanel Margin="0,0,0,10">
                 <Label Content="Serveur SMTP" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left"/>
-                <telerik:RadMaskedTextInput x:Name="Server" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" TextMode="PlainText" Mask="" Height="30"/>
+                <telerik:RadMaskedTextInput x:Name="Server" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="300" TextMode="PlainText" Mask="" Height="30"/>
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
                 <Label Content="Port" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <telerik:RadNumericUpDown x:Name="Port" telerik:StyleManager.Theme="Crystal" HorizontalContentAlignment="Center" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="30" NumberDecimalDigits="0" NumberDecimalSeparator=","   />
+                <telerik:RadNumericUpDown x:Name="Port" telerik:StyleManager.Theme="Crystal" HorizontalContentAlignment="Center" Value="0"  Minimum="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="300" Height="30" NumberDecimalDigits="0" NumberDecimalSeparator=","   />
             </DockPanel>
             <DockPanel Margin="0,0,0,10">
-                <Label Content="Adresse d'envoi (From)" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
-                <telerik:RadMaskedTextInput x:Name="From" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" TextMode="PlainText" Mask="" Height="30"/>
+                <Label Content="Nom à afficher" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
+                <telerik:RadMaskedTextInput x:Name="DisplayName" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="300" TextMode="PlainText" Mask="" Height="30"/>
+            </DockPanel >
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Adresse mail d'envoi" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
+                <telerik:RadMaskedTextInput x:Name="Address" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="300" TextMode="PlainText" Mask="" Height="30">
+
+                </telerik:RadMaskedTextInput>
             </DockPanel >
             <DockPanel Margin="0,0,0,10">
                 <Label Content="Mot de passe" VerticalAlignment="Top" Height="26" HorizontalAlignment="Left" />
-                <telerik:RadPasswordBox x:Name="Password" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="200" Height="30">
+                <telerik:RadPasswordBox x:Name="Password" HorizontalAlignment="Right" HorizontalContentAlignment="Center" telerik:StyleManager.Theme="Crystal" Width="300" Height="30">
                     
                 </telerik:RadPasswordBox>
             </DockPanel >

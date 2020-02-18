@@ -11,26 +11,38 @@ namespace Lime
 {
     class Mail
     {
-        public static void CreateTestMessage2(string _server, string  _to, string _from, string _pieceJointe)
+        public static void MailDocument(string _to, string _pieceJointe)
         {
+            //Paramètre depuis les settings
+            string server = Properties.Settings.Default.MailServer;
+            bool isSSL = Properties.Settings.Default.MailEnableSSL;
+            int port = Properties.Settings.Default.MailPort;
+            string email = Properties.Settings.Default.MailAddress;
+            string password = Properties.Settings.Default.MailPassword;
+            string displayName = Properties.Settings.Default.MailDisplayName; ; //Le nom à afficher comme expéditeur du mail
+
+            //Paramètre passés à la méthode
             string to = _to;
-            string from = _from;
-            MailMessage message = new MailMessage(from, to);
-            message.Subject = "Test Lime";
-            message.Body = @"Envoi de mail test";
-            message.IsBodyHtml = true;
+
+            //Cération du message 
+
 
             //SmtpClient client = new SmtpClient(server);
             // Credentials are necessary if the server requires the client 
             // to authenticate before it will send email on the client's behalf.
             //client.UseDefaultCredentials = true;
+            SmtpClient client = new SmtpClient(server);
 
+            //Si on veut en SSL, on disable UseDefaultCredentials
+            if (isSSL == true)
+            {
+                client.UseDefaultCredentials = false;
+            }
 
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
-            client.UseDefaultCredentials = false;
-            client.Port = 587;
+            //Création du client
+            client.Port = port;
             client.Credentials =
-            new System.Net.NetworkCredential("Dwennx@gmail.com", "Idclip00?");
+            new System.Net.NetworkCredential(email, password);
             client.EnableSsl = true;
 
             #region Piece Jointe
@@ -43,10 +55,29 @@ namespace Lime
             disposition.CreationDate = System.IO.File.GetCreationTime(file);
             disposition.ModificationDate = System.IO.File.GetLastWriteTime(file);
             disposition.ReadDate = System.IO.File.GetLastAccessTime(file);
+
+
+            //Création du message 
+            MailMessage message = new MailMessage(email, to);
+            message.IsBodyHtml = true;
+            message.Subject = "Votre document n°"+data.Name;
+            //Expéditeur du message
+            MailAddress expediteur = new MailAddress(email, displayName);
+            message.From = expediteur;
+
+            //Body du message
+            message.Body =
+            @"<h1>Votre document</h1><br>" 
+            + "<p>Bonjour,</p>" 
+            + "<p>Votre document est joint au mail : " + data.Name +"</p>" 
+            + "<br /><br /><br />"
+            + "<p>Cordialement,</p>"
+            + "<p>L'équipe Microwest + ShopyPhone Sàrl</p>"
+            ;
+
             // Add the file attachment to this email message.
             message.Attachments.Add(data);
             #endregion
-
 
             try
             {
@@ -59,9 +90,5 @@ namespace Lime
             }
         }
 
-        //Exemple d'envoi de Mail
-        //public void Send (System.Net.Mail.MailMessage message);
-        // OU ALORS
-        //public void Send(string from, string to, string subject, string body);
     }
 }

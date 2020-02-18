@@ -138,12 +138,12 @@ namespace Lime.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MailFrom {
+        public string MailDisplayName {
             get {
-                return ((string)(this["MailFrom"]));
+                return ((string)(this["MailDisplayName"]));
             }
             set {
-                this["MailFrom"] = value;
+                this["MailDisplayName"] = value;
             }
         }
         
@@ -168,6 +168,18 @@ namespace Lime.Properties {
             }
             set {
                 this["MailEnableSSL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailAddress {
+            get {
+                return ((string)(this["MailAddress"]));
+            }
+            set {
+                this["MailAddress"] = value;
             }
         }
     }

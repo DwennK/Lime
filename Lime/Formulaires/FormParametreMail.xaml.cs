@@ -41,7 +41,8 @@ namespace Lime
             //Récupération des paramètres existants pour les placer dans les textbox//
             Server.Value = Properties.Settings.Default.MailServer;
             Port.Value = Properties.Settings.Default.MailPort;
-            From.Value = Properties.Settings.Default.MailFrom;
+            DisplayName.Value = Properties.Settings.Default.MailDisplayName;
+            Address.Value = Properties.Settings.Default.MailAddress;
             Password.Password = Properties.Settings.Default.MailPassword;
 
 
@@ -69,7 +70,8 @@ namespace Lime
             //Sauvegarde des params SMTP dans les paramètres//
             Properties.Settings.Default.MailServer = Server.Value;
             Properties.Settings.Default.MailPort = Convert.ToInt32(Port.Value);
-            Properties.Settings.Default.MailFrom = From.Value;
+            Properties.Settings.Default.MailDisplayName = DisplayName.Value;
+            Properties.Settings.Default.MailAddress = Address.Value;
             Properties.Settings.Default.MailPassword = Password.Password;
 
             //On enregistre le tout et on sauve

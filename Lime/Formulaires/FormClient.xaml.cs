@@ -234,13 +234,12 @@ namespace Lime
             }
         }
 
-
-        private void tbxNPA_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbxNPA_TextChanged(object sender, Telerik.Windows.RadRoutedEventArgs e)
         {
             //On vide le contenu des propositions de Combobox, au cas ou il y en avait deja.
             tbxVille.ItemsSource = null;
 
-            string NPA = tbxNPA.Text;
+            string NPA = tbxNPA.Value.ToString();
             List<string> NomVilles = new List<string>();
 
             if (NPA.Length == 4)
@@ -265,6 +264,7 @@ namespace Lime
                 }
 
             }
+
 
         }
     }
