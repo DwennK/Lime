@@ -709,6 +709,7 @@ namespace Lime
 
         private void btnFacturesEnCours_Click(object sender, RoutedEventArgs e)
         {
+            //
             //var xx = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 5 && x.Ne);
             //RadGridView1.ItemsSource = xx;
             
