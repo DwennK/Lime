@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="Lime.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    <section name="Telerik.Reporting" type="Telerik.Reporting.Configuration.ReportingConfigurationSection, Telerik.Reporting, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+  </configSections>
+  <Telerik.Reporting>
+    <Cache provider="" />
+    <cache provider="" />
+    <assemblyReferences>
+      <add name="Lime" version="1.0.0.0" />
+    </assemblyReferences>
+    <SessionState provider="" />
+    <restReportService>
+      <storage provider="" />
+      <reportResolver provider="" />
+    </restReportService>
+    <appData path="" />
+  </Telerik.Reporting>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+  </startup>
+  <connectionStrings>
+    <add name="ConnexionString" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp" providerName="MySql.Data.MySqlClient" />
+    <add name="Limeapp" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp" providerName="MySql.Data.MySqlClient" />
+    <add name="Lime.Properties.Settings.Limeapp" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persistsecurityinfo=True;allowuservariables=True" providerName="System.Data.EntityClient" />
+    <add name="Lime.Properties.Settings.LimeappConnectionString" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persistsecurityinfo=True;allowuservariables=True" providerName="MySql.Data.MySqlClient" />
+    <add name="Lime.Properties.Settings.LimeappConnectionString1" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp" providerName="MySql.Data.MySqlClient" />
+    <add name="Lime.Properties.Settings.LimeappConnectionString2" connectionString="server=104.248.42.215;user id=LimeApp;database=Limeapp" providerName="MySql.Data.MySqlClient" />
+    <add name="Lime.Properties.Settings.ConnexionString" connectionString="server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp" providerName="MySql.Data.MySqlClient" />
+  </connectionStrings>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Google.Protobuf" publicKeyToken="a7d26565bac4d604" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.11.2.0" newVersion="3.11.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="BouncyCastle.Crypto" publicKeyToken="0e99375e54769942" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.8.5.0" newVersion="1.8.5.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="EntityFramework" publicKeyToken="b77a5c561934e089" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.1.1" newVersion="4.0.1.1" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Numerics.Vectors" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.4.0" newVersion="4.1.4.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.6.0" newVersion="4.0.6.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Buffers" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Telerik.Windows.Controls" culture="neutral" publicKeyToken="5803cfa389c90ce7" />
+        <bindingRedirect oldVersion="0.0.0.0-2020.1.115.45" newVersion="2020.1.115.45" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Telerik.Windows.Controls.Input" culture="neutral" publicKeyToken="5803cfa389c90ce7" />
+        <bindingRedirect oldVersion="0.0.0.0-2020.1.115.45" newVersion="2020.1.115.45" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Telerik.Windows.Controls.Navigation" culture="neutral" publicKeyToken="5803cfa389c90ce7" />
+        <bindingRedirect oldVersion="0.0.0.0-2020.1.115.45" newVersion="2020.1.115.45" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Telerik.Windows.Data" culture="neutral" publicKeyToken="5803cfa389c90ce7" />
+        <bindingRedirect oldVersion="0.0.0.0-65535.65535.65535.65535" newVersion="2020.1.115.45" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <userSettings>
+    <Lime.Properties.Settings>
+      <setting name="Limite" serializeAs="String">
+        <value>50</value>
+      </setting>
+      <setting name="ID_Magasin" serializeAs="String">
+        <value>1</value>
+      </setting>
+      <setting name="EmplacementParDefaultDocuments" serializeAs="String">
+        <value>C:/temp/</value>
+      </setting>
+      <setting name="MailServer" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MailPort" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="MailDisplayName" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MailPassword" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MailEnableSSL" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="MailAddress" serializeAs="String">
+        <value />
+      </setting>
+    </Lime.Properties.Settings>
+  </userSettings>
+  <entityFramework>
+    <defaultConnectionFactory type="MySql.Data.EntityFramework.MySqlConnectionFactory, MySql.Data.EntityFramework">
+      <parameters>
+        <parameter value="v11.0" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="MySql.Data.MySqlClient" type="MySql.Data.MySqlClient.MySqlProviderServices, MySql.Data.EntityFramework, Version=8.0.18, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+  <system.data>
+    <DbProviderFactories>
+      <remove invariant="MySql.Data.MySqlClient" />
+      <add name="MySQL Data Provider" invariant="MySql.Data.MySqlClient" description=".Net Framework Data Provider for MySQL" type="MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, Version=8.0.18, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    </DbProviderFactories>
+  </system.data>
+</configuration>
