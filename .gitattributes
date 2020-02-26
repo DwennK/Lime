@@ -3,6 +3,13 @@
 ###############################################################################
 * text=auto
 
+
+
+*.manifest binary
+*.application binary
+*.deploy binary
+
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
