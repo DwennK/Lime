@@ -113,6 +113,11 @@
                     <telerik:RadRibbonButton Text="Modifier" Size="Large" LargeImage="Images/Icons/edit.png" Click="DocumentModifier_Click"  />
                     <telerik:RadRibbonButton Text="Supprimer" Size="Large" LargeImage="Images/Icons/delete.png" Click="DocumentSupprimer_Click"  />
                 </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Affichage">
+                    <telerik:RadRibbonButton x:Name="btnFacturesAcquitees" Text="Factures acquitées (Payées)" Size="Large" LargeImage="Images/Icons/document-pack/32x32/017-file.png" Height="97" VerticalAlignment="Top" Click="btnFacturesAcquitees_Click"  />
+                    <telerik:RadRibbonButton x:Name="btnFacturesEnCours" Text="Factures en cours (Non payées)" Size="Large" LargeImage="Images/Icons/document-pack/32x32/017-file.png" Click="btnFacturesEnCours_Click" />
+                    <telerik:RadRibbonButton x:Name="btnFacturesImpayees" Text="Factures impayées (Non payées et en retard)" Size="Large" LargeImage="Images/Icons/document-pack/32x32/017-file.png" Click="btnFacturesImpayees_Click" />
+                </telerik:RadRibbonGroup>
 
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabSAV" Header="SAV" MouseLeftButtonUp="tabSAV_MouseLeftButtonUp" Margin="5,0,5,0">
