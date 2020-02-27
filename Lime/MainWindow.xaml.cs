@@ -709,11 +709,11 @@ namespace Lime
 
         private void btnFacturesEnCours_Click(object sender, RoutedEventArgs e)
         {
-            
+
             //var xx = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 5 && x.Ne);
-            //RadGridView1.ItemsSource = xx;
-            
-            IEnumerable<Article> mesData = Connexion.maBDD.Query<Article>("" +
+            //RadGridView1.ItemsSource = xx;;;;;
+
+            IEnumerable<Document> mesData = Connexion.maBDD.Query<Document>("" +
             /* Factures ouvertes*/
             "SELECT Documents.ID, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed " +
             "FROM Documents "+
