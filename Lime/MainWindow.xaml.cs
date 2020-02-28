@@ -709,27 +709,34 @@ namespace Lime
 
         private void btnFacturesEnCours_Click(object sender, RoutedEventArgs e)
         {
+            //On vide le contenu de TabLignes (Grid)
+            TabLignes.Children.Clear();
+            GridViewDocument monControle = new GridViewDocument();
+            TabLignes.Children.Add(monControle);
 
-            //var xx = Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == 5 && x.Ne);
-            //RadGridView1.ItemsSource = xx;;;;;
+            //---------------------------------------------------------------------------------------
+            string SQL =
+            "SELECT Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed " +
+            "FROM Documents " +
+            "INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents " +
+            "INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID " +
+            "INNER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges " +
+            "WHERE Documents.ID_TypeDocument = 5 " +
+            "GROUP BY Documents.ID " +
+            "HAVING TotalRegle < TotalTTC " +
+            "LIMIT @Limit ";
 
-            IEnumerable<Document> mesData = Connexion.maBDD.Query<Document>("" +
-            /* Factures ouvertes*/
-            "SELECT Documents.ID, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed " +
-            "FROM Documents "+
-            "INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents "+
-            "INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID "+
-            "INNER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges "+
-            "WHERE Documents.ID_TypeDocument = 5 "+
-            "GROUP BY Documents.ID "+
-            "HAVING TotalRegle < TotalTTC "+
-            "LIMIT @Limit "
-            , new
+            var mesData = Connexion.maBDD.Query
+            (
+            SQL, 
+            new
             {
                 Limit = Properties.Settings.Default.Limite
-            });
+            }
+            );
 
-            RadGridView1.ItemsSource = mesData;
+            monControle.RadGridView1.ItemsSource = mesData;
+
         }
 
         private void btnFacturesAcquitees_Click(object sender, RoutedEventArgs e)
@@ -743,6 +750,11 @@ namespace Lime
         }
 
         private void btnFacturesImpayees_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
 
         }

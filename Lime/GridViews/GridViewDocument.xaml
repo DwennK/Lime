@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Lime.GridViewDocument"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lime"         
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1280">
+    <Grid>
+        <telerik:RadGridView x:Name="RadGridView1" 
+                             Margin="5,5,5,5" 
+                             IsReadOnly="True" 
+                             ShowSearchPanel="True" 
+                             TextOptions.TextFormattingMode="Display" 
+                             telerik:StyleManager.Theme="Crystal" 
+                             GridLinesVisibility="Both" 
+                             AlternationCount="2"
+                             Language="fr-CH"
+                             SelectionMode="Single" 
+                             SearchPanelCloseButtonVisibility="Hidden"
+                            
+        >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Numero" DataMemberBinding="{Binding Numero}">
+                    
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding DateDebut}" DataFormatString="{}{0:dd/MM/yyyy}">
+
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Echéance" DataMemberBinding="{Binding DateEcheance}" DataFormatString="{}{0:dd/MM/yyyy}">
+
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Client" DataMemberBinding="{Binding Nom}">
+
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Total TTC" DataMemberBinding="{Binding TotalTTC}" DataFormatString="{}{0:c}"  >
+
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Total Réglé" DataMemberBinding="{Binding TotalRegle}" DataFormatString="{}{0:c}">
+
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="Net à payer" DataMemberBinding="{Binding NetAPayer}" DataFormatString="{}{0:c}">
+
+                </telerik:GridViewDataColumn >
+                <telerik:GridViewCheckBoxColumn Header="Closedddd"  DataMemberBinding="{Binding Closed}">
+
+                </telerik:GridViewCheckBoxColumn>
+
+                <telerik:GridViewCheckBoxColumn Header="Printed" DataMemberBinding="{Binding Printed}"/>
+
+
+                <telerik:GridViewCheckBoxColumn  Header="Mailed" DataMemberBinding="{Binding Mailed}"/>
+
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+    </Grid>
+</UserControl>

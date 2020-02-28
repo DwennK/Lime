@@ -577,11 +577,11 @@
     <Compile Include="Formulaires\FormDocument.xaml.cs">
       <DependentUpon>FormDocument.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GridViews\GridViewClients.xaml.cs">
-      <DependentUpon>GridViewClients.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Formulaires\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridViews\GridViewDocument.xaml.cs">
+      <DependentUpon>GridViewDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="RadSplashScreen1.xaml.cs">
       <DependentUpon>RadSplashScreen1.xaml</DependentUpon>
@@ -621,13 +621,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GridViews\GridViewClients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Formulaires\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridViews\GridViewDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

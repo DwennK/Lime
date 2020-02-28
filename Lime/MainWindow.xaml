@@ -55,6 +55,9 @@
                 <telerik:RadRibbonGroup Header="Déconnexion">
                     <telerik:RadRibbonButton x:Name="btnDeconnexionAccueil" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnDeconnexion_Click"   />
                 </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="TESTS">
+                    <telerik:RadRibbonButton x:Name="btnTEST" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/047-file.png" Click="btnTEST_Click"   />
+                </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonDown="tabClients_MouseLeftButtonUp" MouseLeftButtonUp="tabClients_MouseLeftButtonUp" Margin="5,0,5,0">
                 <telerik:RadRibbonGroup Header="Gestion">
@@ -182,7 +185,7 @@
                 </Grid>
             </telerik:RadTabItem>
             <telerik:RadTabItem Header="Lignes" Margin="0" x:Name="RadTabLignes" CloseButtonVisibility="Hidden" >
-                <Grid>
+                <Grid x:Name="TabLignes">
                     <telerik:RadGridView x:Name="RadGridView1" 
                              Margin="5,5,5,5" 
                              IsReadOnly="True" 
@@ -192,7 +195,9 @@
                              GridLinesVisibility="Both" 
                              AlternationCount="2"
                              Language="fr-CH"
-                             SelectionMode="Single" SearchPanelCloseButtonVisibility="Hidden"
+                             SelectionMode="Single" 
+                             SearchPanelCloseButtonVisibility="Hidden" 
+                             AutoGenerateColumns="True"
                              
                              />
                 </Grid>

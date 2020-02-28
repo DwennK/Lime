@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Lime
 {
     /// <summary>
-    /// Logique d'interaction pour GridViewClients.xaml
+    /// Logique d'interaction pour GridViewDocument.xaml
     /// </summary>
-    public partial class GridViewClients : UserControl
+    public partial class GridViewDocument : UserControl
     {
-        public GridViewClients()
+        public GridViewDocument()
         {
             InitializeComponent();
         }
