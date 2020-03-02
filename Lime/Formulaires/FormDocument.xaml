@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
         navigation:RadWindowInteropHelper.ShowInTaskbar="True"
-        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png">
+        navigation:RadWindowInteropHelper.Icon="/Images/lemon.png" >
     <Grid>
 
         <telerik:RadRibbonView ApplicationName="RadRibbonView" 
@@ -102,7 +102,7 @@
                 <telerik:RadRibbonGroup Header="Information Prise en Charge">
                     <StackPanel>
                         <DockPanel >
-                            <telerik:Label Content="Numéro:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
+                            <telerik:Label Content="Numéro prise en charge:" HorizontalAlignment="Left"   telerik:StyleManager.Theme="Crystal"/>
                             <telerik:Label Content="{Binding priseEnCharge.ID}" HorizontalAlignment="Right"  telerik:StyleManager.Theme="Crystal" FontStyle="Italic" FontWeight="Bold"/>
                         </DockPanel>
                         <DockPanel >

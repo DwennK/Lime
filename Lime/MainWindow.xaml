@@ -56,7 +56,7 @@
                     <telerik:RadRibbonButton x:Name="btnDeconnexionAccueil" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/050-file.png" Click="btnDeconnexion_Click"   />
                 </telerik:RadRibbonGroup>
                 <telerik:RadRibbonGroup Header="TESTS">
-                    <telerik:RadRibbonButton x:Name="btnTEST" Text="Se déconnecter" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/047-file.png" Click="btnTEST_Click"   />
+                    <telerik:RadRibbonButton x:Name="btnTEST" Text="TEST TESTS TESTS" Size="Large" LargeImage="/Images/Icons/document-pack/32x32/047-file.png" Click="btnTEST_Click"   />
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
             <telerik:RadRibbonTab x:Name="tabClients" Header="Clients" MouseLeftButtonDown="tabClients_MouseLeftButtonUp" MouseLeftButtonUp="tabClients_MouseLeftButtonUp" Margin="5,0,5,0">
@@ -179,7 +179,9 @@
                         </StackPanel>
 
 
-                        <StackPanel Orientation="Horizontal" Margin="5"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label Content="xxxxxxxxxxxxxxxxxxxxx"></Label>
+                        </StackPanel>
 
                     </StackPanel>
 
