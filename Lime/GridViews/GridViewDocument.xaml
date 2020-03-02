@@ -19,9 +19,31 @@
                              Language="fr-CH"
                              SelectionMode="Single" 
                              SearchPanelCloseButtonVisibility="Hidden"
-                            
+                             AutoGenerateColumns="False"
+                             
         >
             <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="🔒" >
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Closed}" telerik:StyleManager.Theme="Crystal"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="🖨️" >
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Printed}" telerik:StyleManager.Theme="Crystal"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="✉" >
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Mailed}" telerik:StyleManager.Theme="Crystal"/>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
                 <telerik:GridViewDataColumn Header="Numero" DataMemberBinding="{Binding Numero}">
                     
                 </telerik:GridViewDataColumn>
@@ -43,15 +65,6 @@
                 <telerik:GridViewDataColumn Header="Net à payer" DataMemberBinding="{Binding NetAPayer}" DataFormatString="{}{0:c}">
 
                 </telerik:GridViewDataColumn >
-                <telerik:GridViewCheckBoxColumn Header="Closedddd"  DataMemberBinding="{Binding Closed}">
-
-                </telerik:GridViewCheckBoxColumn>
-
-                <telerik:GridViewCheckBoxColumn Header="Printed" DataMemberBinding="{Binding Printed}"/>
-
-
-                <telerik:GridViewCheckBoxColumn  Header="Mailed" DataMemberBinding="{Binding Mailed}"/>
-
 
             </telerik:RadGridView.Columns>
         </telerik:RadGridView>

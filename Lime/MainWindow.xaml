@@ -178,6 +178,7 @@
                             <telerik:RadWatermarkTextBox x:Name="lblNombreDeFactureAujourdhui" Text="xxxxxx" telerik:StyleManager.Theme="Crystal" IsEnabled="True" IsReadOnly="True"/>
                         </StackPanel>
 
+
                         <StackPanel Orientation="Horizontal" Margin="5"/>
 
                     </StackPanel>
