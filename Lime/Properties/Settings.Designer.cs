@@ -50,7 +50,7 @@ namespace Lime.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
+        [global::System.Configuration.DefaultSettingValueAttribute("server=134.122.86.189;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
             "securityinfo=True;allowuservariables=True")]
         public string Limeapp {
             get {
@@ -61,7 +61,7 @@ namespace Lime.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
+        [global::System.Configuration.DefaultSettingValueAttribute("server=134.122.86.189;user id=LimeApp;password=Rdkp1812?;database=Limeapp;persist" +
             "securityinfo=True;allowuservariables=True")]
         public string LimeappConnectionString {
             get {
@@ -72,7 +72,7 @@ namespace Lime.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=134.122.86.189;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
         public string LimeappConnectionString1 {
             get {
                 return ((string)(this["LimeappConnectionString1"]));
@@ -82,7 +82,7 @@ namespace Lime.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;database=Limeapp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=134.122.86.189;user id=LimeApp;database=Limeapp")]
         public string LimeappConnectionString2 {
             get {
                 return ((string)(this["LimeappConnectionString2"]));
@@ -92,7 +92,7 @@ namespace Lime.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=104.248.42.215;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=134.122.86.189;user id=LimeApp;password=Rdkp1812?;database=Limeapp")]
         public string ConnexionString {
             get {
                 return ((string)(this["ConnexionString"]));

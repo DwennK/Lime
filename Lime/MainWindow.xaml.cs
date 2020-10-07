@@ -481,10 +481,33 @@ namespace Lime
         {
             if (Connexion.CheckForInternetConnection())
             {
-                RadTabbedWindow1.SelectedItem = RadTabLignes;
-                int ID_typeDocument = 5; //Facture
-                UpdateGridView(Connexion.maBDD.GetAll<Document>().Where(x => x.ID_TypeDocument == ID_typeDocument));
+                ////On vide le contenu de TabLignes (Grid)
+                //TabLignes.Children.Clear();
+                //GridViewDocument monControle = new GridViewDocument();
+                //TabLignes.Children.Add(monControle);
+
+                ////---------------------------------------------------------------------------------------
+                //string SQL =
+                //"SELECT Documents.Closed, Documents.Printed, Documents.Mailed,Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, SUM(Documents_Lignes.PrixTTC) -SUM(DISTINCT Reglements.Montant) AS NetAPayer " +
+                //"FROM Documents " +
+                //"INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents " +
+                //"INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID " +
+                //"LEFT OUTER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges " +
+                //"WHERE Documents.ID_TypeDocument = 5 " +
+                //"GROUP BY Documents.ID " +
+                //"LIMIT @Limit ";
+
+                //var mesData = Connexion.maBDD.Query(SQL, new { Limit = Properties.Settings.Default.Limite });
+
+                //monControle.RadGridView1.ItemsSource = mesData;
+
+
+                //---------------------------------------------------------------------------------------
+
+
             }
+
+
         }
 
         private void tabSAV_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -716,8 +739,8 @@ namespace Lime
 
             //---------------------------------------------------------------------------------------
             string SQL =
-            "SELECT Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed " +
-            "FROM Documents " +
+                "SELECT Documents.Closed, Documents.Printed, Documents.Mailed,Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, SUM(Documents_Lignes.PrixTTC) -SUM(DISTINCT Reglements.Montant) AS NetAPayer "
+            +"FROM Documents " +
             "INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents " +
             "INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID " +
             "LEFT OUTER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges " +
@@ -726,14 +749,8 @@ namespace Lime
             "HAVING TotalRegle < TotalTTC OR TotalRegle IS NULL " +
             "LIMIT @Limit ";
 
-            var mesData = Connexion.maBDD.Query
-            (
-            SQL, 
-            new
-            {
-                Limit = Properties.Settings.Default.Limite
-            }
-            );
+            var mesData = Connexion.maBDD.Query(SQL, new { Limit = Properties.Settings.Default.Limite });
+
 
             monControle.RadGridView1.ItemsSource = mesData;
 
@@ -748,8 +765,8 @@ namespace Lime
 
             //---------------------------------------------------------------------------------------
             string SQL =
-            "SELECT Documents.ID , Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed "
-            + "FROM Documents "
+                "SELECT Documents.Closed, Documents.Printed, Documents.Mailed,Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, SUM(Documents_Lignes.PrixTTC) -SUM(DISTINCT Reglements.Montant) AS NetAPayer "
+            +"FROM Documents "
             + "INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents "
             + "INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID "
             + "LEFT OUTER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges "
@@ -758,14 +775,7 @@ namespace Lime
             + "HAVING TotalRegle >= TotalTTC "
             + "LIMIT @Limit ";
 
-            var mesData = Connexion.maBDD.Query
-            (
-            SQL,
-            new
-            {
-                Limit = Properties.Settings.Default.Limite
-            }
-            );
+            var mesData = Connexion.maBDD.Query(SQL,new{Limit = Properties.Settings.Default.Limite});
 
             monControle.RadGridView1.ItemsSource = mesData;
 
@@ -780,8 +790,8 @@ namespace Lime
 
             //---------------------------------------------------------------------------------------
             string SQL =
-            "SELECT Documents.ID , Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, Documents.Closed, Documents.Printed, Documents.Mailed "
-            + "FROM Documents  "
+                "SELECT Documents.Closed, Documents.Printed, Documents.Mailed,Documents.ID, Documents.ID_PriseEnCharge, Documents.Numero, PriseEnCharges.Nom, PriseEnCharges.DateDebut, PriseEnCharges.DateEcheance, SUM(Documents_Lignes.PrixTTC) as TotalTTC, SUM(DISTINCT Reglements.Montant) AS TotalRegle, SUM(Documents_Lignes.PrixTTC) -SUM(DISTINCT Reglements.Montant) AS NetAPayer "
+            +"FROM Documents  "
             + "INNER JOIN Documents_Lignes ON Documents.ID = Documents_Lignes.ID_Documents "
             + "INNER JOIN PriseEnCharges ON Documents.ID_PriseEnCharge = PriseEnCharges.ID "
             + "LEFT OUTER JOIN Reglements ON PriseEnCharges.ID = Reglements.ID_PriseEnCharges   "
@@ -790,14 +800,8 @@ namespace Lime
             + "HAVING TotalRegle < TotalTTC OR TotalRegle IS NULL "
             + "LIMIT 50 ";
 
-            var mesData = Connexion.maBDD.Query
-            (
-            SQL,
-            new
-            {
-                Limit = Properties.Settings.Default.Limite
-            }
-            );
+            var mesData = Connexion.maBDD.Query(SQL, new { Limit = Properties.Settings.Default.Limite });
+
 
             monControle.RadGridView1.ItemsSource = mesData;
         }
