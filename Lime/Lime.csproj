@@ -118,10 +118,10 @@
     <ApplicationIcon>Images\Lime.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>DF692CE6E7B46EE03A01AD53BC8FDAB7BC50CEE8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B0E8FAE17840863AA71398A50C0CB885FF917CF7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Lime_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Lime_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -157,8 +157,8 @@
     <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="MediaFoundation, Version=3.1.0.32450, Culture=neutral, PublicKeyToken=36fa660e1d6ebf8d, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\MediaFoundation\MediaFoundation.dll</HintPath>
+    <Reference Include="MediaFoundation">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\MediaFoundation\MediaFoundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -173,24 +173,24 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="SharpDX, Version=2.5.0.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\SharpDX\SharpDX.dll</HintPath>
+    <Reference Include="SharpDX">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\SharpDX\SharpDX.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SharpDX.Direct2D1, Version=2.5.0.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\SharpDX\SharpDX.Direct2D1.dll</HintPath>
+    <Reference Include="SharpDX.Direct2D1">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\SharpDX\SharpDX.Direct2D1.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SharpDX.Direct3D10, Version=2.5.0.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\SharpDX\SharpDX.Direct3D10.dll</HintPath>
+    <Reference Include="SharpDX.Direct3D10">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\SharpDX\SharpDX.Direct3D10.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SharpDX.Direct3D9, Version=2.5.0.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\SharpDX\SharpDX.Direct3D9.dll</HintPath>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\SharpDX\SharpDX.Direct3D9.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SharpDX.DXGI, Version=2.5.0.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\SharpDX\SharpDX.DXGI.dll</HintPath>
+    <Reference Include="SharpDX.DXGI">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\SharpDX\SharpDX.DXGI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -239,276 +239,276 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Documents.SpreadsheetStreaming, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Pivot.Core, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Pivot.Core.dll</HintPath>
+    <Reference Include="Telerik.Pivot.Core">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Pivot.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Pivot.DataProviders.Adomd, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Pivot.DataProviders.Adomd.dll</HintPath>
+    <Reference Include="Telerik.Pivot.DataProviders.Adomd">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Pivot.DataProviders.Adomd.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Pivot.DataProviders.Queryable, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Pivot.DataProviders.Queryable.dll</HintPath>
+    <Reference Include="Telerik.Pivot.DataProviders.Queryable">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Pivot.DataProviders.Queryable.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Pivot.DataProviders.Xmla, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Pivot.DataProviders.Xmla.dll</HintPath>
+    <Reference Include="Telerik.Pivot.DataProviders.Xmla">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Pivot.DataProviders.Xmla.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Cloud, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Cloud.dll</HintPath>
+    <Reference Include="Telerik.Windows.Cloud">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Cloud.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Cloud.Controls, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Cloud.Controls.dll</HintPath>
+    <Reference Include="Telerik.Windows.Cloud.Controls">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Cloud.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Chart, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Chart.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Chart.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Chart.Direct2D, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Chart.Direct2D.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Chart.Direct2D">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Chart.Direct2D.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Charting, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Charting.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Charting">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Charting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.ConversationalUI, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.ConversationalUI.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.ConversationalUI">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.ConversationalUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Data, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Data.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.DataServices, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.DataServices.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.DataServices">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.DataServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.DataServices50, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.DataServices50.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.DataServices50">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.DataServices50.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.DataServices60, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.DataServices60.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.DataServices60">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.DataServices60.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Diagrams">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Diagrams.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Diagrams.Extensions.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Diagrams.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Diagrams.Ribbon, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Diagrams.Ribbon.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Ribbon">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Diagrams.Ribbon.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Docking, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Docking.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Docking.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.EntityFramework, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.EntityFramework.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.EntityFramework">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.EntityFramework60, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.EntityFramework60.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.EntityFramework60">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.EntityFramework60.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Expressions.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Expressions">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Expressions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.FileDialogs, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.FileDialogs.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.FileDialogs">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.FileDialogs.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.FixedDocumentViewers.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewers">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.FixedDocumentViewers.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewersUI, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.FixedDocumentViewersUI.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.FixedDocumentViewersUI">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.FixedDocumentViewersUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.GanttView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.GanttView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.GanttView">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.GanttView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.GridView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.GridView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.GridView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.GridView.Export, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.GridView.Export">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Input, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Input.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Input.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Media, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Media.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Media">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Media.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Navigation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Pivot.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Pivot">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Pivot.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.PivotFieldList.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.PivotFieldList.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.RibbonView">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.RibbonView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Spreadsheet, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Spreadsheet">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.SpreadsheetUI, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.SpreadsheetUI.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.SpreadsheetUI">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.SpreadsheetUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.SyntaxEditor, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.SyntaxEditor.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.SyntaxEditor">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.SyntaxEditor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.VirtualGrid, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Controls.VirtualGrid.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.VirtualGrid">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Controls.VirtualGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Data, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Data.dll</HintPath>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Diagrams.Core, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Diagrams.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.Diagrams.Core">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Diagrams.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Core, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Fixed.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Fixed">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Fixed.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Flow, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Flow.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Flow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Xaml">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.FormatProviders.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Proofing, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Proofing.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Proofing">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Proofing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Proofing.DataGrid, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Proofing.DataGrid.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Proofing.DataGrid">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Proofing.DataGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Proofing.Dictionaries.En-US">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Proofing.RadGridView, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Proofing.RadGridView.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Proofing.RadGridView">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Proofing.RadGridView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.MediaFoundation, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.MediaFoundation.dll</HintPath>
+    <Reference Include="Telerik.Windows.MediaFoundation">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.MediaFoundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.PersistenceFramework, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.PersistenceFramework.dll</HintPath>
+    <Reference Include="Telerik.Windows.PersistenceFramework">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.PersistenceFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Scheduling.Core, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Scheduling.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.Scheduling.Core">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Scheduling.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.SyntaxEditor.Core, Version=2020.1.115.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.SyntaxEditor.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.SyntaxEditor.Core">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.SyntaxEditor.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Zip, Version=2020.1.109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWPF\2020.1.115.45.Trial\Telerik.Windows.Zip.dll</HintPath>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCWPF\2020.3.915.45.Trial\Telerik.Windows.Zip.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -519,22 +519,22 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Telerik.Reporting, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.Reporting.XpsRendering, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.WinForms, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.Wpf, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.ReportViewer.Wpf.Themes, Version=14.0.20.115, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+    <Reference Include="Telerik.ReportViewer.Wpf.Themes, Version=14.2.20.916, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
       <SpecificVersion>True</SpecificVersion>
     </Reference>
   </ItemGroup>
@@ -679,6 +679,7 @@
       <DependentUpon>ReportViewerForm1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Lime_1_TemporaryKey.pfx" />
+    <None Include="Lime_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

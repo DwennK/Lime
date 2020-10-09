@@ -199,7 +199,7 @@
                         x:Name="radGridView" 
                         AllowDrop="True" 
                         GroupRenderMode="Flat" 
-                        telerik:StyleManager.Theme="Crystal" 
+                        telerik:StyleManager.Theme="Office2019" 
                         IsFilteringAllowed="False" 
                         GridLinesVisibility="Both" 
                         ShowGroupPanel="False"

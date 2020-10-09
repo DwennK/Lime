@@ -2,42 +2,42 @@
 <?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
 <log>
   <event>Get project references.</event>
-  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
-  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="App.config" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="packages.config" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\packages.config" />
-  <event action="Analyze" type="Success" name="Resources.resx" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\Properties\Resources.resx" />
-  <event action="Analyze" type="Success" name="ReportViewerForm1.resx" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\ReportViewerForm1.resx" />
-  <event action="Analyze" type="Success" name="Lime" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\packages.config" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="ReportViewerForm1.resx" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\ReportViewerForm1.resx" />
+  <event action="Analyze" type="Success" name="Lime" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
   <event>Get project references.</event>
-  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
-  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="app.config" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
-  <event action="Analyze" type="Success" name="Facture.resx" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\Facture.resx" />
-  <event action="Analyze" type="Success" name="ReportLibrary" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
-  <event action="Analyze" type="Success" name="Lime" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime.sln" />
-  <event action="Upgrade" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
-  <event action="Upgrade" type="Success" name="Config Sections" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Upgrade" type="Success" name="App.config" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\App.config" />
-  <event action="Upgrade" type="Success" name="Lime" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
-  <event action="Upgrade" type="Success" name="Assembly References" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
-  <event action="Upgrade" type="Success" name="Facture.resx" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\Facture.resx" />
-  <event action="Upgrade" type="Success" name="ReportLibrary" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
-  <event action="Upgrade" type="Success" name="Lime" path="C:\Users\Dwenn\source\Repos\DwennK\Lime\Lime.sln" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Facture.resx" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\Facture.resx" />
+  <event action="Analyze" type="Success" name="ReportLibrary" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Lime" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime.sln" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
+  <event action="Upgrade" type="Success" name="Config Sections" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Upgrade" type="Success" name="App.config" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\App.config" />
+  <event action="Upgrade" type="Success" name="Lime" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime\Lime.csproj" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Upgrade" type="Success" name="Facture.resx" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\Facture.resx" />
+  <event action="Upgrade" type="Success" name="ReportLibrary" path="C:\Users\Kafe\source\Repos\DwennK\Lime\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Upgrade" type="Success" name="Lime" path="C:\Users\Kafe\source\Repos\DwennK\Lime\Lime.sln" />
 </log>
